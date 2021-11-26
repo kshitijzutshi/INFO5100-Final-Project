@@ -5,18 +5,23 @@
  */
 package UI;
 
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 
 /**
  *
  * @author phaniginjupalli
  */
 public class MainJFrame extends javax.swing.JFrame {
+    private static JPanel userProcessContainer;
 
     /**
      * Creates new form MainJFrame
      */
-    public MainJFrame() {
+    public MainJFrame(JPanel userProcessContainer) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
     }
 
     /**
@@ -28,7 +33,7 @@ public class MainJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        mainJpanel = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -37,7 +42,8 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         btn_login = new javax.swing.JLabel();
-        kGradientPanel2 = new keeptoo.KGradientPanel();
+        jPanel1 = new javax.swing.JPanel();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
         lblsignup1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btnSignup = new javax.swing.JLabel();
@@ -46,7 +52,8 @@ public class MainJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        mainJpanel.setBackground(new java.awt.Color(255, 255, 255));
+        mainJpanel.setLayout(new java.awt.CardLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -83,16 +90,75 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        kGradientPanel1.setkEndColor(new java.awt.Color(65, 118, 102));
+        kGradientPanel1.setkGradientFocus(800);
+        kGradientPanel1.setkStartColor(new java.awt.Color(221, 228, 186));
+
+        lblsignup1.setFont(new java.awt.Font("Lucida Sans", 1, 26)); // NOI18N
+        lblsignup1.setText("Welcome to ReQube!");
+
+        jLabel7.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        jLabel7.setText("Don't have an account?");
+
+        btnSignup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_signup_base.png"))); // NOI18N
+        btnSignup.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSignupMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSignupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSignupMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
+        kGradientPanel1.setLayout(kGradientPanel1Layout);
+        kGradientPanel1Layout.setHorizontalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addGap(158, 158, 158)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnSignup)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblsignup1))
+                .addContainerGap(167, Short.MAX_VALUE))
+        );
+        kGradientPanel1Layout.setVerticalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addGap(129, 129, 129)
+                .addComponent(lblsignup1)
+                .addGap(84, 84, 84)
+                .addComponent(jLabel7)
+                .addGap(87, 87, 87)
+                .addComponent(btnSignup)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(76, 76, 76)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(58, 58, 58))
@@ -103,13 +169,17 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addComponent(jLabel4))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(btn_login)
-                        .addGap(64, 64, 64)))
-                .addContainerGap(98, Short.MAX_VALUE))
+                        .addGap(64, 64, 64))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(61, 61, 61)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
@@ -123,74 +193,12 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58)
                 .addComponent(btn_login)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
-        kGradientPanel2.setkEndColor(new java.awt.Color(65, 118, 102));
-        kGradientPanel2.setkGradientFocus(800);
-        kGradientPanel2.setkStartColor(new java.awt.Color(221, 228, 186));
+        mainJpanel.add(jPanel2, "card2");
 
-        lblsignup1.setFont(new java.awt.Font("Lucida Sans", 1, 26)); // NOI18N
-        lblsignup1.setText("Welcome to ReQube!");
-
-        jLabel7.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        jLabel7.setText("Don't have an account?");
-
-        btnSignup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_signup_base.png"))); // NOI18N
-        btnSignup.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnSignupMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnSignupMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
-        kGradientPanel2.setLayout(kGradientPanel2Layout);
-        kGradientPanel2Layout.setHorizontalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGap(174, 174, 174)
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnSignup)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(lblsignup1)))
-                .addContainerGap(186, Short.MAX_VALUE))
-        );
-        kGradientPanel2Layout.setVerticalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addComponent(lblsignup1)
-                .addGap(84, 84, 84)
-                .addComponent(jLabel7)
-                .addGap(87, 87, 87)
-                .addComponent(btnSignup)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 1020, 670));
+        getContentPane().add(mainJpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 1020, 670));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/theme.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 1980, 1100));
@@ -223,6 +231,17 @@ public class MainJFrame extends javax.swing.JFrame {
         btnSignup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_signup_base.png")));
     }//GEN-LAST:event_btnSignupMouseExited
 
+    private void btnSignupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignupMouseClicked
+        // TODO add your handling code here:
+         SignupJPanel signupJPanel = new SignupJPanel(mainJpanel);
+         CardLayout layout = (CardLayout) mainJpanel.getLayout();
+         mainJpanel.add("signup", signupJPanel);
+        
+         layout.next(mainJpanel);
+        
+      
+    }//GEN-LAST:event_btnSignupMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -254,7 +273,7 @@ public class MainJFrame extends javax.swing.JFrame {
       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainJFrame().setVisible(true);
+                new MainJFrame(userProcessContainer).setVisible(true);
             }
         });
     }
@@ -272,7 +291,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
-    private keeptoo.KGradientPanel kGradientPanel2;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel lblsignup1;
+    private javax.swing.JPanel mainJpanel;
     // End of variables declaration//GEN-END:variables
 }
