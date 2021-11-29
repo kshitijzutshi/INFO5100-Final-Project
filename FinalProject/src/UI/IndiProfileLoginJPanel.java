@@ -6,6 +6,8 @@
 package UI;
 
 import java.awt.CardLayout;
+import java.awt.Color;
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 /**
@@ -38,7 +40,6 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
         btnviewdashboard = new javax.swing.JButton();
         btnviewinfo = new javax.swing.JButton();
         btnviewbookingdetails = new javax.swing.JButton();
@@ -75,19 +76,16 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("jLabel8");
 
-        jButton7.setBackground(new java.awt.Color(255, 255, 255));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_10.png"))); // NOI18N
+        jButton7.setBackground(new java.awt.Color(65, 118, 102));
+        jButton7.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_50px.png"))); // NOI18N
+        jButton7.setText("Logout");
         jButton7.setBorder(null);
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
-
-        jLabel9.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Logout");
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -99,32 +97,37 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7))
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(0, 7, Short.MAX_VALUE)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51))))
+                        .addGap(33, 33, 33)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         btnviewdashboard.setBackground(new java.awt.Color(255, 255, 255));
-        btnviewdashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dashboard.png"))); // NOI18N
-        btnviewdashboard.setBorder(null);
+        btnviewdashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dashboard_127px.png"))); // NOI18N
+        btnviewdashboard.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        btnviewdashboard.setBorderPainted(false);
+        btnviewdashboard.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnviewdashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnviewdashboardMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnviewdashboardMouseExited(evt);
+            }
+        });
         btnviewdashboard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnviewdashboardActionPerformed(evt);
@@ -132,12 +135,32 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
         });
 
         btnviewinfo.setBackground(new java.awt.Color(255, 255, 255));
-        btnviewinfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/about.jpg"))); // NOI18N
-        btnviewinfo.setBorder(null);
+        btnviewinfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/info_127px.png"))); // NOI18N
+        btnviewinfo.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        btnviewinfo.setBorderPainted(false);
+        btnviewinfo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnviewinfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnviewinfoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnviewinfoMouseExited(evt);
+            }
+        });
 
         btnviewbookingdetails.setBackground(new java.awt.Color(255, 255, 255));
-        btnviewbookingdetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/booking details.png"))); // NOI18N
-        btnviewbookingdetails.setBorder(null);
+        btnviewbookingdetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/details_127px.png"))); // NOI18N
+        btnviewbookingdetails.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        btnviewbookingdetails.setBorderPainted(false);
+        btnviewbookingdetails.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnviewbookingdetails.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnviewbookingdetailsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnviewbookingdetailsMouseExited(evt);
+            }
+        });
         btnviewbookingdetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnviewbookingdetailsActionPerformed(evt);
@@ -145,8 +168,18 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
         });
 
         btnviewprofile.setBackground(new java.awt.Color(255, 255, 255));
-        btnviewprofile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/person.png"))); // NOI18N
-        btnviewprofile.setBorder(null);
+        btnviewprofile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/person_127px.png"))); // NOI18N
+        btnviewprofile.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        btnviewprofile.setBorderPainted(false);
+        btnviewprofile.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnviewprofile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnviewprofileMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnviewprofileMouseExited(evt);
+            }
+        });
         btnviewprofile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnviewprofileActionPerformed(evt);
@@ -154,12 +187,37 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
         });
 
         btnviewpickup.setBackground(new java.awt.Color(255, 255, 255));
-        btnviewpickup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pickup.png"))); // NOI18N
-        btnviewpickup.setBorder(null);
+        btnviewpickup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/schedule_127px.png"))); // NOI18N
+        btnviewpickup.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        btnviewpickup.setBorderPainted(false);
+        btnviewpickup.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnviewpickup.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnviewpickupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnviewpickupMouseExited(evt);
+            }
+        });
+        btnviewpickup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnviewpickupActionPerformed(evt);
+            }
+        });
 
         btnviewdropoff.setBackground(new java.awt.Color(255, 255, 255));
-        btnviewdropoff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dropoff.png"))); // NOI18N
-        btnviewdropoff.setBorder(null);
+        btnviewdropoff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/truck_127px.png"))); // NOI18N
+        btnviewdropoff.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        btnviewdropoff.setBorderPainted(false);
+        btnviewdropoff.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnviewdropoff.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnviewdropoffMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnviewdropoffMouseExited(evt);
+            }
+        });
         btnviewdropoff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnviewdropoffActionPerformed(evt);
@@ -196,64 +254,90 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
             JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1460, Short.MAX_VALUE)
             .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
+                .addContainerGap(204, Short.MAX_VALUE)
                 .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
-                        .addGap(277, 277, 277)
-                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(633, 633, 633)
+                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnviewdashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8))
+                    .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
+                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
-                                .addComponent(btnviewpickup)
-                                .addGap(119, 119, 119)
-                                .addComponent(btnviewdropoff)))
-                        .addGap(91, 91, 91)
-                        .addComponent(btnviewbookingdetails))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndLoginMainLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndLoginMainLayout.createSequentialGroup()
+                                .addGap(0, 56, Short.MAX_VALUE)
+                                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnviewprofile)
+                                        .addComponent(btnviewpickup)))
+                                .addGap(104, 104, 104)))
+                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
+                                .addGap(28, 28, 28)
                                 .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
-                                        .addComponent(btnviewprofile)
-                                        .addGap(104, 104, 104)
+                                        .addGap(10, 10, 10)
                                         .addComponent(btnviewinfo))
-                                    .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
-                                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
-                                            .addComponent(txtprofile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(108, 108, 108)
-                                        .addComponent(jLabel4)))
-                                .addGap(87, 87, 87)
-                                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnviewdashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-                .addGap(298, 298, 298))
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(54, 54, 54))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndLoginMainLayout.createSequentialGroup()
+                                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndLoginMainLayout.createSequentialGroup()
+                                        .addComponent(btnviewdropoff)
+                                        .addGap(54, 54, 54)))
+                                .addGap(28, 28, 28)))
+                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
+                                .addGap(77, 77, 77)
+                                .addComponent(btnviewbookingdetails, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(jLabel5)))))
+                .addContainerGap(469, Short.MAX_VALUE))
         );
         JPanelIndLoginMainLayout.setVerticalGroup(
             JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
-                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnviewinfo)
-                    .addComponent(btnviewdashboard)
-                    .addComponent(btnviewprofile))
-                .addGap(18, 18, 18)
-                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnviewpickup, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnviewdropoff, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(btnviewbookingdetails, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(32, 32, 32)
-                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23))
+                .addGap(92, 92, 92)
+                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
+                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnviewprofile)
+                            .addComponent(btnviewdashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
+                        .addComponent(btnviewinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
+                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
+                                .addGap(68, 68, 68)
+                                .addComponent(btnviewbookingdetails, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(23, 23, 23))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndLoginMainLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnviewpickup)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnviewdropoff, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
 
         JPanelIndLogin.add(JPanelIndLoginMain, "card2");
@@ -278,14 +362,88 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
 
         IndiProfileDetailsJPanel indiprofiledetails = new IndiProfileDetailsJPanel(JPanelIndLogin);
         CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
-        JPanelIndLogin.add("signup", indiprofiledetails);
+        JPanelIndLogin.add("individualProfileDetails", indiprofiledetails);
 
         layout.next(JPanelIndLogin);
     }//GEN-LAST:event_btnviewprofileActionPerformed
 
     private void btnviewdropoffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewdropoffActionPerformed
         // TODO add your handling code here:
+        IndiProfileDropOffJPanel indidropOffJPanel = new IndiProfileDropOffJPanel(JPanelIndLogin);
+        CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
+        JPanelIndLogin.add("individualdropoffbooking", indidropOffJPanel);
+
+        layout.next(JPanelIndLogin);
     }//GEN-LAST:event_btnviewdropoffActionPerformed
+
+    private void btnviewprofileMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewprofileMouseEntered
+        // TODO add your handling code here:
+        btnviewprofile.setBorder(BorderFactory.createEtchedBorder(0));  
+    }//GEN-LAST:event_btnviewprofileMouseEntered
+
+    private void btnviewprofileMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewprofileMouseExited
+        // TODO add your handling code here:
+        btnviewprofile.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+    }//GEN-LAST:event_btnviewprofileMouseExited
+
+    private void btnviewinfoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewinfoMouseEntered
+        // TODO add your handling code here:
+        btnviewinfo.setBorder(BorderFactory.createEtchedBorder(0));  
+    }//GEN-LAST:event_btnviewinfoMouseEntered
+
+    private void btnviewinfoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewinfoMouseExited
+        // TODO add your handling code here:
+        btnviewinfo.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+    }//GEN-LAST:event_btnviewinfoMouseExited
+
+    private void btnviewdashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewdashboardMouseEntered
+        // TODO add your handling code here:
+        btnviewdashboard.setBorder(BorderFactory.createEtchedBorder(0));  
+    }//GEN-LAST:event_btnviewdashboardMouseEntered
+
+    private void btnviewdashboardMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewdashboardMouseExited
+        // TODO add your handling code here:
+        btnviewdashboard.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+    }//GEN-LAST:event_btnviewdashboardMouseExited
+
+    private void btnviewpickupMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewpickupMouseEntered
+        // TODO add your handling code here:
+        btnviewpickup.setBorder(BorderFactory.createEtchedBorder(0));
+    }//GEN-LAST:event_btnviewpickupMouseEntered
+
+    private void btnviewpickupMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewpickupMouseExited
+        // TODO add your handling code here:
+        btnviewpickup.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+    }//GEN-LAST:event_btnviewpickupMouseExited
+
+    private void btnviewdropoffMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewdropoffMouseEntered
+        // TODO add your handling code here:
+        btnviewdropoff.setBorder(BorderFactory.createEtchedBorder(0));  
+    }//GEN-LAST:event_btnviewdropoffMouseEntered
+
+    private void btnviewdropoffMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewdropoffMouseExited
+        // TODO add your handling code here:
+        btnviewdropoff.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+    }//GEN-LAST:event_btnviewdropoffMouseExited
+
+    private void btnviewbookingdetailsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewbookingdetailsMouseEntered
+        // TODO add your handling code here:
+        btnviewbookingdetails.setBorder(BorderFactory.createEtchedBorder(0));  
+    }//GEN-LAST:event_btnviewbookingdetailsMouseEntered
+
+    private void btnviewbookingdetailsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewbookingdetailsMouseExited
+        // TODO add your handling code here:
+        btnviewbookingdetails.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+    }//GEN-LAST:event_btnviewbookingdetailsMouseExited
+
+    private void btnviewpickupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewpickupActionPerformed
+        // TODO add your handling code here:
+        IndiProfilePickUpJPanel indipickupJPanel = new IndiProfilePickUpJPanel(JPanelIndLogin);
+        CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
+        JPanelIndLogin.add("individualpickupbooking", indipickupJPanel);
+
+        layout.next(JPanelIndLogin);
+    }//GEN-LAST:event_btnviewpickupActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -305,7 +463,6 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel txtprofile;
     // End of variables declaration//GEN-END:variables
