@@ -1,14 +1,29 @@
 /FinalProject/dist/
 /FinalProject/build/
 
+
 /FinalProject/nbproject/private/
 /FinalProject/nbbuild/
 /FinalProject/nbdist/
 /FinalProject/nbactions.xml
 /FinalProject/nb-configuration.xml
+/FinalProject/nb-project/
+
+.DS_Store
 
 # Class Files #
 *.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+
+# Class Files #
+*.class
+
+
 
 # Package Files #
 *.jar
