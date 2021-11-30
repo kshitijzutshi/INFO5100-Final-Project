@@ -19,7 +19,7 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
     /**
      * Creates new form IndiProfileLoginJPanel
      */
-    private JPanel jPanel2;
+    JPanel jPanel2;
     public IndiProfileLoginJPanel(JPanel IndiProfileLoginJPanel) {
         this.JPanelIndLogin = IndiProfileLoginJPanel;
         initComponents();
@@ -115,7 +115,7 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
-        btnviewdashboard.setBackground(new java.awt.Color(255, 255, 255));
+        btnviewdashboard.setBackground(new java.awt.Color(232, 243, 228));
         btnviewdashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dashboard_127px.png"))); // NOI18N
         btnviewdashboard.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnviewdashboard.setBorderPainted(false);
@@ -134,7 +134,7 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnviewinfo.setBackground(new java.awt.Color(255, 255, 255));
+        btnviewinfo.setBackground(new java.awt.Color(232, 243, 228));
         btnviewinfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/info_127px.png"))); // NOI18N
         btnviewinfo.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnviewinfo.setBorderPainted(false);
@@ -147,8 +147,13 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
                 btnviewinfoMouseExited(evt);
             }
         });
+        btnviewinfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnviewinfoActionPerformed(evt);
+            }
+        });
 
-        btnviewbookingdetails.setBackground(new java.awt.Color(255, 255, 255));
+        btnviewbookingdetails.setBackground(new java.awt.Color(232, 243, 228));
         btnviewbookingdetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/details_127px.png"))); // NOI18N
         btnviewbookingdetails.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnviewbookingdetails.setBorderPainted(false);
@@ -167,7 +172,7 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnviewprofile.setBackground(new java.awt.Color(255, 255, 255));
+        btnviewprofile.setBackground(new java.awt.Color(232, 243, 228));
         btnviewprofile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/person_127px.png"))); // NOI18N
         btnviewprofile.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnviewprofile.setBorderPainted(false);
@@ -186,7 +191,7 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnviewpickup.setBackground(new java.awt.Color(255, 255, 255));
+        btnviewpickup.setBackground(new java.awt.Color(232, 243, 228));
         btnviewpickup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/schedule_127px.png"))); // NOI18N
         btnviewpickup.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnviewpickup.setBorderPainted(false);
@@ -205,7 +210,7 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnviewdropoff.setBackground(new java.awt.Color(255, 255, 255));
+        btnviewdropoff.setBackground(new java.awt.Color(232, 243, 228));
         btnviewdropoff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/truck_127px.png"))); // NOI18N
         btnviewdropoff.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnviewdropoff.setBorderPainted(false);
@@ -254,90 +259,70 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
             JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1460, Short.MAX_VALUE)
             .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
-                .addContainerGap(204, Short.MAX_VALUE)
                 .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
-                        .addGap(633, 633, 633)
-                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnviewdashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(8, 8, 8))
+                        .addGap(364, 364, 364)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(jLabel4)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
+                        .addGap(384, 384, 384)
                         .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndLoginMainLayout.createSequentialGroup()
-                                .addGap(0, 56, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel5))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndLoginMainLayout.createSequentialGroup()
                                 .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnviewprofile)
-                                        .addComponent(btnviewpickup)))
-                                .addGap(104, 104, 104)))
-                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
-                                .addGap(28, 28, 28)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JPanelIndLoginMainLayout.createSequentialGroup()
+                                        .addComponent(btnviewpickup, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(113, 113, 113)
+                                        .addComponent(btnviewdropoff, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JPanelIndLoginMainLayout.createSequentialGroup()
+                                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btnviewprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
+                                                .addGap(21, 21, 21)
+                                                .addComponent(txtprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                                            .addComponent(btnviewinfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(136, 136, 136)
                                 .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(btnviewinfo))
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(54, 54, 54))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndLoginMainLayout.createSequentialGroup()
-                                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndLoginMainLayout.createSequentialGroup()
-                                        .addComponent(btnviewdropoff)
-                                        .addGap(54, 54, 54)))
-                                .addGap(28, 28, 28)))
-                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
-                                .addGap(77, 77, 77)
-                                .addComponent(btnviewbookingdetails, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel5)))))
-                .addContainerGap(469, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnviewdashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
+                                            .addGap(15, 15, 15)
+                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(btnviewbookingdetails, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(320, 320, 320))
         );
         JPanelIndLoginMainLayout.setVerticalGroup(
             JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92)
-                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
-                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnviewprofile)
-                            .addComponent(btnviewdashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
-                        .addComponent(btnviewinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
-                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
-                                .addGap(68, 68, 68)
-                                .addComponent(btnviewbookingdetails, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(23, 23, 23))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndLoginMainLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnviewpickup)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnviewdropoff, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addGap(55, 55, 55)
+                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnviewprofile, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                    .addComponent(btnviewinfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnviewdashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnviewpickup, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                    .addComponent(btnviewbookingdetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnviewdropoff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         JPanelIndLogin.add(JPanelIndLoginMain, "card2");
@@ -355,6 +340,12 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
 
     private void btnviewbookingdetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewbookingdetailsActionPerformed
         // TODO add your handling code here:
+        
+        IndiBookingHistoryJPanel indibookingdetails = new IndiBookingHistoryJPanel(JPanelIndLogin);
+        CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
+        JPanelIndLogin.add("individualBookingDetails", indibookingdetails);
+
+        layout.next(JPanelIndLogin);
     }//GEN-LAST:event_btnviewbookingdetailsActionPerformed
 
     private void btnviewprofileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewprofileActionPerformed
@@ -444,6 +435,16 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
 
         layout.next(JPanelIndLogin);
     }//GEN-LAST:event_btnviewpickupActionPerformed
+
+    private void btnviewinfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewinfoActionPerformed
+        // TODO add your handling code here:
+        
+        IndiInfoJPanel indiinfoJPanel = new IndiInfoJPanel(JPanelIndLogin);
+        CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
+        JPanelIndLogin.add("individualpickupbooking", indiinfoJPanel);
+
+        layout.next(JPanelIndLogin);
+    }//GEN-LAST:event_btnviewinfoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
