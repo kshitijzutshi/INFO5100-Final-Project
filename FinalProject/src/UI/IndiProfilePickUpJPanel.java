@@ -5,6 +5,7 @@
  */
 package UI;
 
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -16,7 +17,7 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
     /**
      * Creates new form IndiProfilePickUpJPanel
      */
-    private JPanel jpanel7;
+    JPanel jpanel7;
     public IndiProfilePickUpJPanel(JPanel IndiPickUpJPanel) {
         initComponents();
         this.JPanelIndPickUpMain = IndiPickUpJPanel;
@@ -122,7 +123,7 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
 
         lbldropoffheader.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
         lbldropoffheader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbldropoffheader.setText("Drop-Off Booking");
+        lbldropoffheader.setText("Pick Up Booking");
 
         lblewasteCat.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblewasteCat.setText("E-waste Category");
@@ -203,11 +204,16 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back_arrow_50px.png"))); // NOI18N
-        btnBack.setText("Go Back");
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backarrow.png"))); // NOI18N
+        btnBack.setToolTipText("");
         btnBack.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnBack.setMargin(new java.awt.Insets(0, 0, 0, 0));
         btnBack.setOpaque(false);
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         lblpickuptime.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblpickuptime.setText("Pick Up Time");
@@ -221,9 +227,7 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
             JPanelIndPickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1428, Short.MAX_VALUE)
             .addGroup(JPanelIndPickUpMainLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
+                .addGap(144, 144, 144)
                 .addGroup(JPanelIndPickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelIndPickUpMainLayout.createSequentialGroup()
                         .addGap(174, 174, 174)
@@ -263,6 +267,10 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnCreateBookingPickUp, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(22, 22, 22))))
+            .addGroup(JPanelIndPickUpMainLayout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         JPanelIndPickUpMainLayout.setVerticalGroup(
             JPanelIndPickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -301,18 +309,18 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
                             .addComponent(dropdownCondition, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtitemweight, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(JPanelIndPickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblpickuptime)
-                            .addComponent(lblpickupDate))
+                        .addGroup(JPanelIndPickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblpickupDate, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblpickuptime))
                         .addGap(18, 18, 18)
                         .addGroup(JPanelIndPickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(PickUpDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                             .addComponent(txtPickupTime))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                        .addGroup(JPanelIndPickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAddtoBookingTable, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(103, 103, 103))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                        .addComponent(btnAddtoBookingTable, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53))
                     .addGroup(JPanelIndPickUpMainLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -328,6 +336,13 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        JPanelIndPickUpMain.remove(this);
+        CardLayout layout = (CardLayout) JPanelIndPickUpMain.getLayout();
+        layout.previous(JPanelIndPickUpMain);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
