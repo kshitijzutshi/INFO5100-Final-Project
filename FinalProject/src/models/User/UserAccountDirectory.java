@@ -1,0 +1,48 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package models.User;
+
+import java.util.ArrayList;
+import models.Role.Role;
+
+/**
+ *
+ * @author phaniginjupalli
+ */
+public class UserAccountDirectory {
+    
+    private ArrayList<UserAccount> userAccounts;
+    
+    public UserAccountDirectory() {
+        this.userAccounts = new ArrayList<>();
+    }
+
+    public ArrayList<UserAccount> getUserAccounts() {
+        return userAccounts;
+    }
+    
+    public boolean accountExists(String email) {
+        for (UserAccount userAccount: this.userAccounts) {
+            if (userAccount.getEmail().equals(email)) return true;
+        }
+        return false;
+    }
+    
+    public UserAccount authenticateUser(String username, String password){
+        for (UserAccount ua : this.userAccounts)
+            if (ua.getUsername().equals(username) && ua.getPassword().equals(password)){
+                return ua;
+            }
+        return null;
+    }
+    
+    public UserAccount createUserAccount(String username, String password, Role role){
+        UserAccount userAccount = new UserAccount(username, password, role);
+        this.userAccounts.add(userAccount);
+        return userAccount;
+    }
+    
+}
