@@ -5,6 +5,7 @@
  */
 package UI;
 
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -197,11 +198,15 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back_arrow_50px.png"))); // NOI18N
-        btnBack.setText("Go Back");
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backarrow.png"))); // NOI18N
         btnBack.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnBack.setMargin(new java.awt.Insets(0, 0, 0, 0));
         btnBack.setOpaque(false);
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPanelIndDropoffMainLayout = new javax.swing.GroupLayout(JPanelIndDropoffMain);
         JPanelIndDropoffMain.setLayout(JPanelIndDropoffMainLayout);
@@ -238,19 +243,17 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
                                         .addComponent(dropdownCondition, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(txtmodel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(lbldropoffheader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                         .addGroup(JPanelIndDropoffMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(JPanelIndDropoffMainLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(JPanelIndDropoffMainLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnDeleteItem)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnCreateBookingDropoff, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(22, 22, 22))))
             .addGroup(JPanelIndDropoffMainLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         JPanelIndDropoffMainLayout.setVerticalGroup(
@@ -292,8 +295,8 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
                         .addGap(47, 47, 47)
                         .addComponent(btnAddtoBookingTable, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31))
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55))
                     .addGroup(JPanelIndDropoffMainLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -309,6 +312,14 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        
+        JPanelIndDropoffMain.remove(this);
+        CardLayout layout = (CardLayout) JPanelIndDropoffMain.getLayout();
+        layout.previous(JPanelIndDropoffMain);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
