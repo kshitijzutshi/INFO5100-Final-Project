@@ -48,6 +48,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         btnSignup = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        mgmtDivBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -170,6 +171,13 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        mgmtDivBtn.setText("Management");
+        mgmtDivBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mgmtDivBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -196,7 +204,9 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addGap(24, 24, 24))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(115, 115, 115)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(mgmtDivBtn)))
                 .addContainerGap(386, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -204,7 +214,9 @@ public class MainJFrame extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1863, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(mgmtDivBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
                 .addGap(103, 103, 103)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -285,6 +297,14 @@ public class MainJFrame extends javax.swing.JFrame {
         layout.next(mainJpanel);
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void mgmtDivBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mgmtDivBtnActionPerformed
+        // TODO add your handling code here:
+        ManagementDivisionProfileMainJPanel managementDivisionprofilemain = new ManagementDivisionProfileMainJPanel(mainJpanel);
+        CardLayout layout = (CardLayout) mainJpanel.getLayout();
+        mainJpanel.add("LogisticsPanel", managementDivisionprofilemain);
+        layout.next(mainJpanel);
+    }//GEN-LAST:event_mgmtDivBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -338,5 +358,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel lblsignup1;
     private javax.swing.JPanel mainJpanel;
+    private javax.swing.JButton mgmtDivBtn;
     // End of variables declaration//GEN-END:variables
 }
