@@ -70,6 +70,8 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
         jLabel20 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
 
+        setLayout(new java.awt.CardLayout());
+
         ManagmentDivisionLoginMainJPanel.setBackground(new java.awt.Color(255, 255, 255));
         ManagmentDivisionLoginMainJPanel.setPreferredSize(new java.awt.Dimension(1460, 850));
 
@@ -344,7 +346,7 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel13)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -539,36 +541,8 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1460, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(ManagmentDivisionLoginMainJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 850, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(ManagmentDivisionLoginMainJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        add(ManagmentDivisionLoginMainJPanel, "card2");
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
-        // TODO add your handling code here:
-        //        LogisticsProfileSchedulePickup logisticsschedulePick = new LogisticsProfileSchedulePickup(LogisticsJPanelDynamicPickup);
-        //        CardLayout layout = (CardLayout) LogisticsJPanelDynamicPickup.getLayout();
-        //        LogisticsJPanelDynamicPickup.add("logisticsPick", logisticsschedulePick);
-        //
-        //        layout.next(LogisticsJPanelDynamicPickup);
-    }//GEN-LAST:event_jPanel1MouseClicked
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
         // TODO add your handling code here:
@@ -580,6 +554,15 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
         ManagmentDivisionLoginMainJPanel.remove(LogisticsJPanelDynamicRecycle);
         //        LogisticsLoginMainJPanel.remove(LogisticsLoginMainJPanel);
     }//GEN-LAST:event_jPanel3MouseClicked
+
+    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+        // TODO add your handling code here:
+        //        LogisticsProfileSchedulePickup logisticsschedulePick = new LogisticsProfileSchedulePickup(LogisticsJPanelDynamicPickup);
+        //        CardLayout layout = (CardLayout) LogisticsJPanelDynamicPickup.getLayout();
+        //        LogisticsJPanelDynamicPickup.add("logisticsPick", logisticsschedulePick);
+        //
+        //        layout.next(LogisticsJPanelDynamicPickup);
+    }//GEN-LAST:event_jPanel1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
