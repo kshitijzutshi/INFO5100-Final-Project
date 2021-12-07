@@ -5,6 +5,8 @@
  */
 package UI;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author kshitij
@@ -14,7 +16,9 @@ public class ManageSysAdminLogisticsJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageSysAdminLogisticsJPanel
      */
-    public ManageSysAdminLogisticsJPanel() {
+    JPanel jpanel6;
+    public ManageSysAdminLogisticsJPanel(JPanel ManageSysAdminLogistics) {
+        this.ManageSysAdminLogisticsMainJPanel = ManageSysAdminLogistics;
         initComponents();
     }
 
@@ -27,11 +31,7 @@ public class ManageSysAdminLogisticsJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        LogisticsLoginPastOrdersPanel = new javax.swing.JPanel();
-        kGradientPanel2 = new keeptoo.KGradientPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        LogisticsJPanelDynamicRecycle = new javax.swing.JPanel();
+        ManageSysAdminLogisticsMainJPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -46,46 +46,10 @@ public class ManageSysAdminLogisticsJPanel extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
         btnModify = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
-        LogisticsLoginPastOrdersPanel.setBackground(new java.awt.Color(255, 255, 255));
-        LogisticsLoginPastOrdersPanel.setPreferredSize(new java.awt.Dimension(1460, 850));
+        setLayout(new java.awt.CardLayout());
 
-        kGradientPanel2.setkEndColor(new java.awt.Color(128, 193, 115));
-        kGradientPanel2.setkGradientFocus(800);
-        kGradientPanel2.setkStartColor(new java.awt.Color(221, 228, 186));
-        kGradientPanel2.setPreferredSize(new java.awt.Dimension(300, 1460));
-
-        jLabel13.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Welcome to ReQube,");
-
-        jLabel14.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("jLabel8");
-
-        javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
-        kGradientPanel2.setLayout(kGradientPanel2Layout);
-        kGradientPanel2Layout.setHorizontalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGap(258, 258, 258)
-                .addComponent(jLabel13)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(648, Short.MAX_VALUE))
-        );
-        kGradientPanel2Layout.setVerticalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
-
-        LogisticsJPanelDynamicRecycle.setLayout(new java.awt.CardLayout());
+        ManageSysAdminLogisticsMainJPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
@@ -171,108 +135,77 @@ public class ManageSysAdminLogisticsJPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(51, 153, 255));
-        jButton1.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Back");
-        jButton1.setBorderPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout LogisticsLoginPastOrdersPanelLayout = new javax.swing.GroupLayout(LogisticsLoginPastOrdersPanel);
-        LogisticsLoginPastOrdersPanel.setLayout(LogisticsLoginPastOrdersPanelLayout);
-        LogisticsLoginPastOrdersPanelLayout.setHorizontalGroup(
-            LogisticsLoginPastOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogisticsLoginPastOrdersPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(LogisticsJPanelDynamicRecycle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(101, 101, 101)
-                .addGroup(LogisticsLoginPastOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LogisticsLoginPastOrdersPanelLayout.createSequentialGroup()
-                        .addGap(183, 183, 183)
-                        .addGroup(LogisticsLoginPastOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(LogisticsLoginPastOrdersPanelLayout.createSequentialGroup()
-                                .addGroup(LogisticsLoginPastOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
-                                .addGap(35, 35, 35)
-                                .addGroup(LogisticsLoginPastOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField1)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(LogisticsLoginPastOrdersPanelLayout.createSequentialGroup()
-                                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jButton1)
-                    .addGroup(LogisticsLoginPastOrdersPanelLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addGroup(LogisticsLoginPastOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogisticsLoginPastOrdersPanelLayout.createSequentialGroup()
-                                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1460, Short.MAX_VALUE)
+        javax.swing.GroupLayout ManageSysAdminLogisticsMainJPanelLayout = new javax.swing.GroupLayout(ManageSysAdminLogisticsMainJPanel);
+        ManageSysAdminLogisticsMainJPanel.setLayout(ManageSysAdminLogisticsMainJPanelLayout);
+        ManageSysAdminLogisticsMainJPanelLayout.setHorizontalGroup(
+            ManageSysAdminLogisticsMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1460, Short.MAX_VALUE)
+            .addGroup(ManageSysAdminLogisticsMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ManageSysAdminLogisticsMainJPanelLayout.createSequentialGroup()
+                    .addGap(50, 50, 50)
+                    .addGroup(ManageSysAdminLogisticsMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(ManageSysAdminLogisticsMainJPanelLayout.createSequentialGroup()
+                            .addGap(133, 133, 133)
+                            .addGroup(ManageSysAdminLogisticsMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(ManageSysAdminLogisticsMainJPanelLayout.createSequentialGroup()
+                                    .addGroup(ManageSysAdminLogisticsMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel2))
+                                    .addGap(35, 35, 35)
+                                    .addGroup(ManageSysAdminLogisticsMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextField1)
+                                        .addComponent(jTextField2)
+                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(ManageSysAdminLogisticsMainJPanelLayout.createSequentialGroup()
+                                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(ManageSysAdminLogisticsMainJPanelLayout.createSequentialGroup()
+                            .addGap(388, 388, 388)
+                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(33, 33, 33)
+                            .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(823, Short.MAX_VALUE)))
         );
-        LogisticsLoginPastOrdersPanelLayout.setVerticalGroup(
-            LogisticsLoginPastOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LogisticsLoginPastOrdersPanelLayout.createSequentialGroup()
-                .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(LogisticsLoginPastOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LogisticsLoginPastOrdersPanelLayout.createSequentialGroup()
-                        .addGap(721, 721, 721)
-                        .addComponent(LogisticsJPanelDynamicRecycle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(609, Short.MAX_VALUE))
-                    .addGroup(LogisticsLoginPastOrdersPanelLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addGroup(LogisticsLoginPastOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(LogisticsLoginPastOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(LogisticsLoginPastOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(LogisticsLoginPastOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnUpdate))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addGroup(LogisticsLoginPastOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnModify)
-                            .addComponent(btnDelete))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 868, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addContainerGap())))
+        ManageSysAdminLogisticsMainJPanelLayout.setVerticalGroup(
+            ManageSysAdminLogisticsMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1460, Short.MAX_VALUE)
+            .addGroup(ManageSysAdminLogisticsMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ManageSysAdminLogisticsMainJPanelLayout.createSequentialGroup()
+                    .addGap(48, 48, 48)
+                    .addComponent(jLabel1)
+                    .addGap(18, 18, 18)
+                    .addGroup(ManageSysAdminLogisticsMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addGroup(ManageSysAdminLogisticsMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addGroup(ManageSysAdminLogisticsMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(ManageSysAdminLogisticsMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnUpdate))
+                    .addGap(18, 18, 18)
+                    .addComponent(jLabel5)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addGroup(ManageSysAdminLogisticsMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnModify)
+                        .addComponent(btnDelete))
+                    .addContainerGap(1022, Short.MAX_VALUE)))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(LogisticsLoginPastOrdersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(LogisticsLoginPastOrdersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1460, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        add(ManageSysAdminLogisticsMainJPanel, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -281,68 +214,68 @@ public class ManageSysAdminLogisticsJPanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-//        String usernameValue = jTextField2.getText();
-//        String name = jTextField1.getText();
-//        String password = jTextField3.getText();
-//        Customer c = ecosystem.getCustomerDirectory().getCustomerByUserName(usernameValue);
-//        UserAccount uA = ecosystem.getUserAccountDirectory().findUserByUsername(usernameValue);
-//        uA.setPassword(password);
-//        c.setPassword(password);
-//        //        System.out.println((String) jTable1.getValueAt(selectedRow, 0));
-//        c.setName(name);
-//        viewCustomerTable();
-//        jTextField1.setText("");
-//        jTextField2.setText("");
-//        jTextField3.setText("");
-//        jTextField2.setEnabled(true);
-//        JOptionPane.showMessageDialog(null, "Updated details");
+        //        String usernameValue = jTextField2.getText();
+        //        String name = jTextField1.getText();
+        //        String password = jTextField3.getText();
+        //        Customer c = ecosystem.getCustomerDirectory().getCustomerByUserName(usernameValue);
+        //        UserAccount uA = ecosystem.getUserAccountDirectory().findUserByUsername(usernameValue);
+        //        uA.setPassword(password);
+        //        c.setPassword(password);
+        //        //        System.out.println((String) jTable1.getValueAt(selectedRow, 0));
+        //        c.setName(name);
+        //        viewCustomerTable();
+        //        jTextField1.setText("");
+        //        jTextField2.setText("");
+        //        jTextField3.setText("");
+        //        jTextField2.setEnabled(true);
+        //        JOptionPane.showMessageDialog(null, "Updated details");
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-//        if (jTextField1.getText().equals("")) {
-//            JOptionPane.showMessageDialog(null, "Name Missing");
-//            return;
-//        }
-//        if (jTextField2.getText().equals("")) {
-//            JOptionPane.showMessageDialog(null, "Username Missing");
-//            return;
-//        }
-//        if (jTextField3.getText().equals("")) {
-//            JOptionPane.showMessageDialog(null, "Password Missing");
-//            return;
-//        }
-//        if (ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(jTextField2.getText()) == true) {
-//            UserAccount createUserAccount = ecosystem.getUserAccountDirectory().createUserAccount(jTextField2.getText(), jTextField3.getText(), null, new CustomerRole());
-//            Customer customer = ecosystem.getCustomerDirectory().setCustomer(new Customer(jTextField2.getText(), jTextField3.getText(), jTextField1.getText()));
-//
-//            jTextField1.setText("");
-//            jTextField2.setText("");
-//            jTextField3.setText("");
-//            viewCustomerTable();
-//            JOptionPane.showMessageDialog(null, "Added new user");
-//        } else {
-//            JOptionPane.showMessageDialog(null, jTextField2.getText() + "exists. Enter a new user name");
-//        }
+        //        if (jTextField1.getText().equals("")) {
+            //            JOptionPane.showMessageDialog(null, "Name Missing");
+            //            return;
+            //        }
+        //        if (jTextField2.getText().equals("")) {
+            //            JOptionPane.showMessageDialog(null, "Username Missing");
+            //            return;
+            //        }
+        //        if (jTextField3.getText().equals("")) {
+            //            JOptionPane.showMessageDialog(null, "Password Missing");
+            //            return;
+            //        }
+        //        if (ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(jTextField2.getText()) == true) {
+            //            UserAccount createUserAccount = ecosystem.getUserAccountDirectory().createUserAccount(jTextField2.getText(), jTextField3.getText(), null, new CustomerRole());
+            //            Customer customer = ecosystem.getCustomerDirectory().setCustomer(new Customer(jTextField2.getText(), jTextField3.getText(), jTextField1.getText()));
+            //
+            //            jTextField1.setText("");
+            //            jTextField2.setText("");
+            //            jTextField3.setText("");
+            //            viewCustomerTable();
+            //            JOptionPane.showMessageDialog(null, "Added new user");
+            //        } else {
+            //            JOptionPane.showMessageDialog(null, jTextField2.getText() + "exists. Enter a new user name");
+            //        }
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-//        int selectedRow = jTable1.getSelectedRow();
-//
-//        if (selectedRow >= 0) {
-//            int selectionButton = JOptionPane.YES_NO_OPTION;
-//            int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm delete?", "Warning", selectionButton);
-//            if (selectionResult == JOptionPane.YES_OPTION) {
-//                String usernameValue = (String) jTable1.getValueAt(selectedRow, 1);
-//                String output = ecosystem.getUserAccountDirectory().deleteUserAccountByName(usernameValue);
-//                ecosystem.getCustomerDirectory().removeCustomerByName(usernameValue);
-//                viewCustomerTable();
-//                JOptionPane.showMessageDialog(null, output);
-//            }
-//        } else {
-//            JOptionPane.showMessageDialog(null, "No row selected");
-//        }
+        //        int selectedRow = jTable1.getSelectedRow();
+        //
+        //        if (selectedRow >= 0) {
+            //            int selectionButton = JOptionPane.YES_NO_OPTION;
+            //            int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm delete?", "Warning", selectionButton);
+            //            if (selectionResult == JOptionPane.YES_OPTION) {
+                //                String usernameValue = (String) jTable1.getValueAt(selectedRow, 1);
+                //                String output = ecosystem.getUserAccountDirectory().deleteUserAccountByName(usernameValue);
+                //                ecosystem.getCustomerDirectory().removeCustomerByName(usernameValue);
+                //                viewCustomerTable();
+                //                JOptionPane.showMessageDialog(null, output);
+                //            }
+            //        } else {
+            //            JOptionPane.showMessageDialog(null, "No row selected");
+            //        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
@@ -355,28 +288,16 @@ public class ManageSysAdminLogisticsJPanel extends javax.swing.JPanel {
         jTextField2.setText(usernameValue);
         jTextField3.setText(password);
         jTextField2.setEnabled(false);
-
     }//GEN-LAST:event_btnModifyActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-//        userProcessContainer.remove(this);
-//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-//        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel LogisticsJPanelDynamicRecycle;
-    private javax.swing.JPanel LogisticsLoginPastOrdersPanel;
+    private javax.swing.JPanel ManageSysAdminLogisticsMainJPanel;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnModify;
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -386,6 +307,5 @@ public class ManageSysAdminLogisticsJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private keeptoo.KGradientPanel kGradientPanel2;
     // End of variables declaration//GEN-END:variables
 }
