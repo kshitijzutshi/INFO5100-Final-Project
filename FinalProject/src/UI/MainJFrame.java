@@ -49,6 +49,7 @@ public class MainJFrame extends javax.swing.JFrame {
         btnSignup = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         mgmtDivBtn = new javax.swing.JButton();
+        btnSystemAdmin = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -178,6 +179,13 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnSystemAdmin.setText("System Admin");
+        btnSystemAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSystemAdminActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -206,7 +214,9 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addGap(115, 115, 115)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(mgmtDivBtn)))
+                        .addComponent(mgmtDivBtn)
+                        .addGap(36, 36, 36)
+                        .addComponent(btnSystemAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(386, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -216,7 +226,8 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(mgmtDivBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(btnSystemAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(103, 103, 103)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -305,6 +316,15 @@ public class MainJFrame extends javax.swing.JFrame {
         layout.next(mainJpanel);
     }//GEN-LAST:event_mgmtDivBtnActionPerformed
 
+    private void btnSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemAdminActionPerformed
+        // TODO add your handling code here:
+        SystemAdminLoginProfile systemAdminLogin = new SystemAdminLoginProfile(mainJpanel);
+        CardLayout layout = (CardLayout) mainJpanel.getLayout();
+        mainJpanel.add("LogisticsPanel", systemAdminLogin);
+        layout.next(mainJpanel);
+        
+    }//GEN-LAST:event_btnSystemAdminActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -343,6 +363,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnSignup;
+    private javax.swing.JButton btnSystemAdmin;
     private javax.swing.JLabel btn_login;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

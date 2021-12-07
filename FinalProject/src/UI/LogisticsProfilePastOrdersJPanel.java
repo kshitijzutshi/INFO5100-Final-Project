@@ -5,22 +5,17 @@
  */
 package UI;
 
-import java.awt.CardLayout;
-import javax.swing.JPanel;
-
 /**
  *
  * @author kshitij
  */
-public class LogisticsProfileRecycleRefurbPanel extends javax.swing.JPanel {
+public class LogisticsProfilePastOrdersJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form LogisticsProfileRecycleRefurbPanel
+     * Creates new form LogisticsProfilePastOrdersJPanel
      */
-    JPanel jpanel11;
-    public LogisticsProfileRecycleRefurbPanel() {
+    public LogisticsProfilePastOrdersJPanel() {
         initComponents();
-        //this.LogisticsJPanelDynamicRecycle = logisticsRecyclePanel;
     }
 
     /**
@@ -32,20 +27,17 @@ public class LogisticsProfileRecycleRefurbPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        LogisticsLoginMainJPanel = new javax.swing.JPanel();
+        LogisticsLoginPastOrdersPanel = new javax.swing.JPanel();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         LogisticsJPanelDynamicRecycle = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDropoffBooking = new javax.swing.JTable();
-        jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
 
-        LogisticsLoginMainJPanel.setBackground(new java.awt.Color(255, 255, 255));
-        LogisticsLoginMainJPanel.setPreferredSize(new java.awt.Dimension(1460, 850));
+        LogisticsLoginPastOrdersPanel.setBackground(new java.awt.Color(255, 255, 255));
+        LogisticsLoginPastOrdersPanel.setPreferredSize(new java.awt.Dimension(1460, 850));
 
         kGradientPanel2.setkEndColor(new java.awt.Color(128, 193, 115));
         kGradientPanel2.setkGradientFocus(800);
@@ -83,6 +75,8 @@ public class LogisticsProfileRecycleRefurbPanel extends javax.swing.JPanel {
 
         LogisticsJPanelDynamicRecycle.setLayout(new java.awt.CardLayout());
 
+        jLabel4.setText("Past Orders");
+
         jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         tblDropoffBooking.setAutoCreateRowSorter(true);
@@ -90,14 +84,14 @@ public class LogisticsProfileRecycleRefurbPanel extends javax.swing.JPanel {
         tblDropoffBooking.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         tblDropoffBooking.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "E-Waste Cat.", "Appliance type", "Make", "Model", "Year", "Weight(lbs.)", "condition"
+                "Order ID", "Delivery Address", "Assigned Time", "Weight(lbs.)", "condition", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true, true
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -109,61 +103,34 @@ public class LogisticsProfileRecycleRefurbPanel extends javax.swing.JPanel {
         tblDropoffBooking.setSelectionBackground(new java.awt.Color(204, 255, 204));
         jScrollPane1.setViewportView(tblDropoffBooking);
 
-        jLabel4.setText("Recycle");
-
-        jButton1.setBackground(new java.awt.Color(204, 255, 204));
-        jButton1.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jButton1.setText("View");
-
-        jButton2.setBackground(new java.awt.Color(153, 255, 153));
-        jButton2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jButton2.setText("Mark for Refurbishment");
-
-        jButton3.setBackground(new java.awt.Color(255, 102, 102));
-        jButton3.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jButton3.setText("Mark for Recycle");
-
-        javax.swing.GroupLayout LogisticsLoginMainJPanelLayout = new javax.swing.GroupLayout(LogisticsLoginMainJPanel);
-        LogisticsLoginMainJPanel.setLayout(LogisticsLoginMainJPanelLayout);
-        LogisticsLoginMainJPanelLayout.setHorizontalGroup(
-            LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1460, Short.MAX_VALUE)
-            .addGroup(LogisticsLoginMainJPanelLayout.createSequentialGroup()
-                .addGroup(LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LogisticsLoginMainJPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(LogisticsJPanelDynamicRecycle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(LogisticsLoginMainJPanelLayout.createSequentialGroup()
-                        .addGap(253, 253, 253)
-                        .addGroup(LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(LogisticsLoginMainJPanelLayout.createSequentialGroup()
-                                .addGap(378, 378, 378)
-                                .addComponent(jLabel4)))))
+        javax.swing.GroupLayout LogisticsLoginPastOrdersPanelLayout = new javax.swing.GroupLayout(LogisticsLoginPastOrdersPanel);
+        LogisticsLoginPastOrdersPanel.setLayout(LogisticsLoginPastOrdersPanelLayout);
+        LogisticsLoginPastOrdersPanelLayout.setHorizontalGroup(
+            LogisticsLoginPastOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogisticsLoginPastOrdersPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LogisticsJPanelDynamicRecycle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogisticsLoginMainJPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(450, 450, 450))
+            .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1460, Short.MAX_VALUE)
+            .addGroup(LogisticsLoginPastOrdersPanelLayout.createSequentialGroup()
+                .addGroup(LogisticsLoginPastOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(LogisticsLoginPastOrdersPanelLayout.createSequentialGroup()
+                        .addGap(630, 630, 630)
+                        .addComponent(jLabel4))
+                    .addGroup(LogisticsLoginPastOrdersPanelLayout.createSequentialGroup()
+                        .addGap(209, 209, 209)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 856, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        LogisticsLoginMainJPanelLayout.setVerticalGroup(
-            LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LogisticsLoginMainJPanelLayout.createSequentialGroup()
+        LogisticsLoginPastOrdersPanelLayout.setVerticalGroup(
+            LogisticsLoginPastOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LogisticsLoginPastOrdersPanelLayout.createSequentialGroup()
                 .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(119, 119, 119)
                 .addComponent(jLabel4)
-                .addGap(43, 43, 43)
+                .addGap(54, 54, 54)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(354, 354, 354)
+                .addGap(303, 303, 303)
                 .addComponent(LogisticsJPanelDynamicRecycle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(609, Short.MAX_VALUE))
         );
@@ -172,21 +139,18 @@ public class LogisticsProfileRecycleRefurbPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(LogisticsLoginMainJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(LogisticsLoginPastOrdersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(LogisticsLoginMainJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1460, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(LogisticsLoginPastOrdersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1460, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel LogisticsJPanelDynamicRecycle;
-    private javax.swing.JPanel LogisticsLoginMainJPanel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JPanel LogisticsLoginPastOrdersPanel;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel4;
