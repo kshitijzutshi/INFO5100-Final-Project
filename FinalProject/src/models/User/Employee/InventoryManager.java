@@ -23,4 +23,14 @@ public class InventoryManager extends Person{
         this.userAccount = new UserAccount(username, password, new InventoryManagerRole());
         this.eid = UUID.randomUUID().toString().substring(0,5);
     }
+
+    public String getEid() {
+        return eid;
+    }
+
+    public UserAccount getUserAccount() {
+        return userAccount;
+    }
+    
+    
 }

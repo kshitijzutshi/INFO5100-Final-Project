@@ -14,12 +14,12 @@ import models.User.UserAccount;
  *
  * @author phaniginjupalli
  */
-public class QCInscpector extends Person{
+public class QCInspector extends Person{
     
     final String eid;
     final UserAccount userAccount;
     
-    public QCInscpector(String username, String password) {
+    public QCInspector(String username, String password) {
         this.userAccount = new UserAccount(username, password, new QCInspectorRole());
         this.eid = UUID.randomUUID().toString().substring(0,5);
     }
