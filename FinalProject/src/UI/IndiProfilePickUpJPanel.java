@@ -131,6 +131,12 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         lblmake.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblmake.setText("Item Make");
 
+        txtemake.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtemakeActionPerformed(evt);
+            }
+        });
+
         lblmodel.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblmodel.setText("Item Model");
 
@@ -343,6 +349,10 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) JPanelIndPickUpMain.getLayout();
         layout.previous(JPanelIndPickUpMain);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtemakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemakeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtemakeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
