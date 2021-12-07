@@ -5,23 +5,17 @@
  */
 package UI;
 
-import javax.swing.JPanel;
-
 /**
  *
- * @author shrey
+ * @author kshitij
  */
-public class SignupJPanel extends javax.swing.JPanel {
+public class SignUpRetailerJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form SignupJPanel
+     * Creates new form SignUpRetailerJPanel
      */
-    
-     private JPanel jPanel;
-     
-    public SignupJPanel(JPanel JPanelSignup) {
+    public SignUpRetailerJPanel() {
         initComponents();
-        this.JPanelSignup = JPanelSignup;
     }
 
     /**
@@ -54,8 +48,6 @@ public class SignupJPanel extends javax.swing.JPanel {
         lblsignup1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(450, 720));
-        setPreferredSize(new java.awt.Dimension(450, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JPanelSignup.setBackground(new java.awt.Color(255, 255, 255));
