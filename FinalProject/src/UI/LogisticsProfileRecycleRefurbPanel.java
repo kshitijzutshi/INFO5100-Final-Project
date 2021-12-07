@@ -18,9 +18,10 @@ public class LogisticsProfileRecycleRefurbPanel extends javax.swing.JPanel {
      * Creates new form LogisticsProfileRecycleRefurbPanel
      */
     JPanel jpanel11;
-    public LogisticsProfileRecycleRefurbPanel() {
+    public LogisticsProfileRecycleRefurbPanel(JPanel logisticsRecycleRefurbPanel) {
+        this.LogisticsRecycRefurbMain = logisticsRecycleRefurbPanel;
         initComponents();
-        //this.LogisticsJPanelDynamicRecycle = logisticsRecyclePanel;
+        
     }
 
     /**
@@ -32,56 +33,19 @@ public class LogisticsProfileRecycleRefurbPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        LogisticsLoginMainJPanel = new javax.swing.JPanel();
-        kGradientPanel2 = new keeptoo.KGradientPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        LogisticsJPanelDynamicRecycle = new javax.swing.JPanel();
+        LogisticsRecycRefurbMain = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDropoffBooking = new javax.swing.JTable();
-        jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
-        LogisticsLoginMainJPanel.setBackground(new java.awt.Color(255, 255, 255));
-        LogisticsLoginMainJPanel.setPreferredSize(new java.awt.Dimension(1460, 850));
+        setLayout(new java.awt.CardLayout());
 
-        kGradientPanel2.setkEndColor(new java.awt.Color(128, 193, 115));
-        kGradientPanel2.setkGradientFocus(800);
-        kGradientPanel2.setkStartColor(new java.awt.Color(221, 228, 186));
-        kGradientPanel2.setPreferredSize(new java.awt.Dimension(300, 1460));
+        LogisticsRecycRefurbMain.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel13.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Welcome to ReQube,");
-
-        jLabel14.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("jLabel8");
-
-        javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
-        kGradientPanel2.setLayout(kGradientPanel2Layout);
-        kGradientPanel2Layout.setHorizontalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGap(258, 258, 258)
-                .addComponent(jLabel13)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(648, Short.MAX_VALUE))
-        );
-        kGradientPanel2Layout.setVerticalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
-
-        LogisticsJPanelDynamicRecycle.setLayout(new java.awt.CardLayout());
+        jLabel4.setText("Recycle");
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
@@ -109,8 +73,6 @@ public class LogisticsProfileRecycleRefurbPanel extends javax.swing.JPanel {
         tblDropoffBooking.setSelectionBackground(new java.awt.Color(204, 255, 204));
         jScrollPane1.setViewportView(tblDropoffBooking);
 
-        jLabel4.setText("Recycle");
-
         jButton1.setBackground(new java.awt.Color(204, 255, 204));
         jButton1.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jButton1.setText("View");
@@ -123,75 +85,57 @@ public class LogisticsProfileRecycleRefurbPanel extends javax.swing.JPanel {
         jButton3.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jButton3.setText("Mark for Recycle");
 
-        javax.swing.GroupLayout LogisticsLoginMainJPanelLayout = new javax.swing.GroupLayout(LogisticsLoginMainJPanel);
-        LogisticsLoginMainJPanel.setLayout(LogisticsLoginMainJPanelLayout);
-        LogisticsLoginMainJPanelLayout.setHorizontalGroup(
-            LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1460, Short.MAX_VALUE)
-            .addGroup(LogisticsLoginMainJPanelLayout.createSequentialGroup()
-                .addGroup(LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LogisticsLoginMainJPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(LogisticsJPanelDynamicRecycle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(LogisticsLoginMainJPanelLayout.createSequentialGroup()
-                        .addGap(253, 253, 253)
-                        .addGroup(LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(LogisticsLoginMainJPanelLayout.createSequentialGroup()
-                                .addGap(378, 378, 378)
-                                .addComponent(jLabel4)))))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogisticsLoginMainJPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(450, 450, 450))
+        javax.swing.GroupLayout LogisticsRecycRefurbMainLayout = new javax.swing.GroupLayout(LogisticsRecycRefurbMain);
+        LogisticsRecycRefurbMain.setLayout(LogisticsRecycRefurbMainLayout);
+        LogisticsRecycRefurbMainLayout.setHorizontalGroup(
+            LogisticsRecycRefurbMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1460, Short.MAX_VALUE)
+            .addGroup(LogisticsRecycRefurbMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(LogisticsRecycRefurbMainLayout.createSequentialGroup()
+                    .addGap(179, 179, 179)
+                    .addGroup(LogisticsRecycRefurbMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(LogisticsRecycRefurbMainLayout.createSequentialGroup()
+                            .addGap(378, 378, 378)
+                            .addComponent(jLabel4))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogisticsRecycRefurbMainLayout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButton2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)))
+                    .addContainerGap(506, Short.MAX_VALUE)))
         );
-        LogisticsLoginMainJPanelLayout.setVerticalGroup(
-            LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LogisticsLoginMainJPanelLayout.createSequentialGroup()
-                .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(jLabel4)
-                .addGap(43, 43, 43)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(354, 354, 354)
-                .addComponent(LogisticsJPanelDynamicRecycle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(609, Short.MAX_VALUE))
+        LogisticsRecycRefurbMainLayout.setVerticalGroup(
+            LogisticsRecycRefurbMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1460, Short.MAX_VALUE)
+            .addGroup(LogisticsRecycRefurbMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(LogisticsRecycRefurbMainLayout.createSequentialGroup()
+                    .addGap(190, 190, 190)
+                    .addComponent(jLabel4)
+                    .addGap(43, 43, 43)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addGroup(LogisticsRecycRefurbMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1)
+                        .addComponent(jButton2)
+                        .addComponent(jButton3))
+                    .addContainerGap(941, Short.MAX_VALUE)))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(LogisticsLoginMainJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(LogisticsLoginMainJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1460, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        add(LogisticsRecycRefurbMain, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel LogisticsJPanelDynamicRecycle;
-    private javax.swing.JPanel LogisticsLoginMainJPanel;
+    private javax.swing.JPanel LogisticsRecycRefurbMain;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private keeptoo.KGradientPanel kGradientPanel2;
     private javax.swing.JTable tblDropoffBooking;
     // End of variables declaration//GEN-END:variables
 }

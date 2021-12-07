@@ -5,6 +5,8 @@
  */
 package UI;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author kshitij
@@ -14,7 +16,9 @@ public class LogisticsProfilePastOrdersJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LogisticsProfilePastOrdersJPanel
      */
-    public LogisticsProfilePastOrdersJPanel() {
+    JPanel jpanel3;
+    public LogisticsProfilePastOrdersJPanel(JPanel LogisticsProfilePastOrdersJPanel) {
+        this.LogisticsPastOrdersMain = LogisticsProfilePastOrdersJPanel;
         initComponents();
     }
 
@@ -27,53 +31,14 @@ public class LogisticsProfilePastOrdersJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        LogisticsLoginPastOrdersPanel = new javax.swing.JPanel();
-        kGradientPanel2 = new keeptoo.KGradientPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        LogisticsJPanelDynamicRecycle = new javax.swing.JPanel();
+        LogisticsPastOrdersMain = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDropoffBooking = new javax.swing.JTable();
 
-        LogisticsLoginPastOrdersPanel.setBackground(new java.awt.Color(255, 255, 255));
-        LogisticsLoginPastOrdersPanel.setPreferredSize(new java.awt.Dimension(1460, 850));
+        setLayout(new java.awt.CardLayout());
 
-        kGradientPanel2.setkEndColor(new java.awt.Color(128, 193, 115));
-        kGradientPanel2.setkGradientFocus(800);
-        kGradientPanel2.setkStartColor(new java.awt.Color(221, 228, 186));
-        kGradientPanel2.setPreferredSize(new java.awt.Dimension(300, 1460));
-
-        jLabel13.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Welcome to ReQube,");
-
-        jLabel14.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("jLabel8");
-
-        javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
-        kGradientPanel2.setLayout(kGradientPanel2Layout);
-        kGradientPanel2Layout.setHorizontalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGap(258, 258, 258)
-                .addComponent(jLabel13)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(648, Short.MAX_VALUE))
-        );
-        kGradientPanel2Layout.setVerticalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
-
-        LogisticsJPanelDynamicRecycle.setLayout(new java.awt.CardLayout());
+        LogisticsPastOrdersMain.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel4.setText("Past Orders");
 
@@ -103,59 +68,37 @@ public class LogisticsProfilePastOrdersJPanel extends javax.swing.JPanel {
         tblDropoffBooking.setSelectionBackground(new java.awt.Color(204, 255, 204));
         jScrollPane1.setViewportView(tblDropoffBooking);
 
-        javax.swing.GroupLayout LogisticsLoginPastOrdersPanelLayout = new javax.swing.GroupLayout(LogisticsLoginPastOrdersPanel);
-        LogisticsLoginPastOrdersPanel.setLayout(LogisticsLoginPastOrdersPanelLayout);
-        LogisticsLoginPastOrdersPanelLayout.setHorizontalGroup(
-            LogisticsLoginPastOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogisticsLoginPastOrdersPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(LogisticsJPanelDynamicRecycle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1460, Short.MAX_VALUE)
-            .addGroup(LogisticsLoginPastOrdersPanelLayout.createSequentialGroup()
-                .addGroup(LogisticsLoginPastOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LogisticsLoginPastOrdersPanelLayout.createSequentialGroup()
-                        .addGap(630, 630, 630)
+        javax.swing.GroupLayout LogisticsPastOrdersMainLayout = new javax.swing.GroupLayout(LogisticsPastOrdersMain);
+        LogisticsPastOrdersMain.setLayout(LogisticsPastOrdersMainLayout);
+        LogisticsPastOrdersMainLayout.setHorizontalGroup(
+            LogisticsPastOrdersMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LogisticsPastOrdersMainLayout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addGroup(LogisticsPastOrdersMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(LogisticsPastOrdersMainLayout.createSequentialGroup()
+                        .addGap(421, 421, 421)
                         .addComponent(jLabel4))
-                    .addGroup(LogisticsLoginPastOrdersPanelLayout.createSequentialGroup()
-                        .addGap(209, 209, 209)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 856, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 856, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(523, Short.MAX_VALUE))
         );
-        LogisticsLoginPastOrdersPanelLayout.setVerticalGroup(
-            LogisticsLoginPastOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LogisticsLoginPastOrdersPanelLayout.createSequentialGroup()
-                .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(119, 119, 119)
+        LogisticsPastOrdersMainLayout.setVerticalGroup(
+            LogisticsPastOrdersMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LogisticsPastOrdersMainLayout.createSequentialGroup()
+                .addGap(91, 91, 91)
                 .addComponent(jLabel4)
                 .addGap(54, 54, 54)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(303, 303, 303)
-                .addComponent(LogisticsJPanelDynamicRecycle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(609, Short.MAX_VALUE))
+                .addContainerGap(1070, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(LogisticsLoginPastOrdersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(LogisticsLoginPastOrdersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1460, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        add(LogisticsPastOrdersMain, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel LogisticsJPanelDynamicRecycle;
-    private javax.swing.JPanel LogisticsLoginPastOrdersPanel;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
+    private javax.swing.JPanel LogisticsPastOrdersMain;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private keeptoo.KGradientPanel kGradientPanel2;
     private javax.swing.JTable tblDropoffBooking;
     // End of variables declaration//GEN-END:variables
 }

@@ -275,20 +275,20 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
     private void btnManageLogisticsLoginsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageLogisticsLoginsActionPerformed
         // TODO add your handling code here:
 
-        LogisticsProfileRecycleRefurbPanel recycle = new LogisticsProfileRecycleRefurbPanel();
-        jSplitPane1.setRightComponent(recycle);
+//        LogisticsProfileRecycleRefurbPanel recycle = new LogisticsProfileRecycleRefurbPanel();
+//        jSplitPane1.setRightComponent(recycle);
     }//GEN-LAST:event_btnManageLogisticsLoginsActionPerformed
 
     private void btnManageQCLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageQCLoginActionPerformed
         // TODO add your handling code here:
-        LogisticsProfileSchedulePickupJPanel schedulePickup = new LogisticsProfileSchedulePickupJPanel();
-        jSplitPane1.setRightComponent(schedulePickup);
+//        LogisticsProfileSchedulePickupJPanel schedulePickup = new LogisticsProfileSchedulePickupJPanel();
+//        jSplitPane1.setRightComponent(schedulePickup);
     }//GEN-LAST:event_btnManageQCLoginActionPerformed
 
     private void btnManagementDivLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagementDivLoginActionPerformed
         // TODO add your handling code here:
-        LogisticsProfilePastOrdersJPanel pastOrders = new LogisticsProfilePastOrdersJPanel();
-        jSplitPane1.setRightComponent(pastOrders);
+//        LogisticsProfilePastOrdersJPanel pastOrders = new LogisticsProfilePastOrdersJPanel();
+//        jSplitPane1.setRightComponent(pastOrders);
     }//GEN-LAST:event_btnManagementDivLoginActionPerformed
 
     private void btnIndiLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIndiLoginActionPerformed

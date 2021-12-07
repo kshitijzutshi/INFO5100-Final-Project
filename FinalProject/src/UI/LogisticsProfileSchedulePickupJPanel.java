@@ -18,9 +18,9 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
      * Creates new form LogisticsProfileSchedulePickupJPanel
      */
     JPanel jpanel77;
-    public LogisticsProfileSchedulePickupJPanel() {
+    public LogisticsProfileSchedulePickupJPanel(JPanel LogisticsSchedulePickupJPanel) {
         initComponents();
-//        this.LogisticsJPanelDynamicMain = LogisticsSchedulePickup;
+        this.LogisticsSchedulePickUpMain = LogisticsSchedulePickupJPanel;
     }
 
     /**
@@ -32,14 +32,10 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        LogisticsLoginMainJPanel = new javax.swing.JPanel();
-        kGradientPanel2 = new keeptoo.KGradientPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        LogisticsJPanelDynamicRecycle = new javax.swing.JPanel();
+        LogisticsSchedulePickUpMain = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDropoffBooking = new javax.swing.JTable();
-        jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
@@ -54,44 +50,11 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
         assignJButton = new javax.swing.JButton();
         processJButton = new javax.swing.JButton();
 
-        LogisticsLoginMainJPanel.setBackground(new java.awt.Color(255, 255, 255));
-        LogisticsLoginMainJPanel.setPreferredSize(new java.awt.Dimension(1460, 850));
+        setLayout(new java.awt.CardLayout());
 
-        kGradientPanel2.setkEndColor(new java.awt.Color(128, 193, 115));
-        kGradientPanel2.setkGradientFocus(800);
-        kGradientPanel2.setkStartColor(new java.awt.Color(221, 228, 186));
-        kGradientPanel2.setPreferredSize(new java.awt.Dimension(300, 1460));
+        LogisticsSchedulePickUpMain.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel13.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Welcome to ReQube,");
-
-        jLabel14.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("jLabel8");
-
-        javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
-        kGradientPanel2.setLayout(kGradientPanel2Layout);
-        kGradientPanel2Layout.setHorizontalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGap(258, 258, 258)
-                .addComponent(jLabel13)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(648, Short.MAX_VALUE))
-        );
-        kGradientPanel2Layout.setVerticalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
-
-        LogisticsJPanelDynamicRecycle.setLayout(new java.awt.CardLayout());
+        jLabel4.setText("Schedule Pickup");
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
@@ -118,8 +81,6 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
         tblDropoffBooking.setIntercellSpacing(new java.awt.Dimension(5, 5));
         tblDropoffBooking.setSelectionBackground(new java.awt.Color(204, 255, 204));
         jScrollPane1.setViewportView(tblDropoffBooking);
-
-        jLabel4.setText("Schedule Pickup");
 
         jLabel6.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
         jLabel6.setText("Pending Order");
@@ -181,100 +142,84 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout LogisticsLoginMainJPanelLayout = new javax.swing.GroupLayout(LogisticsLoginMainJPanel);
-        LogisticsLoginMainJPanel.setLayout(LogisticsLoginMainJPanelLayout);
-        LogisticsLoginMainJPanelLayout.setHorizontalGroup(
-            LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1460, Short.MAX_VALUE)
-            .addGroup(LogisticsLoginMainJPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(LogisticsJPanelDynamicRecycle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(LogisticsLoginMainJPanelLayout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addGroup(LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LogisticsLoginMainJPanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(143, 143, 143)
-                        .addGroup(LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(LogisticsLoginMainJPanelLayout.createSequentialGroup()
-                                .addGap(69, 69, 69)
-                                .addComponent(jLabel6))
-                            .addGroup(LogisticsLoginMainJPanelLayout.createSequentialGroup()
-                                .addGroup(LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel11))
-                                .addGap(18, 18, 18)
-                                .addGroup(LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField7)
-                                    .addComponent(jTextField5)
-                                    .addComponent(jTextField4)
-                                    .addComponent(jTextField6)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(LogisticsLoginMainJPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout LogisticsSchedulePickUpMainLayout = new javax.swing.GroupLayout(LogisticsSchedulePickUpMain);
+        LogisticsSchedulePickUpMain.setLayout(LogisticsSchedulePickUpMainLayout);
+        LogisticsSchedulePickUpMainLayout.setHorizontalGroup(
+            LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
                         .addGap(378, 378, 378)
-                        .addComponent(jLabel4)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogisticsLoginMainJPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(assignJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(processJButton)
-                .addGap(213, 213, 213))
+                        .addComponent(jLabel4))
+                    .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
+                        .addGap(266, 266, 266)
+                        .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
+                                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
+                                        .addGap(69, 69, 69)
+                                        .addComponent(jLabel6))
+                                    .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
+                                        .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel8)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel10)
+                                            .addComponent(jLabel7)
+                                            .addComponent(jLabel11))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextField7)
+                                            .addComponent(jTextField5)
+                                            .addComponent(jTextField4)
+                                            .addComponent(jTextField6)
+                                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogisticsSchedulePickUpMainLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(assignJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(processJButton)))))
+                .addContainerGap(580, Short.MAX_VALUE))
         );
-        LogisticsLoginMainJPanelLayout.setVerticalGroup(
-            LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LogisticsLoginMainJPanelLayout.createSequentialGroup()
-                .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+        LogisticsSchedulePickUpMainLayout.setVerticalGroup(
+            LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
                 .addComponent(jLabel4)
                 .addGap(43, 43, 43)
-                .addGroup(LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(LogisticsLoginMainJPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(25, 25, 25)
-                        .addGroup(LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10))
-                        .addGap(14, 14, 14)
-                        .addGroup(LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))))
-                .addGap(5, 5, 5)
-                .addGroup(LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65)
+                .addComponent(jLabel6)
+                .addGap(25, 25, 25)
+                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addGap(14, 14, 14)
+                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(46, 46, 46)
+                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(processJButton)
                     .addComponent(assignJButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 282, Short.MAX_VALUE)
-                .addComponent(LogisticsJPanelDynamicRecycle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(701, Short.MAX_VALUE))
+                .addContainerGap(795, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(LogisticsLoginMainJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(LogisticsLoginMainJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1460, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        add(LogisticsSchedulePickUpMain, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
@@ -282,30 +227,27 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
-//        DeliveryMan d = business.getDeliveryManDirectory().findDeliveryManByName(userAccount.getUsername());
-//        Order o = d.getPendingOrders();
-//        o.setOrderStatus("Confirmed");
-//        assignJButton.setEnabled(false);
-//        populatePendingOrder();
+        //        DeliveryMan d = business.getDeliveryManDirectory().findDeliveryManByName(userAccount.getUsername());
+        //        Order o = d.getPendingOrders();
+        //        o.setOrderStatus("Confirmed");
+        //        assignJButton.setEnabled(false);
+        //        populatePendingOrder();
     }//GEN-LAST:event_assignJButtonActionPerformed
 
     private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
-//        populatePendingOrder();
-//        ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, userAccount, business);
-//        userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);
-//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-//        layout.next(userProcessContainer);
+        //        populatePendingOrder();
+        //        ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, userAccount, business);
+        //        userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);
+        //        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        //        layout.next(userProcessContainer);
     }//GEN-LAST:event_processJButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel LogisticsJPanelDynamicRecycle;
-    private javax.swing.JPanel LogisticsLoginMainJPanel;
+    private javax.swing.JPanel LogisticsSchedulePickUpMain;
     private javax.swing.JButton assignJButton;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -317,7 +259,6 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
-    private keeptoo.KGradientPanel kGradientPanel2;
     private javax.swing.JButton processJButton;
     private javax.swing.JTable tblDropoffBooking;
     // End of variables declaration//GEN-END:variables
