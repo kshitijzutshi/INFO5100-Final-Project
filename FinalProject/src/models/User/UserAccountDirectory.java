@@ -24,9 +24,15 @@ public class UserAccountDirectory {
         return userAccounts;
     }
     
-    public boolean accountExists(String email) {
+    public UserAccount addUserAccount(UserAccount userAccount) {
+        this.userAccounts.add(userAccount);
+        return userAccount;
+    }
+    
+    
+    public boolean userNameExists(String username) {
         for (UserAccount userAccount: this.userAccounts) {
-            if (userAccount.getEmail().equals(email)) return true;
+            if (userAccount.getUsername().equals(username)) return true;
         }
         return false;
     }
@@ -44,5 +50,6 @@ public class UserAccountDirectory {
         this.userAccounts.add(userAccount);
         return userAccount;
     }
+    
     
 }
