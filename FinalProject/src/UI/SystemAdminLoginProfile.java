@@ -5,6 +5,7 @@
  */
 package UI;
 
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -18,7 +19,7 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
      */
     JPanel jpanel9;
     public SystemAdminLoginProfile(JPanel sysadminJPanel) {
-        this.systemAdminJPanel = sysadminJPanel;
+        this.sysadminLoginJPanel = sysadminJPanel;
         initComponents();
     }
 
@@ -31,162 +32,256 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        systemAdminJPanel = new javax.swing.JPanel();
-        jSplitPane1 = new javax.swing.JSplitPane();
-        jPanel2 = new javax.swing.JPanel();
+        sysadminLoginJPanel = new javax.swing.JPanel();
         kGradientPanel1 = new keeptoo.KGradientPanel();
-        btnManageLogisticsLogins = new javax.swing.JButton();
-        btnManageQCLogin = new javax.swing.JButton();
-        btnManagementDivLogin = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnManageQCInspector = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        btnIndiLogin = new javax.swing.JButton();
-        btnCommunityLogin = new javax.swing.JButton();
-        btnCommercialLogin = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        btnManageLogisticsSysadmin = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        btnManageIndividual = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        btnManageRetailers = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        sysadminDynamicJPanel = new javax.swing.JPanel();
+        sysadminDynamicMainJPanel = new javax.swing.JPanel();
 
-        jSplitPane1.setPreferredSize(new java.awt.Dimension(3000, 1460));
+        setLayout(new java.awt.CardLayout());
 
-        jPanel2.setPreferredSize(new java.awt.Dimension(1000, 1458));
-
-        kGradientPanel1.setkEndColor(new java.awt.Color(128, 193, 115));
-        kGradientPanel1.setkGradientFocus(800);
+        kGradientPanel1.setkEndColor(new java.awt.Color(65, 118, 102));
+        kGradientPanel1.setkGradientFocus(200);
         kGradientPanel1.setkStartColor(new java.awt.Color(221, 228, 186));
-
-        btnManageLogisticsLogins.setBackground(new java.awt.Color(208, 247, 200));
-        btnManageLogisticsLogins.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/truck_24px.png"))); // NOI18N
-        btnManageLogisticsLogins.setText("Manage Logistics Division");
-        btnManageLogisticsLogins.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageLogisticsLoginsActionPerformed(evt);
-            }
-        });
-
-        btnManageQCLogin.setBackground(new java.awt.Color(208, 247, 200));
-        btnManageQCLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/policeman_female_24px.png"))); // NOI18N
-        btnManageQCLogin.setText("Manage QC Inspection");
-        btnManageQCLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageQCLoginActionPerformed(evt);
-            }
-        });
-
-        btnManagementDivLogin.setBackground(new java.awt.Color(208, 247, 200));
-        btnManagementDivLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/recycle_24px.png"))); // NOI18N
-        btnManagementDivLogin.setText("Manage Management Division");
-        btnManagementDivLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManagementDivLoginActionPerformed(evt);
-            }
-        });
-
-        jButton4.setBackground(new java.awt.Color(208, 247, 200));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_30px.png"))); // NOI18N
-        jButton4.setText("     LOGOUT");
+        kGradientPanel1.setPreferredSize(new java.awt.Dimension(500, 1460));
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 22)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ReQube Operations");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 0, new java.awt.Color(128, 193, 115)));
-
-        btnIndiLogin.setBackground(new java.awt.Color(208, 247, 200));
-        btnIndiLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_24px.png"))); // NOI18N
-        btnIndiLogin.setText("Manage Individual Login");
-        btnIndiLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIndiLoginActionPerformed(evt);
+        btnManageQCInspector.setBackground(new java.awt.Color(221, 228, 186));
+        btnManageQCInspector.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+        btnManageQCInspector.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnManageQCInspectorMouseClicked(evt);
             }
         });
 
-        btnCommunityLogin.setBackground(new java.awt.Color(208, 247, 200));
-        btnCommunityLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/residence_24px.png"))); // NOI18N
-        btnCommunityLogin.setText("Manage Community Login");
-        btnCommunityLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCommunityLoginActionPerformed(evt);
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/policeman_female_24px.png"))); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Manage QC Inspection ");
+
+        javax.swing.GroupLayout btnManageQCInspectorLayout = new javax.swing.GroupLayout(btnManageQCInspector);
+        btnManageQCInspector.setLayout(btnManageQCInspectorLayout);
+        btnManageQCInspectorLayout.setHorizontalGroup(
+            btnManageQCInspectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnManageQCInspectorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnManageQCInspectorLayout.setVerticalGroup(
+            btnManageQCInspectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnManageQCInspectorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(btnManageQCInspectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        btnManageLogisticsSysadmin.setBackground(new java.awt.Color(221, 228, 186));
+        btnManageLogisticsSysadmin.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+        btnManageLogisticsSysadmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnManageLogisticsSysadminMouseClicked(evt);
             }
         });
 
-        btnCommercialLogin.setBackground(new java.awt.Color(208, 247, 200));
-        btnCommercialLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/building_24px.png"))); // NOI18N
-        btnCommercialLogin.setText("Manage Commercial Login");
-        btnCommercialLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCommercialLoginActionPerformed(evt);
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/truck_24px.png"))); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Manage Logistics Div.");
+
+        javax.swing.GroupLayout btnManageLogisticsSysadminLayout = new javax.swing.GroupLayout(btnManageLogisticsSysadmin);
+        btnManageLogisticsSysadmin.setLayout(btnManageLogisticsSysadminLayout);
+        btnManageLogisticsSysadminLayout.setHorizontalGroup(
+            btnManageLogisticsSysadminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnManageLogisticsSysadminLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        btnManageLogisticsSysadminLayout.setVerticalGroup(
+            btnManageLogisticsSysadminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnManageLogisticsSysadminLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(btnManageLogisticsSysadminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        btnManageIndividual.setBackground(new java.awt.Color(221, 228, 186));
+        btnManageIndividual.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+        btnManageIndividual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnManageIndividualMouseClicked(evt);
             }
         });
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_24px.png"))); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel9.setText("Manage Individual");
+
+        javax.swing.GroupLayout btnManageIndividualLayout = new javax.swing.GroupLayout(btnManageIndividual);
+        btnManageIndividual.setLayout(btnManageIndividualLayout);
+        btnManageIndividualLayout.setHorizontalGroup(
+            btnManageIndividualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnManageIndividualLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnManageIndividualLayout.setVerticalGroup(
+            btnManageIndividualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnManageIndividualLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(btnManageIndividualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        jLabel12.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 0, new java.awt.Color(102, 204, 0)));
+
+        jPanel7.setBackground(new java.awt.Color(221, 228, 186));
+        jPanel7.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+
+        jLabel15.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_30px.png"))); // NOI18N
+
+        jLabel16.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel16.setText("Logout");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        btnManageRetailers.setBackground(new java.awt.Color(221, 228, 186));
+        btnManageRetailers.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+        btnManageRetailers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnManageRetailersMouseClicked(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/building_24px.png"))); // NOI18N
+
+        jLabel18.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel18.setText("Manage Commercial");
+
+        javax.swing.GroupLayout btnManageRetailersLayout = new javax.swing.GroupLayout(btnManageRetailers);
+        btnManageRetailers.setLayout(btnManageRetailersLayout);
+        btnManageRetailersLayout.setHorizontalGroup(
+            btnManageRetailersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnManageRetailersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel18)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnManageRetailersLayout.setVerticalGroup(
+            btnManageRetailersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnManageRetailersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(btnManageRetailersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(73, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCommercialLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCommunityLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnIndiLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnManagementDivLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnManageQCLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnManageLogisticsLogins, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
+                    .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnManageLogisticsSysadmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnManageQCInspector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnManageIndividual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnManageRetailers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(59, 59, 59))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(62, 62, 62)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addGap(131, 131, 131)
-                .addComponent(btnManageLogisticsLogins, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel12)
+                .addGap(86, 86, 86)
+                .addComponent(btnManageLogisticsSysadmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnManageQCLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnManageQCInspector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnManagementDivLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnManageIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnIndiLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnCommunityLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnCommercialLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addComponent(btnManageRetailers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(886, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 573, Short.MAX_VALUE))
-        );
-
-        jSplitPane1.setLeftComponent(jPanel2);
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-
-        kGradientPanel2.setkEndColor(new java.awt.Color(128, 193, 115));
+        kGradientPanel2.setkEndColor(new java.awt.Color(65, 118, 102));
         kGradientPanel2.setkGradientFocus(800);
         kGradientPanel2.setkStartColor(new java.awt.Color(221, 228, 186));
         kGradientPanel2.setPreferredSize(new java.awt.Dimension(300, 1460));
@@ -197,7 +292,7 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
 
         jLabel14.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("jLabel8");
+        jLabel14.setText("Sys_Admin");
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
@@ -207,8 +302,8 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
                 .addGap(258, 258, 258)
                 .addComponent(jLabel13)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(577, Short.MAX_VALUE))
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,110 +312,119 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+        sysadminDynamicJPanel.setLayout(new java.awt.CardLayout());
+
+        sysadminDynamicMainJPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout sysadminDynamicMainJPanelLayout = new javax.swing.GroupLayout(sysadminDynamicMainJPanel);
+        sysadminDynamicMainJPanel.setLayout(sysadminDynamicMainJPanelLayout);
+        sysadminDynamicMainJPanelLayout.setHorizontalGroup(
+            sysadminDynamicMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1328, Short.MAX_VALUE))
+        sysadminDynamicMainJPanelLayout.setVerticalGroup(
+            sysadminDynamicMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jSplitPane1.setRightComponent(jPanel3);
+        sysadminDynamicJPanel.add(sysadminDynamicMainJPanel, "card2");
 
-        javax.swing.GroupLayout systemAdminJPanelLayout = new javax.swing.GroupLayout(systemAdminJPanel);
-        systemAdminJPanel.setLayout(systemAdminJPanelLayout);
-        systemAdminJPanelLayout.setHorizontalGroup(
-            systemAdminJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, systemAdminJPanelLayout.createSequentialGroup()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1712, Short.MAX_VALUE)
-                .addContainerGap())
+        javax.swing.GroupLayout sysadminLoginJPanelLayout = new javax.swing.GroupLayout(sysadminLoginJPanel);
+        sysadminLoginJPanel.setLayout(sysadminLoginJPanelLayout);
+        sysadminLoginJPanelLayout.setHorizontalGroup(
+            sysadminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sysadminLoginJPanelLayout.createSequentialGroup()
+                .addGap(359, 359, 359)
+                .addGroup(sysadminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sysadminDynamicJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(sysadminLoginJPanelLayout.createSequentialGroup()
+                        .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 972, Short.MAX_VALUE)
+                        .addContainerGap())))
+            .addGroup(sysadminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(sysadminLoginJPanelLayout.createSequentialGroup()
+                    .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 982, Short.MAX_VALUE)))
         );
-        systemAdminJPanelLayout.setVerticalGroup(
-            systemAdminJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1722, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(systemAdminJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        sysadminLoginJPanelLayout.setVerticalGroup(
+            sysadminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sysadminLoginJPanelLayout.createSequentialGroup()
+                .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(sysadminDynamicJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1314, Short.MAX_VALUE))
+            .addGroup(sysadminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(sysadminLoginJPanelLayout.createSequentialGroup()
+                    .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1480, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1460, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(systemAdminJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+
+        add(sysadminLoginJPanel, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnManageLogisticsLoginsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageLogisticsLoginsActionPerformed
+    private void btnManageQCInspectorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageQCInspectorMouseClicked
         // TODO add your handling code here:
+        
 
-//        LogisticsProfileRecycleRefurbPanel recycle = new LogisticsProfileRecycleRefurbPanel();
-//        jSplitPane1.setRightComponent(recycle);
-    }//GEN-LAST:event_btnManageLogisticsLoginsActionPerformed
+        ManageQCSysAdminJPanel manageSysadminQCInspector = new ManageQCSysAdminJPanel(sysadminDynamicJPanel);
+        CardLayout layout = (CardLayout) sysadminDynamicJPanel.getLayout();
+        sysadminDynamicJPanel.add("ManageQCLogin", manageSysadminQCInspector);
+        //
+        layout.next(sysadminDynamicJPanel);
+    }//GEN-LAST:event_btnManageQCInspectorMouseClicked
 
-    private void btnManageQCLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageQCLoginActionPerformed
+    private void btnManageLogisticsSysadminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageLogisticsSysadminMouseClicked
         // TODO add your handling code here:
-//        LogisticsProfileSchedulePickupJPanel schedulePickup = new LogisticsProfileSchedulePickupJPanel();
-//        jSplitPane1.setRightComponent(schedulePickup);
-    }//GEN-LAST:event_btnManageQCLoginActionPerformed
+        
+        ManageSysAdminLogisticsJPanel manageSysadminLogistics = new ManageSysAdminLogisticsJPanel(sysadminDynamicJPanel);
+        CardLayout layout = (CardLayout) sysadminDynamicJPanel.getLayout();
+        sysadminDynamicJPanel.add("ManagelogisticsLogin", manageSysadminLogistics);
+        layout.next(sysadminDynamicJPanel);
 
-    private void btnManagementDivLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagementDivLoginActionPerformed
-        // TODO add your handling code here:
-//        LogisticsProfilePastOrdersJPanel pastOrders = new LogisticsProfilePastOrdersJPanel();
-//        jSplitPane1.setRightComponent(pastOrders);
-    }//GEN-LAST:event_btnManagementDivLoginActionPerformed
+    }//GEN-LAST:event_btnManageLogisticsSysadminMouseClicked
 
-    private void btnIndiLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIndiLoginActionPerformed
+    private void btnManageIndividualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageIndividualMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnIndiLoginActionPerformed
+        ManageIndividualSysAdminJPanel manageSysadminIndi = new ManageIndividualSysAdminJPanel(sysadminDynamicJPanel);
+        CardLayout layout = (CardLayout) sysadminDynamicJPanel.getLayout();
+        sysadminDynamicJPanel.add("ManageIndiLogin", manageSysadminIndi);
+        layout.next(sysadminDynamicJPanel);
+    }//GEN-LAST:event_btnManageIndividualMouseClicked
 
-    private void btnCommunityLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommunityLoginActionPerformed
+    private void btnManageRetailersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageRetailersMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCommunityLoginActionPerformed
-
-    private void btnCommercialLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommercialLoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCommercialLoginActionPerformed
+        ManageCommercialSysAdminJPanel manageSysadminCommercial = new ManageCommercialSysAdminJPanel(sysadminDynamicJPanel);
+        CardLayout layout = (CardLayout) sysadminDynamicJPanel.getLayout();
+        sysadminDynamicJPanel.add("ManageCommercialLogin", manageSysadminCommercial);
+        layout.next(sysadminDynamicJPanel);
+    }//GEN-LAST:event_btnManageRetailersMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCommercialLogin;
-    private javax.swing.JButton btnCommunityLogin;
-    private javax.swing.JButton btnIndiLogin;
-    private javax.swing.JButton btnManageLogisticsLogins;
-    private javax.swing.JButton btnManageQCLogin;
-    private javax.swing.JButton btnManagementDivLogin;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JPanel btnManageIndividual;
+    private javax.swing.JPanel btnManageLogisticsSysadmin;
+    private javax.swing.JPanel btnManageQCInspector;
+    private javax.swing.JPanel btnManageRetailers;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel7;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;
-    private javax.swing.JPanel systemAdminJPanel;
+    private javax.swing.JPanel sysadminDynamicJPanel;
+    private javax.swing.JPanel sysadminDynamicMainJPanel;
+    private javax.swing.JPanel sysadminLoginJPanel;
     // End of variables declaration//GEN-END:variables
 }
