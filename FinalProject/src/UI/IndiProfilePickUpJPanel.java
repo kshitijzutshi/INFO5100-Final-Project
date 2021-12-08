@@ -27,6 +27,7 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         this.JPanelIndPickUpMain = IndiPickUpJPanel;
         this.ecosystem = ecosystem;
         this.resident = resident;
+        dropdownApplianceType.removeAllItems();
     }
 
     /**
@@ -166,6 +167,16 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
 
         dropdownCatEwaste.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         dropdownCatEwaste.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Home Appliances", "Communications & IT Devices", "Home Entertainment Devices", "Electronic Utilities", "Office and Medical Equipment", "Other" }));
+        dropdownCatEwaste.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                dropdownCatEwasteItemStateChanged(evt);
+            }
+        });
+        dropdownCatEwaste.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dropdownCatEwasteActionPerformed(evt);
+            }
+        });
 
         dropdownCondition.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Broken ", "Intact" }));
 
@@ -220,7 +231,6 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         btnBack.setToolTipText("");
         btnBack.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnBack.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        btnBack.setOpaque(false);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -359,6 +369,17 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
     private void txtemakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemakeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtemakeActionPerformed
+
+    private void dropdownCatEwasteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropdownCatEwasteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dropdownCatEwasteActionPerformed
+
+    private void dropdownCatEwasteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_dropdownCatEwasteItemStateChanged
+        // TODO add your handling code here:
+        String selectedCat = (String) dropdownCatEwaste.getSelectedItem();
+        dropdownApplianceType.removeAllItems();
+        for (String subCat: CategoryDropDownUtil.getList(selectedCat)) dropdownApplianceType.addItem(subCat);
+    }//GEN-LAST:event_dropdownCatEwasteItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

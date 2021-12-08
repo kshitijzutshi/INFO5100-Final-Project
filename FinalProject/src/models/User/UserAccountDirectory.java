@@ -29,6 +29,10 @@ public class UserAccountDirectory {
         return userAccount;
     }
     
+    public void removeUserAccount(UserAccount userAccount) {
+        this.userAccounts.remove(userAccount);
+    }
+    
     
     public boolean userNameExists(String username) {
         for (UserAccount userAccount: this.userAccounts) {

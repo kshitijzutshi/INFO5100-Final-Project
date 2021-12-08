@@ -7,6 +7,8 @@ package UI;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import models.DB4OUtil.DB4OUtil;
+import models.EcoSystem;
 
 /**
  *
@@ -18,9 +20,11 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
      * Creates new form SystemAdminLoginProfile
      */
     JPanel jpanel9;
-    public SystemAdminLoginProfile(JPanel sysadminJPanel) {
+    EcoSystem ecosystem;
+    public SystemAdminLoginProfile(JPanel sysadminJPanel, EcoSystem ecosystem) {
         this.sysadminLoginJPanel = sysadminJPanel;
         initComponents();
+        this.ecosystem = ecosystem;
     }
 
     /**
@@ -45,7 +49,7 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
+        logoutSysadminPanel = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         btnManageRetailers = new javax.swing.JPanel();
@@ -176,8 +180,13 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
 
         jLabel12.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 0, new java.awt.Color(102, 204, 0)));
 
-        jPanel7.setBackground(new java.awt.Color(221, 228, 186));
-        jPanel7.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+        logoutSysadminPanel.setBackground(new java.awt.Color(221, 228, 186));
+        logoutSysadminPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+        logoutSysadminPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutSysadminPanelMouseClicked(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -186,22 +195,22 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
         jLabel16.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel16.setText("Logout");
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        javax.swing.GroupLayout logoutSysadminPanelLayout = new javax.swing.GroupLayout(logoutSysadminPanel);
+        logoutSysadminPanel.setLayout(logoutSysadminPanelLayout);
+        logoutSysadminPanelLayout.setHorizontalGroup(
+            logoutSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(logoutSysadminPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        logoutSysadminPanelLayout.setVerticalGroup(
+            logoutSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(logoutSysadminPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(logoutSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -255,7 +264,7 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
                         .addComponent(btnManageQCInspector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnManageIndividual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnManageRetailers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(logoutSysadminPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
                         .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -277,8 +286,8 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(btnManageRetailers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(886, Short.MAX_VALUE))
+                .addComponent(logoutSysadminPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(918, Short.MAX_VALUE))
         );
 
         kGradientPanel2.setkEndColor(new java.awt.Color(65, 118, 102));
@@ -341,7 +350,7 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
                 .addGroup(sysadminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sysadminDynamicJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(sysadminLoginJPanelLayout.createSequentialGroup()
-                        .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 972, Short.MAX_VALUE)
+                        .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 976, Short.MAX_VALUE)
                         .addContainerGap())))
             .addGroup(sysadminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(sysadminLoginJPanelLayout.createSequentialGroup()
@@ -367,7 +376,7 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
         // TODO add your handling code here:
         
 
-        ManageQCSysAdminJPanel manageSysadminQCInspector = new ManageQCSysAdminJPanel(sysadminDynamicJPanel);
+        ManageQCSysAdminJPanel manageSysadminQCInspector = new ManageQCSysAdminJPanel(sysadminDynamicJPanel, ecosystem);
         CardLayout layout = (CardLayout) sysadminDynamicJPanel.getLayout();
         sysadminDynamicJPanel.add("ManageQCLogin", manageSysadminQCInspector);
         //
@@ -377,7 +386,7 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
     private void btnManageLogisticsSysadminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageLogisticsSysadminMouseClicked
         // TODO add your handling code here:
         
-        ManageSysAdminLogisticsJPanel manageSysadminLogistics = new ManageSysAdminLogisticsJPanel(sysadminDynamicJPanel);
+        ManageSysAdminLogisticsJPanel manageSysadminLogistics = new ManageSysAdminLogisticsJPanel(sysadminDynamicJPanel, ecosystem);
         CardLayout layout = (CardLayout) sysadminDynamicJPanel.getLayout();
         sysadminDynamicJPanel.add("ManagelogisticsLogin", manageSysadminLogistics);
         layout.next(sysadminDynamicJPanel);
@@ -386,7 +395,7 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
 
     private void btnManageIndividualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageIndividualMouseClicked
         // TODO add your handling code here:
-        ManageIndividualSysAdminJPanel manageSysadminIndi = new ManageIndividualSysAdminJPanel(sysadminDynamicJPanel);
+        ManageIndividualSysAdminJPanel manageSysadminIndi = new ManageIndividualSysAdminJPanel(sysadminDynamicJPanel, ecosystem);
         CardLayout layout = (CardLayout) sysadminDynamicJPanel.getLayout();
         sysadminDynamicJPanel.add("ManageIndiLogin", manageSysadminIndi);
         layout.next(sysadminDynamicJPanel);
@@ -394,11 +403,16 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
 
     private void btnManageRetailersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageRetailersMouseClicked
         // TODO add your handling code here:
-        ManageCommercialSysAdminJPanel manageSysadminCommercial = new ManageCommercialSysAdminJPanel(sysadminDynamicJPanel);
-        CardLayout layout = (CardLayout) sysadminDynamicJPanel.getLayout();
-        sysadminDynamicJPanel.add("ManageCommercialLogin", manageSysadminCommercial);
-        layout.next(sysadminDynamicJPanel);
+//        ManageCommercialSysAdminJPanel manageSysadminCommercial = new ManageCommercialSysAdminJPanel(sysadminDynamicJPanel, ecosystem);
+//        CardLayout layout = (CardLayout) sysadminDynamicJPanel.getLayout();
+//        sysadminDynamicJPanel.add("ManageCommercialLogin", manageSysadminCommercial);
+//        layout.next(sysadminDynamicJPanel);
     }//GEN-LAST:event_btnManageRetailersMouseClicked
+
+    private void logoutSysadminPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutSysadminPanelMouseClicked
+        // TODO add your handling code here:
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+    }//GEN-LAST:event_logoutSysadminPanelMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -420,9 +434,9 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel7;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;
+    private javax.swing.JPanel logoutSysadminPanel;
     private javax.swing.JPanel sysadminDynamicJPanel;
     private javax.swing.JPanel sysadminDynamicMainJPanel;
     private javax.swing.JPanel sysadminLoginJPanel;

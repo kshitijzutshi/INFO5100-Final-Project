@@ -7,6 +7,8 @@ package UI;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import models.EcoSystem;
+import models.User.Customer.Resident;
 
 /**
  *
@@ -18,9 +20,13 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
      * Creates new form IndiBookingHistoryJPanel
      */
     private JPanel jpanel8;
-    public IndiBookingHistoryJPanel(JPanel JPanelIndBookingDetailsMain) {
+    private EcoSystem ecosystem;
+    private Resident resident;
+    public IndiBookingHistoryJPanel(JPanel JPanelIndBookingDetailsMain, EcoSystem ecosystem, Resident resident) {
         initComponents();
         this.JPanelIndBookingDetailsMain = JPanelIndBookingDetailsMain;
+        this.ecosystem = ecosystem;
+        this.resident = resident;
     }
 
     /**
@@ -35,7 +41,7 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
         JPanelIndBookingDetailsMain = new javax.swing.JPanel();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        welcomeLabel = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         lbldropoffheader = new javax.swing.JLabel();
         bookingidlabel = new javax.swing.JLabel();
@@ -59,9 +65,8 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Welcome to ReQube,");
 
-        jLabel8.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("jLabel8");
+        welcomeLabel.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
+        welcomeLabel.setForeground(new java.awt.Color(255, 255, 255));
 
         jButton7.setBackground(new java.awt.Color(65, 118, 102));
         jButton7.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
@@ -82,7 +87,7 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
                 .addGap(38, 38, 38)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
@@ -95,7 +100,7 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(welcomeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGap(0, 7, Short.MAX_VALUE)
@@ -140,7 +145,6 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backarrow.png"))); // NOI18N
         btnBack.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnBack.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        btnBack.setOpaque(false);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -175,7 +179,7 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
                 .addComponent(btnsearch)
                 .addGap(623, 623, 623))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndBookingDetailsMainLayout.createSequentialGroup()
-                .addContainerGap(232, Short.MAX_VALUE)
+                .addContainerGap(233, Short.MAX_VALUE)
                 .addGroup(JPanelIndBookingDetailsMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndBookingDetailsMainLayout.createSequentialGroup()
                         .addComponent(lbldropoffheader, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -233,11 +237,11 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnsearch;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel lbldropoffheader;
     private javax.swing.JTable tblPickUpBookingDetails;
     private javax.swing.JTextField txtbookingid;
+    private javax.swing.JLabel welcomeLabel;
     // End of variables declaration//GEN-END:variables
 }

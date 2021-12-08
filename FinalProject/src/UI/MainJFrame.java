@@ -12,6 +12,7 @@ import models.DB4OUtil.DB4OUtil;
 import models.EcoSystem;
 import models.Role.ResidentRole;
 import models.Role.Role;
+import models.Role.SystemAdminRole;
 import models.User.Customer.Resident;
 import models.User.UserAccount;
 
@@ -370,8 +371,13 @@ public class MainJFrame extends javax.swing.JFrame {
             Resident resident = this.ecosystem.getCustomerDirectory().getResidentByUserAccount(userAccount);
             IndiProfileLoginJPanel indivProfileLoginJpanel = new IndiProfileLoginJPanel(mainJpanel, ecosystem, resident);
             CardLayout layout = (CardLayout) mainJpanel.getLayout();
-             mainJpanel.add("profileIndividual", indivProfileLoginJpanel);
-             layout.next(mainJpanel);
+            mainJpanel.add("profileIndividual", indivProfileLoginJpanel);
+            layout.next(mainJpanel);
+        } else if (role instanceof SystemAdminRole) {
+            SystemAdminLoginProfile systemAdminLogin = new SystemAdminLoginProfile(mainJpanel, ecosystem);
+            CardLayout layout = (CardLayout) mainJpanel.getLayout();
+            mainJpanel.add("Sysadmin", systemAdminLogin);
+            layout.next(mainJpanel);
         }
     }//GEN-LAST:event_btn_loginMouseClicked
 
@@ -393,7 +399,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemAdminActionPerformed
         // TODO add your handling code here:
-        SystemAdminLoginProfile systemAdminLogin = new SystemAdminLoginProfile(mainJpanel);
+        SystemAdminLoginProfile systemAdminLogin = new SystemAdminLoginProfile(mainJpanel, ecosystem);
         CardLayout layout = (CardLayout) mainJpanel.getLayout();
         mainJpanel.add("LogisticsPanel", systemAdminLogin);
         layout.next(mainJpanel);

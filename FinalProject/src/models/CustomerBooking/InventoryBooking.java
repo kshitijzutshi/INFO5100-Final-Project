@@ -22,6 +22,7 @@ public class InventoryBooking {
     private final ArrayList<Item> items;
     private final LocalDateTime bookedOn;
     private final BookingType bookingType;
+    private LocalDateTime requestedDateTime;
     
     public InventoryBooking(Resident resident, ArrayList<Item> items, BookingType bookingType) {
         this.id = UUID.randomUUID().toString().substring(0,5);
@@ -54,6 +55,14 @@ public class InventoryBooking {
 
     public BookingType getBookingType() {
         return bookingType;
+    }
+
+    public LocalDateTime getRequestedDateTime() {
+        return requestedDateTime;
+    }
+
+    public void setRequestedDateTime(LocalDateTime requestedDateTime) {
+        this.requestedDateTime = requestedDateTime;
     }
     
     

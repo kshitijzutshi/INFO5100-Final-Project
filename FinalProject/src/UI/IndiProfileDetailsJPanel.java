@@ -6,7 +6,11 @@
 package UI;
 
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import models.DB4OUtil.DB4OUtil;
+import models.EcoSystem;
+import models.User.Customer.Resident;
 
 /**
  *
@@ -19,12 +23,16 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
      */
     
     JPanel jpanel3;
-    
-    public IndiProfileDetailsJPanel(JPanel JPanelIndiLogin) {
+    EcoSystem ecosystem;
+    Resident resident;
+    public IndiProfileDetailsJPanel(JPanel JPanelIndiLogin, EcoSystem ecosystem, Resident resident) {
         initComponents();
         
         this.JPanelIndLogin = JPanelIndiLogin;
-        
+        this.ecosystem = ecosystem;
+        this.resident = resident;
+        nameLabel.setText(resident.getFullName());
+        this.populateFields();
     }
 
     /**
@@ -39,8 +47,8 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
         JPanelIndLogin = new javax.swing.JPanel();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
+        nameLabel = new javax.swing.JLabel();
+        logoutBtn = new javax.swing.JButton();
         lblSignUpHeader = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
         txtname = new javax.swing.JTextField();
@@ -53,9 +61,9 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
         txtmobnumber = new javax.swing.JTextField();
         txtusername = new javax.swing.JTextField();
         lblUserName1 = new javax.swing.JLabel();
-        txtusername1 = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -72,18 +80,17 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Welcome to ReQube,");
 
-        jLabel8.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("jLabel8");
+        nameLabel.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
+        nameLabel.setForeground(new java.awt.Color(255, 255, 255));
 
-        jButton8.setBackground(new java.awt.Color(65, 118, 102));
-        jButton8.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_50px.png"))); // NOI18N
-        jButton8.setText("Logout");
-        jButton8.setBorder(null);
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        logoutBtn.setBackground(new java.awt.Color(65, 118, 102));
+        logoutBtn.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
+        logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_50px.png"))); // NOI18N
+        logoutBtn.setText("Logout");
+        logoutBtn.setBorder(null);
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                logoutBtnActionPerformed(evt);
             }
         });
 
@@ -94,10 +101,10 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
         );
         kGradientPanel1Layout.setVerticalGroup(
@@ -105,10 +112,10 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
                     .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+                        .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
@@ -131,27 +138,33 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
         lblMobile.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblMobile.setText("Mobile Number");
 
+        txtusername.setEditable(false);
+
         lblUserName1.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblUserName1.setText("Password");
 
-        txtusername1.addActionListener(new java.awt.event.ActionListener() {
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtusername1ActionPerformed(evt);
+                txtPasswordActionPerformed(evt);
             }
         });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/person_profile.png"))); // NOI18N
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 51));
-        jButton1.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
-        jButton1.setText("Save");
+        btnSave.setBackground(new java.awt.Color(0, 153, 51));
+        btnSave.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backarrow.png"))); // NOI18N
         btnBack.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnBack.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        btnBack.setOpaque(false);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -163,6 +176,10 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
         JPanelIndLoginLayout.setHorizontalGroup(
             JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(kGradientPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1460, Short.MAX_VALUE)
+            .addGroup(JPanelIndLoginLayout.createSequentialGroup()
+                .addGap(647, 647, 647)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(JPanelIndLoginLayout.createSequentialGroup()
                 .addGroup(JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelIndLoginLayout.createSequentialGroup()
@@ -185,7 +202,7 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
                                     .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(103, 103, 103)
                                 .addGroup(JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtusername1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblUserName1)
                                     .addComponent(txtmobnumber, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(JPanelIndLoginLayout.createSequentialGroup()
@@ -194,11 +211,7 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndLoginLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblSignUpHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(484, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndLoginLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(599, 599, 599))
+                .addGap(136, 484, Short.MAX_VALUE))
         );
         JPanelIndLoginLayout.setVerticalGroup(
             JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,10 +247,10 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtusername1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(142, 142, 142))
         );
@@ -245,13 +258,14 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
         add(JPanelIndLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 950));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtusername1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusername1ActionPerformed
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtusername1ActionPerformed
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+    }//GEN-LAST:event_logoutBtnActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
@@ -260,15 +274,44 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
         layout.previous(JPanelIndLogin);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        String address = txtaddress.getText();
+        String mobile = txtmobnumber.getText();
+        String name = txtname.getText();
+        String password = txtPassword.getText();
+        String email = txtemailid.getText();
+        
+        if (address.equals("") || mobile.equals("") || name.equals("") || mobile.equals("") || email.equals("")) {
+            JOptionPane.showMessageDialog(this, "All fields are required");
+            return;
+        }
+        
+        this.resident.setAddress(address);
+        this.resident.setFullName(name);
+        this.resident.setPhone(mobile);
+        this.resident.setEmail(email);
+        this.resident.getUserAccount().setPassword(password);
+        JOptionPane.showMessageDialog(this, "Profile details updated");
+        this.populateFields();
+        
+    }//GEN-LAST:event_btnSaveActionPerformed
+    
+    private void populateFields() {
+        txtname.setText(this.resident.getFullName());
+        txtaddress.setText(this.resident.getAddress());
+        txtemailid.setText(this.resident.getEmail());
+        txtmobnumber.setText(this.resident.getPhone());
+        txtusername.setText(this.resident.getUserAccount().getUsername());
+        txtPassword.setText(this.resident.getUserAccount().getPassword());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanelIndLogin;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton8;
+    private javax.swing.JButton btnSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblEmail;
@@ -277,11 +320,13 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblSignUpHeader;
     private javax.swing.JLabel lblUserName;
     private javax.swing.JLabel lblUserName1;
+    private javax.swing.JButton logoutBtn;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtaddress;
     private javax.swing.JTextField txtemailid;
     private javax.swing.JTextField txtmobnumber;
     private javax.swing.JTextField txtname;
     private javax.swing.JTextField txtusername;
-    private javax.swing.JTextField txtusername1;
     // End of variables declaration//GEN-END:variables
 }
