@@ -375,11 +375,11 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
     private void btnviewbookingdetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewbookingdetailsActionPerformed
         // TODO add your handling code here:
 
-        IndiBookingHistoryJPanel indibookingdetails = new IndiBookingHistoryJPanel(JPanelCommerciallLogin);
-        CardLayout layout = (CardLayout) JPanelCommerciallLogin.getLayout();
-        JPanelCommerciallLogin.add("individualBookingDetails", indibookingdetails);
-
-        layout.next(JPanelCommerciallLogin);
+//        IndiBookingHistoryJPanel indibookingdetails = new IndiBookingHistoryJPanel(JPanelCommerciallLogin);
+//        CardLayout layout = (CardLayout) JPanelCommerciallLogin.getLayout();
+//        JPanelCommerciallLogin.add("individualBookingDetails", indibookingdetails);
+//
+//        layout.next(JPanelCommerciallLogin);
     }//GEN-LAST:event_btnviewbookingdetailsActionPerformed
 
     private void btnviewprofileMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewprofileMouseEntered
@@ -395,11 +395,11 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
     private void btnviewprofileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewprofileActionPerformed
         // TODO add your handling code here:
 
-        IndiProfileDetailsJPanel indiprofiledetails = new IndiProfileDetailsJPanel(JPanelCommerciallLogin);
-        CardLayout layout = (CardLayout) JPanelCommerciallLogin.getLayout();
-        JPanelCommerciallLogin.add("individualProfileDetails", indiprofiledetails);
-
-        layout.next(JPanelCommerciallLogin);
+//        IndiProfileDetailsJPanel indiprofiledetails = new IndiProfileDetailsJPanel(JPanelCommerciallLogin);
+//        CardLayout layout = (CardLayout) JPanelCommerciallLogin.getLayout();
+//        JPanelCommerciallLogin.add("individualProfileDetails", indiprofiledetails);
+//
+//        layout.next(JPanelCommerciallLogin);
     }//GEN-LAST:event_btnviewprofileActionPerformed
 
     private void btnviewpickupMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewpickupMouseEntered
@@ -433,11 +433,11 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
 
     private void btnviewdropoffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewdropoffActionPerformed
         // TODO add your handling code here:
-        IndiProfileDropOffJPanel indidropOffJPanel = new IndiProfileDropOffJPanel(JPanelCommerciallLogin);
-        CardLayout layout = (CardLayout) JPanelCommerciallLogin.getLayout();
-        JPanelCommerciallLogin.add("individualdropoffbooking", indidropOffJPanel);
-
-        layout.next(JPanelCommerciallLogin);
+//        IndiProfileDropOffJPanel indidropOffJPanel = new IndiProfileDropOffJPanel(JPanelCommerciallLogin);
+//        CardLayout layout = (CardLayout) JPanelCommerciallLogin.getLayout();
+//        JPanelCommerciallLogin.add("individualdropoffbooking", indidropOffJPanel);
+//
+//        layout.next(JPanelCommerciallLogin);
     }//GEN-LAST:event_btnviewdropoffActionPerformed
 
 
