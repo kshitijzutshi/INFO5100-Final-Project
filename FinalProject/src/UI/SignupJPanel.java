@@ -270,6 +270,10 @@ public class SignupJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "All fields are required");
             return;
         }
+        if (this.ecosystem.getUserAccountDirectory().userNameExists(username)) {
+            JOptionPane.showMessageDialog(this, "Username already taken");
+            return;
+        }
         if (userType.equals("Individual")) {
             Resident resident = new Resident(username, password);
             resident.setFullName(name);

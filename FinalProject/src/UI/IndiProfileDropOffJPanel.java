@@ -7,6 +7,8 @@ package UI;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import models.EcoSystem;
+import models.User.Customer.Resident;
 
 /**
  *
@@ -18,9 +20,13 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
      * Creates new form IndiProfileDropOffJPanel
      */
     private JPanel jpanel5;
-    public IndiProfileDropOffJPanel(JPanel IndiDropOffJPanel) {
+    EcoSystem ecosystem;
+    Resident resident;
+    public IndiProfileDropOffJPanel(JPanel IndiDropOffJPanel, EcoSystem ecosystem, Resident resident) {
         this.JPanelIndDropoffMain = IndiDropOffJPanel;
         initComponents();
+        this.ecosystem = ecosystem;
+        this.resident = resident;
     }
 
     /**

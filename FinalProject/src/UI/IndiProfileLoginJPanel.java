@@ -9,6 +9,7 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import models.DB4OUtil.DB4OUtil;
 import models.EcoSystem;
 import models.User.Customer.Resident;
 
@@ -44,8 +45,8 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
         JPanelIndLoginMain = new javax.swing.JPanel();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        nameLabel = new javax.swing.JLabel();
+        logoutButton = new javax.swing.JButton();
         btnviewdashboard = new javax.swing.JButton();
         btnviewinfo = new javax.swing.JButton();
         btnviewbookingdetails = new javax.swing.JButton();
@@ -78,18 +79,22 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Welcome to ReQube,");
 
-        jLabel8.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("jLabel8");
+        nameLabel.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
+        nameLabel.setForeground(new java.awt.Color(255, 255, 255));
 
-        jButton7.setBackground(new java.awt.Color(65, 118, 102));
-        jButton7.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_50px.png"))); // NOI18N
-        jButton7.setText("Logout");
-        jButton7.setBorder(null);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        logoutButton.setBackground(new java.awt.Color(65, 118, 102));
+        logoutButton.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
+        logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_50px.png"))); // NOI18N
+        logoutButton.setText("Logout");
+        logoutButton.setBorder(null);
+        logoutButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutButtonMouseClicked(evt);
+            }
+        });
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                logoutButtonActionPerformed(evt);
             }
         });
 
@@ -101,9 +106,9 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
                 .addGap(38, 38, 38)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
         );
         kGradientPanel1Layout.setVerticalGroup(
@@ -114,10 +119,10 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
                         .addGap(25, 25, 25)
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
@@ -336,9 +341,9 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
         add(JPanelIndLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 850));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void btnviewdashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewdashboardActionPerformed
         // TODO add your handling code here:
@@ -347,7 +352,7 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
     private void btnviewbookingdetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewbookingdetailsActionPerformed
         // TODO add your handling code here:
         
-        IndiBookingHistoryJPanel indibookingdetails = new IndiBookingHistoryJPanel(JPanelIndLogin);
+        IndiBookingHistoryJPanel indibookingdetails = new IndiBookingHistoryJPanel(JPanelIndLogin,  ecosystem, resident);
         CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
         JPanelIndLogin.add("individualBookingDetails", indibookingdetails);
 
@@ -357,7 +362,7 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
     private void btnviewprofileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewprofileActionPerformed
         // TODO add your handling code here:
 
-        IndiProfileDetailsJPanel indiprofiledetails = new IndiProfileDetailsJPanel(JPanelIndLogin);
+        IndiProfileDetailsJPanel indiprofiledetails = new IndiProfileDetailsJPanel(JPanelIndLogin,  ecosystem, resident);
         CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
         JPanelIndLogin.add("individualProfileDetails", indiprofiledetails);
 
@@ -366,7 +371,7 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
 
     private void btnviewdropoffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewdropoffActionPerformed
         // TODO add your handling code here:
-        IndiProfileDropOffJPanel indidropOffJPanel = new IndiProfileDropOffJPanel(JPanelIndLogin);
+        IndiProfileDropOffJPanel indidropOffJPanel = new IndiProfileDropOffJPanel(JPanelIndLogin, ecosystem, resident);
         CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
         JPanelIndLogin.add("individualdropoffbooking", indidropOffJPanel);
 
@@ -452,6 +457,11 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
         layout.next(JPanelIndLogin);
     }//GEN-LAST:event_btnviewinfoActionPerformed
 
+    private void logoutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutButtonMouseClicked
+        // TODO add your handling code here:
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+    }//GEN-LAST:event_logoutButtonMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanelIndLogin;
@@ -462,15 +472,15 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnviewinfo;
     private javax.swing.JButton btnviewpickup;
     private javax.swing.JButton btnviewprofile;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private keeptoo.KGradientPanel kGradientPanel1;
+    private javax.swing.JButton logoutButton;
+    private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel txtprofile;
     // End of variables declaration//GEN-END:variables
 }

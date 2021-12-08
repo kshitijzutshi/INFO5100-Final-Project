@@ -139,7 +139,7 @@ public class ManageCommercialSysAdminJPanel extends javax.swing.JPanel {
         manageCommercialSysAdmin.setLayout(manageCommercialSysAdminLayout);
         manageCommercialSysAdminLayout.setHorizontalGroup(
             manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 897, Short.MAX_VALUE)
+            .addGap(0, 825, Short.MAX_VALUE)
             .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(manageCommercialSysAdminLayout.createSequentialGroup()
                     .addGap(50, 50, 50)
@@ -169,11 +169,11 @@ public class ManageCommercialSysAdminJPanel extends javax.swing.JPanel {
                             .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(33, 33, 33)
                             .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(260, Short.MAX_VALUE)))
+                    .addContainerGap(188, Short.MAX_VALUE)))
         );
         manageCommercialSysAdminLayout.setVerticalGroup(
             manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 535, Short.MAX_VALUE)
+            .addGap(0, 636, Short.MAX_VALUE)
             .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(manageCommercialSysAdminLayout.createSequentialGroup()
                     .addGap(48, 48, 48)
@@ -202,7 +202,7 @@ public class ManageCommercialSysAdminJPanel extends javax.swing.JPanel {
                     .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnModify)
                         .addComponent(btnDelete))
-                    .addContainerGap(97, Short.MAX_VALUE)))
+                    .addContainerGap(198, Short.MAX_VALUE)))
         );
 
         add(manageCommercialSysAdmin, "card2");

@@ -31,7 +31,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="sysadminDynamicJPanel" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="kGradientPanel2" pref="972" max="32767" attributes="0"/>
+                          <Component id="kGradientPanel2" pref="976" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -86,7 +86,7 @@
                               <Component id="btnManageQCInspector" alignment="0" max="32767" attributes="0"/>
                               <Component id="btnManageIndividual" alignment="0" max="32767" attributes="0"/>
                               <Component id="btnManageRetailers" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jPanel7" alignment="0" max="32767" attributes="0"/>
+                              <Component id="logoutSysadminPanel" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jLabel1" alignment="0" pref="271" max="32767" attributes="0"/>
@@ -113,8 +113,8 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnManageRetailers" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="886" max="32767" attributes="0"/>
+                      <Component id="logoutSysadminPanel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="918" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -324,7 +324,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Container class="javax.swing.JPanel" name="jPanel7">
+            <Container class="javax.swing.JPanel" name="logoutSysadminPanel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ba" green="e4" red="dd" type="rgb"/>
@@ -337,6 +337,9 @@
                   </Border>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="logoutSysadminPanelMouseClicked"/>
+              </Events>
 
               <Layout>
                 <DimensionLayout dim="0">

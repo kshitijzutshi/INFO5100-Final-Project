@@ -37,6 +37,18 @@ public class EmployeeDirectory {
         this.qcInspectors.add(qc);
         return qc;
     }
+    
+    public void removeLogisticsMan(LogisticsMan logMan) {
+        this.logisticsMen.remove(logMan);
+    }
+    
+    public void removeInventoryManager(InventoryManager invMan) {
+        this.inventoryManagers.remove(invMan);
+    }
+    
+    public void removeQCInspector(QCInspector qc) {
+        this.qcInspectors.remove(qc);
+    }
 
     public ArrayList<LogisticsMan> getLogisticsMen() {
         return this.logisticsMen;
