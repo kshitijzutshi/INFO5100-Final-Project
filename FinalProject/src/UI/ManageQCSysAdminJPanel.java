@@ -6,6 +6,7 @@
 package UI;
 
 import javax.swing.JPanel;
+import models.EcoSystem;
 
 /**
  *
@@ -17,9 +18,11 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
      * Creates new form ManageQCSysAdminJPanel
      */
     JPanel jpanel2;
-    public ManageQCSysAdminJPanel(JPanel ManageQCSysAdminJPanel) {
+    EcoSystem ecosystem;
+    public ManageQCSysAdminJPanel(JPanel ManageQCSysAdminJPanel, EcoSystem ecosystem) {
         this.ManageQCSysAdminPanel = ManageQCSysAdminJPanel;
         initComponents();
+        this.ecosystem = ecosystem;
     }
 
     /**

@@ -6,6 +6,7 @@
 package models.User.Customer;
 
 import java.util.ArrayList;
+import models.User.UserAccount;
 
 /**
  *
@@ -16,6 +17,11 @@ public class CustomerDirectory {
     private ArrayList<Resident> residents;
     private ArrayList<Commercial> commercialCustomers;
     
+    public CustomerDirectory() {
+        this.residents = new ArrayList<>();
+        this.commercialCustomers = new ArrayList<>();
+    }
+    
     public Resident addResidents(Resident resident) {
         this.residents.add(resident);
         return resident;
@@ -24,6 +30,11 @@ public class CustomerDirectory {
     public Commercial addCommercialCustomers(Commercial commercial) {
         this.commercialCustomers.add(commercial);
         return commercial;
+    }
+    
+    public Resident removeResident(Resident resident) {
+        this.residents.remove(resident);
+        return resident;
     }
 
     public ArrayList<Resident> getResidents() {
@@ -35,5 +46,18 @@ public class CustomerDirectory {
         return commercialCustomers;
     }
     
+    public Resident getResidentByUserAccount(UserAccount userAccount) {
+        for (Resident resident: this.residents) {
+            if (resident.getUserAccount() == userAccount) return resident;
+        }
+        return null;
+    }
+    
+    public Resident getCommercialByUserAccount(UserAccount userAccount) {
+//        for (Commercial commercial: this.commercialCustomers) {
+//            if (resident.getUserAccount() == userAccount) return resident;
+//        }
+        return null;
+    }
     
 }

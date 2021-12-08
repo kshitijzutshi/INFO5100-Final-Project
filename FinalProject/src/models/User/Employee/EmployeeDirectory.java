@@ -37,6 +37,18 @@ public class EmployeeDirectory {
         this.qcInspectors.add(qc);
         return qc;
     }
+    
+    public void removeLogisticsMan(LogisticsMan logMan) {
+        this.logisticsMen.remove(logMan);
+    }
+    
+    public void removeInventoryManager(InventoryManager invMan) {
+        this.inventoryManagers.remove(invMan);
+    }
+    
+    public void removeQCInspector(QCInspector qc) {
+        this.qcInspectors.remove(qc);
+    }
 
     public ArrayList<LogisticsMan> getLogisticsMen() {
         return this.logisticsMen;
@@ -48,6 +60,14 @@ public class EmployeeDirectory {
 
     public ArrayList<QCInspector> getQcInscpectors() {
         return this.qcInspectors;
+    }
+    
+    
+    public LogisticsMan getNextAvailableLogisticsMan() {
+        for (LogisticsMan logisticsMan: this.logisticsMen) {
+            if (logisticsMan.isAvailable()) return logisticsMan;
+        }
+        return null;
     }
     
     
