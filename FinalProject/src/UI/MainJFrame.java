@@ -5,6 +5,10 @@
  */
 package UI;
 
+import UI.ManagementDivision.ManagementDivisionProfileMainJPanel;
+import UI.SysAdmin.SystemAdminLoginProfile;
+import UI.Logistics.LogisticsProfileMainJPanel;
+import UI.Resident.IndiProfileLoginJPanel;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;

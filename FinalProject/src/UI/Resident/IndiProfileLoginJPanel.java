@@ -3,23 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package UI.Resident;
 
-import UI.Resident.IndiInfoJPanel;
+import UI.Resident.IndiBookingHistoryJPanel;
 import java.awt.CardLayout;
+import java.awt.Color;
 import javax.swing.BorderFactory;
+import javax.swing.JPanel;
+import models.DB4OUtil.DB4OUtil;
+import models.EcoSystem;
+import models.User.Customer.Resident;
 
 /**
  *
- * @author kshitij
+ * @author shrey
  */
-public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
+public class IndiProfileLoginJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form CommercialProfileLoginMainJPanel
+     * Creates new form IndiProfileLoginJPanel
      */
-    public CommercialProfileLoginMainJPanel() {
+    JPanel jPanel2;
+    EcoSystem ecosystem;
+    Resident resident;
+    public IndiProfileLoginJPanel(JPanel mainJPanel, EcoSystem ecosystem, Resident resident) {
+        this.JPanelIndLogin = mainJPanel;
         initComponents();
+        this.ecosystem = ecosystem;
+        this.resident = resident;
     }
 
     /**
@@ -31,12 +42,12 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JPanelCommerciallLogin = new javax.swing.JPanel();
-        JPanelCommercialLoginMain = new javax.swing.JPanel();
+        JPanelIndLogin = new javax.swing.JPanel();
+        JPanelIndLoginMain = new javax.swing.JPanel();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        nameLabel = new javax.swing.JLabel();
+        logoutButton = new javax.swing.JButton();
         btnviewdashboard = new javax.swing.JButton();
         btnviewinfo = new javax.swing.JButton();
         btnviewbookingdetails = new javax.swing.JButton();
@@ -50,13 +61,15 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(1460, 850));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JPanelCommerciallLogin.setBackground(new java.awt.Color(255, 255, 255));
-        JPanelCommerciallLogin.setLayout(new java.awt.CardLayout());
+        JPanelIndLogin.setBackground(new java.awt.Color(255, 255, 255));
+        JPanelIndLogin.setPreferredSize(new java.awt.Dimension(1460, 850));
+        JPanelIndLogin.setLayout(new java.awt.CardLayout());
 
-        JPanelCommercialLoginMain.setBackground(new java.awt.Color(255, 255, 255));
-        JPanelCommercialLoginMain.setPreferredSize(new java.awt.Dimension(1460, 850));
+        JPanelIndLoginMain.setBackground(new java.awt.Color(255, 255, 255));
+        JPanelIndLoginMain.setPreferredSize(new java.awt.Dimension(1460, 850));
 
         kGradientPanel1.setkEndColor(new java.awt.Color(65, 118, 102));
         kGradientPanel1.setkGradientFocus(800);
@@ -67,18 +80,22 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Welcome to ReQube,");
 
-        jLabel8.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("jLabel8");
+        nameLabel.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
+        nameLabel.setForeground(new java.awt.Color(255, 255, 255));
 
-        jButton7.setBackground(new java.awt.Color(65, 118, 102));
-        jButton7.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_50px.png"))); // NOI18N
-        jButton7.setText("Logout");
-        jButton7.setBorder(null);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        logoutButton.setBackground(new java.awt.Color(65, 118, 102));
+        logoutButton.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
+        logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_50px.png"))); // NOI18N
+        logoutButton.setText("Logout");
+        logoutButton.setBorder(null);
+        logoutButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutButtonMouseClicked(evt);
+            }
+        });
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                logoutButtonActionPerformed(evt);
             }
         });
 
@@ -90,9 +107,9 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
                 .addGap(38, 38, 38)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
         );
         kGradientPanel1Layout.setVerticalGroup(
@@ -103,10 +120,10 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
                         .addGap(25, 25, 25)
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
@@ -248,144 +265,123 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Create Pick-up booking");
 
-        javax.swing.GroupLayout JPanelCommercialLoginMainLayout = new javax.swing.GroupLayout(JPanelCommercialLoginMain);
-        JPanelCommercialLoginMain.setLayout(JPanelCommercialLoginMainLayout);
-        JPanelCommercialLoginMainLayout.setHorizontalGroup(
-            JPanelCommercialLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout JPanelIndLoginMainLayout = new javax.swing.GroupLayout(JPanelIndLoginMain);
+        JPanelIndLoginMain.setLayout(JPanelIndLoginMainLayout);
+        JPanelIndLoginMainLayout.setHorizontalGroup(
+            JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1460, Short.MAX_VALUE)
-            .addGroup(JPanelCommercialLoginMainLayout.createSequentialGroup()
-                .addGroup(JPanelCommercialLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanelCommercialLoginMainLayout.createSequentialGroup()
+            .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
+                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
                         .addGap(364, 364, 364)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(52, 52, 52)
                         .addComponent(jLabel4)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(JPanelCommercialLoginMainLayout.createSequentialGroup()
+                    .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
                         .addGap(384, 384, 384)
-                        .addGroup(JPanelCommercialLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelCommercialLoginMainLayout.createSequentialGroup()
+                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndLoginMainLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jLabel5))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelCommercialLoginMainLayout.createSequentialGroup()
-                                .addGroup(JPanelCommercialLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JPanelCommercialLoginMainLayout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndLoginMainLayout.createSequentialGroup()
+                                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JPanelIndLoginMainLayout.createSequentialGroup()
                                         .addComponent(btnviewpickup, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(113, 113, 113)
                                         .addComponent(btnviewdropoff, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JPanelCommercialLoginMainLayout.createSequentialGroup()
-                                        .addGroup(JPanelCommercialLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JPanelIndLoginMainLayout.createSequentialGroup()
+                                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(btnviewprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(JPanelCommercialLoginMainLayout.createSequentialGroup()
+                                            .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
                                                 .addGap(21, 21, 21)
                                                 .addComponent(txtprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(JPanelCommercialLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
                                             .addComponent(btnviewinfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addGap(136, 136, 136)
-                                .addGroup(JPanelCommercialLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelCommercialLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(btnviewdashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(JPanelCommercialLoginMainLayout.createSequentialGroup()
+                                        .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
                                             .addGap(15, 15, 15)
                                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(btnviewbookingdetails, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(320, 320, 320))
         );
-        JPanelCommercialLoginMainLayout.setVerticalGroup(
-            JPanelCommercialLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanelCommercialLoginMainLayout.createSequentialGroup()
+        JPanelIndLoginMainLayout.setVerticalGroup(
+            JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
-                .addGroup(JPanelCommercialLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnviewprofile, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
                     .addComponent(btnviewinfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnviewdashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(JPanelCommercialLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
-                .addGroup(JPanelCommercialLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnviewpickup, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                     .addComponent(btnviewbookingdetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnviewdropoff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(17, 17, 17)
-                .addGroup(JPanelCommercialLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(172, Short.MAX_VALUE))
         );
 
-        JPanelCommerciallLogin.add(JPanelCommercialLoginMain, "card2");
+        JPanelIndLogin.add(JPanelIndLoginMain, "card2");
 
-        add(JPanelCommerciallLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 850));
+        add(JPanelIndLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 850));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void btnviewdashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewdashboardMouseEntered
-        // TODO add your handling code here:
-        btnviewdashboard.setBorder(BorderFactory.createEtchedBorder(0));
-    }//GEN-LAST:event_btnviewdashboardMouseEntered
-
-    private void btnviewdashboardMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewdashboardMouseExited
-        // TODO add your handling code here:
-        btnviewdashboard.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-    }//GEN-LAST:event_btnviewdashboardMouseExited
+    }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void btnviewdashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewdashboardActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnviewdashboardActionPerformed
 
-    private void btnviewinfoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewinfoMouseEntered
-        // TODO add your handling code here:
-        btnviewinfo.setBorder(BorderFactory.createEtchedBorder(0));
-    }//GEN-LAST:event_btnviewinfoMouseEntered
-
-    private void btnviewinfoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewinfoMouseExited
-        // TODO add your handling code here:
-        btnviewinfo.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-    }//GEN-LAST:event_btnviewinfoMouseExited
-
-    private void btnviewinfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewinfoActionPerformed
-        // TODO add your handling code here:
-
-        IndiInfoJPanel indiinfoJPanel = new IndiInfoJPanel(JPanelCommerciallLogin);
-        CardLayout layout = (CardLayout) JPanelCommerciallLogin.getLayout();
-        JPanelCommerciallLogin.add("individualpickupbooking", indiinfoJPanel);
-
-        layout.next(JPanelCommerciallLogin);
-    }//GEN-LAST:event_btnviewinfoActionPerformed
-
-    private void btnviewbookingdetailsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewbookingdetailsMouseEntered
-        // TODO add your handling code here:
-        btnviewbookingdetails.setBorder(BorderFactory.createEtchedBorder(0));
-    }//GEN-LAST:event_btnviewbookingdetailsMouseEntered
-
-    private void btnviewbookingdetailsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewbookingdetailsMouseExited
-        // TODO add your handling code here:
-        btnviewbookingdetails.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-    }//GEN-LAST:event_btnviewbookingdetailsMouseExited
-
     private void btnviewbookingdetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewbookingdetailsActionPerformed
         // TODO add your handling code here:
+        
+        IndiBookingHistoryJPanel indibookingdetails = new IndiBookingHistoryJPanel(JPanelIndLogin,  ecosystem, resident);
+        CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
+        JPanelIndLogin.add("individualBookingDetails", indibookingdetails);
 
-//        IndiBookingHistoryJPanel indibookingdetails = new IndiBookingHistoryJPanel(JPanelCommerciallLogin);
-//        CardLayout layout = (CardLayout) JPanelCommerciallLogin.getLayout();
-//        JPanelCommerciallLogin.add("individualBookingDetails", indibookingdetails);
-//
-//        layout.next(JPanelCommerciallLogin);
+        layout.next(JPanelIndLogin);
     }//GEN-LAST:event_btnviewbookingdetailsActionPerformed
+
+    private void btnviewprofileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewprofileActionPerformed
+        // TODO add your handling code here:
+
+        IndiProfileDetailsJPanel indiprofiledetails = new IndiProfileDetailsJPanel(JPanelIndLogin,  ecosystem, resident);
+        CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
+        JPanelIndLogin.add("individualProfileDetails", indiprofiledetails);
+
+        layout.next(JPanelIndLogin);
+    }//GEN-LAST:event_btnviewprofileActionPerformed
+
+    private void btnviewdropoffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewdropoffActionPerformed
+        // TODO add your handling code here:
+        IndiProfileDropOffJPanel indidropOffJPanel = new IndiProfileDropOffJPanel(JPanelIndLogin, ecosystem, resident);
+        CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
+        JPanelIndLogin.add("individualdropoffbooking", indidropOffJPanel);
+
+        layout.next(JPanelIndLogin);
+    }//GEN-LAST:event_btnviewdropoffActionPerformed
 
     private void btnviewprofileMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewprofileMouseEntered
         // TODO add your handling code here:
-        btnviewprofile.setBorder(BorderFactory.createEtchedBorder(0));
+        btnviewprofile.setBorder(BorderFactory.createEtchedBorder(0));  
     }//GEN-LAST:event_btnviewprofileMouseEntered
 
     private void btnviewprofileMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewprofileMouseExited
@@ -393,15 +389,25 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
         btnviewprofile.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
     }//GEN-LAST:event_btnviewprofileMouseExited
 
-    private void btnviewprofileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewprofileActionPerformed
+    private void btnviewinfoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewinfoMouseEntered
         // TODO add your handling code here:
+        btnviewinfo.setBorder(BorderFactory.createEtchedBorder(0));  
+    }//GEN-LAST:event_btnviewinfoMouseEntered
 
-//        IndiProfileDetailsJPanel indiprofiledetails = new IndiProfileDetailsJPanel(JPanelCommerciallLogin);
-//        CardLayout layout = (CardLayout) JPanelCommerciallLogin.getLayout();
-//        JPanelCommerciallLogin.add("individualProfileDetails", indiprofiledetails);
-//
-//        layout.next(JPanelCommerciallLogin);
-    }//GEN-LAST:event_btnviewprofileActionPerformed
+    private void btnviewinfoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewinfoMouseExited
+        // TODO add your handling code here:
+        btnviewinfo.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+    }//GEN-LAST:event_btnviewinfoMouseExited
+
+    private void btnviewdashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewdashboardMouseEntered
+        // TODO add your handling code here:
+        btnviewdashboard.setBorder(BorderFactory.createEtchedBorder(0));  
+    }//GEN-LAST:event_btnviewdashboardMouseEntered
+
+    private void btnviewdashboardMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewdashboardMouseExited
+        // TODO add your handling code here:
+        btnviewdashboard.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+    }//GEN-LAST:event_btnviewdashboardMouseExited
 
     private void btnviewpickupMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewpickupMouseEntered
         // TODO add your handling code here:
@@ -413,18 +419,9 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
         btnviewpickup.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
     }//GEN-LAST:event_btnviewpickupMouseExited
 
-    private void btnviewpickupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewpickupActionPerformed
-        // TODO add your handling code here:
-//        IndiProfilePickUpJPanel indipickupJPanel = new IndiProfilePickUpJPanel(JPanelCommerciallLogin, ecosystem, resident);
-//        CardLayout layout = (CardLayout) JPanelCommerciallLogin.getLayout();
-//        JPanelCommerciallLogin.add("individualpickupbooking", indipickupJPanel);
-//
-//        layout.next(JPanelCommerciallLogin);
-    }//GEN-LAST:event_btnviewpickupActionPerformed
-
     private void btnviewdropoffMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewdropoffMouseEntered
         // TODO add your handling code here:
-        btnviewdropoff.setBorder(BorderFactory.createEtchedBorder(0));
+        btnviewdropoff.setBorder(BorderFactory.createEtchedBorder(0));  
     }//GEN-LAST:event_btnviewdropoffMouseEntered
 
     private void btnviewdropoffMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewdropoffMouseExited
@@ -432,34 +429,59 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
         btnviewdropoff.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
     }//GEN-LAST:event_btnviewdropoffMouseExited
 
-    private void btnviewdropoffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewdropoffActionPerformed
+    private void btnviewbookingdetailsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewbookingdetailsMouseEntered
         // TODO add your handling code here:
-//        IndiProfileDropOffJPanel indidropOffJPanel = new IndiProfileDropOffJPanel(JPanelCommerciallLogin);
-//        CardLayout layout = (CardLayout) JPanelCommerciallLogin.getLayout();
-//        JPanelCommerciallLogin.add("individualdropoffbooking", indidropOffJPanel);
-//
-//        layout.next(JPanelCommerciallLogin);
-    }//GEN-LAST:event_btnviewdropoffActionPerformed
+        btnviewbookingdetails.setBorder(BorderFactory.createEtchedBorder(0));  
+    }//GEN-LAST:event_btnviewbookingdetailsMouseEntered
+
+    private void btnviewbookingdetailsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewbookingdetailsMouseExited
+        // TODO add your handling code here:
+        btnviewbookingdetails.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+    }//GEN-LAST:event_btnviewbookingdetailsMouseExited
+
+    private void btnviewpickupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewpickupActionPerformed
+        // TODO add your handling code here:
+        IndiProfilePickUpJPanel indipickupJPanel = new IndiProfilePickUpJPanel(JPanelIndLogin, ecosystem, resident);
+        CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
+        JPanelIndLogin.add("individualpickupbooking", indipickupJPanel);
+
+        layout.next(JPanelIndLogin);
+    }//GEN-LAST:event_btnviewpickupActionPerformed
+
+    private void btnviewinfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewinfoActionPerformed
+        // TODO add your handling code here:
+        
+        IndiInfoJPanel indiinfoJPanel = new IndiInfoJPanel(JPanelIndLogin);
+        CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
+        JPanelIndLogin.add("individualpickupbooking", indiinfoJPanel);
+
+        layout.next(JPanelIndLogin);
+    }//GEN-LAST:event_btnviewinfoActionPerformed
+
+    private void logoutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutButtonMouseClicked
+        // TODO add your handling code here:
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+    }//GEN-LAST:event_logoutButtonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel JPanelCommercialLoginMain;
-    private javax.swing.JPanel JPanelCommerciallLogin;
+    private javax.swing.JPanel JPanelIndLogin;
+    private javax.swing.JPanel JPanelIndLoginMain;
     private javax.swing.JButton btnviewbookingdetails;
     private javax.swing.JButton btnviewdashboard;
     private javax.swing.JButton btnviewdropoff;
     private javax.swing.JButton btnviewinfo;
     private javax.swing.JButton btnviewpickup;
     private javax.swing.JButton btnviewprofile;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private keeptoo.KGradientPanel kGradientPanel1;
+    private javax.swing.JButton logoutButton;
+    private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel txtprofile;
     // End of variables declaration//GEN-END:variables
 }
