@@ -159,6 +159,11 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
 
         jPanel4.setBackground(new java.awt.Color(221, 228, 186));
         jPanel4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
+            }
+        });
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/order_history_24px.png"))); // NOI18N
@@ -189,6 +194,11 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
 
         jPanel5.setBackground(new java.awt.Color(221, 228, 186));
         jPanel5.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel5MouseClicked(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -577,12 +587,6 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnMgmtHomeMouseClicked
 
     private void btnManageRefurbishedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageRefurbishedMouseClicked
-        // TODO add your handling code here:
-//                LogisticsProfileSchedulePickup logisticsschedulePick = new LogisticsProfileSchedulePickup(LogisticsJPanelDynamicPickup);
-//                CardLayout layout = (CardLayout) LogisticsJPanelDynamicPickup.getLayout();
-//                LogisticsJPanelDynamicPickup.add("logisticsPick", logisticsschedulePick);
-//        
-//                layout.next(LogisticsJPanelDynamicPickup);
 
                   ManageRefurbishedItemsJPanel manageRefurbished = new ManageRefurbishedItemsJPanel(ManagmentDivDynamicJPanel);
                   CardLayout layout = (CardLayout) ManagmentDivDynamicJPanel.getLayout();
@@ -599,6 +603,27 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
 //        
                   layout.next(ManagmentDivDynamicJPanel);
     }//GEN-LAST:event_btnManageRecycledMouseClicked
+
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+        // TODO add your handling code here:
+        
+        ManageOrderedItemsJPanel manageorder = new ManageOrderedItemsJPanel(ManagmentDivDynamicJPanel);
+        CardLayout layout = (CardLayout) ManagmentDivDynamicJPanel.getLayout();
+                  ManagmentDivDynamicJPanel.add("OrderManagement", manageorder);
+//        
+                  layout.next(ManagmentDivDynamicJPanel);
+    }//GEN-LAST:event_jPanel4MouseClicked
+
+    private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
+        // TODO add your handling code here:
+        
+        ManageRewardJPanel managerewards = new ManageRewardJPanel(ManagmentDivDynamicJPanel);
+        CardLayout layout = (CardLayout) ManagmentDivDynamicJPanel.getLayout();
+                  ManagmentDivDynamicJPanel.add("OrderManagement", managerewards);
+//        
+                  layout.next(ManagmentDivDynamicJPanel);
+        
+    }//GEN-LAST:event_jPanel5MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
