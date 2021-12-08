@@ -9,6 +9,8 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import models.EcoSystem;
+import models.User.Customer.Resident;
 
 /**
  *
@@ -20,9 +22,13 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
      * Creates new form IndiProfileLoginJPanel
      */
     JPanel jPanel2;
-    public IndiProfileLoginJPanel(JPanel IndiProfileLoginJPanel) {
-        this.JPanelIndLogin = IndiProfileLoginJPanel;
+    EcoSystem ecosystem;
+    Resident resident;
+    public IndiProfileLoginJPanel(JPanel mainJPanel, EcoSystem ecosystem, Resident resident) {
+        this.JPanelIndLogin = mainJPanel;
         initComponents();
+        this.ecosystem = ecosystem;
+        this.resident = resident;
     }
 
     /**
@@ -429,7 +435,7 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
 
     private void btnviewpickupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewpickupActionPerformed
         // TODO add your handling code here:
-        IndiProfilePickUpJPanel indipickupJPanel = new IndiProfilePickUpJPanel(JPanelIndLogin);
+        IndiProfilePickUpJPanel indipickupJPanel = new IndiProfilePickUpJPanel(JPanelIndLogin, ecosystem, resident);
         CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
         JPanelIndLogin.add("individualpickupbooking", indipickupJPanel);
 

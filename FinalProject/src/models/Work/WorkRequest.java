@@ -6,6 +6,7 @@
 package models.Work;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 /**
  *
@@ -15,14 +16,20 @@ import java.time.LocalDateTime;
 
 public abstract class WorkRequest {
 
-    private String message;
+    private String id;
+    protected String message;
     private LocalDateTime requestDate;
     private LocalDateTime resolveDate;
-    private String status;
+    protected String status;
     
     
     public WorkRequest(){
+        this.id = UUID.randomUUID().toString().substring(0,5);
         this.requestDate = LocalDateTime.now();
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getMessage() {

@@ -6,6 +6,7 @@
 package models.User.Customer;
 
 import java.util.ArrayList;
+import models.User.UserAccount;
 
 /**
  *
@@ -35,5 +36,18 @@ public class CustomerDirectory {
         return commercialCustomers;
     }
     
+    public Resident getResidentByUserAccount(UserAccount userAccount) {
+        for (Resident resident: this.residents) {
+            if (resident.getUserAccount() == userAccount) return resident;
+        }
+        return null;
+    }
+    
+    public Resident getCommercialByUserAccount(UserAccount userAccount) {
+//        for (Commercial commercial: this.commercialCustomers) {
+//            if (resident.getUserAccount() == userAccount) return resident;
+//        }
+        return null;
+    }
     
 }

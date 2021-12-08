@@ -9,6 +9,6 @@ package models.Work;
  *
  * @author phaniginjupalli
  */
-public class RetailOrder extends WorkRequest{
+public class QCInspection extends WorkRequest{
     
 }

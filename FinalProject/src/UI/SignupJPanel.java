@@ -5,7 +5,13 @@
  */
 package UI;
 
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import models.DB4OUtil.DB4OUtil;
+import models.EcoSystem;
+import models.User.Customer.Commercial;
+import models.User.Customer.Resident;
 
 /**
  *
@@ -17,10 +23,13 @@ public class SignupJPanel extends javax.swing.JPanel {
      * Creates new form SignupJPanel
      */
     
-     private JPanel jPanel;
+    
+    private JPanel jPanel;
+    EcoSystem ecosystem;
      
-    public SignupJPanel(JPanel JPanelSignup) {
+    public SignupJPanel(JPanel JPanelSignup, EcoSystem ecosystem) {
         initComponents();
+        this.ecosystem = ecosystem;
         this.JPanelSignup = JPanelSignup;
     }
 
@@ -69,6 +78,11 @@ public class SignupJPanel extends javax.swing.JPanel {
         lblTypeOfUser.setText("Type of User");
 
         typeofuserdropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Individual", "Community", "Organization" }));
+        typeofuserdropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                typeofuserdropdownActionPerformed(evt);
+            }
+        });
 
         lblEmail.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblEmail.setText("Email ID");
@@ -96,6 +110,11 @@ public class SignupJPanel extends javax.swing.JPanel {
 
         btnSubmitsignup.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         btnSubmitsignup.setText("Submit");
+        btnSubmitsignup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitsignupActionPerformed(evt);
+            }
+        });
 
         kGradientPanel1.setkEndColor(new java.awt.Color(65, 118, 102));
         kGradientPanel1.setkGradientFocus(800);
@@ -129,7 +148,7 @@ public class SignupJPanel extends javax.swing.JPanel {
                 .addComponent(lblsignup1)
                 .addGap(57, 57, 57)
                 .addComponent(jLabel7)
-                .addContainerGap(1246, Short.MAX_VALUE))
+                .addContainerGap(1247, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout JPanelSignupLayout = new javax.swing.GroupLayout(JPanelSignup);
@@ -219,6 +238,47 @@ public class SignupJPanel extends javax.swing.JPanel {
     private void txtpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtpasswordActionPerformed
+
+    private void btnSubmitsignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitsignupActionPerformed
+        // TODO add your handling code here:
+        String username = txtusername.getText();
+        String password = txtpassword.getText();
+        String email = txtemailid.getText();
+        String mobile = txtmobnumber.getText();
+        String name = txtname.getText();
+        String userType = (String) typeofuserdropdown.getSelectedItem();
+        if (username.equals("") || password.equals("") || email.equals("") || mobile.equals("") || name.equals("")) {
+            JOptionPane.showMessageDialog(this, "All fields are required");
+            return;
+        }
+        if (userType.equals("Individual")) {
+            Resident resident = new Resident(username, password);
+            resident.setFullName(name);
+            resident.setPhone(mobile);
+            resident.setAddress(mobile);
+            resident.setEmail(email);
+            this.ecosystem.getUserAccountDirectory().addUserAccount(resident.getUserAccount());
+            this.ecosystem.getCustomerDirectory().addResidents(resident);
+        } else {
+//            Commercial resident = new Commercial(username, password);
+//            resident.setFullName(name);
+//            resident.setPhone(mobile);
+//            resident.setAddress(mobile);
+//            resident.setEmail(email);
+        }
+        JOptionPane.showMessageDialog(this, "You are all set!");
+        DB4OUtil.getInstance().storeSystem(ecosystem);
+        
+//        IndiProfileLoginJPanel indiLogin = new IndiProfileLoginJPanel(IndiProfileLoginJPanel);
+//        CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
+//        JPanelIndLogin.add("individualBookingDetails", indibookingdetails);
+//
+//        layout.next(JPanelIndLogin);
+    }//GEN-LAST:event_btnSubmitsignupActionPerformed
+
+    private void typeofuserdropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeofuserdropdownActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_typeofuserdropdownActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

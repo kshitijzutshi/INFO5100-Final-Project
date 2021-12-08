@@ -7,6 +7,8 @@ package UI;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import models.EcoSystem;
+import models.User.Customer.Resident;
 
 /**
  *
@@ -18,9 +20,13 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
      * Creates new form IndiProfilePickUpJPanel
      */
     JPanel jpanel7;
-    public IndiProfilePickUpJPanel(JPanel IndiPickUpJPanel) {
+    EcoSystem ecosystem;
+    Resident resident;
+    public IndiProfilePickUpJPanel(JPanel IndiPickUpJPanel, EcoSystem ecosystem, Resident resident) {
         initComponents();
         this.JPanelIndPickUpMain = IndiPickUpJPanel;
+        this.ecosystem = ecosystem;
+        this.resident = resident;
     }
 
     /**

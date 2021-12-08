@@ -51,4 +51,12 @@ public class EmployeeDirectory {
     }
     
     
+    public LogisticsMan getNextAvailableLogisticsMan() {
+        for (LogisticsMan logisticsMan: this.logisticsMen) {
+            if (logisticsMan.isAvailable()) return logisticsMan;
+        }
+        return null;
+    }
+    
+    
 }
