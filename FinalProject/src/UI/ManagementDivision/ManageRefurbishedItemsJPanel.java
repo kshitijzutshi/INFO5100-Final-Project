@@ -5,7 +5,9 @@
  */
 package UI.ManagementDivision;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -33,7 +35,7 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
 
         ManageRefurbJPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblrefurbished = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -54,7 +56,7 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setBorder(null);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblrefurbished.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -70,9 +72,9 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
-        jTable1.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        jScrollPane1.setViewportView(jTable1);
+        tblrefurbished.setGridColor(new java.awt.Color(255, 255, 255));
+        tblrefurbished.setIntercellSpacing(new java.awt.Dimension(5, 5));
+        jScrollPane1.setViewportView(tblrefurbished);
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -108,7 +110,12 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
 
         jButton1.setBackground(new java.awt.Color(205, 223, 245));
         jButton1.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jButton1.setText("View");
+        jButton1.setText("View Details");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(205, 223, 245));
         jButton2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
@@ -125,7 +132,7 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
                 .addGap(25, 25, 25)
                 .addGroup(ManageRefurbJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(ManageRefurbJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ManageRefurbJPanelLayout.createSequentialGroup()
                         .addGap(38, 38, 38)
@@ -190,6 +197,28 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtpriceActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+
+         int selectedRow = tblrefurbished.getSelectedRow();
+        
+        if(selectedRow < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tblrefurbished.getModel();
+        
+        String ewaste = (String) model.getValueAt(selectedRow, 0);
+        String appliancetype = (String) model.getValueAt(selectedRow, 2);
+        Float weight = (Float) model.getValueAt(selectedRow, 3);
+        
+        txtcategory.setText(ewaste);
+        txtappliancetype.setText(appliancetype);
+        txtweight.setText(String.valueOf(weight));
+         
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ManageRefurbJPanel;
@@ -202,7 +231,7 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblrefurbished;
     private javax.swing.JTextField txtappliancetype;
     private javax.swing.JTextField txtcategory;
     private javax.swing.JTextField txtprice;

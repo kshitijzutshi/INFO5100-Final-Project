@@ -312,7 +312,7 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
                 .addComponent(jLabel13)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -332,7 +332,7 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
         sysadminDynamicMainJPanel.setLayout(sysadminDynamicMainJPanelLayout);
         sysadminDynamicMainJPanelLayout.setHorizontalGroup(
             sysadminDynamicMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 986, Short.MAX_VALUE)
         );
         sysadminDynamicMainJPanelLayout.setVerticalGroup(
             sysadminDynamicMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
