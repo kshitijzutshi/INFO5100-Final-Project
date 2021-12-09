@@ -106,11 +106,11 @@
             <Container class="keeptoo.KGradientPanel" name="kGradientPanel4">
               <Properties>
                 <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="76" red="41" type="rgb"/>
+                  <Color blue="d3" green="be" red="a7" type="rgb"/>
                 </Property>
-                <Property name="kGradientFocus" type="int" value="50"/>
+                <Property name="kGradientFocus" type="int" value="0"/>
                 <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ba" green="e4" red="dd" type="rgb"/>
+                  <Color blue="d3" green="be" red="a7" type="rgb"/>
                 </Property>
               </Properties>
 
@@ -192,11 +192,11 @@
             <Container class="keeptoo.KGradientPanel" name="kGradientPanel6">
               <Properties>
                 <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="76" red="41" type="rgb"/>
+                  <Color blue="d3" green="be" red="a7" type="rgb"/>
                 </Property>
-                <Property name="kGradientFocus" type="int" value="50"/>
+                <Property name="kGradientFocus" type="int" value="0"/>
                 <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ba" green="e4" red="dd" type="rgb"/>
+                  <Color blue="d3" green="be" red="a7" type="rgb"/>
                 </Property>
               </Properties>
 
@@ -273,11 +273,11 @@
             <Container class="keeptoo.KGradientPanel" name="kGradientPanel5">
               <Properties>
                 <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="76" red="41" type="rgb"/>
+                  <Color blue="d3" green="be" red="a7" type="rgb"/>
                 </Property>
-                <Property name="kGradientFocus" type="int" value="50"/>
+                <Property name="kGradientFocus" type="int" value="0"/>
                 <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ba" green="e4" red="dd" type="rgb"/>
+                  <Color blue="d3" green="be" red="a7" type="rgb"/>
                 </Property>
               </Properties>
 
