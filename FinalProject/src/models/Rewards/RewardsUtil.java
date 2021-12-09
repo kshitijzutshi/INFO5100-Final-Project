@@ -5,10 +5,56 @@
  */
 package models.Rewards;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
 /**
  *
  * @author phaniginjupalli
  */
 public class RewardsUtil {
    
+    public static int getRewardPoints(String category, String subCategory, String itemType) {
+        JSONParser parser = new JSONParser();
+        try {
+            File file = new File(RewardsUtil.class.getResource("RewardsConfig.json").toURI());
+            Object obj = parser.parse(new FileReader(file));
+            JSONObject rewardsConfig = (JSONObject) obj;
+            JSONObject categoryConfig = (JSONObject) rewardsConfig.get(category);
+            JSONObject subCatConfig = (JSONObject) categoryConfig.get(subCategory);
+            return (itemType.equals("RECYCLE")) ? ((Long) subCatConfig.get("recycle")).intValue() : ((Long) subCatConfig.get("refurb")).intValue();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return 0;
+    }
+    
+    
+    public static int updateRewardPoints(String category, String subCategory, String itemType, int value) {
+        JSONParser parser = new JSONParser();
+        try {
+            File file = new File(RewardsUtil.class.getResource("RewardsConfig.json").toURI());
+            Object obj = parser.parse(new FileReader(file));
+            JSONObject rewardsConfig = (JSONObject) obj;
+            JSONObject categoryConfig = (JSONObject) rewardsConfig.get(category);
+            JSONObject subCatConfig = (JSONObject) categoryConfig.get(subCategory);
+            subCatConfig.put(itemType, value);
+            
+            categoryConfig.put(subCategory, subCatConfig);
+            rewardsConfig.put(category, categoryConfig);
+            FileWriter writeFile = new FileWriter("src/models/Rewards/RewardsConfig.json");
+            writeFile.write(rewardsConfig.toJSONString());
+            writeFile.flush();
+            writeFile.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return 0;
+    }
+    
+    
 }
