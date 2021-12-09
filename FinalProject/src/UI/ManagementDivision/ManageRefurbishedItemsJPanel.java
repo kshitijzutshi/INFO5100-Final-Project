@@ -84,19 +84,19 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel3.setText("Applicance Type:");
 
-        txtappliancetype.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtappliancetype.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
-        txtcategory.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtcategory.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel4.setText("Weight:");
 
-        txtweight.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtweight.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel5.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel5.setText("Refurbished Item Price:");
 
-        txtprice.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtprice.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
         txtprice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtpriceActionPerformed(evt);
@@ -106,9 +106,13 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/repaire.png"))); // NOI18N
         jLabel6.setText("jLabel6");
 
-        jButton1.setText("jButton1");
+        jButton1.setBackground(new java.awt.Color(205, 223, 245));
+        jButton1.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jButton1.setText("View");
 
-        jButton2.setText("jButton2");
+        jButton2.setBackground(new java.awt.Color(205, 223, 245));
+        jButton2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jButton2.setText("Set Price");
 
         javax.swing.GroupLayout ManageRefurbJPanelLayout = new javax.swing.GroupLayout(ManageRefurbJPanel);
         ManageRefurbJPanel.setLayout(ManageRefurbJPanelLayout);

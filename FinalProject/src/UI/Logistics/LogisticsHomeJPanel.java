@@ -50,8 +50,9 @@ public class LogisticsHomeJPanel extends javax.swing.JPanel {
 
         LogisticsHomeMain.setBackground(new java.awt.Color(255, 255, 255));
 
-        kGradientPanel4.setkEndColor(new java.awt.Color(128, 193, 115));
-        kGradientPanel4.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel4.setkEndColor(new java.awt.Color(167, 190, 211));
+        kGradientPanel4.setkGradientFocus(0);
+        kGradientPanel4.setkStartColor(new java.awt.Color(167, 190, 211));
 
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -95,8 +96,9 @@ public class LogisticsHomeJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        kGradientPanel5.setkEndColor(new java.awt.Color(128, 193, 115));
-        kGradientPanel5.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel5.setkEndColor(new java.awt.Color(167, 190, 211));
+        kGradientPanel5.setkGradientFocus(0);
+        kGradientPanel5.setkStartColor(new java.awt.Color(167, 190, 211));
 
         jLabel7.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -140,8 +142,9 @@ public class LogisticsHomeJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        kGradientPanel3.setkEndColor(new java.awt.Color(128, 193, 115));
-        kGradientPanel3.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel3.setkEndColor(new java.awt.Color(167, 190, 211));
+        kGradientPanel3.setkGradientFocus(0);
+        kGradientPanel3.setkStartColor(new java.awt.Color(167, 190, 211));
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));

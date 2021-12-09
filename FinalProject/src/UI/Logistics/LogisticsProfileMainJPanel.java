@@ -35,9 +35,6 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
         LogisticsLoginMainJPanel = new javax.swing.JPanel();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnLogisticsRecycleRefurb = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         btnLogisticsHome = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -71,52 +68,16 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.CardLayout());
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(65, 118, 102));
-        kGradientPanel1.setkGradientFocus(200);
-        kGradientPanel1.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel1.setkEndColor(new java.awt.Color(198, 226, 233));
+        kGradientPanel1.setkGradientFocus(800);
+        kGradientPanel1.setkStartColor(new java.awt.Color(167, 190, 211));
         kGradientPanel1.setPreferredSize(new java.awt.Dimension(500, 1460));
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 22)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("ReQube Operations");
 
-        btnLogisticsRecycleRefurb.setBackground(new java.awt.Color(221, 228, 186));
-        btnLogisticsRecycleRefurb.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
-        btnLogisticsRecycleRefurb.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnLogisticsRecycleRefurbMouseClicked(evt);
-            }
-        });
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/prepaid_recharge_24px.png"))); // NOI18N
-
-        jLabel3.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Recycle/Refurbish Jobs ");
-
-        javax.swing.GroupLayout btnLogisticsRecycleRefurbLayout = new javax.swing.GroupLayout(btnLogisticsRecycleRefurb);
-        btnLogisticsRecycleRefurb.setLayout(btnLogisticsRecycleRefurbLayout);
-        btnLogisticsRecycleRefurbLayout.setHorizontalGroup(
-            btnLogisticsRecycleRefurbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnLogisticsRecycleRefurbLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        btnLogisticsRecycleRefurbLayout.setVerticalGroup(
-            btnLogisticsRecycleRefurbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnLogisticsRecycleRefurbLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(btnLogisticsRecycleRefurbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        btnLogisticsHome.setBackground(new java.awt.Color(221, 228, 186));
-        btnLogisticsHome.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+        btnLogisticsHome.setBackground(new java.awt.Color(167, 190, 211));
         btnLogisticsHome.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnLogisticsHomeMouseClicked(evt);
@@ -127,6 +88,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home_24px.png"))); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Home");
 
@@ -147,12 +109,11 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(btnLogisticsHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        btnViewPickUpHistory.setBackground(new java.awt.Color(221, 228, 186));
-        btnViewPickUpHistory.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+        btnViewPickUpHistory.setBackground(new java.awt.Color(167, 190, 211));
         btnViewPickUpHistory.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnViewPickUpHistoryMouseClicked(evt);
@@ -163,6 +124,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/order_history_24px.png"))); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("View Pick-up History");
 
         javax.swing.GroupLayout btnViewPickUpHistoryLayout = new javax.swing.GroupLayout(btnViewPickUpHistory);
@@ -181,15 +143,14 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
             .addGroup(btnViewPickUpHistoryLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(btnViewPickUpHistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        jLabel12.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 0, new java.awt.Color(102, 204, 0)));
+        jLabel12.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 0, new java.awt.Color(0, 0, 0)));
 
-        btnViewScheduledPickup.setBackground(new java.awt.Color(221, 228, 186));
-        btnViewScheduledPickup.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+        btnViewScheduledPickup.setBackground(new java.awt.Color(167, 190, 211));
         btnViewScheduledPickup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnViewScheduledPickupMouseClicked(evt);
@@ -200,6 +161,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/recycle_24px.png"))); // NOI18N
 
         jLabel18.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(51, 51, 51));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("View Scheduled Pick-Up");
 
@@ -212,26 +174,26 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel18)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         btnViewScheduledPickupLayout.setVerticalGroup(
             btnViewScheduledPickupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnViewScheduledPickupLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(btnViewScheduledPickupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        btnLogisticsLogout.setBackground(new java.awt.Color(221, 228, 186));
-        btnLogisticsLogout.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+        btnLogisticsLogout.setBackground(new java.awt.Color(167, 190, 211));
 
         jLabel15.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_30px.png"))); // NOI18N
 
         jLabel16.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(51, 51, 51));
         jLabel16.setText("Logout");
 
         javax.swing.GroupLayout btnLogisticsLogoutLayout = new javax.swing.GroupLayout(btnLogisticsLogout);
@@ -250,7 +212,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
             .addGroup(btnLogisticsLogoutLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(btnLogisticsLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -260,21 +222,20 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel1Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnLogisticsRecycleRefurb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnLogisticsHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnViewPickUpHistory, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnViewScheduledPickup, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnLogisticsLogout, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(44, Short.MAX_VALUE))
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnLogisticsLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnViewPickUpHistory, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnViewScheduledPickup, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnLogisticsHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,30 +244,28 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12)
-                .addGap(43, 43, 43)
+                .addGap(81, 81, 81)
                 .addComponent(btnLogisticsHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnLogisticsRecycleRefurb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnViewScheduledPickup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnViewPickUpHistory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnLogisticsLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(910, Short.MAX_VALUE))
+                .addContainerGap(980, Short.MAX_VALUE))
         );
 
-        kGradientPanel2.setkEndColor(new java.awt.Color(65, 118, 102));
+        kGradientPanel2.setkEndColor(new java.awt.Color(198, 226, 233));
         kGradientPanel2.setkGradientFocus(800);
-        kGradientPanel2.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel2.setkStartColor(new java.awt.Color(167, 190, 211));
         kGradientPanel2.setPreferredSize(new java.awt.Dimension(300, 1460));
 
         jLabel13.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setForeground(new java.awt.Color(51, 51, 51));
         jLabel13.setText("Welcome to ReQube,");
 
         jLabel14.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
         jLabel14.setText("Emp_Logistics_DIV");
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
@@ -318,7 +277,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel13)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addContainerGap(353, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,15 +293,16 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
 
         LogisticsLoginDynamicMainJPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        kGradientPanel3.setkEndColor(new java.awt.Color(128, 193, 115));
-        kGradientPanel3.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel3.setkEndColor(new java.awt.Color(167, 190, 211));
+        kGradientPanel3.setkGradientFocus(0);
+        kGradientPanel3.setkStartColor(new java.awt.Color(167, 190, 211));
 
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Number of Trips made Till Date");
 
         jLabel5.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("800");
 
@@ -380,15 +340,16 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
 
-        kGradientPanel4.setkEndColor(new java.awt.Color(128, 193, 115));
-        kGradientPanel4.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel4.setkEndColor(new java.awt.Color(167, 190, 211));
+        kGradientPanel4.setkGradientFocus(0);
+        kGradientPanel4.setkStartColor(new java.awt.Color(167, 190, 211));
 
         jLabel20.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setForeground(new java.awt.Color(51, 51, 51));
         jLabel20.setText("Total Logistics Personnel Available");
 
         jLabel21.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setForeground(new java.awt.Color(51, 51, 51));
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("800");
 
@@ -425,15 +386,16 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        kGradientPanel5.setkEndColor(new java.awt.Color(128, 193, 115));
-        kGradientPanel5.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel5.setkEndColor(new java.awt.Color(167, 190, 211));
+        kGradientPanel5.setkGradientFocus(0);
+        kGradientPanel5.setkStartColor(new java.awt.Color(167, 190, 211));
 
         jLabel23.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setForeground(new java.awt.Color(51, 51, 51));
         jLabel23.setText("Number of Past Pick-Ups");
 
         jLabel24.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setForeground(new java.awt.Color(51, 51, 51));
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setText("800");
 
@@ -508,9 +470,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(LogisticsLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LogisticsLoginMainJPanelLayout.createSequentialGroup()
-                        .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0))
+                    .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1367, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LogisticsLoginDynamicJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         LogisticsLoginMainJPanelLayout.setVerticalGroup(
@@ -526,16 +486,6 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
 
         add(LogisticsLoginMainJPanel, "card2");
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnLogisticsRecycleRefurbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogisticsRecycleRefurbMouseClicked
-        // TODO add your handling code here:
-        
-
-        LogisticsProfileRecycleRefurbPanel logisticsRecycleRefurb = new LogisticsProfileRecycleRefurbPanel(LogisticsLoginDynamicJPanel);
-        CardLayout layout = (CardLayout) LogisticsLoginDynamicJPanel.getLayout();
-        LogisticsLoginDynamicJPanel.add("logisticsRecycle", logisticsRecycleRefurb);
-        layout.next(LogisticsLoginDynamicJPanel);
-    }//GEN-LAST:event_btnLogisticsRecycleRefurbMouseClicked
 
     private void btnLogisticsHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogisticsHomeMouseClicked
         // TODO add your handling code here:
@@ -571,7 +521,6 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel LogisticsLoginMainJPanel;
     private javax.swing.JPanel btnLogisticsHome;
     private javax.swing.JPanel btnLogisticsLogout;
-    private javax.swing.JPanel btnLogisticsRecycleRefurb;
     private javax.swing.JPanel btnViewPickUpHistory;
     private javax.swing.JPanel btnViewScheduledPickup;
     private javax.swing.JLabel jLabel1;
@@ -583,14 +532,12 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

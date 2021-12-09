@@ -86,10 +86,8 @@
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jPanel5" alignment="1" max="32767" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel1" alignment="0" pref="271" max="32767" attributes="0"/>
-                              <Component id="jLabel12" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="jLabel1" alignment="0" pref="304" max="32767" attributes="0"/>
+                          <Component id="jLabel12" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel7" alignment="0" max="32767" attributes="0"/>
                           <Component id="btnMgmtHome" max="32767" attributes="0"/>
                           <Component id="btnManageRefurbished" alignment="0" max="32767" attributes="0"/>
@@ -374,7 +372,7 @@
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="0" left="0" right="0" top="2">
-                      <Color PropertyName="color" blue="0" green="cc" red="66" type="rgb"/>
+                      <Color PropertyName="color" blue="33" green="33" red="33" type="rgb"/>
                     </MatteColorBorder>
                   </Border>
                 </Property>

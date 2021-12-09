@@ -40,6 +40,8 @@ public class LogisticsProfilePastOrdersJPanel extends javax.swing.JPanel {
 
         LogisticsPastOrdersMain.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel4.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Past Orders");
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -72,23 +74,20 @@ public class LogisticsProfilePastOrdersJPanel extends javax.swing.JPanel {
         LogisticsPastOrdersMain.setLayout(LogisticsPastOrdersMainLayout);
         LogisticsPastOrdersMainLayout.setHorizontalGroup(
             LogisticsPastOrdersMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LogisticsPastOrdersMainLayout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addGroup(LogisticsPastOrdersMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LogisticsPastOrdersMainLayout.createSequentialGroup()
-                        .addGap(421, 421, 421)
-                        .addComponent(jLabel4))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 856, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(523, Short.MAX_VALUE))
+            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogisticsPastOrdersMainLayout.createSequentialGroup()
+                .addContainerGap(63, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 856, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
         LogisticsPastOrdersMainLayout.setVerticalGroup(
             LogisticsPastOrdersMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogisticsPastOrdersMainLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(jLabel4)
-                .addGap(54, 54, 54)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(102, 102, 102)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1070, Short.MAX_VALUE))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
 
         add(LogisticsPastOrdersMain, "card2");

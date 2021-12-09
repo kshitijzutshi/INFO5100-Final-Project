@@ -67,37 +67,37 @@ public class SignUpRetailerJPanel extends javax.swing.JPanel {
         lblEmail.setText("Email ID");
 
         txtemailid.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
-        txtemailid.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(153, 255, 153)));
+        txtemailid.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         lblMobile.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblMobile.setText("Mobile Number");
 
         txtmobnumber.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
-        txtmobnumber.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(153, 255, 153)));
+        txtmobnumber.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         lblAddress.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblAddress.setText("Address");
 
         txtaddress.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
-        txtaddress.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(153, 255, 153)));
+        txtaddress.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         lblName.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblName.setText("Name");
 
         txtname.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
-        txtname.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(153, 255, 153)));
+        txtname.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         lblUserName.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblUserName.setText("Username");
 
         txtusername.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
-        txtusername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(153, 255, 153)));
+        txtusername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         lblPassword.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblPassword.setText("Password");
 
         txtpassword.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
-        txtpassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(153, 255, 153)));
+        txtpassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
         txtpassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtpasswordActionPerformed(evt);
@@ -108,9 +108,9 @@ public class SignUpRetailerJPanel extends javax.swing.JPanel {
         btnSubmitsignup.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         btnSubmitsignup.setText("Submit");
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(128, 193, 115));
+        kGradientPanel1.setkEndColor(new java.awt.Color(198, 226, 233));
         kGradientPanel1.setkGradientFocus(800);
-        kGradientPanel1.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel1.setkStartColor(new java.awt.Color(167, 190, 211));
         kGradientPanel1.setPreferredSize(new java.awt.Dimension(500, 1460));
 
         lblsignup1.setFont(new java.awt.Font("Lucida Sans", 1, 26)); // NOI18N

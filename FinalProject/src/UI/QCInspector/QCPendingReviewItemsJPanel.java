@@ -83,12 +83,12 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel2.setText("E-Waste Category:");
 
-        txtewaste.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtewaste.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel3.setText("Appliance:");
 
-        txtappliance.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtappliance.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
         txtappliance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtapplianceActionPerformed(evt);
@@ -98,7 +98,7 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel4.setText("Condition:");
 
-        txtcondition.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtcondition.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
         txtcondition.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtconditionActionPerformed(evt);
@@ -108,19 +108,22 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel5.setText("Weight:");
 
-        txtweight.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtweight.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
         txtweight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtweightActionPerformed(evt);
             }
         });
 
+        btnassignrecycle.setBackground(new java.awt.Color(205, 223, 245));
         btnassignrecycle.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         btnassignrecycle.setText("Mark for Recycling");
 
+        btnassignrefurbish.setBackground(new java.awt.Color(205, 223, 245));
         btnassignrefurbish.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         btnassignrefurbish.setText("Mark for Refurbishing");
 
+        btnview.setBackground(new java.awt.Color(205, 223, 245));
         btnview.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         btnview.setText("View Details");
         btnview.addActionListener(new java.awt.event.ActionListener() {
@@ -129,7 +132,7 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/data_pending_127px.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/data_pending_127px_black.png"))); // NOI18N
         jLabel6.setText("jLabel6");
 
         javax.swing.GroupLayout PendingReviewItemsJPanelLayout = new javax.swing.GroupLayout(PendingReviewItemsJPanel);

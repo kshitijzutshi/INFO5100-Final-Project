@@ -90,7 +90,7 @@ public class ManageRecycledItemsJPanel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel3.setText("E-waste Category:");
 
-        txtappliancetype.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtappliancetype.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
         txtappliancetype.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtappliancetypeActionPerformed(evt);
@@ -100,7 +100,7 @@ public class ManageRecycledItemsJPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel4.setText("Appliance Type:");
 
-        txtweight.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtweight.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
         txtweight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtweightActionPerformed(evt);
@@ -110,29 +110,31 @@ public class ManageRecycledItemsJPanel extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel5.setText("Weight:");
 
-        txtewastecat.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtewastecat.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel6.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel6.setText("Item Status:");
 
-        txtstatus.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtstatus.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel7.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel7.setText("Price:");
 
-        txtprice.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtprice.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
         txtprice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtpriceActionPerformed(evt);
             }
         });
 
+        btnassign.setBackground(new java.awt.Color(205, 223, 245));
+        btnassign.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         btnassign.setText("Set Price");
 
         jLabel8.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel8.setText("Select Applicance Category:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Home Appliances", "Electronic Utilities", "Communication and IT Devices", "Office and Medical Equipment", "Home Entertainment Devices" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);

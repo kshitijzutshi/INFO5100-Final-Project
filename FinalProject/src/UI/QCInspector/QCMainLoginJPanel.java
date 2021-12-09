@@ -74,17 +74,17 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
 
         QcLoginJPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        kGradientPanel2.setkEndColor(new java.awt.Color(65, 118, 102));
+        kGradientPanel2.setkEndColor(new java.awt.Color(198, 226, 233));
         kGradientPanel2.setkGradientFocus(800);
-        kGradientPanel2.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel2.setkStartColor(new java.awt.Color(167, 190, 211));
         kGradientPanel2.setPreferredSize(new java.awt.Dimension(300, 1460));
 
         jLabel13.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setForeground(new java.awt.Color(51, 51, 51));
         jLabel13.setText("Welcome to ReQube,");
 
         jLabel14.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
         jLabel14.setText("Emp_MGMT_DIV");
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
@@ -108,16 +108,16 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(65, 118, 102));
-        kGradientPanel1.setkGradientFocus(200);
-        kGradientPanel1.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel1.setkEndColor(new java.awt.Color(198, 226, 233));
+        kGradientPanel1.setkGradientFocus(800);
+        kGradientPanel1.setkStartColor(new java.awt.Color(167, 190, 211));
         kGradientPanel1.setPreferredSize(new java.awt.Dimension(500, 1460));
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 22)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("ReQube Operations");
 
-        btnpendinginspection.setBackground(new java.awt.Color(221, 228, 186));
-        btnpendinginspection.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+        btnpendinginspection.setBackground(new java.awt.Color(167, 190, 211));
         btnpendinginspection.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnpendinginspectionMouseClicked(evt);
@@ -128,6 +128,7 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inspection_32px.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Check Pending Inspection Tasks");
 
@@ -140,7 +141,7 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         btnpendinginspectionLayout.setVerticalGroup(
             btnpendinginspectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,8 +152,7 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        btnQcHome.setBackground(new java.awt.Color(221, 228, 186));
-        btnQcHome.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+        btnQcHome.setBackground(new java.awt.Color(167, 190, 211));
         btnQcHome.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnQcHomeMouseClicked(evt);
@@ -163,6 +163,7 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home_24px.png"))); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Home");
 
@@ -187,10 +188,9 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jLabel12.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 0, new java.awt.Color(102, 204, 0)));
+        jLabel12.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 0, new java.awt.Color(51, 51, 51)));
 
-        btnManageRecycled.setBackground(new java.awt.Color(221, 228, 186));
-        btnManageRecycled.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+        btnManageRecycled.setBackground(new java.awt.Color(167, 190, 211));
         btnManageRecycled.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnManageRecycledMouseClicked(evt);
@@ -201,6 +201,7 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/past.png"))); // NOI18N
 
         jLabel18.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(51, 51, 51));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("View Past Inspected Items");
 
@@ -225,14 +226,14 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel7.setBackground(new java.awt.Color(221, 228, 186));
-        jPanel7.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+        jPanel7.setBackground(new java.awt.Color(167, 190, 211));
 
         jLabel15.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_30px.png"))); // NOI18N
 
         jLabel16.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(51, 51, 51));
         jLabel16.setText("Logout");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -300,17 +301,17 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
 
         qcpendingitems.setBackground(new java.awt.Color(255, 255, 255));
 
-        kGradientPanel5.setkEndColor(new java.awt.Color(65, 118, 102));
-        kGradientPanel5.setkGradientFocus(50);
-        kGradientPanel5.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel5.setkEndColor(new java.awt.Color(167, 190, 211));
+        kGradientPanel5.setkGradientFocus(0);
+        kGradientPanel5.setkStartColor(new java.awt.Color(167, 190, 211));
 
         jLabel21.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setForeground(new java.awt.Color(51, 51, 51));
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("40");
 
         jLabel22.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setForeground(new java.awt.Color(51, 51, 51));
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel22.setText("Number of Pending orders");
 
@@ -345,17 +346,17 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        kGradientPanel6.setkEndColor(new java.awt.Color(65, 118, 102));
-        kGradientPanel6.setkGradientFocus(50);
-        kGradientPanel6.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel6.setkEndColor(new java.awt.Color(167, 190, 211));
+        kGradientPanel6.setkGradientFocus(0);
+        kGradientPanel6.setkStartColor(new java.awt.Color(167, 190, 211));
 
         jLabel24.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setForeground(new java.awt.Color(51, 51, 51));
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setText("3");
 
         jLabel25.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setForeground(new java.awt.Color(51, 51, 51));
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel25.setText("Number of Recycleable Items");
 
@@ -390,17 +391,17 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
                 .addGap(7, 7, 7))
         );
 
-        kGradientPanel4.setkEndColor(new java.awt.Color(65, 118, 102));
-        kGradientPanel4.setkGradientFocus(50);
-        kGradientPanel4.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel4.setkEndColor(new java.awt.Color(167, 190, 211));
+        kGradientPanel4.setkGradientFocus(0);
+        kGradientPanel4.setkStartColor(new java.awt.Color(167, 190, 211));
 
         jLabel19.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setForeground(new java.awt.Color(51, 51, 51));
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("800");
 
         jLabel20.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setForeground(new java.awt.Color(51, 51, 51));
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel20.setText("Number of Refurbishable Items");
 
@@ -452,7 +453,7 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
                     .addGroup(qcpendingitemsLayout.createSequentialGroup()
                         .addGap(356, 356, 356)
                         .addComponent(kGradientPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
         qcpendingitemsLayout.setVerticalGroup(
             qcpendingitemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -475,9 +476,7 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
             .addGroup(QcLoginJPanelLayout.createSequentialGroup()
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(QcLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(QcLoginJPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(qcswitchingpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(qcswitchingpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1026, Short.MAX_VALUE)))
         );
         QcLoginJPanelLayout.setVerticalGroup(
