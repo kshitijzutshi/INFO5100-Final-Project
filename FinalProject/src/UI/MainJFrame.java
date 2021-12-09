@@ -119,9 +119,9 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 350));
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(128, 193, 115));
-        kGradientPanel1.setkGradientFocus(800);
-        kGradientPanel1.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel1.setkEndColor(new java.awt.Color(198, 226, 233));
+        kGradientPanel1.setkGradientFocus(80);
+        kGradientPanel1.setkStartColor(new java.awt.Color(167, 190, 211));
 
         lblsignup1.setFont(new java.awt.Font("Lucida Sans", 1, 26)); // NOI18N
         lblsignup1.setText("Welcome to ReQube!");
@@ -319,7 +319,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         getContentPane().add(mainJpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 1460, 850));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/theme.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/theme2.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 1980, 1100));
 
         setSize(new java.awt.Dimension(1932, 1115));

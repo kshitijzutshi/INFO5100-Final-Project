@@ -222,11 +222,11 @@
                 <Container class="keeptoo.KGradientPanel" name="kGradientPanel1">
                   <Properties>
                     <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="73" green="c1" red="80" type="rgb"/>
+                      <Color blue="e9" green="e2" red="c6" type="rgb"/>
                     </Property>
-                    <Property name="kGradientFocus" type="int" value="800"/>
+                    <Property name="kGradientFocus" type="int" value="80"/>
                     <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ba" green="e4" red="dd" type="rgb"/>
+                      <Color blue="d3" green="be" red="a7" type="rgb"/>
                     </Property>
                   </Properties>
 
@@ -421,7 +421,7 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/images/theme.png"/>
+          <Image iconType="3" name="/images/theme2.jpg"/>
         </Property>
       </Properties>
       <Constraints>

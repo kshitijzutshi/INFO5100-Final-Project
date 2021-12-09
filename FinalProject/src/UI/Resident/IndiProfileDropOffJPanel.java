@@ -70,20 +70,20 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
         JPanelIndDropoffMain.setBackground(new java.awt.Color(255, 255, 255));
         JPanelIndDropoffMain.setPreferredSize(new java.awt.Dimension(1460, 850));
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(65, 118, 102));
+        kGradientPanel1.setkEndColor(new java.awt.Color(198, 226, 233));
         kGradientPanel1.setkGradientFocus(800);
-        kGradientPanel1.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel1.setkStartColor(new java.awt.Color(167, 190, 211));
         kGradientPanel1.setPreferredSize(new java.awt.Dimension(300, 1460));
 
         jLabel7.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(java.awt.Color.darkGray);
         jLabel7.setText("Welcome to ReQube,");
 
         jLabel8.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(java.awt.Color.darkGray);
         jLabel8.setText("jLabel8");
 
-        jButton7.setBackground(new java.awt.Color(65, 118, 102));
+        jButton7.setBackground(new java.awt.Color(205, 223, 245));
         jButton7.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_50px.png"))); // NOI18N
         jButton7.setText("Logout");
@@ -124,34 +124,51 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
         );
 
         lbldropoffheader.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
+        lbldropoffheader.setForeground(java.awt.Color.darkGray);
         lbldropoffheader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbldropoffheader.setText("Drop-Off Booking");
 
         lblewasteCat.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblewasteCat.setForeground(java.awt.Color.darkGray);
         lblewasteCat.setText("E-waste Category");
 
         lblmake.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblmake.setForeground(java.awt.Color.darkGray);
         lblmake.setText("Item Make");
 
+        txtemake.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+
         lblmodel.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblmodel.setForeground(java.awt.Color.darkGray);
         lblmodel.setText("Item Model");
 
+        txtmodel.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+
         lblYearManuf.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblYearManuf.setForeground(java.awt.Color.darkGray);
         lblYearManuf.setText("Year of manufacturing");
 
+        txtyearManuf.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+
         lblweight.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblweight.setForeground(java.awt.Color.darkGray);
         lblweight.setText("Weight Approx.(in lbs)");
 
+        txtitemweight.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+
         lblcondition.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblcondition.setForeground(java.awt.Color.darkGray);
         lblcondition.setText("Condition");
 
-        btnAddtoBookingTable.setBackground(new java.awt.Color(0, 153, 51));
+        btnAddtoBookingTable.setBackground(new java.awt.Color(205, 223, 245));
         btnAddtoBookingTable.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        btnAddtoBookingTable.setForeground(java.awt.Color.darkGray);
         btnAddtoBookingTable.setText("Add to booking");
 
         dropdownApplianceType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lblapplicance.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblapplicance.setForeground(java.awt.Color.darkGray);
         lblapplicance.setText("Type of Appliance");
 
         dropdownCatEwaste.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
@@ -194,12 +211,14 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
             tblDropoffBooking.getColumnModel().getColumn(6).setPreferredWidth(10);
         }
 
-        btnCreateBookingDropoff.setBackground(new java.awt.Color(0, 153, 51));
+        btnCreateBookingDropoff.setBackground(new java.awt.Color(205, 223, 245));
         btnCreateBookingDropoff.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        btnCreateBookingDropoff.setForeground(java.awt.Color.darkGray);
         btnCreateBookingDropoff.setText("Submit");
 
-        btnDeleteItem.setBackground(new java.awt.Color(255, 102, 102));
+        btnDeleteItem.setBackground(new java.awt.Color(205, 223, 245));
         btnDeleteItem.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        btnDeleteItem.setForeground(java.awt.Color.darkGray);
         btnDeleteItem.setText("Delete Item");
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
@@ -293,7 +312,7 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
                         .addGroup(JPanelIndDropoffMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblweight)
                             .addComponent(lblcondition))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                         .addGroup(JPanelIndDropoffMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtitemweight, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(dropdownCondition, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))

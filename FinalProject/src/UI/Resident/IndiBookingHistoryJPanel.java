@@ -56,20 +56,21 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
         JPanelIndBookingDetailsMain.setBackground(new java.awt.Color(255, 255, 255));
         JPanelIndBookingDetailsMain.setPreferredSize(new java.awt.Dimension(1460, 850));
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(65, 118, 102));
+        kGradientPanel1.setkEndColor(new java.awt.Color(198, 226, 233));
         kGradientPanel1.setkGradientFocus(800);
-        kGradientPanel1.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel1.setkStartColor(new java.awt.Color(167, 190, 211));
         kGradientPanel1.setPreferredSize(new java.awt.Dimension(300, 1460));
 
         jLabel7.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("Welcome to ReQube,");
 
         welcomeLabel.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        welcomeLabel.setForeground(new java.awt.Color(255, 255, 255));
+        welcomeLabel.setForeground(new java.awt.Color(51, 51, 51));
 
-        jButton7.setBackground(new java.awt.Color(65, 118, 102));
+        jButton7.setBackground(new java.awt.Color(205, 223, 245));
         jButton7.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(51, 51, 51));
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_50px.png"))); // NOI18N
         jButton7.setText("Logout");
         jButton7.setBorder(null);
@@ -109,10 +110,12 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
         );
 
         lbldropoffheader.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
+        lbldropoffheader.setForeground(new java.awt.Color(51, 51, 51));
         lbldropoffheader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbldropoffheader.setText("View Booking History");
 
         bookingidlabel.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        bookingidlabel.setForeground(new java.awt.Color(51, 51, 51));
         bookingidlabel.setText("Enter Booking ID");
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -152,6 +155,7 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
         });
 
         btnsearch.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        btnsearch.setForeground(new java.awt.Color(51, 51, 51));
         btnsearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
         btnsearch.setText("Search");
         btnsearch.addActionListener(new java.awt.event.ActionListener() {
