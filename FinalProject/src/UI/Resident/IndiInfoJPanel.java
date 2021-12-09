@@ -87,20 +87,22 @@ public class IndiInfoJPanel extends javax.swing.JPanel {
         JPanelWasteInfo.setBackground(new java.awt.Color(255, 255, 255));
         JPanelWasteInfo.setPreferredSize(new java.awt.Dimension(1460, 850));
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(65, 118, 102));
+        kGradientPanel1.setkEndColor(new java.awt.Color(198, 226, 233));
         kGradientPanel1.setkGradientFocus(800);
-        kGradientPanel1.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel1.setkStartColor(new java.awt.Color(167, 190, 211));
         kGradientPanel1.setPreferredSize(new java.awt.Dimension(300, 1460));
 
         jLabel7.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(java.awt.Color.darkGray);
         jLabel7.setText("Welcome to ReQube,");
+        jLabel7.setToolTipText("");
 
         jLabel8.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(java.awt.Color.darkGray);
         jLabel8.setText("jLabel8");
+        jLabel8.setToolTipText("");
 
-        jButton7.setBackground(new java.awt.Color(65, 118, 102));
+        jButton7.setBackground(new java.awt.Color(205, 223, 245));
         jButton7.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_50px.png"))); // NOI18N
         jButton7.setText("Logout");
@@ -152,134 +154,216 @@ public class IndiInfoJPanel extends javax.swing.JPanel {
         });
 
         ewastelabel.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
+        ewastelabel.setForeground(java.awt.Color.darkGray);
         ewastelabel.setText("What is E-Waste?");
-        ewastelabel.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(51, 204, 0)));
+        ewastelabel.setToolTipText("");
+        ewastelabel.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
+        jLabel1.setForeground(java.awt.Color.darkGray);
         jLabel1.setText("E-waste is any electrical or electronic equipment that’s been discarded.This includes working and broken items that are thrown in the garbage");
+        jLabel1.setToolTipText("");
 
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
+        jLabel2.setForeground(java.awt.Color.darkGray);
         jLabel2.setText("or donated to a charity reseller . Often, if the item goes unsold in the store, it will be thrown away.E-waste is particularly dangerous");
+        jLabel2.setToolTipText("");
 
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
+        jLabel3.setForeground(java.awt.Color.darkGray);
         jLabel3.setText("due to toxic chemicals that naturally leach from the metals inside when buried.");
+        jLabel3.setToolTipText("");
 
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
+        jLabel4.setForeground(java.awt.Color.darkGray);
         jLabel4.setText("Categories of E-Waste");
-        jLabel4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(51, 204, 0)));
+        jLabel4.setToolTipText("");
+        jLabel4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel5.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        jLabel5.setForeground(java.awt.Color.darkGray);
         jLabel5.setText("List of Common E-waste Items:");
+        jLabel5.setToolTipText("");
 
         jLabel6.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        jLabel6.setForeground(java.awt.Color.darkGray);
         jLabel6.setText("Home Appliances");
-        jLabel6.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(51, 204, 0)));
+        jLabel6.setToolTipText("");
+        jLabel6.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel9.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel9.setForeground(java.awt.Color.darkGray);
         jLabel9.setText("Microwaves");
+        jLabel9.setToolTipText("");
 
         jLabel10.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel10.setForeground(java.awt.Color.darkGray);
         jLabel10.setText("Home Entertainment Devices");
+        jLabel10.setToolTipText("");
 
         jLabel11.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel11.setForeground(java.awt.Color.darkGray);
         jLabel11.setText("Electric cookers");
+        jLabel11.setToolTipText("");
 
         jLabel12.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel12.setForeground(java.awt.Color.darkGray);
         jLabel12.setText("Heaters");
+        jLabel12.setToolTipText("");
 
         jLabel13.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel13.setForeground(java.awt.Color.darkGray);
         jLabel13.setText("Fans");
+        jLabel13.setToolTipText("");
 
         jLabel14.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        jLabel14.setForeground(java.awt.Color.darkGray);
         jLabel14.setText("Communications and Information Technology Devices");
-        jLabel14.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(51, 204, 0)));
+        jLabel14.setToolTipText("");
+        jLabel14.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel15.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel15.setForeground(java.awt.Color.darkGray);
         jLabel15.setText("Cell phones");
+        jLabel15.setToolTipText("");
 
         jLabel16.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel16.setForeground(java.awt.Color.darkGray);
         jLabel16.setText("Smartphones");
+        jLabel16.setToolTipText("");
 
         jLabel17.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel17.setForeground(java.awt.Color.darkGray);
         jLabel17.setText("Desktop Computers");
+        jLabel17.setToolTipText("");
 
         jLabel18.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel18.setForeground(java.awt.Color.darkGray);
         jLabel18.setText("Computer Monitors");
+        jLabel18.setToolTipText("");
 
         jLabel19.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel19.setForeground(java.awt.Color.darkGray);
         jLabel19.setText("Laptops");
+        jLabel19.setToolTipText("");
 
         jLabel20.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel20.setForeground(java.awt.Color.darkGray);
         jLabel20.setText("Circuit boards");
+        jLabel20.setToolTipText("");
 
         jLabel21.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        jLabel21.setForeground(java.awt.Color.darkGray);
         jLabel21.setText("Home Entertainment Devices");
-        jLabel21.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(51, 204, 0)));
+        jLabel21.setToolTipText("");
+        jLabel21.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel22.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel22.setForeground(java.awt.Color.darkGray);
         jLabel22.setText("DVDs");
+        jLabel22.setToolTipText("");
 
         jLabel23.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel23.setForeground(java.awt.Color.darkGray);
         jLabel23.setText("Blu Ray Players");
+        jLabel23.setToolTipText("");
 
         jLabel24.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel24.setForeground(java.awt.Color.darkGray);
         jLabel24.setText("Stereos");
+        jLabel24.setToolTipText("");
 
         jLabel25.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel25.setForeground(java.awt.Color.darkGray);
         jLabel25.setText("Televisions");
+        jLabel25.setToolTipText("");
 
         jLabel26.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel26.setForeground(java.awt.Color.darkGray);
         jLabel26.setText("Video Game Systems");
+        jLabel26.setToolTipText("");
 
         jLabel27.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel27.setForeground(java.awt.Color.darkGray);
         jLabel27.setText("Fax machines");
+        jLabel27.setToolTipText("");
 
         jLabel28.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel28.setForeground(java.awt.Color.darkGray);
         jLabel28.setText("Printers");
+        jLabel28.setToolTipText("");
 
         jLabel29.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        jLabel29.setForeground(java.awt.Color.darkGray);
         jLabel29.setText("Electronic Utilities");
-        jLabel29.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(51, 204, 0)));
+        jLabel29.setToolTipText("");
+        jLabel29.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel30.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel30.setForeground(java.awt.Color.darkGray);
         jLabel30.setText("Heating Pads ");
+        jLabel30.setToolTipText("");
 
         jLabel31.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel31.setForeground(java.awt.Color.darkGray);
         jLabel31.setText("Television Remotes");
+        jLabel31.setToolTipText("");
 
         jLabel32.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel32.setForeground(java.awt.Color.darkGray);
         jLabel32.setText("Electrical Cords");
+        jLabel32.setToolTipText("");
 
         jLabel33.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel33.setForeground(java.awt.Color.darkGray);
         jLabel33.setText("Lamps");
+        jLabel33.setToolTipText("");
 
         jLabel34.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel34.setForeground(java.awt.Color.darkGray);
         jLabel34.setText("Smart Lights ");
+        jLabel34.setToolTipText("");
 
         jLabel35.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel35.setForeground(java.awt.Color.darkGray);
         jLabel35.setText("Smart Watches");
+        jLabel35.setToolTipText("");
 
         jLabel36.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        jLabel36.setForeground(java.awt.Color.darkGray);
         jLabel36.setText("Office and Medical Equipment");
-        jLabel36.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(51, 204, 0)));
+        jLabel36.setToolTipText("");
+        jLabel36.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel37.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel37.setForeground(java.awt.Color.darkGray);
         jLabel37.setText("IT Server Racks");
+        jLabel37.setToolTipText("");
 
         jLabel38.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel38.setForeground(java.awt.Color.darkGray);
         jLabel38.setText("IT Servers");
+        jLabel38.setToolTipText("");
 
         jLabel39.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel39.setForeground(java.awt.Color.darkGray);
         jLabel39.setText("Cords and Cables");
+        jLabel39.setToolTipText("");
 
         jLabel40.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel40.setForeground(java.awt.Color.darkGray);
         jLabel40.setText("WiFi Dongles");
+        jLabel40.setToolTipText("");
 
         jLabel41.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel41.setForeground(java.awt.Color.darkGray);
         jLabel41.setText("Audio & Video Equipment");
+        jLabel41.setToolTipText("");
 
         jLabel42.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel42.setForeground(java.awt.Color.darkGray);
         jLabel42.setText("Power Strips & Power Supplies");
+        jLabel42.setToolTipText("");
 
         javax.swing.GroupLayout JPanelWasteInfoLayout = new javax.swing.GroupLayout(JPanelWasteInfo);
         JPanelWasteInfo.setLayout(JPanelWasteInfoLayout);
@@ -425,7 +509,7 @@ public class IndiInfoJPanel extends javax.swing.JPanel {
                 .addGroup(JPanelWasteInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel35)
                     .addComponent(jLabel42))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
         );

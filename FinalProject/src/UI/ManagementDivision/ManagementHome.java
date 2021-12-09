@@ -49,17 +49,17 @@ public class ManagementHome extends javax.swing.JPanel {
 
         mgmtHomeCard.setBackground(new java.awt.Color(255, 255, 255));
 
-        kGradientPanel4.setkEndColor(new java.awt.Color(65, 118, 102));
-        kGradientPanel4.setkGradientFocus(50);
-        kGradientPanel4.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel4.setkEndColor(new java.awt.Color(167, 190, 211));
+        kGradientPanel4.setkGradientFocus(0);
+        kGradientPanel4.setkStartColor(new java.awt.Color(167, 190, 211));
 
         jLabel19.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setForeground(new java.awt.Color(51, 51, 51));
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("800");
 
         jLabel20.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setForeground(new java.awt.Color(51, 51, 51));
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel20.setText("Number of Refurbishable Items");
 
@@ -97,17 +97,17 @@ public class ManagementHome extends javax.swing.JPanel {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        kGradientPanel6.setkEndColor(new java.awt.Color(65, 118, 102));
-        kGradientPanel6.setkGradientFocus(50);
-        kGradientPanel6.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel6.setkEndColor(new java.awt.Color(167, 190, 211));
+        kGradientPanel6.setkGradientFocus(0);
+        kGradientPanel6.setkStartColor(new java.awt.Color(167, 190, 211));
 
         jLabel24.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setForeground(new java.awt.Color(51, 51, 51));
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setText("3");
 
         jLabel25.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setForeground(new java.awt.Color(51, 51, 51));
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel25.setText("Number of Recycleable Items");
 
@@ -142,17 +142,17 @@ public class ManagementHome extends javax.swing.JPanel {
                 .addGap(7, 7, 7))
         );
 
-        kGradientPanel5.setkEndColor(new java.awt.Color(65, 118, 102));
-        kGradientPanel5.setkGradientFocus(50);
-        kGradientPanel5.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel5.setkEndColor(new java.awt.Color(167, 190, 211));
+        kGradientPanel5.setkGradientFocus(0);
+        kGradientPanel5.setkStartColor(new java.awt.Color(167, 190, 211));
 
         jLabel21.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setForeground(new java.awt.Color(51, 51, 51));
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("40");
 
         jLabel22.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setForeground(new java.awt.Color(51, 51, 51));
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel22.setText("Number of orders");
 

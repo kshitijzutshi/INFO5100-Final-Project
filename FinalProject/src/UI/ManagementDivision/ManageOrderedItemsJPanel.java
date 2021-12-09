@@ -75,34 +75,41 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Order ID:");
 
-        txtid.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtid.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Retailer Name:");
 
-        txtretailername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtretailername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Weight:");
 
-        txtweight.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtweight.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Order Status:");
 
-        txtstatus.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtstatus.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel5.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Delivery Man Names:");
 
         spinner.setModel(new javax.swing.SpinnerListModel(new String[] {""}));
 
+        jButton1.setBackground(new java.awt.Color(205, 223, 245));
         jButton1.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jButton1.setText("Assign Task");
 
         jLabel6.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Order Details");
 

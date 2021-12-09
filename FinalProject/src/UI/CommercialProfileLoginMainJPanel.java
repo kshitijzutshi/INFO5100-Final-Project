@@ -58,17 +58,17 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
         JPanelCommercialLoginMain.setBackground(new java.awt.Color(255, 255, 255));
         JPanelCommercialLoginMain.setPreferredSize(new java.awt.Dimension(1460, 850));
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(65, 118, 102));
+        kGradientPanel1.setkEndColor(new java.awt.Color(198, 226, 233));
         kGradientPanel1.setkGradientFocus(800);
-        kGradientPanel1.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel1.setkStartColor(new java.awt.Color(167, 190, 211));
         kGradientPanel1.setPreferredSize(new java.awt.Dimension(300, 1460));
 
         jLabel7.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(java.awt.Color.darkGray);
         jLabel7.setText("Welcome to ReQube,");
 
         jLabel8.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(java.awt.Color.darkGray);
         jLabel8.setText("jLabel8");
 
         jButton7.setBackground(new java.awt.Color(65, 118, 102));
@@ -110,8 +110,8 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
-        btnviewdashboard.setBackground(new java.awt.Color(232, 243, 228));
-        btnviewdashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dashboard_127px.png"))); // NOI18N
+        btnviewdashboard.setBackground(new java.awt.Color(205, 223, 245));
+        btnviewdashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/speed_127px.png"))); // NOI18N
         btnviewdashboard.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnviewdashboard.setBorderPainted(false);
         btnviewdashboard.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -129,8 +129,8 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnviewinfo.setBackground(new java.awt.Color(232, 243, 228));
-        btnviewinfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/info_127px.png"))); // NOI18N
+        btnviewinfo.setBackground(new java.awt.Color(205, 223, 245));
+        btnviewinfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/info_127px_1.png"))); // NOI18N
         btnviewinfo.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnviewinfo.setBorderPainted(false);
         btnviewinfo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -148,8 +148,8 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnviewbookingdetails.setBackground(new java.awt.Color(232, 243, 228));
-        btnviewbookingdetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/details_127px.png"))); // NOI18N
+        btnviewbookingdetails.setBackground(new java.awt.Color(205, 223, 245));
+        btnviewbookingdetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/details_127px_1.png"))); // NOI18N
         btnviewbookingdetails.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnviewbookingdetails.setBorderPainted(false);
         btnviewbookingdetails.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -167,8 +167,8 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnviewprofile.setBackground(new java.awt.Color(232, 243, 228));
-        btnviewprofile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/person_127px.png"))); // NOI18N
+        btnviewprofile.setBackground(new java.awt.Color(205, 223, 245));
+        btnviewprofile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/person_127px_2.png"))); // NOI18N
         btnviewprofile.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnviewprofile.setBorderPainted(false);
         btnviewprofile.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -186,8 +186,8 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnviewpickup.setBackground(new java.awt.Color(232, 243, 228));
-        btnviewpickup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/schedule_127px.png"))); // NOI18N
+        btnviewpickup.setBackground(new java.awt.Color(205, 223, 245));
+        btnviewpickup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/schedule_127px_1.png"))); // NOI18N
         btnviewpickup.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnviewpickup.setBorderPainted(false);
         btnviewpickup.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -205,8 +205,8 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnviewdropoff.setBackground(new java.awt.Color(232, 243, 228));
-        btnviewdropoff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/truck_127px.png"))); // NOI18N
+        btnviewdropoff.setBackground(new java.awt.Color(205, 223, 245));
+        btnviewdropoff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pickup_127px.png"))); // NOI18N
         btnviewdropoff.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnviewdropoff.setBorderPainted(false);
         btnviewdropoff.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -225,26 +225,32 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
         });
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        jLabel1.setForeground(java.awt.Color.darkGray);
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Dashboard");
 
         txtprofile.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        txtprofile.setForeground(java.awt.Color.darkGray);
         txtprofile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtprofile.setText("My Profile");
 
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        jLabel3.setForeground(java.awt.Color.darkGray);
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("E Waste FAQ");
 
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        jLabel4.setForeground(java.awt.Color.darkGray);
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Create Drop-off booking");
 
         jLabel5.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        jLabel5.setForeground(java.awt.Color.darkGray);
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("View Booking Details");
 
         jLabel6.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        jLabel6.setForeground(java.awt.Color.darkGray);
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Create Pick-up booking");
 

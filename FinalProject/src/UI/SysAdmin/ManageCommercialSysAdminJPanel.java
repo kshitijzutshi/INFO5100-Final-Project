@@ -52,14 +52,14 @@ public class ManageCommercialSysAdminJPanel extends javax.swing.JPanel {
         manageCommercialSysAdmin.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Lucida Sans", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Create New Commercial Login");
 
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         jLabel2.setText("Name");
 
-        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(128, 193, 115)));
+        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -69,14 +69,14 @@ public class ManageCommercialSysAdminJPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         jLabel4.setText("Username");
 
-        jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(128, 193, 115)));
+        jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         jLabel3.setText("Password");
 
-        jTextField3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(128, 193, 115)));
+        jTextField3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
-        btnUpdate.setBackground(new java.awt.Color(128, 193, 115));
+        btnUpdate.setBackground(new java.awt.Color(205, 223, 245));
         btnUpdate.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
@@ -87,7 +87,7 @@ public class ManageCommercialSysAdminJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnCreate.setBackground(new java.awt.Color(128, 193, 115));
+        btnCreate.setBackground(new java.awt.Color(205, 223, 245));
         btnCreate.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         btnCreate.setForeground(new java.awt.Color(255, 255, 255));
         btnCreate.setText("Create");
@@ -113,7 +113,7 @@ public class ManageCommercialSysAdminJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        btnDelete.setBackground(new java.awt.Color(128, 193, 115));
+        btnDelete.setBackground(new java.awt.Color(205, 223, 245));
         btnDelete.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
@@ -124,7 +124,7 @@ public class ManageCommercialSysAdminJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnModify.setBackground(new java.awt.Color(128, 193, 115));
+        btnModify.setBackground(new java.awt.Color(205, 223, 245));
         btnModify.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         btnModify.setForeground(new java.awt.Color(255, 255, 255));
         btnModify.setText("Modify");
@@ -139,70 +139,73 @@ public class ManageCommercialSysAdminJPanel extends javax.swing.JPanel {
         manageCommercialSysAdmin.setLayout(manageCommercialSysAdminLayout);
         manageCommercialSysAdminLayout.setHorizontalGroup(
             manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 825, Short.MAX_VALUE)
-            .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(manageCommercialSysAdminLayout.createSequentialGroup()
-                    .addGap(50, 50, 50)
-                    .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(manageCommercialSysAdminLayout.createSequentialGroup()
-                            .addGap(133, 133, 133)
-                            .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(manageCommercialSysAdminLayout.createSequentialGroup()
-                                    .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel2))
-                                    .addGap(35, 35, 35)
-                                    .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTextField1)
-                                        .addComponent(jTextField2)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(manageCommercialSysAdminLayout.createSequentialGroup()
-                                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(manageCommercialSysAdminLayout.createSequentialGroup()
-                            .addGap(388, 388, 388)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(33, 33, 33)
-                            .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(188, Short.MAX_VALUE)))
+            .addGroup(manageCommercialSysAdminLayout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, manageCommercialSysAdminLayout.createSequentialGroup()
+                        .addGap(386, 386, 386)
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageCommercialSysAdminLayout.createSequentialGroup()
+                .addGap(176, 176, 176)
+                .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(manageCommercialSysAdminLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(manageCommercialSysAdminLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(69, 69, 69)
+                                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageCommercialSysAdminLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageCommercialSysAdminLayout.createSequentialGroup()
+                        .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+                            .addComponent(jTextField2))))
+                .addGap(271, 271, 271))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         manageCommercialSysAdminLayout.setVerticalGroup(
             manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 636, Short.MAX_VALUE)
-            .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(manageCommercialSysAdminLayout.createSequentialGroup()
-                    .addGap(48, 48, 48)
-                    .addComponent(jLabel1)
-                    .addGap(18, 18, 18)
-                    .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(18, 18, 18)
-                    .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(18, 18, 18)
-                    .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnUpdate))
-                    .addGap(18, 18, 18)
-                    .addComponent(jLabel5)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnModify)
-                        .addComponent(btnDelete))
-                    .addContainerGap(198, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageCommercialSysAdminLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(49, 49, 49)
+                .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUpdate))
+                .addGap(33, 33, 33)
+                .addComponent(jLabel5)
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(manageCommercialSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnModify)
+                    .addComponent(btnDelete))
+                .addGap(109, 109, 109))
         );
 
         add(manageCommercialSysAdmin, "card2");

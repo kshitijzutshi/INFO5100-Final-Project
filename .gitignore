@@ -29,3 +29,4 @@
 *.jar
 *.war
 *.ear
+*.db4o

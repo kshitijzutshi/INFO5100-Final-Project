@@ -71,20 +71,21 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
         JPanelIndLogin.setBackground(new java.awt.Color(255, 255, 255));
         JPanelIndLogin.setPreferredSize(new java.awt.Dimension(1460, 850));
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(65, 118, 102));
+        kGradientPanel1.setkEndColor(new java.awt.Color(198, 226, 233));
         kGradientPanel1.setkGradientFocus(800);
-        kGradientPanel1.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel1.setkStartColor(new java.awt.Color(167, 190, 211));
         kGradientPanel1.setPreferredSize(new java.awt.Dimension(300, 1460));
 
         jLabel7.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("Welcome to ReQube,");
 
         nameLabel.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        nameLabel.setForeground(new java.awt.Color(255, 255, 255));
+        nameLabel.setForeground(new java.awt.Color(51, 51, 51));
 
-        logoutBtn.setBackground(new java.awt.Color(65, 118, 102));
+        logoutBtn.setBackground(new java.awt.Color(205, 223, 245));
         logoutBtn.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
+        logoutBtn.setForeground(new java.awt.Color(51, 51, 51));
         logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_50px.png"))); // NOI18N
         logoutBtn.setText("Logout");
         logoutBtn.setBorder(null);
@@ -120,39 +121,58 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
         );
 
         lblSignUpHeader.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
+        lblSignUpHeader.setForeground(new java.awt.Color(51, 51, 51));
         lblSignUpHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSignUpHeader.setText("Profile Details");
 
         lblName.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblName.setForeground(new java.awt.Color(51, 51, 51));
         lblName.setText("Name");
 
+        txtname.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+
         lblEmail.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblEmail.setForeground(new java.awt.Color(51, 51, 51));
         lblEmail.setText("Email ID");
 
+        txtemailid.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+
         lblAddress.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblAddress.setForeground(new java.awt.Color(51, 51, 51));
         lblAddress.setText("Address");
 
+        txtaddress.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+
         lblUserName.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblUserName.setForeground(new java.awt.Color(51, 51, 51));
         lblUserName.setText("Username");
 
         lblMobile.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblMobile.setForeground(new java.awt.Color(51, 51, 51));
         lblMobile.setText("Mobile Number");
 
+        txtmobnumber.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+
         txtusername.setEditable(false);
+        txtusername.setBackground(new java.awt.Color(255, 255, 255));
+        txtusername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         lblUserName1.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblUserName1.setForeground(new java.awt.Color(51, 51, 51));
         lblUserName1.setText("Password");
 
+        txtPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasswordActionPerformed(evt);
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/person_profile.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/person_127px_2.png"))); // NOI18N
 
-        btnSave.setBackground(new java.awt.Color(0, 153, 51));
+        btnSave.setBackground(new java.awt.Color(205, 223, 245));
         btnSave.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(51, 51, 51));
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,51 +197,53 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
             JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(kGradientPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1460, Short.MAX_VALUE)
             .addGroup(JPanelIndLoginLayout.createSequentialGroup()
-                .addGap(647, 647, 647)
-                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(JPanelIndLoginLayout.createSequentialGroup()
                 .addGroup(JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelIndLoginLayout.createSequentialGroup()
-                        .addGap(261, 261, 261)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(110, 110, 110)
-                        .addGroup(JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblName)
-                            .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(JPanelIndLoginLayout.createSequentialGroup()
-                                .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(167, 167, 167)
-                                .addComponent(lblMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblAddress)
-                            .addComponent(txtaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(JPanelIndLoginLayout.createSequentialGroup()
-                                .addGroup(JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtemailid, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblUserName)
-                                    .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(103, 103, 103)
-                                .addGroup(JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblUserName1)
-                                    .addComponent(txtmobnumber, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(JPanelIndLoginLayout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndLoginLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblSignUpHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(136, 484, Short.MAX_VALUE))
+                        .addGap(647, 647, 647)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(JPanelIndLoginLayout.createSequentialGroup()
+                            .addGap(66, 66, 66)
+                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(JPanelIndLoginLayout.createSequentialGroup()
+                            .addGap(262, 262, 262)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(JPanelIndLoginLayout.createSequentialGroup()
+                                    .addGap(91, 91, 91)
+                                    .addGroup(JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblName)
+                                        .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(JPanelIndLoginLayout.createSequentialGroup()
+                                            .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(167, 167, 167)
+                                            .addComponent(lblMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lblAddress)
+                                        .addComponent(txtaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(JPanelIndLoginLayout.createSequentialGroup()
+                                            .addGroup(JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(txtemailid, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(lblUserName)
+                                                .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(103, 103, 103)
+                                            .addGroup(JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(lblUserName1)
+                                                .addComponent(txtmobnumber, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(JPanelIndLoginLayout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblSignUpHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(484, Short.MAX_VALUE))
         );
         JPanelIndLoginLayout.setVerticalGroup(
             JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelIndLoginLayout.createSequentialGroup()
-                .addGroup(JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelIndLoginLayout.createSequentialGroup()
                         .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lblSignUpHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(47, 47, 47)
                         .addComponent(lblName))
                     .addGroup(JPanelIndLoginLayout.createSequentialGroup()
                         .addGap(193, 193, 193)

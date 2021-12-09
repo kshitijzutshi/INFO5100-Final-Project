@@ -47,6 +47,7 @@ public class QCPastItemsHistoryJPanel extends javax.swing.JPanel {
         QCPastItemsHistory.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Inspected Items");
 
@@ -75,16 +76,17 @@ public class QCPastItemsHistoryJPanel extends javax.swing.JPanel {
         }
 
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Total Number of Items Inspected:");
 
-        txtitemcount.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtitemcount.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
         txtitemcount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtitemcountActionPerformed(evt);
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/order_history_127px.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/order_history_127px_black.png"))); // NOI18N
         jLabel3.setText("jLabel3");
 
         javax.swing.GroupLayout QCPastItemsHistoryLayout = new javax.swing.GroupLayout(QCPastItemsHistory);
@@ -113,11 +115,9 @@ public class QCPastItemsHistoryJPanel extends javax.swing.JPanel {
             .addGroup(QCPastItemsHistoryLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(QCPastItemsHistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(QCPastItemsHistoryLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(QCPastItemsHistoryLayout.createSequentialGroup()
-                        .addGap(0, 45, Short.MAX_VALUE)
+                        .addGap(0, 39, Short.MAX_VALUE)
                         .addComponent(jLabel3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)

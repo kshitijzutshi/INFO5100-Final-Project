@@ -7,6 +7,7 @@ package models.Inventory;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
+import models.Rewards.RewardsUtil;
 import models.User.Customer.Resident;
 
 /**
@@ -29,6 +30,7 @@ public class Item {
     private String make;
     private String model;
     private int manufactureYear;
+    private float weightApprox;
     
     public Item(Resident recievedFrom, String category, String subCategory) {
         this.id = UUID.randomUUID().toString().substring(0,5);
@@ -40,8 +42,7 @@ public class Item {
     }
     
     public enum ItemCondition {
-        GOOD,
-        REPAIRABLE,
+        INTACT,
         BROKEN,
     }
     
@@ -62,7 +63,9 @@ public class Item {
     }
     
     public int getRewardPoints() {
-        return 0;
+        int points = RewardsUtil.getRewardPoints(this.category, this.subCategory, this.type.name());
+        if (type != ItemType.REFURB) return (int) ((this.weightApprox*points)/3);
+        return points;
     }
 
     public String getId() {
@@ -72,7 +75,14 @@ public class Item {
     public Resident getRecievedFrom() {
         return recievedFrom;
     }
-    
+
+    public float getWeightApprox() {
+        return weightApprox;
+    }
+
+    public void setWeightApprox(int weightApprox) {
+        this.weightApprox = weightApprox;
+    }
 
     public String getCategory() {
         return category;

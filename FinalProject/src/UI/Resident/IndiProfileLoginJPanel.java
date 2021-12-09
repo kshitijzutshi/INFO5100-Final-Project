@@ -71,20 +71,21 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
         JPanelIndLoginMain.setBackground(new java.awt.Color(255, 255, 255));
         JPanelIndLoginMain.setPreferredSize(new java.awt.Dimension(1460, 850));
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(65, 118, 102));
+        kGradientPanel1.setkEndColor(new java.awt.Color(198, 226, 233));
         kGradientPanel1.setkGradientFocus(800);
-        kGradientPanel1.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel1.setkStartColor(new java.awt.Color(167, 190, 211));
         kGradientPanel1.setPreferredSize(new java.awt.Dimension(300, 1460));
 
         jLabel7.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("Welcome to ReQube,");
 
         nameLabel.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        nameLabel.setForeground(new java.awt.Color(255, 255, 255));
+        nameLabel.setForeground(new java.awt.Color(51, 51, 51));
 
-        logoutButton.setBackground(new java.awt.Color(65, 118, 102));
+        logoutButton.setBackground(new java.awt.Color(205, 223, 245));
         logoutButton.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
+        logoutButton.setForeground(new java.awt.Color(51, 51, 51));
         logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_50px.png"))); // NOI18N
         logoutButton.setText("Logout");
         logoutButton.setBorder(null);
@@ -127,8 +128,8 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
-        btnviewdashboard.setBackground(new java.awt.Color(232, 243, 228));
-        btnviewdashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dashboard_127px.png"))); // NOI18N
+        btnviewdashboard.setBackground(new java.awt.Color(205, 223, 245));
+        btnviewdashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/speed_127px.png"))); // NOI18N
         btnviewdashboard.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnviewdashboard.setBorderPainted(false);
         btnviewdashboard.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -146,8 +147,8 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnviewinfo.setBackground(new java.awt.Color(232, 243, 228));
-        btnviewinfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/info_127px.png"))); // NOI18N
+        btnviewinfo.setBackground(new java.awt.Color(167, 190, 211));
+        btnviewinfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/info_127px_1.png"))); // NOI18N
         btnviewinfo.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnviewinfo.setBorderPainted(false);
         btnviewinfo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -165,8 +166,8 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnviewbookingdetails.setBackground(new java.awt.Color(232, 243, 228));
-        btnviewbookingdetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/details_127px.png"))); // NOI18N
+        btnviewbookingdetails.setBackground(new java.awt.Color(205, 223, 245));
+        btnviewbookingdetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/details_127px_1.png"))); // NOI18N
         btnviewbookingdetails.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnviewbookingdetails.setBorderPainted(false);
         btnviewbookingdetails.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -184,8 +185,8 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnviewprofile.setBackground(new java.awt.Color(232, 243, 228));
-        btnviewprofile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/person_127px.png"))); // NOI18N
+        btnviewprofile.setBackground(new java.awt.Color(167, 190, 211));
+        btnviewprofile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/person_127px_2.png"))); // NOI18N
         btnviewprofile.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnviewprofile.setBorderPainted(false);
         btnviewprofile.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -203,8 +204,8 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnviewpickup.setBackground(new java.awt.Color(232, 243, 228));
-        btnviewpickup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/schedule_127px.png"))); // NOI18N
+        btnviewpickup.setBackground(new java.awt.Color(205, 223, 245));
+        btnviewpickup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/schedule_127px_1.png"))); // NOI18N
         btnviewpickup.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnviewpickup.setBorderPainted(false);
         btnviewpickup.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -222,8 +223,8 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnviewdropoff.setBackground(new java.awt.Color(232, 243, 228));
-        btnviewdropoff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/truck_127px.png"))); // NOI18N
+        btnviewdropoff.setBackground(new java.awt.Color(205, 223, 245));
+        btnviewdropoff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pickup_127px.png"))); // NOI18N
         btnviewdropoff.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnviewdropoff.setBorderPainted(false);
         btnviewdropoff.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -242,26 +243,32 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
         });
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Dashboard");
 
         txtprofile.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        txtprofile.setForeground(new java.awt.Color(51, 51, 51));
         txtprofile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtprofile.setText("My Profile");
 
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("E Waste FAQ");
 
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Create Drop-off booking");
 
         jLabel5.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("View Booking Details");
 
         jLabel6.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Create Pick-up booking");
 
