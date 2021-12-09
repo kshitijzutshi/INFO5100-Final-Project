@@ -16,16 +16,28 @@ import org.json.simple.parser.JSONParser;
  * @author phaniginjupalli
  */
 public class RewardsUtil {
-   
-    public static int getRewardPoints(String category, String subCategory, String itemType) {
-        JSONParser parser = new JSONParser();
-        try {
+    
+    final static JSONObject rewardsConfig = RewardsUtil.getConfig();
+    
+    
+    private static JSONObject getConfig() {
+        
+        try{
+            JSONParser parser = new JSONParser();
             File file = new File(RewardsUtil.class.getResource("RewardsConfig.json").toURI());
             Object obj = parser.parse(new FileReader(file));
-            JSONObject rewardsConfig = (JSONObject) obj;
+            return (JSONObject) obj;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+   
+    public static int getRewardPoints(String category, String subCategory, String itemType) {
+        try {
             JSONObject categoryConfig = (JSONObject) rewardsConfig.get(category);
             JSONObject subCatConfig = (JSONObject) categoryConfig.get(subCategory);
-            return (itemType.equals("RECYCLE")) ? ((Long) subCatConfig.get("recycle")).intValue() : ((Long) subCatConfig.get("refurb")).intValue();
+            return (itemType.equals("REFURB")) ? ((Long) subCatConfig.get("refurb")).intValue() : ((Long) subCatConfig.get("recycle")).intValue();
 
         } catch (Exception e) {
             System.out.println(e);

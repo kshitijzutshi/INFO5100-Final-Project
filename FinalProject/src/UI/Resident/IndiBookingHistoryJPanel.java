@@ -6,8 +6,13 @@
 package UI.Resident;
 
 import java.awt.CardLayout;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import models.CustomerBooking.InventoryBooking;
 import models.EcoSystem;
+import models.Inventory.Item;
 import models.User.Customer.Resident;
 
 /**
@@ -27,6 +32,8 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
         this.JPanelIndBookingDetailsMain = JPanelIndBookingDetailsMain;
         this.ecosystem = ecosystem;
         this.resident = resident;
+        welcomeLabel.setText(this.resident.getFullName());
+        this.populateTable("");
     }
 
     /**
@@ -50,6 +57,8 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         txtbookingid = new javax.swing.JTextField();
         btnsearch = new javax.swing.JButton();
+        bookingidlabel1 = new javax.swing.JLabel();
+        rewardsTotalLabel = new javax.swing.JLabel();
 
         setLayout(new java.awt.CardLayout());
 
@@ -124,14 +133,14 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
         tblPickUpBookingDetails.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         tblPickUpBookingDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Booking ID", "Item ID", "E-Waste Cat.", "Appliance type", "Make", "Model", "Year", "Weight(lbs.)", "condition", "PickUp Date", "PickUp Time"
+                "Booking ID", "Item ID", "Category", "Appliance Type", "Estimated rewards", "Make", "Model", "Added on", "Weight(lbs.)"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -164,6 +173,13 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
             }
         });
 
+        bookingidlabel1.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        bookingidlabel1.setForeground(new java.awt.Color(51, 51, 51));
+        bookingidlabel1.setText("Total Estimated Rewards: ");
+
+        rewardsTotalLabel.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        rewardsTotalLabel.setForeground(new java.awt.Color(51, 51, 51));
+
         javax.swing.GroupLayout JPanelIndBookingDetailsMainLayout = new javax.swing.GroupLayout(JPanelIndBookingDetailsMain);
         JPanelIndBookingDetailsMain.setLayout(JPanelIndBookingDetailsMainLayout);
         JPanelIndBookingDetailsMainLayout.setHorizontalGroup(
@@ -179,22 +195,27 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
                         .addComponent(bookingidlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndBookingDetailsMainLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnsearch)
-                .addGap(623, 623, 623))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndBookingDetailsMainLayout.createSequentialGroup()
-                .addContainerGap(233, Short.MAX_VALUE)
-                .addGroup(JPanelIndBookingDetailsMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndBookingDetailsMainLayout.createSequentialGroup()
-                        .addComponent(lbldropoffheader, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(447, 447, 447))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndBookingDetailsMainLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1055, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(173, 173, 173))))
+                .addContainerGap(532, Short.MAX_VALUE)
+                .addComponent(lbldropoffheader, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(447, 447, 447))
             .addGroup(JPanelIndBookingDetailsMainLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndBookingDetailsMainLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(JPanelIndBookingDetailsMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndBookingDetailsMainLayout.createSequentialGroup()
+                        .addComponent(btnsearch)
+                        .addGap(623, 623, 623))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelIndBookingDetailsMainLayout.createSequentialGroup()
+                        .addGroup(JPanelIndBookingDetailsMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(JPanelIndBookingDetailsMainLayout.createSequentialGroup()
+                                .addComponent(bookingidlabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rewardsTotalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(103, 103, 103))))
         );
         JPanelIndBookingDetailsMainLayout.setVerticalGroup(
             JPanelIndBookingDetailsMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,11 +229,16 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
                     .addComponent(bookingidlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnsearch)
-                .addGap(54, 54, 54)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(134, 134, 134))
+                .addGap(2, 2, 2)
+                .addGroup(JPanelIndBookingDetailsMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPanelIndBookingDetailsMainLayout.createSequentialGroup()
+                        .addComponent(bookingidlabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(rewardsTotalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         add(JPanelIndBookingDetailsMain, "card2");
@@ -224,6 +250,10 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
 
     private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
         // TODO add your handling code here:
+        String bookingId = txtbookingid.getText();
+        if (!bookingId.equals("")) {
+            populateTable(bookingId);
+        }
     }//GEN-LAST:event_btnsearchActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -233,10 +263,36 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
         layout.previous(JPanelIndBookingDetailsMain);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void populateTable(String bookingId) {
+        int totalRewards = 0;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DefaultTableModel model = (DefaultTableModel) tblPickUpBookingDetails.getModel();
+        model.setRowCount(0);
+        for (InventoryBooking booking: this.ecosystem.getBookingDirectory().getBookingsByResident(this.resident)){
+            for (Item item: booking.getItems()) {
+                Object[] row = new Object[10];
+                int rewards = item.getRewardPoints();
+                totalRewards+=rewards;
+                if (!bookingId.equals("") && !bookingId.equals(booking.getId())) continue;
+                row[0] = booking.getId();
+                row[1] = item.getId();
+                row[2] = item.getCategory();
+                row[3] = item.getSubCategory();
+                row[4] = rewards;
+                row[5] = item.getMake();
+                row[6] = item.getModel();
+                row[7] = formatter.format(item.getRecievedOn());
+                row[8] = item.getWeightApprox();
+                model.addRow(row);
+            }
+        }
+        rewardsTotalLabel.setText(String.valueOf(totalRewards));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanelIndBookingDetailsMain;
     private javax.swing.JLabel bookingidlabel;
+    private javax.swing.JLabel bookingidlabel1;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnsearch;
     private javax.swing.JButton jButton7;
@@ -244,6 +300,7 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel lbldropoffheader;
+    private javax.swing.JLabel rewardsTotalLabel;
     private javax.swing.JTable tblPickUpBookingDetails;
     private javax.swing.JTextField txtbookingid;
     private javax.swing.JLabel welcomeLabel;
