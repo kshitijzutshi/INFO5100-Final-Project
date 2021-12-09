@@ -58,9 +58,9 @@ public class CommercialProfileLoginMainJPanel extends javax.swing.JPanel {
         JPanelCommercialLoginMain.setBackground(new java.awt.Color(255, 255, 255));
         JPanelCommercialLoginMain.setPreferredSize(new java.awt.Dimension(1460, 850));
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(65, 118, 102));
-        kGradientPanel1.setkGradientFocus(800);
-        kGradientPanel1.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel1.setkEndColor(new java.awt.Color(198, 226, 233));
+        kGradientPanel1.setkGradientFocus(80);
+        kGradientPanel1.setkStartColor(new java.awt.Color(167, 190, 211));
         kGradientPanel1.setPreferredSize(new java.awt.Dimension(300, 1460));
 
         jLabel7.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N

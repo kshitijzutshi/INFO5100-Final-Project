@@ -74,23 +74,25 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         setLayout(new java.awt.CardLayout());
 
         JPanelIndPickUpMain.setBackground(new java.awt.Color(255, 255, 255));
+        JPanelIndPickUpMain.setForeground(java.awt.Color.darkGray);
         JPanelIndPickUpMain.setPreferredSize(new java.awt.Dimension(1460, 850));
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(65, 118, 102));
+        kGradientPanel1.setkEndColor(new java.awt.Color(198, 226, 233));
         kGradientPanel1.setkGradientFocus(800);
-        kGradientPanel1.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel1.setkStartColor(new java.awt.Color(167, 190, 211));
         kGradientPanel1.setPreferredSize(new java.awt.Dimension(300, 1460));
 
         jLabel7.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(java.awt.Color.darkGray);
         jLabel7.setText("Welcome to ReQube,");
 
         jLabel8.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(java.awt.Color.darkGray);
         jLabel8.setText("jLabel8");
 
-        jButton7.setBackground(new java.awt.Color(65, 118, 102));
+        jButton7.setBackground(new java.awt.Color(205, 223, 245));
         jButton7.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(51, 51, 51));
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_50px.png"))); // NOI18N
         jButton7.setText("Logout");
         jButton7.setBorder(null);
@@ -130,15 +132,19 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         );
 
         lbldropoffheader.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
+        lbldropoffheader.setForeground(java.awt.Color.darkGray);
         lbldropoffheader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbldropoffheader.setText("Pick Up Booking");
 
         lblewasteCat.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblewasteCat.setForeground(java.awt.Color.darkGray);
         lblewasteCat.setText("E-waste Category");
 
         lblmake.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblmake.setForeground(java.awt.Color.darkGray);
         lblmake.setText("Item Make");
 
+        txtemake.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
         txtemake.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtemakeActionPerformed(evt);
@@ -146,24 +152,36 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         });
 
         lblmodel.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblmodel.setForeground(java.awt.Color.darkGray);
         lblmodel.setText("Item Model");
 
+        txtmodel.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+
         lblYearManuf.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblYearManuf.setForeground(java.awt.Color.darkGray);
         lblYearManuf.setText("Year of manufacturing");
 
+        txtyearManuf.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+
         lblweight.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblweight.setForeground(java.awt.Color.darkGray);
         lblweight.setText("Weight Approx.(in lbs)");
 
+        txtitemweight.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+
         lblcondition.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblcondition.setForeground(java.awt.Color.darkGray);
         lblcondition.setText("Condition");
 
-        btnAddtoBookingTable.setBackground(new java.awt.Color(0, 153, 51));
+        btnAddtoBookingTable.setBackground(new java.awt.Color(205, 223, 245));
         btnAddtoBookingTable.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        btnAddtoBookingTable.setForeground(new java.awt.Color(51, 51, 51));
         btnAddtoBookingTable.setText("Add to booking");
 
         dropdownApplianceType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lblapplicance.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblapplicance.setForeground(java.awt.Color.darkGray);
         lblapplicance.setText("Type of Appliance");
 
         dropdownCatEwaste.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
@@ -218,12 +236,14 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
             tblPickUpBooking.getColumnModel().getColumn(8).setPreferredWidth(10);
         }
 
-        btnCreateBookingPickUp.setBackground(new java.awt.Color(0, 153, 51));
+        btnCreateBookingPickUp.setBackground(new java.awt.Color(205, 223, 245));
         btnCreateBookingPickUp.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        btnCreateBookingPickUp.setForeground(new java.awt.Color(51, 51, 51));
         btnCreateBookingPickUp.setText("Submit");
 
-        btnDeleteItem.setBackground(new java.awt.Color(255, 102, 102));
+        btnDeleteItem.setBackground(new java.awt.Color(205, 223, 245));
         btnDeleteItem.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        btnDeleteItem.setForeground(new java.awt.Color(51, 51, 51));
         btnDeleteItem.setText("Delete Item");
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
@@ -239,10 +259,14 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         });
 
         lblpickuptime.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblpickuptime.setForeground(java.awt.Color.darkGray);
         lblpickuptime.setText("Pick Up Time");
 
         lblpickupDate.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
+        lblpickupDate.setForeground(java.awt.Color.darkGray);
         lblpickupDate.setText("Pick Up Date");
+
+        txtPickupTime.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         javax.swing.GroupLayout JPanelIndPickUpMainLayout = new javax.swing.GroupLayout(JPanelIndPickUpMain);
         JPanelIndPickUpMain.setLayout(JPanelIndPickUpMainLayout);
@@ -291,7 +315,7 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
                                 .addComponent(btnCreateBookingPickUp, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(22, 22, 22))))
             .addGroup(JPanelIndPickUpMainLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addGap(55, 55, 55)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -339,11 +363,11 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
                         .addGroup(JPanelIndPickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(PickUpDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                             .addComponent(txtPickupTime))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                         .addComponent(btnAddtoBookingTable, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
+                        .addGap(11, 11, 11)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53))
+                        .addGap(69, 69, 69))
                     .addGroup(JPanelIndPickUpMainLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
