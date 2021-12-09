@@ -64,6 +64,6 @@ public class InventoryBooking {
     public void setRequestedDateTime(LocalDateTime requestedDateTime) {
         this.requestedDateTime = requestedDateTime;
     }
-    
+        
     
 }
