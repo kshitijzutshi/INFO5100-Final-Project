@@ -50,17 +50,17 @@ public class ManageIndividualSysAdminJPanel extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         btnCreate = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        residentsJTable = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
         btnModify = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        residentsJTable = new javax.swing.JTable();
 
         setLayout(new java.awt.CardLayout());
 
         manageIndiSysAdmin.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Lucida Sans", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Create New Individual Login");
 
@@ -86,7 +86,7 @@ public class ManageIndividualSysAdminJPanel extends javax.swing.JPanel {
 
         btnUpdate.setBackground(new java.awt.Color(205, 223, 245));
         btnUpdate.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
-        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setForeground(new java.awt.Color(51, 51, 51));
         btnUpdate.setText("Update");
         btnUpdate.setBorderPainted(false);
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +97,7 @@ public class ManageIndividualSysAdminJPanel extends javax.swing.JPanel {
 
         btnCreate.setBackground(new java.awt.Color(205, 223, 245));
         btnCreate.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
-        btnCreate.setForeground(new java.awt.Color(255, 255, 255));
+        btnCreate.setForeground(new java.awt.Color(51, 51, 51));
         btnCreate.setText("Create");
         btnCreate.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btnCreate.setBorderPainted(false);
@@ -111,20 +111,9 @@ public class ManageIndividualSysAdminJPanel extends javax.swing.JPanel {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("View Individual Users");
 
-        residentsJTable.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
-        residentsJTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Name", "Username", "Password"
-            }
-        ));
-        jScrollPane1.setViewportView(residentsJTable);
-
         btnDelete.setBackground(new java.awt.Color(205, 223, 245));
         btnDelete.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
-        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setForeground(new java.awt.Color(51, 51, 51));
         btnDelete.setText("Delete");
         btnDelete.setBorderPainted(false);
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -135,7 +124,7 @@ public class ManageIndividualSysAdminJPanel extends javax.swing.JPanel {
 
         btnModify.setBackground(new java.awt.Color(205, 223, 245));
         btnModify.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
-        btnModify.setForeground(new java.awt.Color(255, 255, 255));
+        btnModify.setForeground(new java.awt.Color(51, 51, 51));
         btnModify.setText("Modify");
         btnModify.setBorderPainted(false);
         btnModify.addActionListener(new java.awt.event.ActionListener() {
@@ -144,47 +133,63 @@ public class ManageIndividualSysAdminJPanel extends javax.swing.JPanel {
             }
         });
 
+        residentsJTable.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        residentsJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "Username", "Password"
+            }
+        ));
+        jScrollPane2.setViewportView(residentsJTable);
+
         javax.swing.GroupLayout manageIndiSysAdminLayout = new javax.swing.GroupLayout(manageIndiSysAdmin);
         manageIndiSysAdmin.setLayout(manageIndiSysAdminLayout);
         manageIndiSysAdminLayout.setHorizontalGroup(
             manageIndiSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(manageIndiSysAdminLayout.createSequentialGroup()
-                .addContainerGap(99, Short.MAX_VALUE)
-                .addGroup(manageIndiSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageIndiSysAdminLayout.createSequentialGroup()
-                        .addGroup(manageIndiSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(manageIndiSysAdminLayout.createSequentialGroup()
-                                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(65, 65, 65)
-                                .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(128, 128, 128))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageIndiSysAdminLayout.createSequentialGroup()
-                        .addGroup(manageIndiSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4))
-                        .addGap(58, 58, 58)
-                        .addGroup(manageIndiSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(manageIndiSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(manageIndiSysAdminLayout.createSequentialGroup()
-                                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(51, 51, 51)
-                                    .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(manageIndiSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(passwordTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
-                                    .addComponent(nameTextField)))
-                            .addComponent(usernameTextFied, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(278, 278, 278))))
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(212, 212, 212)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(manageIndiSysAdminLayout.createSequentialGroup()
+                .addGroup(manageIndiSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(manageIndiSysAdminLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(manageIndiSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(manageIndiSysAdminLayout.createSequentialGroup()
+                            .addGap(153, 153, 153)
+                            .addGroup(manageIndiSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(manageIndiSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(manageIndiSysAdminLayout.createSequentialGroup()
+                                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(51, 51, 51)
+                                        .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(manageIndiSysAdminLayout.createSequentialGroup()
+                                        .addGroup(manageIndiSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel4))
+                                        .addGap(58, 58, 58)
+                                        .addGroup(manageIndiSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(usernameTextFied, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+                                            .addComponent(nameTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(passwordTextField))))))
+                        .addGroup(manageIndiSysAdminLayout.createSequentialGroup()
+                            .addGap(87, 87, 87)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 112, Short.MAX_VALUE))
         );
         manageIndiSysAdminLayout.setVerticalGroup(
             manageIndiSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageIndiSysAdminLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
                 .addGroup(manageIndiSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -196,19 +201,19 @@ public class ManageIndividualSysAdminJPanel extends javax.swing.JPanel {
                 .addGroup(manageIndiSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(42, 42, 42)
+                .addGap(34, 34, 34)
                 .addGroup(manageIndiSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnUpdate))
-                .addGap(51, 51, 51)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel5)
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(manageIndiSysAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnModify)
-                    .addComponent(btnDelete))
-                .addGap(135, 135, 135))
+                    .addComponent(btnDelete)
+                    .addComponent(btnModify))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         add(manageIndiSysAdmin, "card2");
@@ -304,7 +309,7 @@ public class ManageIndividualSysAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel manageIndiSysAdmin;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JTextField passwordTextField;

@@ -52,9 +52,18 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
         logoutSysadminPanel = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        btnManageRetailers = new javax.swing.JPanel();
+        btnManageManagemnt = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        btnManageRetailers1 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        btnManageRetailer = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        btnManageTechnician = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -92,7 +101,7 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
             .addGroup(btnManageQCInspectorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(44, 44, 44)
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -127,9 +136,9 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
             .addGroup(btnManageLogisticsSysadminLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         btnManageLogisticsSysadminLayout.setVerticalGroup(
             btnManageLogisticsSysadminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +170,7 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
             .addGroup(btnManageIndividualLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel9)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -198,7 +207,7 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
             .addGroup(logoutSysadminPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(37, 37, 37)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -212,38 +221,144 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        btnManageRetailers.setBackground(new java.awt.Color(167, 190, 211));
-        btnManageRetailers.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnManageManagemnt.setBackground(new java.awt.Color(167, 190, 211));
+        btnManageManagemnt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnManageRetailersMouseClicked(evt);
+                btnManageManagemntMouseClicked(evt);
             }
         });
 
         jLabel17.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/building_24px.png"))); // NOI18N
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/management_24px.png"))); // NOI18N
 
         jLabel18.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
-        jLabel18.setText("Manage Commercial");
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("Manage Managment Div.");
 
-        javax.swing.GroupLayout btnManageRetailersLayout = new javax.swing.GroupLayout(btnManageRetailers);
-        btnManageRetailers.setLayout(btnManageRetailersLayout);
-        btnManageRetailersLayout.setHorizontalGroup(
-            btnManageRetailersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnManageRetailersLayout.createSequentialGroup()
+        javax.swing.GroupLayout btnManageManagemntLayout = new javax.swing.GroupLayout(btnManageManagemnt);
+        btnManageManagemnt.setLayout(btnManageManagemntLayout);
+        btnManageManagemntLayout.setHorizontalGroup(
+            btnManageManagemntLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnManageManagemntLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel18)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        btnManageRetailersLayout.setVerticalGroup(
-            btnManageRetailersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnManageRetailersLayout.createSequentialGroup()
+        btnManageManagemntLayout.setVerticalGroup(
+            btnManageManagemntLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnManageManagemntLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        btnManageRetailers1.setBackground(new java.awt.Color(167, 190, 211));
+        btnManageRetailers1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnManageRetailers1MouseClicked(evt);
+            }
+        });
+
+        jLabel19.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/building_24px.png"))); // NOI18N
+
+        jLabel20.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setText("Manage Commercial");
+
+        javax.swing.GroupLayout btnManageRetailers1Layout = new javax.swing.GroupLayout(btnManageRetailers1);
+        btnManageRetailers1.setLayout(btnManageRetailers1Layout);
+        btnManageRetailers1Layout.setHorizontalGroup(
+            btnManageRetailers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnManageRetailers1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnManageRetailers1Layout.setVerticalGroup(
+            btnManageRetailers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnManageRetailers1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        btnManageRetailer.setBackground(new java.awt.Color(167, 190, 211));
+        btnManageRetailer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnManageRetailerMouseClicked(evt);
+            }
+        });
+
+        jLabel21.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/retailers_24px.png"))); // NOI18N
+
+        jLabel22.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText("Manage Retailers");
+
+        javax.swing.GroupLayout btnManageRetailerLayout = new javax.swing.GroupLayout(btnManageRetailer);
+        btnManageRetailer.setLayout(btnManageRetailerLayout);
+        btnManageRetailerLayout.setHorizontalGroup(
+            btnManageRetailerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnManageRetailerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnManageRetailerLayout.setVerticalGroup(
+            btnManageRetailerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnManageRetailerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        btnManageTechnician.setBackground(new java.awt.Color(167, 190, 211));
+        btnManageTechnician.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnManageTechnicianMouseClicked(evt);
+            }
+        });
+
+        jLabel23.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/technician_24px.png"))); // NOI18N
+
+        jLabel24.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText("Manage Technicians");
+
+        javax.swing.GroupLayout btnManageTechnicianLayout = new javax.swing.GroupLayout(btnManageTechnician);
+        btnManageTechnician.setLayout(btnManageTechnicianLayout);
+        btnManageTechnicianLayout.setHorizontalGroup(
+            btnManageTechnicianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnManageTechnicianLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnManageTechnicianLayout.setVerticalGroup(
+            btnManageTechnicianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnManageTechnicianLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
@@ -261,8 +376,11 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
                         .addGap(59, 63, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnManageTechnician, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnManageRetailer, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnManageRetailers1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(logoutSysadminPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnManageRetailers, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnManageManagemnt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnManageIndividual, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnManageLogisticsSysadmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnManageQCInspector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -282,10 +400,16 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(btnManageIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnManageRetailers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnManageRetailers1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(btnManageManagemnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnManageRetailer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnManageTechnician, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(logoutSysadminPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(921, Short.MAX_VALUE))
+                .addContainerGap(692, Short.MAX_VALUE))
         );
 
         kGradientPanel2.setkEndColor(new java.awt.Color(198, 226, 233));
@@ -401,25 +525,48 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
         layout.next(sysadminDynamicJPanel);
     }//GEN-LAST:event_btnManageIndividualMouseClicked
 
-    private void btnManageRetailersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageRetailersMouseClicked
+    private void btnManageManagemntMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageManagemntMouseClicked
         // TODO add your handling code here:
-//        ManageCommercialSysAdminJPanel manageSysadminCommercial = new ManageCommercialSysAdminJPanel(sysadminDynamicJPanel, ecosystem);
-//        CardLayout layout = (CardLayout) sysadminDynamicJPanel.getLayout();
-//        sysadminDynamicJPanel.add("ManageCommercialLogin", manageSysadminCommercial);
-//        layout.next(sysadminDynamicJPanel);
-    }//GEN-LAST:event_btnManageRetailersMouseClicked
+        ManageMgmtDivSysAdminJPanel manageSysadminMgmt = new ManageMgmtDivSysAdminJPanel(sysadminDynamicJPanel, ecosystem);
+        CardLayout layout = (CardLayout) sysadminDynamicJPanel.getLayout();
+        sysadminDynamicJPanel.add("ManageMgmtLogin", manageSysadminMgmt);
+        layout.next(sysadminDynamicJPanel);
+    }//GEN-LAST:event_btnManageManagemntMouseClicked
 
     private void logoutSysadminPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutSysadminPanelMouseClicked
         // TODO add your handling code here:
         DB4OUtil.getInstance().storeSystem(this.ecosystem);
     }//GEN-LAST:event_logoutSysadminPanelMouseClicked
 
+    private void btnManageRetailers1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageRetailers1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnManageRetailers1MouseClicked
+
+    private void btnManageRetailerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageRetailerMouseClicked
+        // TODO add your handling code here:
+        ManageRetailerSysAdminJPanel manageSysadminRetailer = new ManageRetailerSysAdminJPanel(sysadminDynamicJPanel, ecosystem);
+        CardLayout layout = (CardLayout) sysadminDynamicJPanel.getLayout();
+        sysadminDynamicJPanel.add("ManageRetailerLogin", manageSysadminRetailer);
+        layout.next(sysadminDynamicJPanel);
+    }//GEN-LAST:event_btnManageRetailerMouseClicked
+
+    private void btnManageTechnicianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageTechnicianMouseClicked
+        // TODO add your handling code here:
+        ManageTechnicianSysAdminJPanel manageSysadminTechnician = new ManageTechnicianSysAdminJPanel(sysadminDynamicJPanel, ecosystem);
+        CardLayout layout = (CardLayout) sysadminDynamicJPanel.getLayout();
+        sysadminDynamicJPanel.add("ManageRetailerLogin", manageSysadminTechnician);
+        layout.next(sysadminDynamicJPanel);
+    }//GEN-LAST:event_btnManageTechnicianMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnManageIndividual;
     private javax.swing.JPanel btnManageLogisticsSysadmin;
+    private javax.swing.JPanel btnManageManagemnt;
     private javax.swing.JPanel btnManageQCInspector;
-    private javax.swing.JPanel btnManageRetailers;
+    private javax.swing.JPanel btnManageRetailer;
+    private javax.swing.JPanel btnManageRetailers1;
+    private javax.swing.JPanel btnManageTechnician;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -428,7 +575,13 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
