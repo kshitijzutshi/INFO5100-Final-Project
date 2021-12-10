@@ -27,10 +27,6 @@ public class CustomerDirectory {
         return resident;
     }
     
-    public Commercial addCommercialCustomers(Commercial commercial) {
-        this.commercialCustomers.add(commercial);
-        return commercial;
-    }
     
     public Resident removeResident(Resident resident) {
         this.residents.remove(resident);
@@ -41,10 +37,6 @@ public class CustomerDirectory {
         return residents;
     }
 
-
-    public ArrayList<Commercial> getCommercialCustomers() {
-        return commercialCustomers;
-    }
     
     public Resident getResidentByUserAccount(UserAccount userAccount) {
         for (Resident resident: this.residents) {
@@ -53,11 +45,5 @@ public class CustomerDirectory {
         return null;
     }
     
-    public Resident getCommercialByUserAccount(UserAccount userAccount) {
-//        for (Commercial commercial: this.commercialCustomers) {
-//            if (resident.getUserAccount() == userAccount) return resident;
-//        }
-        return null;
-    }
     
 }

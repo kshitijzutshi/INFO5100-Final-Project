@@ -225,55 +225,55 @@ public class ManageSysAdminLogisticsJPanel extends javax.swing.JPanel {
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
         String name = nameTextField.getText();
-                String password = passwordTextField.getText();
-                if (!this.hasSelectedLogisticsMan()) return;
-                if (password.equals("") || name.equals("")) {
-                        JOptionPane.showMessageDialog(this, "All fields are required");
-                        return;
-                    }
-                this.selectedLogisticsMan.getUserAccount().setPassword(password);
-                this.selectedLogisticsMan.setFullName(name);
-                populateTable();
-                nameTextField.setText("");
-                usernameTextField.setText("");
-                passwordTextField.setText("");
-                JOptionPane.showMessageDialog(null, "Updated details");
+        String password = passwordTextField.getText();
+        if (!this.hasSelectedLogisticsMan()) return;
+        if (password.equals("") || name.equals("")) {
+                JOptionPane.showMessageDialog(this, "All fields are required");
+                return;
+            }
+        this.selectedLogisticsMan.getUserAccount().setPassword(password);
+        this.selectedLogisticsMan.setFullName(name);
+        populateTable();
+        nameTextField.setText("");
+        usernameTextField.setText("");
+        passwordTextField.setText("");
+        JOptionPane.showMessageDialog(null, "Updated details");
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-                String name = nameTextField.getText();
-                String username = usernameTextField.getText();
-                String password = passwordTextField.getText();
-                if (username.equals("") || password.equals("") || name.equals("")) {
-                        JOptionPane.showMessageDialog(this, "All fields are required");
-                        return;
-                    }
-                if (this.ecosystem.getUserAccountDirectory().userNameExists(username)) {
-                        JOptionPane.showMessageDialog(this, "Username already taken!");
-                        return;
-                    }
-                LogisticsMan logMan = new LogisticsMan(username, password);
-                logMan.setFullName(name);
-                this.ecosystem.getUserAccountDirectory().addUserAccount(logMan.getUserAccount());
-                this.ecosystem.getEmployeeDirectory().addLogisticsMen(logMan);
-                JOptionPane.showMessageDialog(null, "Logistics employee added successfully");
+        String name = nameTextField.getText();
+        String username = usernameTextField.getText();
+        String password = passwordTextField.getText();
+        if (username.equals("") || password.equals("") || name.equals("")) {
+                JOptionPane.showMessageDialog(this, "All fields are required");
+                return;
+            }
+        if (this.ecosystem.getUserAccountDirectory().userNameExists(username)) {
+                JOptionPane.showMessageDialog(this, "Username already taken!");
+                return;
+            }
+        LogisticsMan logMan = new LogisticsMan(username, password);
+        logMan.setFullName(name);
+        this.ecosystem.getUserAccountDirectory().addUserAccount(logMan.getUserAccount());
+        this.ecosystem.getEmployeeDirectory().addLogisticsMen(logMan);
+        JOptionPane.showMessageDialog(null, "Logistics employee added successfully");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-                if (!this.hasSelectedLogisticsMan()) return;
-                this.ecosystem.getEmployeeDirectory().removeLogisticsMan(this.selectedLogisticsMan);
-                JOptionPane.showMessageDialog(this, "Employee entry deleted");
-                this.populateTable();
+        if (!this.hasSelectedLogisticsMan()) return;
+        this.ecosystem.getEmployeeDirectory().removeLogisticsMan(this.selectedLogisticsMan);
+        JOptionPane.showMessageDialog(this, "Employee entry deleted");
+        this.populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
         // TODO add your handling code here:
-                if (!this.hasSelectedLogisticsMan()) return;
-                nameTextField.setText(this.selectedLogisticsMan.getFullName());
-                usernameTextField.setText(this.selectedLogisticsMan.getUserAccount().getUsername());
-                passwordTextField.setText(this.selectedLogisticsMan.getUserAccount().getPassword());
+        if (!this.hasSelectedLogisticsMan()) return;
+        nameTextField.setText(this.selectedLogisticsMan.getFullName());
+        usernameTextField.setText(this.selectedLogisticsMan.getUserAccount().getUsername());
+        passwordTextField.setText(this.selectedLogisticsMan.getUserAccount().getPassword());
     }//GEN-LAST:event_btnModifyActionPerformed
 
     

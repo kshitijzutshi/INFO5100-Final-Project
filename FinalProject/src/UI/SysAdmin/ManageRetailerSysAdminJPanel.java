@@ -5,8 +5,11 @@
  */
 package UI.SysAdmin;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import models.EcoSystem;
+import models.User.Client.Client;
 
 /**
  *
@@ -19,6 +22,7 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
      */
     JPanel jpanel8;
     EcoSystem ecosystem;
+    Client selectedClient;
     public ManageRetailerSysAdminJPanel(JPanel ManageRetailerSysAdminPanelArea, EcoSystem ecosystem) {
         this.manageRetailerSysadminPanel = ManageRetailerSysAdminPanelArea;
         this.ecosystem = ecosystem;
@@ -46,7 +50,7 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
         btnCreate = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        residentsJTable = new javax.swing.JTable();
+        clientsJTable = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
         btnModify = new javax.swing.JButton();
 
@@ -106,8 +110,8 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("View Retailer Users");
 
-        residentsJTable.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
-        residentsJTable.setModel(new javax.swing.table.DefaultTableModel(
+        clientsJTable.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        clientsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -115,7 +119,7 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
                 "Name", "Username", "Password"
             }
         ));
-        jScrollPane2.setViewportView(residentsJTable);
+        jScrollPane2.setViewportView(clientsJTable);
 
         btnDelete.setBackground(new java.awt.Color(205, 223, 245));
         btnDelete.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
@@ -176,7 +180,7 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
                                     .addGap(125, 125, 125)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         manageRetailerSysadminPanelLayout.setVerticalGroup(
             manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,10 +208,10 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDelete)
-                    .addComponent(btnModify))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addGroup(manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnModify)
+                    .addComponent(btnDelete))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         add(manageRetailerSysadminPanel, "card2");
@@ -219,17 +223,17 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        //        String name = nameTextField.getText();
-        //        String password = passwordTextField.getText();
-        //        if (!this.hasSelectedResident()) return;
-        //        this.selectedResident.getUserAccount().setPassword(password);
-        //        this.selectedResident.setFullName(name);
-        //        populateTable();
-        //        nameTextField.setText("");
-        //        usernameTextFied.setText("");
-        //        passwordTextField.setText("");
-        //        usernameTextFied.setText("");
-        //        JOptionPane.showMessageDialog(null, "Updated details");
+        String name = nameTextField.getText();
+        String password = passwordTextField.getText();
+        if (!this.hasSelectedClient()) return;
+        this.selectedClient.getUserAccount().setPassword(password);
+        this.selectedClient.setFullName(name);
+        populateTable();
+        nameTextField.setText("");
+        usernameTextFied.setText("");
+        passwordTextField.setText("");
+        usernameTextFied.setText("");
+        JOptionPane.showMessageDialog(null, "Updated details");
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -237,44 +241,68 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
         String name = nameTextField.getText();
         String username = usernameTextFied.getText();
         String password = passwordTextField.getText();
-        //        if (username.equals("") || password.equals("") || name.equals("")) {
-            //            JOptionPane.showMessageDialog(this, "All fields are required");
-            //            return;
-            //        }
-        //        if (this.ecosystem.getUserAccountDirectory().userNameExists(username)) {
-            //            JOptionPane.showMessageDialog(this, "Username already taken!");
-            //            return;
-            //        }
-        //        Resident resident = new Resident(username, password);
-        //        resident.setFullName(name);
-        //        this.ecosystem.getUserAccountDirectory().addUserAccount(resident.getUserAccount());
-        //        this.ecosystem.getCustomerDirectory().addResidents(resident);
-        //        JOptionPane.showMessageDialog(null, "User added successfully");
+        if (username.equals("") || password.equals("") || name.equals("")) {
+            JOptionPane.showMessageDialog(this, "All fields are required");
+            return;
+        }
+        if (this.ecosystem.getUserAccountDirectory().userNameExists(username)) {
+            JOptionPane.showMessageDialog(this, "Username already taken!");
+            return;
+        }
+        Client client = new Client(username, password, true);
+        client.setFullName(name);
+        this.ecosystem.getUserAccountDirectory().addUserAccount(client.getUserAccount());
+        this.ecosystem.getClientDirectory().addClient(client);
+        JOptionPane.showMessageDialog(null, "Client added successfully");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        //        if (!this.hasSelectedResident()) return;
-        //        this.ecosystem.getCustomerDirectory().removeResident(this.selectedResident);
-        //        this.ecosystem.getUserAccountDirectory().removeUserAccount(this.selectedResident.getUserAccount());
-        //        JOptionPane.showMessageDialog(this, "Customer entry deleted");
-        //        this.populateTable();
+        if (!this.hasSelectedClient()) return;
+        this.ecosystem.getClientDirectory().removeClient(this.selectedClient);
+        this.ecosystem.getUserAccountDirectory().removeUserAccount(this.selectedClient.getUserAccount());
+        JOptionPane.showMessageDialog(this, "Client entry deleted");
+        this.populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
         // TODO add your handling code here:
-        //        if (!this.hasSelectedResident()) return;
-        //        nameTextField.setText(this.selectedResident.getFullName());
-        //        usernameTextFied.setText(this.selectedResident.getUserAccount().getUsername());
-        //        passwordTextField.setText(this.selectedResident.getUserAccount().getPassword());
+        if (!this.hasSelectedClient()) return;
+        nameTextField.setText(this.selectedClient.getFullName());
+        usernameTextFied.setText(this.selectedClient.getUserAccount().getUsername());
+        passwordTextField.setText(this.selectedClient.getUserAccount().getPassword());
     }//GEN-LAST:event_btnModifyActionPerformed
-
+    
+    private boolean hasSelectedClient() {
+        int selectedRowIndex = clientsJTable.getSelectedRow();
+        if (selectedRowIndex<0) {
+            JOptionPane.showMessageDialog(this, "Please select a client");
+            return false;
+        }
+        DefaultTableModel model = (DefaultTableModel) clientsJTable.getModel();
+        this.selectedClient = (Client) model.getValueAt(selectedRowIndex, 0);
+        return true;
+    }
+    
+    
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) clientsJTable.getModel();
+        model.setRowCount(0);
+        for (Client client: this.ecosystem.getClientDirectory().getClients()) {
+            Object[] row = new Object[3];
+            row[0] = client;
+            row[1] = client.getUserAccount().getUsername();
+            row[2] = client.getUserAccount().getPassword();
+            model.addRow(row);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnModify;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JTable clientsJTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -284,7 +312,6 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel manageRetailerSysadminPanel;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JTextField passwordTextField;
-    private javax.swing.JTable residentsJTable;
     private javax.swing.JTextField usernameTextFied;
     // End of variables declaration//GEN-END:variables
 }

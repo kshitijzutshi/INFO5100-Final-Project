@@ -5,8 +5,11 @@
  */
 package UI.SysAdmin;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import models.EcoSystem;
+import models.User.Employee.Technician;
 
 /**
  *
@@ -19,6 +22,7 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
      */
     JPanel jpanel9;
     EcoSystem ecosystem;
+    Technician selectedTechnician;
     public ManageTechnicianSysAdminJPanel(JPanel ManageTechnicianSysAdmin, EcoSystem ecosystem) {
         this.managetechnicianAdminPanel = ManageTechnicianSysAdmin;
         this.ecosystem = ecosystem;
@@ -39,14 +43,14 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         nameTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        usernameTextFied = new javax.swing.JTextField();
+        usernameTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         passwordTextField = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
         btnCreate = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        residentsJTable = new javax.swing.JTable();
+        techniciansJTable = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
         btnModify = new javax.swing.JButton();
 
@@ -72,7 +76,7 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         jLabel4.setText("Username");
 
-        usernameTextFied.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        usernameTextField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         jLabel3.setText("Password");
@@ -106,8 +110,8 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("View Technician Users");
 
-        residentsJTable.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
-        residentsJTable.setModel(new javax.swing.table.DefaultTableModel(
+        techniciansJTable.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        techniciansJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -115,7 +119,7 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
                 "Name", "Username", "Password"
             }
         ));
-        jScrollPane2.setViewportView(residentsJTable);
+        jScrollPane2.setViewportView(techniciansJTable);
 
         btnDelete.setBackground(new java.awt.Color(205, 223, 245));
         btnDelete.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
@@ -161,7 +165,7 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
                                         .addComponent(jLabel4))
                                     .addGap(58, 58, 58)
                                     .addGroup(managetechnicianAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(usernameTextFied, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(usernameTextField, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(nameTextField, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(managetechnicianAdminPanelLayout.createSequentialGroup()
@@ -176,7 +180,7 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
                                     .addGap(125, 125, 125)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         managetechnicianAdminPanelLayout.setVerticalGroup(
             managetechnicianAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,7 +194,7 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
                 .addGap(25, 25, 25)
                 .addGroup(managetechnicianAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(usernameTextFied, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(managetechnicianAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -204,10 +208,10 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(managetechnicianAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDelete)
-                    .addComponent(btnModify))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addGroup(managetechnicianAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnModify)
+                    .addComponent(btnDelete))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         add(managetechnicianAdminPanel, "card2");
@@ -219,56 +223,81 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        //        String name = nameTextField.getText();
-        //        String password = passwordTextField.getText();
-        //        if (!this.hasSelectedResident()) return;
-        //        this.selectedResident.getUserAccount().setPassword(password);
-        //        this.selectedResident.setFullName(name);
-        //        populateTable();
-        //        nameTextField.setText("");
-        //        usernameTextFied.setText("");
-        //        passwordTextField.setText("");
-        //        usernameTextFied.setText("");
-        //        JOptionPane.showMessageDialog(null, "Updated details");
+        String name = nameTextField.getText();
+        String password = passwordTextField.getText();
+        if (!this.hasSelectedTechnician()) return;
+        if (password.equals("") || name.equals("")) {
+                JOptionPane.showMessageDialog(this, "All fields are required");
+                return;
+            }
+        this.selectedTechnician.getUserAccount().setPassword(password);
+        this.selectedTechnician.setFullName(name);
+        populateTable();
+        nameTextField.setText("");
+        usernameTextField.setText("");
+        passwordTextField.setText("");
+        JOptionPane.showMessageDialog(null, "Updated details");
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
         String name = nameTextField.getText();
-        String username = usernameTextFied.getText();
+        String username = usernameTextField.getText();
         String password = passwordTextField.getText();
-        //        if (username.equals("") || password.equals("") || name.equals("")) {
-            //            JOptionPane.showMessageDialog(this, "All fields are required");
-            //            return;
-            //        }
-        //        if (this.ecosystem.getUserAccountDirectory().userNameExists(username)) {
-            //            JOptionPane.showMessageDialog(this, "Username already taken!");
-            //            return;
-            //        }
-        //        Resident resident = new Resident(username, password);
-        //        resident.setFullName(name);
-        //        this.ecosystem.getUserAccountDirectory().addUserAccount(resident.getUserAccount());
-        //        this.ecosystem.getCustomerDirectory().addResidents(resident);
-        //        JOptionPane.showMessageDialog(null, "User added successfully");
+        if (username.equals("") || password.equals("") || name.equals("")) {
+                JOptionPane.showMessageDialog(this, "All fields are required");
+                return;
+            }
+        if (this.ecosystem.getUserAccountDirectory().userNameExists(username)) {
+                JOptionPane.showMessageDialog(this, "Username already taken!");
+                return;
+            }
+        Technician technician = new Technician(username, password);
+        technician.setFullName(name);
+        this.ecosystem.getUserAccountDirectory().addUserAccount(technician.getUserAccount());
+        this.ecosystem.getEmployeeDirectory().addTechnician(technician);
+        JOptionPane.showMessageDialog(null, "Technician employee added successfully");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        //        if (!this.hasSelectedResident()) return;
-        //        this.ecosystem.getCustomerDirectory().removeResident(this.selectedResident);
-        //        this.ecosystem.getUserAccountDirectory().removeUserAccount(this.selectedResident.getUserAccount());
-        //        JOptionPane.showMessageDialog(this, "Customer entry deleted");
-        //        this.populateTable();
+        if (!this.hasSelectedTechnician()) return;
+        this.ecosystem.getEmployeeDirectory().removeTechnician(this.selectedTechnician);
+        JOptionPane.showMessageDialog(this, "Employee entry deleted");
+        this.populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
         // TODO add your handling code here:
-        //        if (!this.hasSelectedResident()) return;
-        //        nameTextField.setText(this.selectedResident.getFullName());
-        //        usernameTextFied.setText(this.selectedResident.getUserAccount().getUsername());
-        //        passwordTextField.setText(this.selectedResident.getUserAccount().getPassword());
+        if (!this.hasSelectedTechnician()) return;
+        nameTextField.setText(this.selectedTechnician.getFullName());
+        usernameTextField.setText(this.selectedTechnician.getUserAccount().getUsername());
+        passwordTextField.setText(this.selectedTechnician.getUserAccount().getPassword());
     }//GEN-LAST:event_btnModifyActionPerformed
-
+    
+    private boolean hasSelectedTechnician() {
+        int selectedRowIndex = techniciansJTable.getSelectedRow();
+        if (selectedRowIndex<0) {
+            JOptionPane.showMessageDialog(this, "Please select a technician");
+            return false;
+        }
+        DefaultTableModel model = (DefaultTableModel) techniciansJTable.getModel();
+        this.selectedTechnician = (Technician) model.getValueAt(selectedRowIndex, 0);
+        return true;
+    }
+    
+    
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) techniciansJTable.getModel();
+        model.setRowCount(0);
+        for (Technician technician: this.ecosystem.getEmployeeDirectory().getTechnicians()) {
+            Object[] row = new Object[3];
+            row[0] = technician;
+            row[1] = technician.getUserAccount().getUsername();
+            row[2] = technician.getUserAccount().getPassword();
+            model.addRow(row);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreate;
@@ -284,7 +313,7 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel managetechnicianAdminPanel;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JTextField passwordTextField;
-    private javax.swing.JTable residentsJTable;
-    private javax.swing.JTextField usernameTextFied;
+    private javax.swing.JTable techniciansJTable;
+    private javax.swing.JTextField usernameTextField;
     // End of variables declaration//GEN-END:variables
 }

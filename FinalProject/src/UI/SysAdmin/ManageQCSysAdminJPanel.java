@@ -5,8 +5,11 @@
  */
 package UI.SysAdmin;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import models.EcoSystem;
+import models.User.Employee.QCInspector;
 
 /**
  *
@@ -19,6 +22,7 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
      */
     JPanel jpanel2;
     EcoSystem ecosystem;
+    QCInspector selectedInspector;
     public ManageQCSysAdminJPanel(JPanel ManageQCSysAdminJPanel, EcoSystem ecosystem) {
         this.ManageQCSysAdminPanel = ManageQCSysAdminJPanel;
         initComponents();
@@ -37,16 +41,16 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
         ManageQCSysAdminPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        nameTextField = new javax.swing.JTextField();
+        usernameTextFied = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        passwordTextField = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
         btnCreate = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        qcInspectorsJTable = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
         btnModify = new javax.swing.JButton();
 
@@ -62,14 +66,14 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         jLabel2.setText("Name");
 
-        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        nameTextField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        nameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                nameTextFieldActionPerformed(evt);
             }
         });
 
-        jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        usernameTextFied.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         jLabel4.setText("Username");
@@ -77,7 +81,7 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         jLabel3.setText("Password");
 
-        jTextField3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        passwordTextField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         btnUpdate.setBackground(new java.awt.Color(205, 223, 245));
         btnUpdate.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
@@ -106,7 +110,7 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("View QC Inspector Users");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        qcInspectorsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -114,7 +118,7 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
                 "Name", "Username", "Password"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(qcInspectorsJTable);
 
         btnDelete.setBackground(new java.awt.Color(205, 223, 245));
         btnDelete.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
@@ -164,15 +168,15 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
                                         .addGroup(ManageQCSysAdminPanelLayout.createSequentialGroup()
                                             .addComponent(jLabel3)
                                             .addGap(43, 43, 43)
-                                            .addComponent(jTextField3))
+                                            .addComponent(passwordTextField))
                                         .addGroup(ManageQCSysAdminPanelLayout.createSequentialGroup()
                                             .addComponent(jLabel4)
                                             .addGap(40, 40, 40)
-                                            .addComponent(jTextField2))
+                                            .addComponent(usernameTextFied))
                                         .addGroup(ManageQCSysAdminPanelLayout.createSequentialGroup()
                                             .addComponent(jLabel2)
                                             .addGap(64, 64, 64)
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                            .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(97, Short.MAX_VALUE))
@@ -185,14 +189,14 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(ManageQCSysAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(ManageQCSysAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(usernameTextFied, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(ManageQCSysAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(27, 27, 27)
                 .addGroup(ManageQCSysAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -212,88 +216,85 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
         add(ManageQCSysAdminPanel, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_nameTextFieldActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        //        String usernameValue = jTextField2.getText();
-        //        String name = jTextField1.getText();
-        //        String password = jTextField3.getText();
-        //        Customer c = ecosystem.getCustomerDirectory().getCustomerByUserName(usernameValue);
-        //        UserAccount uA = ecosystem.getUserAccountDirectory().findUserByUsername(usernameValue);
-        //        uA.setPassword(password);
-        //        c.setPassword(password);
-        //        //        System.out.println((String) jTable1.getValueAt(selectedRow, 0));
-        //        c.setName(name);
-        //        viewCustomerTable();
-        //        jTextField1.setText("");
-        //        jTextField2.setText("");
-        //        jTextField3.setText("");
-        //        jTextField2.setEnabled(true);
-        //        JOptionPane.showMessageDialog(null, "Updated details");
+        String name = nameTextField.getText();
+        String password = passwordTextField.getText();
+        if (!this.hasSelectedQCInspector()) return;
+        this.selectedInspector.getUserAccount().setPassword(password);
+        this.selectedInspector.setFullName(name);
+        populateTable();
+        nameTextField.setText("");
+        usernameTextFied.setText("");
+        passwordTextField.setText("");
+        usernameTextFied.setText("");
+        JOptionPane.showMessageDialog(null, "Updated details");
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        //        if (jTextField1.getText().equals("")) {
-            //            JOptionPane.showMessageDialog(null, "Name Missing");
-            //            return;
-            //        }
-        //        if (jTextField2.getText().equals("")) {
-            //            JOptionPane.showMessageDialog(null, "Username Missing");
-            //            return;
-            //        }
-        //        if (jTextField3.getText().equals("")) {
-            //            JOptionPane.showMessageDialog(null, "Password Missing");
-            //            return;
-            //        }
-        //        if (ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(jTextField2.getText()) == true) {
-            //            UserAccount createUserAccount = ecosystem.getUserAccountDirectory().createUserAccount(jTextField2.getText(), jTextField3.getText(), null, new CustomerRole());
-            //            Customer customer = ecosystem.getCustomerDirectory().setCustomer(new Customer(jTextField2.getText(), jTextField3.getText(), jTextField1.getText()));
-            //
-            //            jTextField1.setText("");
-            //            jTextField2.setText("");
-            //            jTextField3.setText("");
-            //            viewCustomerTable();
-            //            JOptionPane.showMessageDialog(null, "Added new user");
-            //        } else {
-            //            JOptionPane.showMessageDialog(null, jTextField2.getText() + "exists. Enter a new user name");
-            //        }
+        String name = nameTextField.getText();
+        String username = usernameTextFied.getText();
+        String password = passwordTextField.getText();
+        if (username.equals("") || password.equals("") || name.equals("")) {
+            JOptionPane.showMessageDialog(this, "All fields are required");
+            return;
+        }
+        if (this.ecosystem.getUserAccountDirectory().userNameExists(username)) {
+            JOptionPane.showMessageDialog(this, "Username already taken!");
+            return;
+        }
+        QCInspector qcInspector = new QCInspector(username, password);
+        qcInspector.setFullName(name);
+        this.ecosystem.getUserAccountDirectory().addUserAccount(qcInspector.getUserAccount());
+        this.ecosystem.getEmployeeDirectory().addQCInspector(qcInspector);
+        JOptionPane.showMessageDialog(null, "User added successfully");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        //        int selectedRow = jTable1.getSelectedRow();
-        //
-        //        if (selectedRow >= 0) {
-            //            int selectionButton = JOptionPane.YES_NO_OPTION;
-            //            int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm delete?", "Warning", selectionButton);
-            //            if (selectionResult == JOptionPane.YES_OPTION) {
-                //                String usernameValue = (String) jTable1.getValueAt(selectedRow, 1);
-                //                String output = ecosystem.getUserAccountDirectory().deleteUserAccountByName(usernameValue);
-                //                ecosystem.getCustomerDirectory().removeCustomerByName(usernameValue);
-                //                viewCustomerTable();
-                //                JOptionPane.showMessageDialog(null, output);
-                //            }
-            //        } else {
-            //            JOptionPane.showMessageDialog(null, "No row selected");
-            //        }
+        if (!this.hasSelectedQCInspector()) return;
+        this.ecosystem.getEmployeeDirectory().removeQCInspector(this.selectedInspector);
+        this.ecosystem.getUserAccountDirectory().removeUserAccount(this.selectedInspector.getUserAccount());
+        JOptionPane.showMessageDialog(this, "Inspector entry deleted");
+        this.populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
         // TODO add your handling code here:
-        int selectedRow = jTable1.getSelectedRow();
-        String name = (String) jTable1.getValueAt(selectedRow, 0);
-        String usernameValue = (String) jTable1.getValueAt(selectedRow, 1);
-        String password = (String) jTable1.getValueAt(selectedRow, 2);
-        jTextField1.setText(name);
-        jTextField2.setText(usernameValue);
-        jTextField3.setText(password);
-        jTextField2.setEnabled(false);
+        if (!this.hasSelectedQCInspector()) return;
+        nameTextField.setText(this.selectedInspector.getFullName());
+        usernameTextFied.setText(this.selectedInspector.getUserAccount().getUsername());
+        passwordTextField.setText(this.selectedInspector.getUserAccount().getPassword());
     }//GEN-LAST:event_btnModifyActionPerformed
-
+    
+    private boolean hasSelectedQCInspector() {
+        int selectedRowIndex = qcInspectorsJTable.getSelectedRow();
+        if (selectedRowIndex<0) {
+            JOptionPane.showMessageDialog(this, "Please select an inspector");
+            return false;
+        }
+        DefaultTableModel model = (DefaultTableModel) qcInspectorsJTable.getModel();
+        this.selectedInspector = (QCInspector) model.getValueAt(selectedRowIndex, 0);
+        return true;
+    }
+    
+    
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) qcInspectorsJTable.getModel();
+        model.setRowCount(0);
+        for (QCInspector inspector: this.ecosystem.getEmployeeDirectory().getQcInscpectors()) {
+            Object[] row = new Object[3];
+            row[0] = inspector;
+            row[1] = inspector.getUserAccount().getUsername();
+            row[2] = inspector.getUserAccount().getPassword();
+            model.addRow(row);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ManageQCSysAdminPanel;
@@ -307,9 +308,9 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField nameTextField;
+    private javax.swing.JTextField passwordTextField;
+    private javax.swing.JTable qcInspectorsJTable;
+    private javax.swing.JTextField usernameTextFied;
     // End of variables declaration//GEN-END:variables
 }

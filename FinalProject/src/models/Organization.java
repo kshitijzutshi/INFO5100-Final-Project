@@ -6,6 +6,7 @@ package models;
 
 import models.CustomerBooking.BookingDirectory;
 import models.Inventory.InventoryDirectory;
+import models.User.Client.ClientDirectory;
 import models.User.Customer.CustomerDirectory;
 import models.User.Employee.EmployeeDirectory;
 import models.User.UserAccountDirectory;
@@ -25,6 +26,7 @@ public abstract class Organization {
     private BookingDirectory bookingDirectory;
     private InventoryDirectory inventoryDirectory;
     private WorkRequestDirectory workRequestDirectory;
+    private ClientDirectory clientDirectory;
 
     public Organization(String name) {
         this.name = name;
@@ -34,6 +36,7 @@ public abstract class Organization {
         this.bookingDirectory = new BookingDirectory();
         this.inventoryDirectory = new InventoryDirectory();
         this.workRequestDirectory = new WorkRequestDirectory();
+        this.clientDirectory = new ClientDirectory();
         
     }
     
@@ -55,6 +58,14 @@ public abstract class Organization {
 
     public InventoryDirectory getInventoryDirectory() {
         return inventoryDirectory;
+    }
+
+    public WorkRequestDirectory getWorkRequestDirectory() {
+        return workRequestDirectory;
+    }
+
+    public ClientDirectory getClientDirectory() {
+        return clientDirectory;
     }
     
     

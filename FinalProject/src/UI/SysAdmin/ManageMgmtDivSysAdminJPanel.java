@@ -5,8 +5,11 @@
  */
 package UI.SysAdmin;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import models.EcoSystem;
+import models.User.Employee.OperationsManager;
 
 /**
  *
@@ -19,6 +22,7 @@ public class ManageMgmtDivSysAdminJPanel extends javax.swing.JPanel {
      */
     JPanel jpanel8;
     EcoSystem ecosystem;
+    OperationsManager selectedOperationsManager;
     public ManageMgmtDivSysAdminJPanel(JPanel ManageMgmtDivSysAdmin, EcoSystem ecosystem) {
         this.managmentDivSysadminPanel = ManageMgmtDivSysAdmin;
         initComponents();
@@ -46,7 +50,7 @@ public class ManageMgmtDivSysAdminJPanel extends javax.swing.JPanel {
         btnCreate = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        residentsJTable = new javax.swing.JTable();
+        operationsManagerJTable = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
         btnModify = new javax.swing.JButton();
 
@@ -107,8 +111,8 @@ public class ManageMgmtDivSysAdminJPanel extends javax.swing.JPanel {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("View Management Div. Users");
 
-        residentsJTable.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
-        residentsJTable.setModel(new javax.swing.table.DefaultTableModel(
+        operationsManagerJTable.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        operationsManagerJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -116,7 +120,7 @@ public class ManageMgmtDivSysAdminJPanel extends javax.swing.JPanel {
                 "Name", "Username", "Password"
             }
         ));
-        jScrollPane2.setViewportView(residentsJTable);
+        jScrollPane2.setViewportView(operationsManagerJTable);
 
         btnDelete.setBackground(new java.awt.Color(205, 223, 245));
         btnDelete.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
@@ -205,9 +209,9 @@ public class ManageMgmtDivSysAdminJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(managmentDivSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDelete)
-                    .addComponent(btnModify))
+                .addGroup(managmentDivSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnModify)
+                    .addComponent(btnDelete))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
@@ -220,17 +224,17 @@ public class ManageMgmtDivSysAdminJPanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-//        String name = nameTextField.getText();
-//        String password = passwordTextField.getText();
-//        if (!this.hasSelectedResident()) return;
-//        this.selectedResident.getUserAccount().setPassword(password);
-//        this.selectedResident.setFullName(name);
-//        populateTable();
-//        nameTextField.setText("");
-//        usernameTextFied.setText("");
-//        passwordTextField.setText("");
-//        usernameTextFied.setText("");
-//        JOptionPane.showMessageDialog(null, "Updated details");
+        String name = nameTextField.getText();
+        String password = passwordTextField.getText();
+        if (!this.hasSelectedOperationsManager()) return;
+        this.selectedOperationsManager.getUserAccount().setPassword(password);
+        this.selectedOperationsManager.setFullName(name);
+        populateTable();
+        nameTextField.setText("");
+        usernameTextFied.setText("");
+        passwordTextField.setText("");
+        usernameTextFied.setText("");
+        JOptionPane.showMessageDialog(null, "Updated details");
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -238,38 +242,61 @@ public class ManageMgmtDivSysAdminJPanel extends javax.swing.JPanel {
         String name = nameTextField.getText();
         String username = usernameTextFied.getText();
         String password = passwordTextField.getText();
-//        if (username.equals("") || password.equals("") || name.equals("")) {
-//            JOptionPane.showMessageDialog(this, "All fields are required");
-//            return;
-//        }
-//        if (this.ecosystem.getUserAccountDirectory().userNameExists(username)) {
-//            JOptionPane.showMessageDialog(this, "Username already taken!");
-//            return;
-//        }
-//        Resident resident = new Resident(username, password);
-//        resident.setFullName(name);
-//        this.ecosystem.getUserAccountDirectory().addUserAccount(resident.getUserAccount());
-//        this.ecosystem.getCustomerDirectory().addResidents(resident);
-//        JOptionPane.showMessageDialog(null, "User added successfully");
+        if (username.equals("") || password.equals("") || name.equals("")) {
+            JOptionPane.showMessageDialog(this, "All fields are required");
+            return;
+        }
+        if (this.ecosystem.getUserAccountDirectory().userNameExists(username)) {
+            JOptionPane.showMessageDialog(this, "Username already taken!");
+            return;
+        }
+        OperationsManager operationsManager = new OperationsManager(username, password);
+        operationsManager.setFullName(name);
+        this.ecosystem.getUserAccountDirectory().addUserAccount(operationsManager.getUserAccount());
+        this.ecosystem.getEmployeeDirectory().addInventoryManager(operationsManager);
+        JOptionPane.showMessageDialog(null, "User added successfully");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-//        if (!this.hasSelectedResident()) return;
-//        this.ecosystem.getCustomerDirectory().removeResident(this.selectedResident);
-//        this.ecosystem.getUserAccountDirectory().removeUserAccount(this.selectedResident.getUserAccount());
-//        JOptionPane.showMessageDialog(this, "Customer entry deleted");
-//        this.populateTable();
+        if (!this.hasSelectedOperationsManager()) return;
+        this.ecosystem.getEmployeeDirectory().removeInventoryManager(this.selectedOperationsManager);
+        this.ecosystem.getUserAccountDirectory().removeUserAccount(this.selectedOperationsManager.getUserAccount());
+        JOptionPane.showMessageDialog(this, "Manager entry deleted");
+        this.populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
         // TODO add your handling code here:
-//        if (!this.hasSelectedResident()) return;
-//        nameTextField.setText(this.selectedResident.getFullName());
-//        usernameTextFied.setText(this.selectedResident.getUserAccount().getUsername());
-//        passwordTextField.setText(this.selectedResident.getUserAccount().getPassword());
+        if (!this.hasSelectedOperationsManager()) return;
+        nameTextField.setText(this.selectedOperationsManager.getFullName());
+        usernameTextFied.setText(this.selectedOperationsManager.getUserAccount().getUsername());
+        passwordTextField.setText(this.selectedOperationsManager.getUserAccount().getPassword());
     }//GEN-LAST:event_btnModifyActionPerformed
-
+    
+    private boolean hasSelectedOperationsManager() {
+        int selectedRowIndex = operationsManagerJTable.getSelectedRow();
+        if (selectedRowIndex<0) {
+            JOptionPane.showMessageDialog(this, "Please select a manager");
+            return false;
+        }
+        DefaultTableModel model = (DefaultTableModel) operationsManagerJTable.getModel();
+        this.selectedOperationsManager = (OperationsManager) model.getValueAt(selectedRowIndex, 0);
+        return true;
+    }
+    
+    
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) operationsManagerJTable.getModel();
+        model.setRowCount(0);
+        for (OperationsManager manager: this.ecosystem.getEmployeeDirectory().getInventoryManagers()) {
+            Object[] row = new Object[3];
+            row[0] = manager;
+            row[1] = manager.getUserAccount().getUsername();
+            row[2] = manager.getUserAccount().getPassword();
+            model.addRow(row);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreate;
@@ -284,8 +311,8 @@ public class ManageMgmtDivSysAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel managmentDivSysadminPanel;
     private javax.swing.JTextField nameTextField;
+    private javax.swing.JTable operationsManagerJTable;
     private javax.swing.JTextField passwordTextField;
-    private javax.swing.JTable residentsJTable;
     private javax.swing.JTextField usernameTextFied;
     // End of variables declaration//GEN-END:variables
 }
