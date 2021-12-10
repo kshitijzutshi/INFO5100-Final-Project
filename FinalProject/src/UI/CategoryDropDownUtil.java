@@ -22,24 +22,24 @@ public class CategoryDropDownUtil {
             "Electric cookers",
             "Heaters",
             "Fans"});
-        categoryMap.put("Communications & IT Devices", new String[]{"Smartphones",
+        categoryMap.put("Communications & IT Devices", new String[]{"Smartphones", 
             "Desktop Computers",
             "Computer Monitor",
             "Laptops",
             "Circuit boards"});
-        categoryMap.put("Home Entertainment Devices", new String[]{"IT Server Racks",
+        categoryMap.put("Office and Medical Equipment", new String[]{"IT Server Racks",
             "IT Servers",
             "Cords and Cables",
             "WiFi Dongle",
             "Audio & Video Equipment",
             "Power Strips & Power Supplies"});
-        categoryMap.put("Electronic Utilities", new String[]{"Blu Ray Players",
+        categoryMap.put("Home Entertainment Devices", new String[]{"Blu Ray Players",
             "Stereos",
             "Televisions",
             "Video Game Systems",
             "Fax machines",
             "Printers"});
-        categoryMap.put("Office and Medical Equipment", new String[]{"Heating Pads",
+        categoryMap.put("Electronic Utilities", new String[]{"Heating Pads",
             "Television Remotes",
             "Electrical Cords",
             "Lamps",

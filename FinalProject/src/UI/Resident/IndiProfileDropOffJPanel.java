@@ -5,8 +5,13 @@
  */
 package UI.Resident;
 
+import UI.CategoryDropDownUtil;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import java.util.HashMap;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import models.EcoSystem;
 import models.User.Customer.Resident;
 
@@ -22,11 +27,14 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
     private JPanel jpanel5;
     EcoSystem ecosystem;
     Resident resident;
+    ArrayList<HashMap<String, String>> entries;
     public IndiProfileDropOffJPanel(JPanel IndiDropOffJPanel, EcoSystem ecosystem, Resident resident) {
         this.JPanelIndDropoffMain = IndiDropOffJPanel;
         initComponents();
         this.ecosystem = ecosystem;
         this.resident = resident;
+        dropdownApplianceType.removeAllItems();
+        this.entries = new ArrayList<>();
     }
 
     /**
@@ -164,6 +172,11 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
         btnAddtoBookingTable.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         btnAddtoBookingTable.setForeground(java.awt.Color.darkGray);
         btnAddtoBookingTable.setText("Add to booking");
+        btnAddtoBookingTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddtoBookingTableActionPerformed(evt);
+            }
+        });
 
         dropdownApplianceType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -173,6 +186,11 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
 
         dropdownCatEwaste.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         dropdownCatEwaste.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Home Appliances", "Communications & IT Devices", "Home Entertainment Devices", "Electronic Utilities", "Office and Medical Equipment", "Other" }));
+        dropdownCatEwaste.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dropdownCatEwasteActionPerformed(evt);
+            }
+        });
 
         dropdownCondition.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Broken ", "Intact" }));
 
@@ -220,6 +238,11 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
         btnDeleteItem.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         btnDeleteItem.setForeground(java.awt.Color.darkGray);
         btnDeleteItem.setText("Delete Item");
+        btnDeleteItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteItemActionPerformed(evt);
+            }
+        });
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
@@ -271,7 +294,7 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
                         .addGroup(JPanelIndDropoffMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(JPanelIndDropoffMainLayout.createSequentialGroup()
-                                .addComponent(btnDeleteItem)
+                                .addComponent(btnDeleteItem, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnCreateBookingDropoff, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(22, 22, 22))))
@@ -312,7 +335,7 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
                         .addGroup(JPanelIndDropoffMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblweight)
                             .addComponent(lblcondition))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(JPanelIndDropoffMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtitemweight, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(dropdownCondition, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -345,6 +368,60 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
         layout.previous(JPanelIndDropoffMain);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnAddtoBookingTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddtoBookingTableActionPerformed
+        // TODO add your handling code here:
+        
+        HashMap<String, String> currentEntry = new HashMap<>();
+        currentEntry.put("category", (String) dropdownCatEwaste.getSelectedItem());
+        currentEntry.put("subCategory", (String) dropdownApplianceType.getSelectedItem());
+        currentEntry.put("condition", (String) dropdownCondition.getSelectedItem());
+        currentEntry.put("make", txtemake.getText());
+        currentEntry.put("model", txtmodel.getText());
+        currentEntry.put("weight", txtitemweight.getText());
+        currentEntry.put("year", txtyearManuf.getText());
+        this.entries.add(currentEntry);
+        this.populateTable();
+        
+        txtemake.setText("");
+        txtmodel.setText("");
+        txtitemweight.setText("");
+        txtyearManuf.setText("");
+    }//GEN-LAST:event_btnAddtoBookingTableActionPerformed
+
+    private void btnDeleteItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteItemActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = tblDropoffBooking.getSelectedRow();
+        if (selectedRowIndex<0) {
+            JOptionPane.showMessageDialog(this, "Please select an entry");
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) tblDropoffBooking.getModel();
+        model.removeRow(selectedRowIndex);
+    }//GEN-LAST:event_btnDeleteItemActionPerformed
+
+    private void dropdownCatEwasteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropdownCatEwasteActionPerformed
+        // TODO add your handling code here:
+        String selectedCat = (String) dropdownCatEwaste.getSelectedItem();
+        dropdownApplianceType.removeAllItems();
+        for (String subCat: CategoryDropDownUtil.getList(selectedCat)) dropdownApplianceType.addItem(subCat);
+    }//GEN-LAST:event_dropdownCatEwasteActionPerformed
+    
+    
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblDropoffBooking.getModel();
+        model.setRowCount(0);
+        for (HashMap<String, String> entry: this.entries) {
+            Object[] row = new Object[7];
+            row[0] = entry.get("category");
+            row[1] = entry.get("subCategory");
+            row[2] = entry.get("make");
+            row[3] = entry.get("model");
+            row[4] = entry.get("year");
+            row[5] = entry.get("weight");
+            row[6] = entry.get("condition");
+            model.addRow(row);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanelIndDropoffMain;

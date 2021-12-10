@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import models.CustomerBooking.InventoryBooking;
+import models.DB4OUtil.DB4OUtil;
 import models.EcoSystem;
 import models.Inventory.Item;
 import models.User.Customer.Resident;
@@ -37,6 +38,7 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         this.resident = resident;
         dropdownApplianceType.removeAllItems();
         this.entries = new ArrayList<>();
+        nameLabel.setText(resident.getFullName());
     }
 
     /**
@@ -51,8 +53,8 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         JPanelIndPickUpMain = new javax.swing.JPanel();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        nameLabel = new javax.swing.JLabel();
+        logoutButton = new javax.swing.JButton();
         lbldropoffheader = new javax.swing.JLabel();
         lblewasteCat = new javax.swing.JLabel();
         lblmake = new javax.swing.JLabel();
@@ -92,19 +94,19 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         jLabel7.setForeground(java.awt.Color.darkGray);
         jLabel7.setText("Welcome to ReQube,");
 
-        jLabel8.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel8.setForeground(java.awt.Color.darkGray);
-        jLabel8.setText("jLabel8");
+        nameLabel.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
+        nameLabel.setForeground(java.awt.Color.darkGray);
+        nameLabel.setText("jLabel8");
 
-        jButton7.setBackground(new java.awt.Color(205, 223, 245));
-        jButton7.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(51, 51, 51));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_50px.png"))); // NOI18N
-        jButton7.setText("Logout");
-        jButton7.setBorder(null);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        logoutButton.setBackground(new java.awt.Color(205, 223, 245));
+        logoutButton.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
+        logoutButton.setForeground(new java.awt.Color(51, 51, 51));
+        logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_50px.png"))); // NOI18N
+        logoutButton.setText("Logout");
+        logoutButton.setBorder(null);
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                logoutButtonActionPerformed(evt);
             }
         });
 
@@ -116,9 +118,9 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
                 .addGap(38, 38, 38)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
         );
         kGradientPanel1Layout.setVerticalGroup(
@@ -129,11 +131,11 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGap(0, 7, Short.MAX_VALUE)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(85, 85, 85))))
         );
 
@@ -394,9 +396,10 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         add(JPanelIndPickUpMain, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+    }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
@@ -433,6 +436,11 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         currentEntry.put("pickupDate", PickUpDateChooser.getDate().toString());
         this.entries.add(currentEntry);
         this.populateTable();
+        
+        txtemake.setText("");
+        txtmodel.setText("");
+        txtitemweight.setText("");
+        txtyearManuf.setText("");
     }//GEN-LAST:event_btnAddtoBookingTableActionPerformed
 
     private void btnDeleteItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteItemActionPerformed
@@ -460,6 +468,9 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
             booking.addToItems(item);
         }
         this.ecosystem.getBookingDirectory().addBooking(booking);
+        
+        JOptionPane.showMessageDialog(this, "Booking created");
+        this.entries = new ArrayList<>();
     }//GEN-LAST:event_btnCreateBookingPickUpActionPerformed
     
     
@@ -490,9 +501,7 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> dropdownApplianceType;
     private javax.swing.JComboBox<String> dropdownCatEwaste;
     private javax.swing.JComboBox<String> dropdownCondition;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel lblYearManuf;
@@ -504,6 +513,8 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblmodel;
     private javax.swing.JLabel lblpickupDate;
     private javax.swing.JLabel lblweight;
+    private javax.swing.JButton logoutButton;
+    private javax.swing.JLabel nameLabel;
     private javax.swing.JTable tblPickUpBooking;
     private javax.swing.JTextField txtemake;
     private javax.swing.JTextField txtitemweight;

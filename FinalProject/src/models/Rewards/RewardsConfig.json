@@ -31,7 +31,7 @@
             "recycle": 10
         }
     },
-    "Communications and Information Technology Devices": {
+    "Communications and IT Devices": {
         "Smartphones": {
             "refurb": 150,
             "recycle": 50
@@ -53,7 +53,7 @@
             "recycle": 80
         }
     },
-    "Office and Medical Equipments": {
+    "Office and Medical Equipment": {
         "IT Server Racks": {
             "refurb": 100,
             "recycle": 50

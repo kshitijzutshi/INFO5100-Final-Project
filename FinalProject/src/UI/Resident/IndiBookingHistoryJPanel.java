@@ -7,7 +7,6 @@ package UI.Resident;
 
 import java.awt.CardLayout;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import models.CustomerBooking.InventoryBooking;
@@ -133,14 +132,14 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
         tblPickUpBookingDetails.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         tblPickUpBookingDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Booking ID", "Item ID", "Category", "Appliance Type", "Estimated rewards", "Make", "Model", "Added on", "Weight(lbs.)"
+                "Booking ID", "Item ID", "Category", "Appliance Type", "Status", "Estimated rewards", "Make", "Model", "Added on", "Weight(lbs.)"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -270,7 +269,7 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         for (InventoryBooking booking: this.ecosystem.getBookingDirectory().getBookingsByResident(this.resident)){
             for (Item item: booking.getItems()) {
-                Object[] row = new Object[10];
+                Object[] row = new Object[11];
                 int rewards = item.getRewardPoints();
                 totalRewards+=rewards;
                 if (!bookingId.equals("") && !bookingId.equals(booking.getId())) continue;
@@ -278,11 +277,12 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
                 row[1] = item.getId();
                 row[2] = item.getCategory();
                 row[3] = item.getSubCategory();
-                row[4] = rewards;
-                row[5] = item.getMake();
-                row[6] = item.getModel();
-                row[7] = formatter.format(item.getRecievedOn());
-                row[8] = item.getWeightApprox();
+                row[4] = item.getStatus().name();
+                row[5] = rewards;
+                row[6] = item.getMake();
+                row[7] = item.getModel();
+                row[8] = formatter.format(item.getRecievedOn());
+                row[9] = item.getWeightApprox();
                 model.addRow(row);
             }
         }

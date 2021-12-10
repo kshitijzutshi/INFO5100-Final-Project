@@ -266,6 +266,7 @@ public class ManageIndividualSysAdminJPanel extends javax.swing.JPanel {
         this.ecosystem.getUserAccountDirectory().addUserAccount(resident.getUserAccount());
         this.ecosystem.getCustomerDirectory().addResidents(resident);
         JOptionPane.showMessageDialog(null, "User added successfully");
+        this.populateTable();
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -283,6 +284,7 @@ public class ManageIndividualSysAdminJPanel extends javax.swing.JPanel {
         nameTextField.setText(this.selectedResident.getFullName());
         usernameTextFied.setText(this.selectedResident.getUserAccount().getUsername());
         passwordTextField.setText(this.selectedResident.getUserAccount().getPassword());
+        this.populateTable();
     }//GEN-LAST:event_btnModifyActionPerformed
 
     private void passwordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTextFieldActionPerformed

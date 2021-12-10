@@ -36,9 +36,10 @@ public class Item {
         this.id = UUID.randomUUID().toString().substring(0,5);
         this.recievedFrom = recievedFrom;
         this.category = category;
-        this.subCategory = category;
+        this.subCategory = subCategory;
         this.recievedOn = LocalDateTime.now();
         this.type = ItemType.TBD;
+        this.status = ItemStatus.AWAITING;
     }
     
     public enum ItemCondition {
