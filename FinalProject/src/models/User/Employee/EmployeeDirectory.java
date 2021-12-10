@@ -14,13 +14,15 @@ import java.util.ArrayList;
 public class EmployeeDirectory {
     
     private ArrayList<LogisticsMan> logisticsMen;
-    private ArrayList<InventoryManager> inventoryManagers;
+    private ArrayList<OperationsManager> inventoryManagers;
     private ArrayList<QCInspector> qcInspectors;
+    private ArrayList<Technician> technicians;
     
     public EmployeeDirectory() {
         this.logisticsMen = new ArrayList<>();
         this.inventoryManagers = new ArrayList<>();
         this.qcInspectors = new ArrayList<>();
+        this.technicians = new ArrayList<>();
     }
     
     public LogisticsMan addLogisticsMen(LogisticsMan logMan) {
@@ -28,7 +30,7 @@ public class EmployeeDirectory {
         return logMan;
     }
     
-    public InventoryManager addInventoryManager(InventoryManager invMan) {
+    public OperationsManager addInventoryManager(OperationsManager invMan) {
         this.inventoryManagers.add(invMan);
         return invMan;
     }
@@ -37,17 +39,49 @@ public class EmployeeDirectory {
         this.qcInspectors.add(qc);
         return qc;
     }
+    
+    public Technician addTechnician(Technician technician) {
+        this.technicians.add(technician);
+        return technician;
+    }
+    
+    public void removeLogisticsMan(LogisticsMan logMan) {
+        this.logisticsMen.remove(logMan);
+    }
+    
+    public void removeInventoryManager(OperationsManager invMan) {
+        this.inventoryManagers.remove(invMan);
+    }
+    
+    public void removeQCInspector(QCInspector qc) {
+        this.qcInspectors.remove(qc);
+    }
+    
+    public void removeTechnician(Technician technician) {
+        this.technicians.remove(technician);
+    }
 
     public ArrayList<LogisticsMan> getLogisticsMen() {
         return this.logisticsMen;
     }
 
-    public ArrayList<InventoryManager> getInventoryManagers() {
+    public ArrayList<OperationsManager> getInventoryManagers() {
         return this.inventoryManagers;
     }
 
     public ArrayList<QCInspector> getQcInscpectors() {
         return this.qcInspectors;
+    }
+
+    public ArrayList<Technician> getTechnicians() {
+        return technicians;
+    }
+    
+    public LogisticsMan getNextAvailableLogisticsMan() {
+        for (LogisticsMan logisticsMan: this.logisticsMen) {
+            if (logisticsMan.isAvailable()) return logisticsMan;
+        }
+        return null;
     }
     
     
