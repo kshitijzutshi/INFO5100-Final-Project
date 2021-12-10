@@ -5,7 +5,9 @@
  */
 package UI.QCInspector;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -144,9 +146,7 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(PendingReviewItemsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PendingReviewItemsJPanelLayout.createSequentialGroup()
-                        .addComponent(btnview, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(175, 175, 175)))
+                    .addComponent(btnview, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(PendingReviewItemsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PendingReviewItemsJPanelLayout.createSequentialGroup()
                         .addGap(152, 152, 152)
@@ -219,6 +219,25 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
 
     private void btnviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewActionPerformed
         // TODO add your handling code here:
+        
+        int selectedRow = pendingitems.getSelectedRow();
+        
+        if(selectedRow < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) pendingitems.getModel();
+        
+        String ewaste = (String) model.getValueAt(selectedRow,1);
+        String appliancetype = (String) model.getValueAt(selectedRow,2);
+        String condition = (String) model.getValueAt(selectedRow,3);
+        Float weight = (Float) model.getValueAt(selectedRow, 4);
+        
+        txtewaste.setText(ewaste);
+        txtappliance.setText(appliancetype);
+        txtcondition.setText(condition);
+        txtweight.setText(String.valueOf(weight));
     }//GEN-LAST:event_btnviewActionPerformed
 
     private void txtconditionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtconditionActionPerformed

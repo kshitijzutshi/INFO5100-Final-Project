@@ -5,6 +5,8 @@
  */
 package UI.Retailer;
 
+import java.awt.CardLayout;
+
 /**
  *
  * @author kshitij
@@ -66,16 +68,17 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
         RetailerLoginMainJPanel.setBackground(new java.awt.Color(255, 255, 255));
         RetailerLoginMainJPanel.setPreferredSize(new java.awt.Dimension(1460, 850));
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(65, 118, 102));
-        kGradientPanel1.setkGradientFocus(200);
-        kGradientPanel1.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel1.setkEndColor(new java.awt.Color(198, 226, 233));
+        kGradientPanel1.setkGradientFocus(80);
+        kGradientPanel1.setkStartColor(new java.awt.Color(167, 190, 211));
+        kGradientPanel1.setkTransparentControls(false);
         kGradientPanel1.setPreferredSize(new java.awt.Dimension(500, 1460));
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 22)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("ReQube Operations");
 
-        btnItemsForSale.setBackground(new java.awt.Color(221, 228, 186));
-        btnItemsForSale.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+        btnItemsForSale.setBackground(new java.awt.Color(167, 190, 211));
         btnItemsForSale.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnItemsForSaleMouseClicked(evt);
@@ -110,8 +113,7 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        btnRetailerHome.setBackground(new java.awt.Color(221, 228, 186));
-        btnRetailerHome.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+        btnRetailerHome.setBackground(new java.awt.Color(167, 190, 211));
         btnRetailerHome.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnRetailerHomeMouseClicked(evt);
@@ -146,10 +148,9 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jLabel12.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 0, new java.awt.Color(102, 204, 0)));
+        jLabel12.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 0, new java.awt.Color(51, 51, 51)));
 
-        btnViewPastPurchase.setBackground(new java.awt.Color(221, 228, 186));
-        btnViewPastPurchase.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+        btnViewPastPurchase.setBackground(new java.awt.Color(167, 190, 211));
         btnViewPastPurchase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnViewPastPurchaseMouseClicked(evt);
@@ -184,8 +185,7 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        btnRetailerLogout.setBackground(new java.awt.Color(221, 228, 186));
-        btnRetailerLogout.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(221, 228, 186)));
+        btnRetailerLogout.setBackground(new java.awt.Color(167, 190, 211));
 
         jLabel15.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -229,7 +229,7 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
                     .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
                         .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,20 +246,21 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
                 .addComponent(btnViewPastPurchase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnRetailerLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(987, Short.MAX_VALUE))
+                .addContainerGap(995, Short.MAX_VALUE))
         );
 
-        kGradientPanel2.setkEndColor(new java.awt.Color(65, 118, 102));
-        kGradientPanel2.setkGradientFocus(800);
-        kGradientPanel2.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel2.setkEndColor(new java.awt.Color(198, 226, 233));
+        kGradientPanel2.setkGradientFocus(80);
+        kGradientPanel2.setkStartColor(new java.awt.Color(167, 190, 211));
+        kGradientPanel2.setkTransparentControls(false);
         kGradientPanel2.setPreferredSize(new java.awt.Dimension(300, 1460));
 
         jLabel13.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setForeground(new java.awt.Color(51, 51, 51));
         jLabel13.setText("Welcome to ReQube,");
 
         jLabel14.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
         jLabel14.setText("Emp_MGMT_DIV");
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
@@ -288,9 +289,9 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
 
         RetailerDynamicMainJPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        kGradientPanel4.setkEndColor(new java.awt.Color(65, 118, 102));
-        kGradientPanel4.setkGradientFocus(50);
-        kGradientPanel4.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel4.setkEndColor(new java.awt.Color(167, 190, 211));
+        kGradientPanel4.setkGradientFocus(0);
+        kGradientPanel4.setkStartColor(new java.awt.Color(167, 190, 211));
 
         jLabel19.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
@@ -336,9 +337,9 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        kGradientPanel6.setkEndColor(new java.awt.Color(65, 118, 102));
-        kGradientPanel6.setkGradientFocus(50);
-        kGradientPanel6.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel6.setkEndColor(new java.awt.Color(167, 190, 211));
+        kGradientPanel6.setkGradientFocus(0);
+        kGradientPanel6.setkStartColor(new java.awt.Color(167, 190, 211));
 
         jLabel24.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
@@ -381,9 +382,9 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
                 .addGap(7, 7, 7))
         );
 
-        kGradientPanel5.setkEndColor(new java.awt.Color(65, 118, 102));
-        kGradientPanel5.setkGradientFocus(50);
-        kGradientPanel5.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel5.setkEndColor(new java.awt.Color(167, 190, 211));
+        kGradientPanel5.setkGradientFocus(0);
+        kGradientPanel5.setkStartColor(new java.awt.Color(167, 190, 211));
 
         jLabel21.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
@@ -496,11 +497,11 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
 
     private void btnRetailerHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRetailerHomeMouseClicked
         // TODO add your handling code here:
-//        ManagementHome managementHomeJPanel = new ManagementHome(RetailerDynamicJPanel);
-//        CardLayout layout = (CardLayout) RetailerDynamicJPanel.getLayout();
-//        RetailerDynamicJPanel.add("homeManage", managementHomeJPanel);
-//        //
-//        layout.next(RetailerDynamicJPanel);
+
+          RetailerProfileLoginHomeJPanel retailerHome = new RetailerProfileLoginHomeJPanel(RetailerDynamicJPanel);
+          CardLayout layout = (CardLayout) RetailerDynamicJPanel.getLayout();
+          RetailerDynamicJPanel.add("homeRetailer", retailerHome);
+          layout.next(RetailerDynamicJPanel);
     }//GEN-LAST:event_btnRetailerHomeMouseClicked
 
     private void btnViewPastPurchaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewPastPurchaseMouseClicked

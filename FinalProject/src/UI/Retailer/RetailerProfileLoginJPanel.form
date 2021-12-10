@@ -64,12 +64,13 @@
         <Container class="keeptoo.KGradientPanel" name="kGradientPanel1">
           <Properties>
             <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="76" red="41" type="rgb"/>
+              <Color blue="e9" green="e2" red="c6" type="rgb"/>
             </Property>
-            <Property name="kGradientFocus" type="int" value="200"/>
+            <Property name="kGradientFocus" type="int" value="80"/>
             <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ba" green="e4" red="dd" type="rgb"/>
+              <Color blue="d3" green="be" red="a7" type="rgb"/>
             </Property>
+            <Property name="kTransparentControls" type="boolean" value="false"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[500, 1460]"/>
             </Property>
@@ -90,7 +91,7 @@
                               <Component id="jLabel12" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="44" max="32767" attributes="0"/>
+                      <EmptySpace pref="46" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -109,7 +110,7 @@
                       <Component id="btnViewPastPurchase" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnRetailerLogout" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="987" max="32767" attributes="0"/>
+                      <EmptySpace pref="995" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -120,20 +121,16 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Sans" size="22" style="1"/>
                 </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="33" green="33" red="33" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="ReQube Operations"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="btnItemsForSale">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ba" green="e4" red="dd" type="rgb"/>
-                </Property>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
-                    <MatteColorBorder>
-                      <Color PropertyName="color" blue="ba" green="e4" red="dd" type="rgb"/>
-                    </MatteColorBorder>
-                  </Border>
+                  <Color blue="d3" green="be" red="a7" type="rgb"/>
                 </Property>
               </Properties>
               <Events>
@@ -188,14 +185,7 @@
             <Container class="javax.swing.JPanel" name="btnRetailerHome">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ba" green="e4" red="dd" type="rgb"/>
-                </Property>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
-                    <MatteColorBorder>
-                      <Color PropertyName="color" blue="ba" green="e4" red="dd" type="rgb"/>
-                    </MatteColorBorder>
-                  </Border>
+                  <Color blue="d3" green="be" red="a7" type="rgb"/>
                 </Property>
               </Properties>
               <Events>
@@ -252,7 +242,7 @@
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="0" left="0" right="0" top="2">
-                      <Color PropertyName="color" blue="0" green="cc" red="66" type="rgb"/>
+                      <Color PropertyName="color" blue="33" green="33" red="33" type="rgb"/>
                     </MatteColorBorder>
                   </Border>
                 </Property>
@@ -261,14 +251,7 @@
             <Container class="javax.swing.JPanel" name="btnViewPastPurchase">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ba" green="e4" red="dd" type="rgb"/>
-                </Property>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
-                    <MatteColorBorder>
-                      <Color PropertyName="color" blue="ba" green="e4" red="dd" type="rgb"/>
-                    </MatteColorBorder>
-                  </Border>
+                  <Color blue="d3" green="be" red="a7" type="rgb"/>
                 </Property>
               </Properties>
               <Events>
@@ -323,14 +306,7 @@
             <Container class="javax.swing.JPanel" name="btnRetailerLogout">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ba" green="e4" red="dd" type="rgb"/>
-                </Property>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
-                    <MatteColorBorder>
-                      <Color PropertyName="color" blue="ba" green="e4" red="dd" type="rgb"/>
-                    </MatteColorBorder>
-                  </Border>
+                  <Color blue="d3" green="be" red="a7" type="rgb"/>
                 </Property>
               </Properties>
 
@@ -386,12 +362,13 @@
         <Container class="keeptoo.KGradientPanel" name="kGradientPanel2">
           <Properties>
             <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="76" red="41" type="rgb"/>
+              <Color blue="e9" green="e2" red="c6" type="rgb"/>
             </Property>
-            <Property name="kGradientFocus" type="int" value="800"/>
+            <Property name="kGradientFocus" type="int" value="80"/>
             <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ba" green="e4" red="dd" type="rgb"/>
+              <Color blue="d3" green="be" red="a7" type="rgb"/>
             </Property>
+            <Property name="kTransparentControls" type="boolean" value="false"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[300, 1460]"/>
             </Property>
@@ -429,7 +406,7 @@
                   <Font name="Lucida Sans" size="36" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Welcome to ReQube,"/>
               </Properties>
@@ -440,7 +417,7 @@
                   <Font name="Lucida Sans" size="36" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Emp_MGMT_DIV"/>
               </Properties>
@@ -512,11 +489,11 @@
                 <Container class="keeptoo.KGradientPanel" name="kGradientPanel4">
                   <Properties>
                     <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="66" green="76" red="41" type="rgb"/>
+                      <Color blue="d3" green="be" red="a7" type="rgb"/>
                     </Property>
-                    <Property name="kGradientFocus" type="int" value="50"/>
+                    <Property name="kGradientFocus" type="int" value="0"/>
                     <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ba" green="e4" red="dd" type="rgb"/>
+                      <Color blue="d3" green="be" red="a7" type="rgb"/>
                     </Property>
                   </Properties>
 
@@ -598,11 +575,11 @@
                 <Container class="keeptoo.KGradientPanel" name="kGradientPanel6">
                   <Properties>
                     <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="66" green="76" red="41" type="rgb"/>
+                      <Color blue="d3" green="be" red="a7" type="rgb"/>
                     </Property>
-                    <Property name="kGradientFocus" type="int" value="50"/>
+                    <Property name="kGradientFocus" type="int" value="0"/>
                     <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ba" green="e4" red="dd" type="rgb"/>
+                      <Color blue="d3" green="be" red="a7" type="rgb"/>
                     </Property>
                   </Properties>
 
@@ -679,11 +656,11 @@
                 <Container class="keeptoo.KGradientPanel" name="kGradientPanel5">
                   <Properties>
                     <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="66" green="76" red="41" type="rgb"/>
+                      <Color blue="d3" green="be" red="a7" type="rgb"/>
                     </Property>
-                    <Property name="kGradientFocus" type="int" value="50"/>
+                    <Property name="kGradientFocus" type="int" value="0"/>
                     <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ba" green="e4" red="dd" type="rgb"/>
+                      <Color blue="d3" green="be" red="a7" type="rgb"/>
                     </Property>
                   </Properties>
 

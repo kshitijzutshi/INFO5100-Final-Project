@@ -5,6 +5,8 @@
  */
 package UI.Retailer;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author kshitij
@@ -14,7 +16,9 @@ public class RetailerProfileLoginHomeJPanel extends javax.swing.JPanel {
     /**
      * Creates new form RetailerProfileLoginHomeJPanel
      */
-    public RetailerProfileLoginHomeJPanel() {
+    JPanel jpanel7;
+    public RetailerProfileLoginHomeJPanel(JPanel RetailerProfileLoginHome) {
+        this.RetailerLoginHomeJPanel = RetailerProfileLoginHome;
         initComponents();
     }
 
@@ -48,9 +52,9 @@ public class RetailerProfileLoginHomeJPanel extends javax.swing.JPanel {
 
         RetailerDynamicMainJPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        kGradientPanel4.setkEndColor(new java.awt.Color(65, 118, 102));
-        kGradientPanel4.setkGradientFocus(50);
-        kGradientPanel4.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel4.setkEndColor(new java.awt.Color(167, 190, 211));
+        kGradientPanel4.setkGradientFocus(0);
+        kGradientPanel4.setkStartColor(new java.awt.Color(167, 190, 211));
 
         jLabel19.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
@@ -96,9 +100,9 @@ public class RetailerProfileLoginHomeJPanel extends javax.swing.JPanel {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        kGradientPanel6.setkEndColor(new java.awt.Color(65, 118, 102));
-        kGradientPanel6.setkGradientFocus(50);
-        kGradientPanel6.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel6.setkEndColor(new java.awt.Color(167, 190, 211));
+        kGradientPanel6.setkGradientFocus(0);
+        kGradientPanel6.setkStartColor(new java.awt.Color(167, 190, 211));
 
         jLabel24.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
@@ -141,9 +145,9 @@ public class RetailerProfileLoginHomeJPanel extends javax.swing.JPanel {
                 .addGap(7, 7, 7))
         );
 
-        kGradientPanel5.setkEndColor(new java.awt.Color(65, 118, 102));
-        kGradientPanel5.setkGradientFocus(50);
-        kGradientPanel5.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel5.setkEndColor(new java.awt.Color(167, 190, 211));
+        kGradientPanel5.setkGradientFocus(0);
+        kGradientPanel5.setkStartColor(new java.awt.Color(167, 190, 211));
 
         jLabel21.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
