@@ -7,6 +7,8 @@ package UI.Logistics;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import models.EcoSystem;
+import models.User.Employee.LogisticsMan;
 
 /**
  *
@@ -18,9 +20,14 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
      * Creates new form LogisticsProfileMainJPanel
      */
     private JPanel jPanel9;
-    public LogisticsProfileMainJPanel(JPanel LogisticsProfJPanel) {
+    EcoSystem ecosystem;
+    LogisticsMan logisticsMan;
+    public LogisticsProfileMainJPanel(JPanel LogisticsProfJPanel, EcoSystem ecosystem, LogisticsMan logisticsMan) {
         initComponents();
        this.LogisticsLoginMainJPanel=LogisticsProfJPanel;
+       this.ecosystem = ecosystem;
+       this.logisticsMan = logisticsMan;
+       namePanel.setText(this.logisticsMan.getFullName());
     }
 
     /**
@@ -56,7 +63,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
         jLabel27 = new javax.swing.JLabel();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        namePanel = new javax.swing.JLabel();
         LogisticsLoginDynamicJPanel = new javax.swing.JPanel();
         LogisticsLoginDynamicMainJPanel = new javax.swing.JPanel();
         kGradientPanel3 = new keeptoo.KGradientPanel();
@@ -315,7 +322,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
                             .addComponent(btnLogisticsDropoff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnLogisticsDropOffHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnLogisticsLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,7 +343,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
                 .addComponent(btnLogisticsDropOffHistory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
                 .addComponent(btnLogisticsLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(844, Short.MAX_VALUE))
+                .addContainerGap(900, Short.MAX_VALUE))
         );
 
         kGradientPanel2.setkEndColor(new java.awt.Color(198, 226, 233));
@@ -348,9 +355,8 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
         jLabel13.setForeground(new java.awt.Color(51, 51, 51));
         jLabel13.setText("Welcome to ReQube,");
 
-        jLabel14.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel14.setText("Emp_Logistics_DIV");
+        namePanel.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
+        namePanel.setForeground(new java.awt.Color(51, 51, 51));
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
@@ -360,8 +366,8 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
                 .addGap(258, 258, 258)
                 .addComponent(jLabel13)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(353, Short.MAX_VALUE))
+                .addComponent(namePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(349, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -369,7 +375,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(namePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
@@ -573,7 +579,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
 
     private void btnLogisticsHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogisticsHomeMouseClicked
         // TODO add your handling code here:
-        LogisticsHomeJPanel logisticsHome = new LogisticsHomeJPanel(LogisticsLoginDynamicJPanel);
+        LogisticsHomeJPanel logisticsHome = new LogisticsHomeJPanel(LogisticsLoginDynamicJPanel, this.ecosystem, this.logisticsMan);
         CardLayout layout = (CardLayout) LogisticsLoginDynamicJPanel.getLayout();
         LogisticsLoginDynamicJPanel.add("logisticsHome", logisticsHome);
         
@@ -582,7 +588,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
 
     private void btnViewScheduledPickupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewScheduledPickupMouseClicked
         // TODO add your handling code here:
-        LogisticsProfileSchedulePickupJPanel logisticsSchedulePickUp = new LogisticsProfileSchedulePickupJPanel(LogisticsLoginDynamicJPanel);
+        LogisticsProfileSchedulePickupJPanel logisticsSchedulePickUp = new LogisticsProfileSchedulePickupJPanel(LogisticsLoginDynamicJPanel, this.ecosystem, this.logisticsMan);
         CardLayout layout = (CardLayout) LogisticsLoginDynamicJPanel.getLayout();
         LogisticsLoginDynamicJPanel.add("logisticsHome", logisticsSchedulePickUp);
         
@@ -591,7 +597,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
 
     private void btnViewPickUpHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewPickUpHistoryMouseClicked
         // TODO add your handling code here:
-        LogisticsProfilePastOrdersJPanel logisticsPastOrders = new LogisticsProfilePastOrdersJPanel(LogisticsLoginDynamicJPanel);
+        LogisticsProfilePastOrdersJPanel logisticsPastOrders = new LogisticsProfilePastOrdersJPanel(LogisticsLoginDynamicJPanel, this.ecosystem, this.logisticsMan);
         CardLayout layout = (CardLayout) LogisticsLoginDynamicJPanel.getLayout();
         LogisticsLoginDynamicJPanel.add("logisticsPast", logisticsPastOrders);
         
@@ -601,7 +607,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
     private void btnLogisticsDropoffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogisticsDropoffMouseClicked
         // TODO add your handling code here:
         
-        LogisticsProfileDropOffJPanel scheduleddropoff = new LogisticsProfileDropOffJPanel(LogisticsLoginDynamicJPanel);
+        LogisticsProfileDropOffJPanel scheduleddropoff = new LogisticsProfileDropOffJPanel(LogisticsLoginDynamicJPanel, this.ecosystem, this.logisticsMan);
         CardLayout layout = (CardLayout) LogisticsLoginDynamicJPanel.getLayout();
         LogisticsLoginDynamicJPanel.add("logisticsPast", scheduleddropoff);
         
@@ -611,7 +617,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
     private void btnLogisticsDropOffHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogisticsDropOffHistoryMouseClicked
         // TODO add your handling code here:
         
-        LogisticsProfileDropOffHistoryJPanel historydropoff = new LogisticsProfileDropOffHistoryJPanel(LogisticsLoginDynamicJPanel);
+        LogisticsProfileDropOffHistoryJPanel historydropoff = new LogisticsProfileDropOffHistoryJPanel(LogisticsLoginDynamicJPanel, this.ecosystem, this.logisticsMan);
         CardLayout layout = (CardLayout) LogisticsLoginDynamicJPanel.getLayout();
         LogisticsLoginDynamicJPanel.add("logisticsPast", historydropoff);
         
@@ -635,7 +641,6 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -660,5 +665,6 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
     private keeptoo.KGradientPanel kGradientPanel3;
     private keeptoo.KGradientPanel kGradientPanel4;
     private keeptoo.KGradientPanel kGradientPanel5;
+    private javax.swing.JLabel namePanel;
     // End of variables declaration//GEN-END:variables
 }

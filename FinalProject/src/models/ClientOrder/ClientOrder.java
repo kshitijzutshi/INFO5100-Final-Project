@@ -22,4 +22,19 @@ public class ClientOrder {
     public ClientOrder(Client client) {
         this.client = client;
     }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public ArrayList<Item> getOrderedItems() {
+        return orderedItems;
+    }
+    
+    public Item addItem(Item item) {
+        this.orderedItems.add(item);
+        return item;
+    }
+    
+    
 }

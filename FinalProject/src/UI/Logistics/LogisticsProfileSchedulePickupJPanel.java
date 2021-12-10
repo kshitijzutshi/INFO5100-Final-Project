@@ -7,6 +7,8 @@ package UI.Logistics;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import models.EcoSystem;
+import models.User.Employee.LogisticsMan;
 
 /**
  *
@@ -18,9 +20,13 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
      * Creates new form LogisticsProfileSchedulePickupJPanel
      */
     JPanel jpanel77;
-    public LogisticsProfileSchedulePickupJPanel(JPanel LogisticsSchedulePickupJPanel) {
+    EcoSystem ecosystem;
+    LogisticsMan logisticsMan;
+    public LogisticsProfileSchedulePickupJPanel(JPanel LogisticsSchedulePickupJPanel, EcoSystem ecosystem, LogisticsMan logisticsMan) {
         initComponents();
         this.LogisticsSchedulePickUpMain = LogisticsSchedulePickupJPanel;
+        this.ecosystem = ecosystem;
+        this.logisticsMan = logisticsMan;
     }
 
     /**

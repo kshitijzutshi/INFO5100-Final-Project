@@ -6,6 +6,8 @@
 package UI.Logistics;
 
 import javax.swing.JPanel;
+import models.EcoSystem;
+import models.User.Employee.LogisticsMan;
 
 /**
  *
@@ -17,7 +19,7 @@ public class LogisticsHomeJPanel extends javax.swing.JPanel {
      * Creates new form NewJPanel1
      */
     JPanel jpanel6;
-    public LogisticsHomeJPanel(JPanel LogisticsHomeArea) {
+    public LogisticsHomeJPanel(JPanel LogisticsHomeArea, EcoSystem ecosystem, LogisticsMan logisticsMan) {
         
         initComponents();
     }

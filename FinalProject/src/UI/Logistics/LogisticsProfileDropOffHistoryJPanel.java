@@ -6,6 +6,8 @@
 package UI.Logistics;
 
 import javax.swing.JPanel;
+import models.EcoSystem;
+import models.User.Employee.LogisticsMan;
 
 /**
  *
@@ -18,11 +20,14 @@ public class LogisticsProfileDropOffHistoryJPanel extends javax.swing.JPanel {
      */
     
     JPanel jpanel20;
-    
-    public LogisticsProfileDropOffHistoryJPanel(JPanel LogiHistDropOff) {
+    EcoSystem ecosystem;
+    LogisticsMan logisticsMan;
+    public LogisticsProfileDropOffHistoryJPanel(JPanel LogiHistDropOff, EcoSystem ecosystem, LogisticsMan logisticsMan) {
         initComponents();
         
         this.LogisticsDropOffJPanel = LogiHistDropOff;
+        this.ecosystem = ecosystem;
+        this.logisticsMan = logisticsMan;
     }
 
     /**

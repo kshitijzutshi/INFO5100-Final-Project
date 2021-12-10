@@ -6,6 +6,8 @@
 package UI.Logistics;
 
 import javax.swing.JPanel;
+import models.EcoSystem;
+import models.User.Employee.LogisticsMan;
 
 /**
  *
@@ -17,9 +19,13 @@ public class LogisticsProfilePastOrdersJPanel extends javax.swing.JPanel {
      * Creates new form LogisticsProfilePastOrdersJPanel
      */
     JPanel jpanel3;
-    public LogisticsProfilePastOrdersJPanel(JPanel LogisticsProfilePastOrdersJPanel) {
+    EcoSystem ecosystem;
+    LogisticsMan logisticsMan;
+    public LogisticsProfilePastOrdersJPanel(JPanel LogisticsProfilePastOrdersJPanel, EcoSystem ecosystem, LogisticsMan logisticsMan) {
         this.LogisticsPastOrdersMain = LogisticsProfilePastOrdersJPanel;
         initComponents();
+        this.ecosystem = ecosystem;
+        this.logisticsMan = logisticsMan;
     }
 
     /**
