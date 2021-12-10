@@ -6,7 +6,7 @@
 package models.User.Employee;
 
 import java.util.UUID;
-import models.Person.Person;
+import models.User.Person;
 import models.Role.QCInspectorRole;
 import models.User.UserAccount;
 

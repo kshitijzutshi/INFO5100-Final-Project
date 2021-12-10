@@ -5,7 +5,13 @@
  */
 package UI;
 
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import models.DB4OUtil.DB4OUtil;
+import models.EcoSystem;
+import models.User.Customer.Commercial;
+import models.User.Customer.Resident;
 
 /**
  *
@@ -17,10 +23,13 @@ public class SignupJPanel extends javax.swing.JPanel {
      * Creates new form SignupJPanel
      */
     
-     private JPanel jPanel;
+    
+    private JPanel jPanel;
+    EcoSystem ecosystem;
      
-    public SignupJPanel(JPanel JPanelSignup) {
+    public SignupJPanel(JPanel JPanelSignup, EcoSystem ecosystem) {
         initComponents();
+        this.ecosystem = ecosystem;
         this.JPanelSignup = JPanelSignup;
     }
 
@@ -68,38 +77,67 @@ public class SignupJPanel extends javax.swing.JPanel {
         lblTypeOfUser.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblTypeOfUser.setText("Type of User");
 
+        typeofuserdropdown.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         typeofuserdropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Individual", "Community", "Organization" }));
+        typeofuserdropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                typeofuserdropdownActionPerformed(evt);
+            }
+        });
 
         lblEmail.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblEmail.setText("Email ID");
 
+        txtemailid.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        txtemailid.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+
         lblMobile.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblMobile.setText("Mobile Number");
+
+        txtmobnumber.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        txtmobnumber.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(153, 255, 153)));
 
         lblAddress.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblAddress.setText("Address");
 
+        txtaddress.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        txtaddress.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+
         lblName.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblName.setText("Name");
+
+        txtname.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        txtname.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         lblUserName.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblUserName.setText("Username");
 
+        txtusername.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        txtusername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+
         lblPassword.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblPassword.setText("Password");
 
+        txtpassword.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        txtpassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(153, 255, 153)));
         txtpassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtpasswordActionPerformed(evt);
             }
         });
 
+        btnSubmitsignup.setBackground(new java.awt.Color(153, 255, 153));
         btnSubmitsignup.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         btnSubmitsignup.setText("Submit");
+        btnSubmitsignup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitsignupActionPerformed(evt);
+            }
+        });
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(65, 118, 102));
+        kGradientPanel1.setkEndColor(new java.awt.Color(198, 226, 233));
         kGradientPanel1.setkGradientFocus(800);
-        kGradientPanel1.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel1.setkStartColor(new java.awt.Color(167, 190, 211));
         kGradientPanel1.setPreferredSize(new java.awt.Dimension(500, 1460));
 
         lblsignup1.setFont(new java.awt.Font("Lucida Sans", 1, 26)); // NOI18N
@@ -143,30 +181,32 @@ public class SignupJPanel extends javax.swing.JPanel {
                     .addComponent(lblSignUpHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelSignupLayout.createSequentialGroup()
                         .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(txtname)
                                 .addComponent(typeofuserdropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lblTypeOfUser, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblName)
-                            .addComponent(lblAddress)
                             .addGroup(JPanelSignupLayout.createSequentialGroup()
                                 .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblUserName)
                                     .addComponent(txtemailid, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblAddress)
+                                    .addComponent(txtaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(49, 49, 49)
                                 .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtmobnumber, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblPassword)))
-                            .addGroup(JPanelSignupLayout.createSequentialGroup()
-                                .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(49, 49, 49)
-                                .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(JPanelSignupLayout.createSequentialGroup()
                                 .addGap(144, 144, 144)
-                                .addComponent(btnSubmitsignup, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnSubmitsignup, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(JPanelSignupLayout.createSequentialGroup()
+                                .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblUserName))
+                                .addGap(49, 49, 49)
+                                .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPassword)
+                                    .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(43, 43, 43)))
                 .addGap(211, 211, 211))
         );
@@ -184,23 +224,21 @@ public class SignupJPanel extends javax.swing.JPanel {
                 .addComponent(typeofuserdropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtemailid, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtmobnumber, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(JPanelSignupLayout.createSequentialGroup()
-                        .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtemailid, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JPanelSignupLayout.createSequentialGroup()
-                        .addComponent(lblMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtmobnumber, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(32, 32, 32)
                 .addComponent(lblAddress)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(18, 18, 18)
                 .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUserName)
                     .addComponent(lblPassword))
@@ -208,7 +246,7 @@ public class SignupJPanel extends javax.swing.JPanel {
                 .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtpassword)
                     .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                .addGap(102, 102, 102)
                 .addComponent(btnSubmitsignup, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -219,6 +257,51 @@ public class SignupJPanel extends javax.swing.JPanel {
     private void txtpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtpasswordActionPerformed
+
+    private void btnSubmitsignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitsignupActionPerformed
+        // TODO add your handling code here:
+        String username = txtusername.getText();
+        String password = txtpassword.getText();
+        String email = txtemailid.getText();
+        String mobile = txtmobnumber.getText();
+        String name = txtname.getText();
+        String userType = (String) typeofuserdropdown.getSelectedItem();
+        if (username.equals("") || password.equals("") || email.equals("") || mobile.equals("") || name.equals("")) {
+            JOptionPane.showMessageDialog(this, "All fields are required");
+            return;
+        }
+        if (this.ecosystem.getUserAccountDirectory().userNameExists(username)) {
+            JOptionPane.showMessageDialog(this, "Username already taken");
+            return;
+        }
+        if (userType.equals("Individual")) {
+            Resident resident = new Resident(username, password);
+            resident.setFullName(name);
+            resident.setPhone(mobile);
+            resident.setAddress(mobile);
+            resident.setEmail(email);
+            this.ecosystem.getUserAccountDirectory().addUserAccount(resident.getUserAccount());
+            this.ecosystem.getCustomerDirectory().addResidents(resident);
+        } else {
+//            Commercial resident = new Commercial(username, password);
+//            resident.setFullName(name);
+//            resident.setPhone(mobile);
+//            resident.setAddress(mobile);
+//            resident.setEmail(email);
+        }
+        JOptionPane.showMessageDialog(this, "You are all set!");
+        DB4OUtil.getInstance().storeSystem(ecosystem);
+        
+//        IndiProfileLoginJPanel indiLogin = new IndiProfileLoginJPanel(IndiProfileLoginJPanel);
+//        CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
+//        JPanelIndLogin.add("individualBookingDetails", indibookingdetails);
+//
+//        layout.next(JPanelIndLogin);
+    }//GEN-LAST:event_btnSubmitsignupActionPerformed
+
+    private void typeofuserdropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeofuserdropdownActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_typeofuserdropdownActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

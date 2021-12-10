@@ -6,7 +6,7 @@
 package models.User.Customer;
 
 import java.util.UUID;
-import models.Person.Person;
+import models.User.Person;
 import models.Role.ResidentRole;
 import models.User.UserAccount;
 
@@ -18,10 +18,24 @@ public class Resident extends Person{
     
     final String cid;
     final UserAccount userAccount;
+    private int rewardPoints;
     
     public Resident(String username, String password) {
         this.userAccount = new UserAccount(username, password, new ResidentRole());
         this.cid = UUID.randomUUID().toString().substring(0,5);
+        this.rewardPoints = 50;
+    }
+
+    public UserAccount getUserAccount() {
+        return userAccount;
+    }
+
+    public int getRewardPoints() {
+        return rewardPoints;
+    }
+
+    public void setRewardPoints(int rewardPoints) {
+        this.rewardPoints = rewardPoints;
     }
     
 }

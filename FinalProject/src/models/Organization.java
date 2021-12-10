@@ -4,9 +4,12 @@
  */
 package models;
 
+import models.CustomerBooking.BookingDirectory;
+import models.Inventory.InventoryDirectory;
 import models.User.Customer.CustomerDirectory;
 import models.User.Employee.EmployeeDirectory;
 import models.User.UserAccountDirectory;
+import models.Work.WorkRequestDirectory;
 
 
 /**
@@ -19,13 +22,18 @@ public abstract class Organization {
     private UserAccountDirectory userAccountDirectory;
     private EmployeeDirectory employeeDirectory;
     private CustomerDirectory customerDirectory;
-    
+    private BookingDirectory bookingDirectory;
+    private InventoryDirectory inventoryDirectory;
+    private WorkRequestDirectory workRequestDirectory;
 
     public Organization(String name) {
         this.name = name;
         this.userAccountDirectory = new UserAccountDirectory();
         this.employeeDirectory = new EmployeeDirectory();
         this.customerDirectory = new CustomerDirectory();
+        this.bookingDirectory = new BookingDirectory();
+        this.inventoryDirectory = new InventoryDirectory();
+        this.workRequestDirectory = new WorkRequestDirectory();
         
     }
     
@@ -40,6 +48,15 @@ public abstract class Organization {
     public CustomerDirectory getCustomerDirectory() {
         return customerDirectory;
     }
+
+    public BookingDirectory getBookingDirectory() {
+        return bookingDirectory;
+    }
+
+    public InventoryDirectory getInventoryDirectory() {
+        return inventoryDirectory;
+    }
+    
     
     public String getName() {
         return name;

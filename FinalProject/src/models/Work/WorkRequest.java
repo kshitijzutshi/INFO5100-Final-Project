@@ -6,6 +6,7 @@
 package models.Work;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 /**
  *
@@ -15,23 +16,27 @@ import java.time.LocalDateTime;
 
 public abstract class WorkRequest {
 
-    private String message;
+    private String id;
     private LocalDateTime requestDate;
     private LocalDateTime resolveDate;
-    private String status;
+    private RequestStatus status;
+    
+    public enum RequestStatus {
+        ASSIGNED,
+        ONGOING,
+        COMPLETED
+    }
     
     
     public WorkRequest(){
+        this.id = UUID.randomUUID().toString().substring(0,5);
         this.requestDate = LocalDateTime.now();
     }
 
-    public String getMessage() {
-        return message;
+    public String getId() {
+        return id;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
 
     public LocalDateTime getRequestDate() {
         return requestDate;
@@ -49,11 +54,11 @@ public abstract class WorkRequest {
         this.resolveDate = resolveDate;
     }
 
-    public String getStatus() {
+    public RequestStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(RequestStatus status) {
         this.status = status;
     }
     
