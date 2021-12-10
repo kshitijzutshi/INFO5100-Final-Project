@@ -6,6 +6,7 @@
 package models.Work;
 
 import java.util.ArrayList;
+import models.User.Employee.LogisticsMan;
 
 /**
  *
@@ -13,20 +14,20 @@ import java.util.ArrayList;
  */
 public class WorkRequestDirectory {
     
-    ArrayList<RetailOrder> retailOrders;
+    ArrayList<ClientDropoff> dropOffs;
     ArrayList<InventoryPickup> inventoryPickups;
     ArrayList<QCInspection> qcInspections;
     ArrayList<RefurbAssignment> refurbAssignments;
     
     public WorkRequestDirectory() {
-        this.retailOrders = new ArrayList<>();
+        this.dropOffs = new ArrayList<>();
         this.inventoryPickups = new ArrayList<>();
         this.qcInspections = new ArrayList<>();
         this.refurbAssignments = new ArrayList<>();
     }
 
-    public ArrayList<RetailOrder> getRetailOrders() {
-        return retailOrders;
+    public ArrayList<ClientDropoff> getRetailOrders() {
+        return dropOffs;
     }
 
     public ArrayList<InventoryPickup> getInventoryPickups() {
@@ -41,8 +42,8 @@ public class WorkRequestDirectory {
         return refurbAssignments;
     }
     
-    public RetailOrder addRetailOrder(RetailOrder retailOrder) {
-        this.retailOrders.add(retailOrder);
+    public ClientDropoff addClientDropoff(ClientDropoff retailOrder) {
+        this.dropOffs.add(retailOrder);
         return retailOrder;
     }
     
@@ -61,5 +62,20 @@ public class WorkRequestDirectory {
         return retailOrder;
     }
     
-        
+    
+    public ArrayList<InventoryPickup> getPickupsByLogisticMan(LogisticsMan logisticsMan) {
+        ArrayList<InventoryPickup> pickups = new ArrayList<>();
+        for (InventoryPickup pickup: this.inventoryPickups) {
+            if (pickup.getLogisticsMan() == logisticsMan) pickups.add(pickup);
+        }
+        return pickups;
+    }
+    
+    public ArrayList<ClientDropoff> getDropoffByLogisticMan(LogisticsMan logisticsMan) {
+        ArrayList<ClientDropoff> dropoffs = new ArrayList<>();
+        for (ClientDropoff dropoff: this.dropOffs) {
+            if (dropoff.getLogisticsMan()== logisticsMan) dropoffs.add(dropoff);
+        }
+        return dropoffs;
+    }
 }

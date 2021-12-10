@@ -24,7 +24,7 @@ public class BookingDirectory {
         return bookings;
     }
     
-    private InventoryBooking addBooking(InventoryBooking booking) {
+    public InventoryBooking addBooking(InventoryBooking booking) {
         this.bookings.add(booking);
         return booking;
     }

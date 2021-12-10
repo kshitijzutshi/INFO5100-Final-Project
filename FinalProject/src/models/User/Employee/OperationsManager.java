@@ -14,12 +14,12 @@ import models.User.UserAccount;
  *
  * @author phaniginjupalli
  */
-public class InventoryManager extends Person{
+public class OperationsManager extends Person{
     
     final String eid;
     final UserAccount userAccount; 
     
-    public InventoryManager(String username, String password) {
+    public OperationsManager(String username, String password) {
         this.userAccount = new UserAccount(username, password, new InventoryManagerRole());
         this.eid = UUID.randomUUID().toString().substring(0,5);
     }

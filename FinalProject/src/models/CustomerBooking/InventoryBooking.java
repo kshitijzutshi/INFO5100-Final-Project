@@ -24,12 +24,12 @@ public class InventoryBooking {
     private final BookingType bookingType;
     private LocalDateTime requestedDateTime;
     
-    public InventoryBooking(Resident resident, ArrayList<Item> items, BookingType bookingType) {
+    public InventoryBooking(Resident resident, BookingType bookingType) {
         this.id = UUID.randomUUID().toString().substring(0,5);
         this.bookingType = bookingType;
         this.resident = resident;
         this.bookedOn = LocalDateTime.now();
-        this.items = items;
+        this.items = new ArrayList<>();
     }
     
     public enum BookingType {
@@ -63,6 +63,10 @@ public class InventoryBooking {
 
     public void setRequestedDateTime(LocalDateTime requestedDateTime) {
         this.requestedDateTime = requestedDateTime;
+    }
+    
+    public void addToItems(Item item) {
+        this.items.add(item);
     }
         
     

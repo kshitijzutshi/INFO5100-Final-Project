@@ -21,11 +21,6 @@ public class InventoryPickup extends WorkRequest{
         this.inventoryBooking = inventoryBooking;
     }
     
-    public enum PickUpStatus {
-        ASSIGNED,
-        ENROUTE,
-        COMPLETED
-    }
         
     public LogisticsMan getLogisticsMan() {
         return logisticsMan;
@@ -34,5 +29,11 @@ public class InventoryPickup extends WorkRequest{
     public void setLogisticsMan(LogisticsMan logisticsMan) {
         this.logisticsMan = logisticsMan;
     }
+
+    public InventoryBooking getInventoryBooking() {
+        return inventoryBooking;
+    }
+    
+    
     
 }

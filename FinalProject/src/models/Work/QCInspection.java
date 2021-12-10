@@ -5,10 +5,21 @@
  */
 package models.Work;
 
+import models.Inventory.Item;
+import models.User.Employee.QCInspector;
+
+
 /**
  *
  * @author phaniginjupalli
  */
 public class QCInspection extends WorkRequest{
+    
+    private QCInspector inspector;
+    private Item item;
+    
+    public QCInspection(Item item) {
+        
+    } 
     
 }

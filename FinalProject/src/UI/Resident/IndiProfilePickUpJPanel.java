@@ -12,7 +12,9 @@ import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import models.CustomerBooking.InventoryBooking;
 import models.EcoSystem;
+import models.Inventory.Item;
 import models.User.Customer.Resident;
 
 /**
@@ -249,6 +251,11 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         btnCreateBookingPickUp.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         btnCreateBookingPickUp.setForeground(new java.awt.Color(51, 51, 51));
         btnCreateBookingPickUp.setText("Submit");
+        btnCreateBookingPickUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateBookingPickUpActionPerformed(evt);
+            }
+        });
 
         btnDeleteItem.setBackground(new java.awt.Color(205, 223, 245));
         btnDeleteItem.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
@@ -421,9 +428,9 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         currentEntry.put("condition", (String) dropdownCondition.getSelectedItem());
         currentEntry.put("make", txtemake.getText());
         currentEntry.put("model", txtmodel.getText());
-        currentEntry.put("weight", (String) dropdownCatEwaste.getSelectedItem());
-        currentEntry.put("year", (String) dropdownCatEwaste.getSelectedItem());
-        currentEntry.put("pickupDate", PickUpDateChooser.getDateFormatString());
+        currentEntry.put("weight", txtitemweight.getText());
+        currentEntry.put("year", txtyearManuf.getText());
+        currentEntry.put("pickupDate", PickUpDateChooser.getDate().toString());
         this.entries.add(currentEntry);
         this.populateTable();
     }//GEN-LAST:event_btnAddtoBookingTableActionPerformed
@@ -438,6 +445,22 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblPickUpBooking.getModel();
         model.removeRow(selectedRowIndex);
     }//GEN-LAST:event_btnDeleteItemActionPerformed
+
+    private void btnCreateBookingPickUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateBookingPickUpActionPerformed
+        // TODO add your handling code here:
+        InventoryBooking booking = new InventoryBooking(this.resident, InventoryBooking.BookingType.PICKUP);
+        for (HashMap<String, String> entry: this.entries) {
+            Item item = new Item(this.resident, entry.get("category"), entry.get("subCategory"));
+            item.setCondition(Item.ItemCondition.INTACT);
+            item.setMake(entry.get("make"));
+            item.setModel(entry.get("model"));
+            item.setManufactureYear(Integer.valueOf(entry.get("year")));
+            item.setWeightApprox(Float.valueOf(entry.get("weight")));
+            this.ecosystem.getInventoryDirectory().addToInventory(item);
+            booking.addToItems(item);
+        }
+        this.ecosystem.getBookingDirectory().addBooking(booking);
+    }//GEN-LAST:event_btnCreateBookingPickUpActionPerformed
     
     
     private void populateTable() {
