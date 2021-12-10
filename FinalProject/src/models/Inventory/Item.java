@@ -80,7 +80,7 @@ public class Item {
         return weightApprox;
     }
 
-    public void setWeightApprox(int weightApprox) {
+    public void setWeightApprox(float weightApprox) {
         this.weightApprox = weightApprox;
     }
 

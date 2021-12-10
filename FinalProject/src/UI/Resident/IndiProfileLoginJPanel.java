@@ -31,6 +31,7 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
         initComponents();
         this.ecosystem = ecosystem;
         this.resident = resident;
+        nameLabel.setText(resident.getFullName());
     }
 
     /**

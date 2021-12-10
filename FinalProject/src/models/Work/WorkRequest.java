@@ -17,10 +17,15 @@ import java.util.UUID;
 public abstract class WorkRequest {
 
     private String id;
-    protected String message;
     private LocalDateTime requestDate;
     private LocalDateTime resolveDate;
-    protected String status;
+    private RequestStatus status;
+    
+    public enum RequestStatus {
+        ASSIGNED,
+        ONGOING,
+        COMPLETED
+    }
     
     
     public WorkRequest(){
@@ -32,13 +37,6 @@ public abstract class WorkRequest {
         return id;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 
     public LocalDateTime getRequestDate() {
         return requestDate;
@@ -56,11 +54,11 @@ public abstract class WorkRequest {
         this.resolveDate = resolveDate;
     }
 
-    public String getStatus() {
+    public RequestStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(RequestStatus status) {
         this.status = status;
     }
     

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class EmployeeDirectory {
     
     private ArrayList<LogisticsMan> logisticsMen;
-    private ArrayList<InventoryManager> inventoryManagers;
+    private ArrayList<OperationsManager> inventoryManagers;
     private ArrayList<QCInspector> qcInspectors;
     
     public EmployeeDirectory() {
@@ -28,7 +28,7 @@ public class EmployeeDirectory {
         return logMan;
     }
     
-    public InventoryManager addInventoryManager(InventoryManager invMan) {
+    public OperationsManager addInventoryManager(OperationsManager invMan) {
         this.inventoryManagers.add(invMan);
         return invMan;
     }
@@ -42,7 +42,7 @@ public class EmployeeDirectory {
         this.logisticsMen.remove(logMan);
     }
     
-    public void removeInventoryManager(InventoryManager invMan) {
+    public void removeInventoryManager(OperationsManager invMan) {
         this.inventoryManagers.remove(invMan);
     }
     
@@ -54,7 +54,7 @@ public class EmployeeDirectory {
         return this.logisticsMen;
     }
 
-    public ArrayList<InventoryManager> getInventoryManagers() {
+    public ArrayList<OperationsManager> getInventoryManagers() {
         return this.inventoryManagers;
     }
 
