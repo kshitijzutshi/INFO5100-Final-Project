@@ -48,6 +48,12 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
         btnLogisticsLogout = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        btnLogisticsDropoff = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        btnLogisticsDropOffHistory = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -212,8 +218,80 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
             .addGroup(btnLogisticsLogoutLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(btnLogisticsLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        btnLogisticsDropoff.setBackground(new java.awt.Color(167, 190, 211));
+        btnLogisticsDropoff.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLogisticsDropoffMouseClicked(evt);
+            }
+        });
+
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/drop-off.png"))); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("View Scheduled Drop-off");
+
+        javax.swing.GroupLayout btnLogisticsDropoffLayout = new javax.swing.GroupLayout(btnLogisticsDropoff);
+        btnLogisticsDropoff.setLayout(btnLogisticsDropoffLayout);
+        btnLogisticsDropoffLayout.setHorizontalGroup(
+            btnLogisticsDropoffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnLogisticsDropoffLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnLogisticsDropoffLayout.setVerticalGroup(
+            btnLogisticsDropoffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnLogisticsDropoffLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(btnLogisticsDropoffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        btnLogisticsDropOffHistory.setBackground(new java.awt.Color(167, 190, 211));
+        btnLogisticsDropOffHistory.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLogisticsDropOffHistoryMouseClicked(evt);
+            }
+        });
+
+        jLabel26.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/order_history_32px.png"))); // NOI18N
+
+        jLabel27.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel27.setText("View Drop-Off History");
+
+        javax.swing.GroupLayout btnLogisticsDropOffHistoryLayout = new javax.swing.GroupLayout(btnLogisticsDropOffHistory);
+        btnLogisticsDropOffHistory.setLayout(btnLogisticsDropOffHistoryLayout);
+        btnLogisticsDropOffHistoryLayout.setHorizontalGroup(
+            btnLogisticsDropOffHistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnLogisticsDropOffHistoryLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnLogisticsDropOffHistoryLayout.setVerticalGroup(
+            btnLogisticsDropOffHistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnLogisticsDropOffHistoryLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(btnLogisticsDropOffHistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -231,10 +309,12 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnLogisticsLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnViewPickUpHistory, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnViewScheduledPickup, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnLogisticsHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnLogisticsHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnLogisticsDropoff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnLogisticsDropOffHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnLogisticsLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         kGradientPanel1Layout.setVerticalGroup(
@@ -244,15 +324,19 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12)
-                .addGap(81, 81, 81)
+                .addGap(92, 92, 92)
                 .addComponent(btnLogisticsHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnViewScheduledPickup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnLogisticsDropoff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnViewPickUpHistory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(btnLogisticsDropOffHistory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
                 .addComponent(btnLogisticsLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(980, Short.MAX_VALUE))
+                .addContainerGap(844, Short.MAX_VALUE))
         );
 
         kGradientPanel2.setkEndColor(new java.awt.Color(198, 226, 233));
@@ -514,16 +598,41 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
         layout.next(LogisticsLoginDynamicJPanel);
     }//GEN-LAST:event_btnViewPickUpHistoryMouseClicked
 
+    private void btnLogisticsDropoffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogisticsDropoffMouseClicked
+        // TODO add your handling code here:
+        
+        LogisticsProfileDropOffJPanel scheduleddropoff = new LogisticsProfileDropOffJPanel(LogisticsLoginDynamicJPanel);
+        CardLayout layout = (CardLayout) LogisticsLoginDynamicJPanel.getLayout();
+        LogisticsLoginDynamicJPanel.add("logisticsPast", scheduleddropoff);
+        
+        layout.next(LogisticsLoginDynamicJPanel);
+    }//GEN-LAST:event_btnLogisticsDropoffMouseClicked
+
+    private void btnLogisticsDropOffHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogisticsDropOffHistoryMouseClicked
+        // TODO add your handling code here:
+        
+        LogisticsProfileDropOffHistoryJPanel historydropoff = new LogisticsProfileDropOffHistoryJPanel(LogisticsLoginDynamicJPanel);
+        CardLayout layout = (CardLayout) LogisticsLoginDynamicJPanel.getLayout();
+        LogisticsLoginDynamicJPanel.add("logisticsPast", historydropoff);
+        
+        layout.next(LogisticsLoginDynamicJPanel);
+        
+    }//GEN-LAST:event_btnLogisticsDropOffHistoryMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel LogisticsLoginDynamicJPanel;
     private javax.swing.JPanel LogisticsLoginDynamicMainJPanel;
     private javax.swing.JPanel LogisticsLoginMainJPanel;
+    private javax.swing.JPanel btnLogisticsDropOffHistory;
+    private javax.swing.JPanel btnLogisticsDropoff;
     private javax.swing.JPanel btnLogisticsHome;
     private javax.swing.JPanel btnLogisticsLogout;
     private javax.swing.JPanel btnViewPickUpHistory;
     private javax.swing.JPanel btnViewScheduledPickup;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -538,6 +647,8 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
