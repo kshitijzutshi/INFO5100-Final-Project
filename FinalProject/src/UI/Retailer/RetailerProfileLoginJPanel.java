@@ -5,6 +5,8 @@
  */
 package UI.Retailer;
 
+import UI.MainJPanel;
+import UI.Technician.TechnicanReviewItemsJPanel;
 import java.awt.CardLayout;
 
 /**
@@ -186,6 +188,11 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
         );
 
         btnRetailerLogout.setBackground(new java.awt.Color(167, 190, 211));
+        btnRetailerLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRetailerLogoutMouseClicked(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -512,6 +519,17 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
 //        //
 //        layout.next(RetailerDynamicJPanel);
     }//GEN-LAST:event_btnViewPastPurchaseMouseClicked
+
+    private void btnRetailerLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRetailerLogoutMouseClicked
+        // TODO add your handling code here:
+        
+         MainJPanel main = new MainJPanel(RetailerLoginMainJPanel);
+        CardLayout layout = (CardLayout) RetailerLoginMainJPanel.getLayout();
+        RetailerLoginMainJPanel.add("Home", main);
+
+        layout.next(RetailerLoginMainJPanel);
+      //  DB4OUtil.getInstance().storeSystem(this.ecosystem);
+    }//GEN-LAST:event_btnRetailerLogoutMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

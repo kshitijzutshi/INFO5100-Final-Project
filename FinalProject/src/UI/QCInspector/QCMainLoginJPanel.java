@@ -5,8 +5,10 @@
  */
 package UI.QCInspector;
 
+import UI.MainJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import models.DB4OUtil.DB4OUtil;
 import models.EcoSystem;
 import models.User.Employee.QCInspector;
 
@@ -232,6 +234,11 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
         );
 
         jPanel7.setBackground(new java.awt.Color(167, 190, 211));
+        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel7MouseClicked(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -527,6 +534,17 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
                   layout.next(qcswitchingpanel);
         
     }//GEN-LAST:event_btnManageRecycledMouseClicked
+
+    private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
+        // TODO add your handling code here:
+        MainJPanel main = new MainJPanel(QcLoginJPanel);
+        CardLayout layout = (CardLayout) QcLoginJPanel.getLayout();
+        QcLoginJPanel.add("Home", main);
+
+        layout.next(QcLoginJPanel);
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+        
+    }//GEN-LAST:event_jPanel7MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

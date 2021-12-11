@@ -406,10 +406,10 @@ public class MainJPanel extends javax.swing.JPanel {
 
     private void mgmtDivBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mgmtDivBtnActionPerformed
         // TODO add your handling code here:
-        ManagementDivisionProfileMainJPanel managementDivisionprofilemain = new ManagementDivisionProfileMainJPanel(mainJpanel);
-        CardLayout layout = (CardLayout) mainJpanel.getLayout();
-        mainJpanel.add("LogisticsPanel", managementDivisionprofilemain);
-        layout.next(mainJpanel);
+    //    ManagementDivisionProfileMainJPanel managementDivisionprofilemain = new ManagementDivisionProfileMainJPanel(mainJpanel);
+     //   CardLayout layout = (CardLayout) mainJpanel.getLayout();
+      //  mainJpanel.add("LogisticsPanel", managementDivisionprofilemain);
+      //  layout.next(mainJpanel);
     }//GEN-LAST:event_mgmtDivBtnActionPerformed
 
     private void btnSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemAdminActionPerformed
