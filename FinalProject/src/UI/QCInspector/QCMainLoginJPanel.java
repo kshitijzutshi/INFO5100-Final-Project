@@ -7,6 +7,8 @@ package UI.QCInspector;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import models.EcoSystem;
+import models.User.Employee.QCInspector;
 
 /**
  *
@@ -19,11 +21,14 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
      */
     
     JPanel jpanel11;
-    
-    public QCMainLoginJPanel(JPanel qclogin) {
+    EcoSystem ecosystem;
+    QCInspector qcInspector;
+    public QCMainLoginJPanel(JPanel qclogin, EcoSystem ecosystem, QCInspector qcInspector) {
         initComponents();
         
         this.QcLoginJPanel = qclogin;
+        this.ecosystem = ecosystem;
+        this.qcInspector = qcInspector;
     }
 
     /**
@@ -494,7 +499,7 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
     private void btnpendinginspectionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpendinginspectionMouseClicked
 
         
-        QCPendingReviewItemsJPanel qcpendingitems = new QCPendingReviewItemsJPanel(qcswitchingpanel);
+        QCPendingReviewItemsJPanel qcpendingitems = new QCPendingReviewItemsJPanel(qcswitchingpanel, this.ecosystem, this.qcInspector);
                   CardLayout layout = (CardLayout) qcswitchingpanel.getLayout();
                   qcswitchingpanel.add("QCPending", qcpendingitems);
 //        
@@ -503,7 +508,7 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
 
     private void btnQcHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQcHomeMouseClicked
         // TODO add your handling code here:
-        QCInspectorHomeJPanel qchome = new QCInspectorHomeJPanel(qcswitchingpanel);
+        QCInspectorHomeJPanel qchome = new QCInspectorHomeJPanel(qcswitchingpanel, this.ecosystem, this.qcInspector);
                   CardLayout layout = (CardLayout) qcswitchingpanel.getLayout();
                   qcswitchingpanel.add("QCPending", qchome);
 //        
@@ -515,7 +520,7 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
     private void btnManageRecycledMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageRecycledMouseClicked
 
         
-        QCPastItemsHistoryJPanel qcpast = new QCPastItemsHistoryJPanel(qcswitchingpanel);
+        QCPastItemsHistoryJPanel qcpast = new QCPastItemsHistoryJPanel(qcswitchingpanel, this.ecosystem, this.qcInspector);
         CardLayout layout = (CardLayout) qcswitchingpanel.getLayout();
                   qcswitchingpanel.add("QCPast", qcpast);
 //        

@@ -6,12 +6,14 @@
 package UI.Resident;
 
 import UI.CategoryDropDownUtil;
+import UI.MainJPanel;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import models.DB4OUtil.DB4OUtil;
 import models.EcoSystem;
 import models.User.Customer.Resident;
 
@@ -294,7 +296,7 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
                         .addGroup(JPanelIndDropoffMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(JPanelIndDropoffMainLayout.createSequentialGroup()
-                                .addComponent(btnDeleteItem, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnDeleteItem)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnCreateBookingDropoff, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(22, 22, 22))))
@@ -358,6 +360,13 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        MainJPanel main = new MainJPanel(JPanelIndDropoffMain);
+        CardLayout layout = (CardLayout) JPanelIndDropoffMain.getLayout();
+        JPanelIndDropoffMain.add("Home", main);
+
+        layout.next(JPanelIndDropoffMain);
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

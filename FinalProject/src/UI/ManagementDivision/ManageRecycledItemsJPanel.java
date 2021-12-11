@@ -8,6 +8,8 @@ package UI.ManagementDivision;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import models.EcoSystem;
+import models.User.Employee.OperationsManager;
 
 /**
  *
@@ -19,9 +21,13 @@ public class ManageRecycledItemsJPanel extends javax.swing.JPanel {
      * Creates new form ManageRecycledItemsJPanel
      */
     JPanel jpanel8;
-    public ManageRecycledItemsJPanel(JPanel ManageRecyItemsJPanel) {
+    EcoSystem ecosystem;
+    OperationsManager manager;
+    public ManageRecycledItemsJPanel(JPanel ManageRecyItemsJPanel, EcoSystem ecosystem, OperationsManager manager) {
         this.ManageRecycMainJPanel = ManageRecyItemsJPanel;
         initComponents();
+        this.ecosystem = ecosystem;
+        this.manager = manager;
     }
 
     /**

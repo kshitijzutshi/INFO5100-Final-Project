@@ -5,8 +5,12 @@
  */
 package UI.Resident;
 
+import UI.MainJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import models.DB4OUtil.DB4OUtil;
+import models.EcoSystem;
+import models.User.Customer.Resident;
 
 /**
  *
@@ -19,7 +23,9 @@ public class IndiInfoJPanel extends javax.swing.JPanel {
      */
     
     private JPanel jpanel9;
-    
+     JPanel jpanel3;
+    EcoSystem ecosystem;
+    Resident resident;
     public IndiInfoJPanel(JPanel JPanelWasteInfo) {
         initComponents();
         this.JPanelWasteInfo = JPanelWasteInfo;
@@ -519,6 +525,13 @@ public class IndiInfoJPanel extends javax.swing.JPanel {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        
+        MainJPanel main = new MainJPanel(JPanelWasteInfo);
+        CardLayout layout = (CardLayout) JPanelWasteInfo.getLayout();
+        JPanelWasteInfo.add("Home", main);
+
+        layout.next(JPanelWasteInfo);
+        //DB4OUtil.getInstance().storeSystem(this.ecosystem);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

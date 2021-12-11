@@ -8,6 +8,8 @@ package UI.QCInspector;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import models.EcoSystem;
+import models.User.Employee.QCInspector;
 
 /**
  *
@@ -20,11 +22,14 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
      */
     
     JPanel jpanel12;
-    
-    public QCPendingReviewItemsJPanel(JPanel pendingitems) {
+    EcoSystem ecosystem;
+    QCInspector qcInspector;
+    public QCPendingReviewItemsJPanel(JPanel pendingitems, EcoSystem ecosystem, QCInspector qcInspector) {
         initComponents();
         
         this.PendingReviewItemsJPanel = pendingitems;
+        this.ecosystem = ecosystem;
+        this.qcInspector = qcInspector;
     }
 
     /**

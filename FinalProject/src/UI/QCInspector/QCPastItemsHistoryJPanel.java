@@ -6,6 +6,8 @@
 package UI.QCInspector;
 
 import javax.swing.JPanel;
+import models.EcoSystem;
+import models.User.Employee.QCInspector;
 
 /**
  *
@@ -18,11 +20,14 @@ public class QCPastItemsHistoryJPanel extends javax.swing.JPanel {
      */
     
     JPanel jpanel13;
-    
-    public QCPastItemsHistoryJPanel(JPanel qcpasthistory) {
+    EcoSystem ecosystem;
+    QCInspector qcInspector;
+    public QCPastItemsHistoryJPanel(JPanel qcpasthistory, EcoSystem ecosystem, QCInspector qcInspector) {
         initComponents();
     
         this.QCPastItemsHistory = qcpasthistory;
+        this.ecosystem = ecosystem;
+        this.qcInspector = qcInspector;
     }
 
     /**

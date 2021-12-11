@@ -5,11 +5,13 @@
  */
 package UI.Resident;
 
+import UI.MainJPanel;
 import java.awt.CardLayout;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import models.CustomerBooking.InventoryBooking;
+import models.DB4OUtil.DB4OUtil;
 import models.EcoSystem;
 import models.Inventory.Item;
 import models.User.Customer.Resident;
@@ -245,6 +247,14 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        MainJPanel main = new MainJPanel(JPanelIndBookingDetailsMain);
+        CardLayout layout = (CardLayout) JPanelIndBookingDetailsMain.getLayout();
+        JPanelIndBookingDetailsMain.add("Home", main);
+
+        layout.next(JPanelIndBookingDetailsMain);
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+        
+        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
