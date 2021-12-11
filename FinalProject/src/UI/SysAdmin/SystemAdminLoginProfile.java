@@ -50,9 +50,6 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        logoutSysadminPanel = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
         btnManageManagemnt = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -65,6 +62,9 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
         btnManageTechnician = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
+        logoutSysadminPanel = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -186,41 +186,6 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
         );
 
         jLabel12.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 0, new java.awt.Color(51, 51, 51)));
-
-        logoutSysadminPanel.setBackground(new java.awt.Color(167, 190, 211));
-        logoutSysadminPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutSysadminPanelMouseClicked(evt);
-            }
-        });
-
-        jLabel15.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_30px.png"))); // NOI18N
-
-        jLabel16.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
-        jLabel16.setText("Logout");
-
-        javax.swing.GroupLayout logoutSysadminPanelLayout = new javax.swing.GroupLayout(logoutSysadminPanel);
-        logoutSysadminPanel.setLayout(logoutSysadminPanelLayout);
-        logoutSysadminPanelLayout.setHorizontalGroup(
-            logoutSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(logoutSysadminPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        logoutSysadminPanelLayout.setVerticalGroup(
-            logoutSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(logoutSysadminPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(logoutSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
 
         btnManageManagemnt.setBackground(new java.awt.Color(167, 190, 211));
         btnManageManagemnt.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -362,6 +327,41 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
             .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        logoutSysadminPanel.setBackground(new java.awt.Color(167, 190, 211));
+        logoutSysadminPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutSysadminPanelMouseClicked(evt);
+            }
+        });
+
+        jLabel15.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_30px.png"))); // NOI18N
+
+        jLabel16.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jLabel16.setText("Logout");
+
+        javax.swing.GroupLayout logoutSysadminPanelLayout = new javax.swing.GroupLayout(logoutSysadminPanel);
+        logoutSysadminPanel.setLayout(logoutSysadminPanelLayout);
+        logoutSysadminPanelLayout.setHorizontalGroup(
+            logoutSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(logoutSysadminPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        logoutSysadminPanelLayout.setVerticalGroup(
+            logoutSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(logoutSysadminPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(logoutSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
@@ -377,10 +377,10 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
                         .addGap(59, 63, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(logoutSysadminPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnManageTechnician, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnManageRetailer, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnManageRetailers1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(logoutSysadminPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnManageManagemnt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnManageIndividual, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnManageLogisticsSysadmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -474,9 +474,7 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
                 .addGap(359, 359, 359)
                 .addGroup(sysadminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sysadminDynamicJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(sysadminLoginJPanelLayout.createSequentialGroup()
-                        .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 976, Short.MAX_VALUE)
-                        .addContainerGap())))
+                    .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 986, Short.MAX_VALUE)))
             .addGroup(sysadminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(sysadminLoginJPanelLayout.createSequentialGroup()
                     .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -534,17 +532,6 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
         layout.next(sysadminDynamicJPanel);
     }//GEN-LAST:event_btnManageManagemntMouseClicked
 
-    private void logoutSysadminPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutSysadminPanelMouseClicked
-        // TODO add your handling code here:
-        
-        MainJPanel main = new MainJPanel(sysadminLoginJPanel);
-        CardLayout layout = (CardLayout) sysadminLoginJPanel.getLayout();
-        sysadminLoginJPanel.add("Home", main);
-
-        layout.next(sysadminLoginJPanel);
-        DB4OUtil.getInstance().storeSystem(this.ecosystem);
-    }//GEN-LAST:event_logoutSysadminPanelMouseClicked
-
     private void btnManageRetailers1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageRetailers1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnManageRetailers1MouseClicked
@@ -564,6 +551,17 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
         sysadminDynamicJPanel.add("ManageRetailerLogin", manageSysadminTechnician);
         layout.next(sysadminDynamicJPanel);
     }//GEN-LAST:event_btnManageTechnicianMouseClicked
+
+    private void logoutSysadminPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutSysadminPanelMouseClicked
+        // TODO add your handling code here:
+
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+        MainJPanel main = new MainJPanel(sysadminLoginJPanel);
+        CardLayout layout = (CardLayout) sysadminLoginJPanel.getLayout();
+        sysadminLoginJPanel.add("HomeBack", main);
+
+        layout.next(sysadminLoginJPanel);
+    }//GEN-LAST:event_logoutSysadminPanelMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

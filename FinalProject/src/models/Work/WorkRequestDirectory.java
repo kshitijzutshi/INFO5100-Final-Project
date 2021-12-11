@@ -78,4 +78,12 @@ public class WorkRequestDirectory {
         }
         return dropoffs;
     }
+    
+    public ClientDropoff getActiveDropOff(LogisticsMan logisticsMan) {
+        for (ClientDropoff dropoff: this.getDropoffByLogisticMan(logisticsMan)) {
+            if (dropoff.getStatus() == ClientDropoff.RequestStatus.ASSIGNED || dropoff.getStatus() == ClientDropoff.RequestStatus.ONGOING) return dropoff;
+            return dropoff;
+            }
+            return null;
+        }
 }

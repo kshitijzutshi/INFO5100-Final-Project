@@ -145,13 +145,16 @@ public class MainJPanel extends javax.swing.JPanel {
 
         jLabel8.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Are you a Retailer?");
+        jLabel8.setText("Are you a Client?");
 
         btnSignUpRetailer.setBackground(new java.awt.Color(255, 255, 255));
-        btnSignUpRetailer.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(255, 255, 255)));
+        btnSignUpRetailer.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         btnSignUpRetailer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSignUpRetailerMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSignUpRetailerMouseEntered(evt);
             }
         });
 
@@ -393,6 +396,10 @@ public class MainJPanel extends javax.swing.JPanel {
 
     private void btnSignUpRetailerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignUpRetailerMouseClicked
         // TODO add your handling code here:
+        SignUpRetailerJPanel clientSignUp = new SignUpRetailerJPanel(mainJpanel, ecosystem);
+        CardLayout layout = (CardLayout) mainJpanel.getLayout();
+        mainJpanel.add("ClientSignUp", clientSignUp);
+        layout.next(mainJpanel);
 
     }//GEN-LAST:event_btnSignUpRetailerMouseClicked
 
@@ -430,6 +437,11 @@ public class MainJPanel extends javax.swing.JPanel {
         layout.next(mainJpanel);
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnSignUpRetailerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignUpRetailerMouseEntered
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnSignUpRetailerMouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

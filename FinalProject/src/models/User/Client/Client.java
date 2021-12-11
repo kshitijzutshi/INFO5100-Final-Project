@@ -20,6 +20,7 @@ public class Client extends Person{
     private boolean verified;
     private UserAccount userAccount;
     private paymentType paymenttype;
+    private clientType clienttype;
     
     public Client(String username, String password, boolean verified) {
         this.userAccount = new UserAccount(username, password, new ClientRole());
@@ -49,6 +50,20 @@ public class Client extends Person{
         BANK_TRANSFER,
         PAYPAL
     }
+    public enum clientType {
+        RECYCLER,
+        RETAILER
+    }
+
+    public clientType getClienttype() {
+        return clienttype;
+    }
+
+    public void setClienttype(clientType clienttype) {
+        this.clienttype = clienttype;
+    }
+    
+    
 
     public paymentType getPaymenttype() {
         return paymenttype;
