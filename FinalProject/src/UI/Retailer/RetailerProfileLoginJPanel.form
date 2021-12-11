@@ -381,7 +381,7 @@
                       <EmptySpace min="-2" pref="258" max="-2" attributes="0"/>
                       <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabel14" min="-2" pref="306" max="-2" attributes="0"/>
+                      <Component id="welcomeLabel" min="-2" pref="306" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -392,7 +392,7 @@
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel13" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel14" alignment="0" min="-2" pref="69" max="-2" attributes="0"/>
+                          <Component id="welcomeLabel" alignment="0" min="-2" pref="69" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="70" max="32767" attributes="0"/>
                   </Group>
@@ -411,7 +411,7 @@
                 <Property name="text" type="java.lang.String" value="Welcome to ReQube,"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel14">
+            <Component class="javax.swing.JLabel" name="welcomeLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Sans" size="36" style="1"/>

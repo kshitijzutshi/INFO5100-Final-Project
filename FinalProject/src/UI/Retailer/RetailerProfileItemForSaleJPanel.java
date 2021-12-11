@@ -5,6 +5,12 @@
  */
 package UI.Retailer;
 
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import models.EcoSystem;
+import models.User.Client.Client;
+import models.User.Customer.Resident;
+
 /**
  *
  * @author kshitij
@@ -14,8 +20,45 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
     /**
      * Creates new form RetailerProfileItemForSaleJPanel
      */
-    public RetailerProfileItemForSaleJPanel() {
+    JPanel jpanel9;
+    private EcoSystem ecosystem;
+    private Client client;
+    public RetailerProfileItemForSaleJPanel(JPanel RetailerProfileItemForSale, EcoSystem ecosystem, Client client) {
         initComponents();
+        this.ecosystem = ecosystem;
+        this.client = client;
+//        welcomeLabel.setText(this.resident.getFullName());
+        this.RetailerItemsForSaleJPanel = RetailerProfileItemForSale;
+        this.populateTable();
+    }
+    
+    
+    
+    private void populateTable() {
+        int totalRewards = 0;
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DefaultTableModel model = (DefaultTableModel) retailtableData.getModel();
+        model.setRowCount(0);
+//        for (InventoryBooking booking: this.ecosystem.getBookingDirectory().getBookingsByResident(this.resident)){
+//            for (Item item: booking.getItems()) {
+//                Object[] row = new Object[11];
+//                int rewards = item.getRewardPoints();
+//                totalRewards+=rewards;
+//                if (!bookingId.equals("") && !bookingId.equals(booking.getId())) continue;
+//                row[0] = booking.getId();
+//                row[1] = item.getId();
+//                row[2] = item.getCategory();
+//                row[3] = item.getSubCategory();
+//                row[4] = item.getStatus().name();
+//                row[5] = rewards;
+//                row[6] = item.getMake();
+//                row[7] = item.getModel();
+//                row[8] = formatter.format(item.getRecievedOn());
+//                row[9] = item.getWeightApprox();
+//                model.addRow(row);
+//            }
+//        }
+//        rewardsTotalLabel.setText(String.valueOf(totalRewards));
     }
 
     /**
@@ -29,7 +72,7 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
 
         RetailerItemsForSaleJPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        retailtableData = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -54,12 +97,16 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
 
         setLayout(new java.awt.CardLayout());
 
         RetailerItemsForSaleJPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        retailtableData.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        retailtableData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -75,10 +122,10 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
-        jTable1.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        jTable1.setSelectionBackground(new java.awt.Color(167, 190, 211));
-        jScrollPane1.setViewportView(jTable1);
+        retailtableData.setGridColor(new java.awt.Color(255, 255, 255));
+        retailtableData.setIntercellSpacing(new java.awt.Dimension(5, 5));
+        retailtableData.setSelectionBackground(new java.awt.Color(167, 190, 211));
+        jScrollPane1.setViewportView(retailtableData);
 
         jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 0, new java.awt.Color(51, 51, 51)));
 
@@ -212,40 +259,73 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add_shopping_cart_24px.png"))); // NOI18N
+
+        jLabel18.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        jLabel18.setText("Add to Cart");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel18)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout RetailerItemsForSaleJPanelLayout = new javax.swing.GroupLayout(RetailerItemsForSaleJPanel);
         RetailerItemsForSaleJPanel.setLayout(RetailerItemsForSaleJPanelLayout);
         RetailerItemsForSaleJPanelLayout.setHorizontalGroup(
             RetailerItemsForSaleJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RetailerItemsForSaleJPanelLayout.createSequentialGroup()
                 .addGap(77, 77, 77)
-                .addGroup(RetailerItemsForSaleJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(RetailerItemsForSaleJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(RetailerItemsForSaleJPanelLayout.createSequentialGroup()
-                            .addGroup(RetailerItemsForSaleJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RetailerItemsForSaleJPanelLayout.createSequentialGroup()
-                                    .addComponent(checkboxCashOnDelivery)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jLabel6)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jLabel7))
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(15, 15, 15)
-                            .addComponent(checkboxBankTransfer)
-                            .addGap(18, 18, 18)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(checkboxPaypal)
-                            .addGap(18, 18, 18)
-                            .addComponent(jLabel11)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(RetailerItemsForSaleJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(RetailerItemsForSaleJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(RetailerItemsForSaleJPanelLayout.createSequentialGroup()
                         .addGroup(RetailerItemsForSaleJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RetailerItemsForSaleJPanelLayout.createSequentialGroup()
+                                .addGroup(RetailerItemsForSaleJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RetailerItemsForSaleJPanelLayout.createSequentialGroup()
+                                        .addComponent(checkboxCashOnDelivery)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel7))
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(15, 15, 15)
+                                .addComponent(checkboxBankTransfer)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18))
+                            .addGroup(RetailerItemsForSaleJPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(220, 220, 220)))
+                        .addComponent(checkboxPaypal)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(RetailerItemsForSaleJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -265,16 +345,20 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
                         .addGap(27, 27, 27)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(RetailerItemsForSaleJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RetailerItemsForSaleJPanelLayout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addGroup(RetailerItemsForSaleJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(RetailerItemsForSaleJPanelLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(RetailerItemsForSaleJPanelLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(RetailerItemsForSaleJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RetailerItemsForSaleJPanelLayout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addGroup(RetailerItemsForSaleJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(RetailerItemsForSaleJPanelLayout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addGroup(RetailerItemsForSaleJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,7 +379,7 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
                                     .addGroup(RetailerItemsForSaleJPanelLayout.createSequentialGroup()
                                         .addGap(45, 45, 45)
                                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         add(RetailerItemsForSaleJPanel, "card2");
@@ -315,6 +399,8 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -325,10 +411,11 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable retailtableData;
     // End of variables declaration//GEN-END:variables
 }
