@@ -233,6 +233,7 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
         passwordTextField.setText("");
         usernameTextFied.setText("");
         JOptionPane.showMessageDialog(null, "Updated details");
+        this.populateTable();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -253,6 +254,7 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
         this.ecosystem.getUserAccountDirectory().addUserAccount(qcInspector.getUserAccount());
         this.ecosystem.getEmployeeDirectory().addQCInspector(qcInspector);
         JOptionPane.showMessageDialog(null, "User added successfully");
+        this.populateTable();
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
