@@ -15,10 +15,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import models.DB4OUtil.DB4OUtil;
 import models.EcoSystem;
+import models.Role.ClientRole;
+import models.Role.InventoryManagerRole;
+import models.Role.LogisticsManRole;
+import models.Role.QCInspectorRole;
 import models.Role.ResidentRole;
 import models.Role.Role;
 import models.Role.SystemAdminRole;
+import models.Role.TechnicianRole;
 import models.User.Customer.Resident;
+import models.User.Employee.LogisticsMan;
+import models.User.Employee.OperationsManager;
 import models.User.UserAccount;
 
 
@@ -385,17 +392,43 @@ public class MainJFrame extends javax.swing.JFrame {
         Role role  = userAccount.getRole();
         if (role instanceof ResidentRole) {
             Resident resident = this.ecosystem.getCustomerDirectory().getResidentByUserAccount(userAccount);
-            IndiProfileLoginJPanel indivProfileLoginJpanel = new IndiProfileLoginJPanel(mainJpanel, ecosystem, resident);
+            IndiProfileLoginJPanel indivProfileLoginJpanel = new IndiProfileLoginJPanel(mainJpanel, this.ecosystem, resident);
             CardLayout layout = (CardLayout) mainJpanel.getLayout();
             mainJpanel.add("profileIndividual", indivProfileLoginJpanel);
             layout.next(mainJpanel);
         } else if (role instanceof SystemAdminRole) {
+            SystemAdminLoginProfile systemAdminLogin = new SystemAdminLoginProfile(mainJpanel, this.ecosystem);
+            CardLayout layout = (CardLayout) mainJpanel.getLayout();
+            mainJpanel.add("Sysadmin", systemAdminLogin);
+            layout.next(mainJpanel);
+        } else if (role instanceof LogisticsManRole) {
+            LogisticsMan logMan = this.ecosystem.getEmployeeDirectory().getLogisticsManByUserAccount(userAccount);
+            LogisticsProfileMainJPanel logisticsprofilemain = new LogisticsProfileMainJPanel(mainJpanel, this.ecosystem, logMan);
+            CardLayout layout = (CardLayout) mainJpanel.getLayout();
+            mainJpanel.add("LogisticsPanel", logisticsprofilemain);
+            layout.next(mainJpanel);
+            layout.next(mainJpanel);
+        } else if (role instanceof InventoryManagerRole) {
+            OperationsManager manager = this.ecosystem.getEmployeeDirectory().getManagerByUserAccount(userAccount);
+            ManagementDivisionProfileMainJPanel managementDivisionprofilemain = new ManagementDivisionProfileMainJPanel(mainJpanel, this.ecosystem, manager);
+            CardLayout layout = (CardLayout) mainJpanel.getLayout();
+            mainJpanel.add("OperationsManagerPanel", managementDivisionprofilemain);
+            layout.next(mainJpanel);
+        } else if (role instanceof QCInspectorRole) {
             SystemAdminLoginProfile systemAdminLogin = new SystemAdminLoginProfile(mainJpanel, ecosystem);
             CardLayout layout = (CardLayout) mainJpanel.getLayout();
             mainJpanel.add("Sysadmin", systemAdminLogin);
             layout.next(mainJpanel);
-        } else if (role instanceof SystemAdminRole) {
-            
+        } else if (role instanceof TechnicianRole) {
+            SystemAdminLoginProfile systemAdminLogin = new SystemAdminLoginProfile(mainJpanel, ecosystem);
+            CardLayout layout = (CardLayout) mainJpanel.getLayout();
+            mainJpanel.add("Sysadmin", systemAdminLogin);
+            layout.next(mainJpanel);
+        } else if (role instanceof ClientRole) {
+            SystemAdminLoginProfile systemAdminLogin = new SystemAdminLoginProfile(mainJpanel, ecosystem);
+            CardLayout layout = (CardLayout) mainJpanel.getLayout();
+            mainJpanel.add("Sysadmin", systemAdminLogin);
+            layout.next(mainJpanel);
         }
     }//GEN-LAST:event_btn_loginMouseClicked
 
@@ -409,10 +442,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void mgmtDivBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mgmtDivBtnActionPerformed
         // TODO add your handling code here:
-        ManagementDivisionProfileMainJPanel managementDivisionprofilemain = new ManagementDivisionProfileMainJPanel(mainJpanel);
-        CardLayout layout = (CardLayout) mainJpanel.getLayout();
-        mainJpanel.add("LogisticsPanel", managementDivisionprofilemain);
-        layout.next(mainJpanel);
+//        ManagementDivisionProfileMainJPanel managementDivisionprofilemain = new ManagementDivisionProfileMainJPanel(mainJpanel);
+//        CardLayout layout = (CardLayout) mainJpanel.getLayout();
+//        mainJpanel.add("LogisticsPanel", managementDivisionprofilemain);
+//        layout.next(mainJpanel);
     }//GEN-LAST:event_mgmtDivBtnActionPerformed
 
     private void btnSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemAdminActionPerformed

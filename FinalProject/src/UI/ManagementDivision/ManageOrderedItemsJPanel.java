@@ -8,6 +8,8 @@ package UI.ManagementDivision;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import models.EcoSystem;
+import models.User.Employee.OperationsManager;
 
 /**
  *
@@ -19,11 +21,14 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
      * Creates new form ManageOrderedItemsJPanel
      */
     JPanel jpanel9;
-    
-    public ManageOrderedItemsJPanel(JPanel manageorder) {
+    EcoSystem ecosystem;
+    OperationsManager manager;
+    public ManageOrderedItemsJPanel(JPanel manageorder, EcoSystem ecosystem, OperationsManager manager) {
         initComponents();
         
         this.jPanel1 =manageorder;
+        this.ecosystem = ecosystem;
+        this.manager = manager;
     }
 
     /**
