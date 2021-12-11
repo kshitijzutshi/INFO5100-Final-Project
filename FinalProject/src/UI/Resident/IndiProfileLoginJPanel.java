@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import models.DB4OUtil.DB4OUtil;
 import models.EcoSystem;
 import models.User.Customer.Resident;
+import UI.MainJPanel;
 
 /**
  *
@@ -63,7 +64,7 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1460, 850));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLayout(new java.awt.CardLayout());
 
         JPanelIndLogin.setBackground(new java.awt.Color(255, 255, 255));
         JPanelIndLogin.setPreferredSize(new java.awt.Dimension(1460, 850));
@@ -277,7 +278,7 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
         JPanelIndLoginMain.setLayout(JPanelIndLoginMainLayout);
         JPanelIndLoginMainLayout.setHorizontalGroup(
             JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1460, Short.MAX_VALUE)
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1455, Short.MAX_VALUE)
             .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
                 .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelIndLoginMainLayout.createSequentialGroup()
@@ -297,7 +298,7 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JPanelIndLoginMainLayout.createSequentialGroup()
                                         .addComponent(btnviewpickup, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(113, 113, 113)
-                                        .addComponent(btnviewdropoff, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE))
+                                        .addComponent(btnviewdropoff, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JPanelIndLoginMainLayout.createSequentialGroup()
                                         .addGroup(JPanelIndLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(btnviewprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -342,16 +343,23 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
         JPanelIndLogin.add(JPanelIndLoginMain, "card2");
 
-        add(JPanelIndLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 850));
+        add(JPanelIndLogin, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
+        MainJPanel main = new MainJPanel(JPanelIndLogin);
+        CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
+        JPanelIndLogin.add("Home", main);
+
+        layout.next(JPanelIndLogin);
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+        
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void btnviewdashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewdashboardActionPerformed

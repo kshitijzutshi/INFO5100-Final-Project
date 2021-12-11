@@ -5,6 +5,7 @@
  */
 package UI.Resident;
 
+import UI.MainJPanel;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -66,7 +67,7 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
         btnSave = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLayout(new java.awt.CardLayout());
 
         JPanelIndLogin.setBackground(new java.awt.Color(255, 255, 255));
         JPanelIndLogin.setPreferredSize(new java.awt.Dimension(1460, 850));
@@ -195,7 +196,7 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
         JPanelIndLogin.setLayout(JPanelIndLoginLayout);
         JPanelIndLoginLayout.setHorizontalGroup(
             JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1460, Short.MAX_VALUE)
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1457, Short.MAX_VALUE)
             .addGroup(JPanelIndLoginLayout.createSequentialGroup()
                 .addGroup(JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelIndLoginLayout.createSequentialGroup()
@@ -233,7 +234,7 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
                                 .addGroup(JPanelIndLoginLayout.createSequentialGroup()
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblSignUpHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(484, Short.MAX_VALUE))
+                .addContainerGap(481, Short.MAX_VALUE))
         );
         JPanelIndLoginLayout.setVerticalGroup(
             JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,14 +271,14 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
                 .addGroup(JPanelIndLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(142, 142, 142))
         );
 
-        add(JPanelIndLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 950));
+        add(JPanelIndLogin, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
@@ -286,6 +287,13 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
+        
+        MainJPanel main = new MainJPanel(JPanelIndLogin);
+        CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
+        JPanelIndLogin.add("Home", main);
+
+        layout.next(JPanelIndLogin);
+
         DB4OUtil.getInstance().storeSystem(this.ecosystem);
     }//GEN-LAST:event_logoutBtnActionPerformed
 
