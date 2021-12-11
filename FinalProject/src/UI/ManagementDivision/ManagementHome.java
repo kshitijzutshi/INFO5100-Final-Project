@@ -6,6 +6,8 @@
 package UI.ManagementDivision;
 
 import javax.swing.JPanel;
+import models.EcoSystem;
+import models.User.Employee.OperationsManager;
 
 /**
  *
@@ -17,9 +19,13 @@ public class ManagementHome extends javax.swing.JPanel {
      * Creates new form ManagementHome
      */
     JPanel jpanel8;
-    public ManagementHome(JPanel managehomeJPanel) {
+    EcoSystem ecosystem;
+    OperationsManager manager;
+    public ManagementHome(JPanel managehomeJPanel, EcoSystem ecosystem, OperationsManager manager) {
         this.mgmtHomeCard = managehomeJPanel;
         initComponents();
+        this.ecosystem = ecosystem;
+        this.manager = manager;
     }
 
     /**

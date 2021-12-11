@@ -19,9 +19,12 @@ public class LogisticsHomeJPanel extends javax.swing.JPanel {
      * Creates new form NewJPanel1
      */
     JPanel jpanel6;
+    EcoSystem ecosystem;
+    LogisticsMan logisticsMan;
     public LogisticsHomeJPanel(JPanel LogisticsHomeArea, EcoSystem ecosystem, LogisticsMan logisticsMan) {
-        
         initComponents();
+        this.ecosystem = ecosystem;
+        this.logisticsMan = logisticsMan;
     }
 
     /**

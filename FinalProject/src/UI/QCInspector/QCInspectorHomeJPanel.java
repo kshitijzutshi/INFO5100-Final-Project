@@ -6,6 +6,8 @@
 package UI.QCInspector;
 
 import javax.swing.JPanel;
+import models.EcoSystem;
+import models.User.Employee.QCInspector;
 
 /**
  *
@@ -18,10 +20,14 @@ public class QCInspectorHomeJPanel extends javax.swing.JPanel {
      */
     
     JPanel jpanel14;
-    public QCInspectorHomeJPanel(JPanel QChome) {
+    EcoSystem ecosystem;
+    QCInspector qcInspector;
+    public QCInspectorHomeJPanel(JPanel QChome, EcoSystem ecosystem, QCInspector qcInspector) {
         initComponents();
         
         this.QChomeJPanel = QChome;
+        this.ecosystem = ecosystem;
+        this.qcInspector = qcInspector;
     }
 
     /**
