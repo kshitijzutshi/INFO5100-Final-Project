@@ -31,6 +31,7 @@ public abstract class WorkRequest {
     public WorkRequest(){
         this.id = UUID.randomUUID().toString().substring(0,5);
         this.requestDate = LocalDateTime.now();
+        this.status = RequestStatus.ASSIGNED;
     }
 
     public String getId() {

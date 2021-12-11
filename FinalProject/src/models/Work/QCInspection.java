@@ -18,8 +18,18 @@ public class QCInspection extends WorkRequest{
     private QCInspector inspector;
     private Item item;
     
-    public QCInspection(Item item) {
-        
-    } 
+    public QCInspection(Item item, QCInspector inspector) {
+        this.item = item;
+        this.inspector = inspector;
+    }
+
+    public QCInspector getInspector() {
+        return inspector;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+    
     
 }

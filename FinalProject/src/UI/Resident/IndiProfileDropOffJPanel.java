@@ -360,13 +360,12 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
         MainJPanel main = new MainJPanel(JPanelIndDropoffMain);
         CardLayout layout = (CardLayout) JPanelIndDropoffMain.getLayout();
         JPanelIndDropoffMain.add("Home", main);
 
-        layout.next(JPanelIndDropoffMain);
-        DB4OUtil.getInstance().storeSystem(this.ecosystem);
-        
+        layout.next(JPanelIndDropoffMain);        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

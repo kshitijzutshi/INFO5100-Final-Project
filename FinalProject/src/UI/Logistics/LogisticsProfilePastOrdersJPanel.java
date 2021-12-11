@@ -6,8 +6,10 @@
 package UI.Logistics;
 
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import models.EcoSystem;
 import models.User.Employee.LogisticsMan;
+import models.Work.InventoryPickup;
 
 /**
  *
@@ -60,7 +62,7 @@ public class LogisticsProfilePastOrdersJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "Delivery Address", "Assigned Time", "Weight(lbs.)", "condition", "Status"
+                "Order ID", "Resident Name", "Delivery Address", "Assigned Time", "Weight(lbs.)", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -102,7 +104,22 @@ public class LogisticsProfilePastOrdersJPanel extends javax.swing.JPanel {
         add(LogisticsPastOrdersMain, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
-
+    
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblDropoffBooking.getModel();
+        model.setRowCount(0);
+        for (InventoryPickup pickup: this.ecosystem.getWorkRequestDirectory().getPickupsByLogisticMan(this.logisticsMan)) {
+            Object[] row = new Object[6];
+            row[0] = pickup.getInventoryBooking().getId();
+            row[1] = pickup.getInventoryBooking().getResident().getFullName();
+            row[2] = pickup.getInventoryBooking().getResident().getAddress();
+            row[3] = pickup.getRequestDate();
+            row[4] = pickup.getInventoryBooking().getResident().getAddress();
+            row[5] = pickup.getStatus().name();
+            model.addRow(row);
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel LogisticsPastOrdersMain;
     private javax.swing.JLabel jLabel4;
