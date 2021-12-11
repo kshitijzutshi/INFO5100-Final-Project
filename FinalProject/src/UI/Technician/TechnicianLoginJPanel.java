@@ -320,13 +320,13 @@ public class TechnicianLoginJPanel extends javax.swing.JPanel {
     private void btnLogisticsLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogisticsLogoutMouseClicked
         // TODO add your handling code here:
         
-        
+    //  DB4OUtil.getInstance().storeSystem(this.ecosystem);     
  MainJPanel main = new MainJPanel(TechnicianLoginMain);
         CardLayout layout = (CardLayout) TechnicianLoginMain.getLayout();
         TechnicianLoginMain.add("Home", main);
 
         layout.next(TechnicianLoginMain);
-      //  DB4OUtil.getInstance().storeSystem(this.ecosystem);
+     
 
     }//GEN-LAST:event_btnLogisticsLogoutMouseClicked
 

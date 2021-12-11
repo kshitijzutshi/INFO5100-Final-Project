@@ -238,6 +238,7 @@ public class ManageSysAdminLogisticsJPanel extends javax.swing.JPanel {
         usernameTextField.setText("");
         passwordTextField.setText("");
         JOptionPane.showMessageDialog(null, "Updated details");
+        this.populateTable();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -258,6 +259,7 @@ public class ManageSysAdminLogisticsJPanel extends javax.swing.JPanel {
         this.ecosystem.getUserAccountDirectory().addUserAccount(logMan.getUserAccount());
         this.ecosystem.getEmployeeDirectory().addLogisticsMen(logMan);
         JOptionPane.showMessageDialog(null, "Logistics employee added successfully");
+        this.populateTable();
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

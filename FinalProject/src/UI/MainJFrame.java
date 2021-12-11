@@ -28,6 +28,7 @@ import models.User.Customer.Resident;
 import models.User.Employee.LogisticsMan;
 import models.User.Employee.OperationsManager;
 import models.User.UserAccount;
+import UI.SysAdmin.SysadminLoginMJPanel;
 
 
 /**
@@ -410,7 +411,7 @@ public class MainJFrame extends javax.swing.JFrame {
             mainJpanel.add("profileIndividual", indivProfileLoginJpanel);
             layout.next(mainJpanel);
         } else if (role instanceof SystemAdminRole) {
-            SystemAdminLoginProfile systemAdminLogin = new SystemAdminLoginProfile(mainJpanel, this.ecosystem);
+            SysadminLoginMJPanel systemAdminLogin = new SysadminLoginMJPanel(mainJpanel, this.ecosystem);
             CardLayout layout = (CardLayout) mainJpanel.getLayout();
             mainJpanel.add("Sysadmin", systemAdminLogin);
             layout.next(mainJpanel);
@@ -463,10 +464,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemAdminActionPerformed
         // TODO add your handling code here:
-        SystemAdminLoginProfile systemAdminLogin = new SystemAdminLoginProfile(mainJpanel, ecosystem);
-        CardLayout layout = (CardLayout) mainJpanel.getLayout();
-        mainJpanel.add("LogisticsPanel", systemAdminLogin);
-        layout.next(mainJpanel);
+       // SysadminLoginMJPanel systemAdminLogin = new SysadminLoginMJPanel(mainJpanel,ecosystem);
+       // CardLayout layout = (CardLayout) mainJpanel.getLayout();
+       // mainJpanel.add("LogisticsPanel", systemAdminLogin);
+       // layout.next(mainJpanel);
         
     }//GEN-LAST:event_btnSystemAdminActionPerformed
 
