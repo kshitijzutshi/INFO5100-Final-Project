@@ -9,6 +9,7 @@ import UI.ManagementDivision.ManagementDivisionProfileMainJPanel;
 import UI.SysAdmin.SystemAdminLoginProfile;
 import UI.Logistics.LogisticsProfileMainJPanel;
 import UI.Resident.IndiProfileLoginJPanel;
+import UI.Retailer.RetailerProfileLoginJPanel;
 import UI.Technician.TechnicianLoginJPanel;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -80,6 +81,7 @@ public class MainJFrame extends javax.swing.JFrame {
         btnSystemAdmin = new javax.swing.JButton();
         PasswordField = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
+        btnRetailer = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -272,6 +274,13 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnRetailer.setText("Retail");
+        btnRetailer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRetailerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -304,8 +313,10 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addComponent(btnSystemAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39)
-                        .addComponent(jButton2)))
-                .addContainerGap(357, Short.MAX_VALUE))
+                        .addComponent(jButton2)
+                        .addGap(29, 29, 29)
+                        .addComponent(btnRetailer, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(248, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,10 +324,12 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(mgmtDivBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSystemAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnRetailer, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(mgmtDivBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSystemAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(103, 103, 103)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -472,6 +485,14 @@ public class MainJFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void btnRetailerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetailerActionPerformed
+        // TODO add your handling code here:
+        RetailerProfileLoginJPanel retailerLogin = new RetailerProfileLoginJPanel(mainJpanel);
+        CardLayout layout = (CardLayout) mainJpanel.getLayout();
+        mainJpanel.add("RetailerPanel", retailerLogin);
+        layout.next(mainJpanel);
+    }//GEN-LAST:event_btnRetailerActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -510,6 +531,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField PasswordField;
+    private javax.swing.JButton btnRetailer;
     private javax.swing.JPanel btnSignUpRetailer;
     private javax.swing.JLabel btnSignup;
     private javax.swing.JButton btnSystemAdmin;

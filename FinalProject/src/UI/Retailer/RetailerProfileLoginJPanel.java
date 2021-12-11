@@ -8,6 +8,12 @@ package UI.Retailer;
 import UI.MainJPanel;
 import UI.Technician.TechnicanReviewItemsJPanel;
 import java.awt.CardLayout;
+import javax.swing.JPanel;
+import models.EcoSystem;
+import models.User.Client.Client;
+import models.User.Customer.Resident;
+
+
 
 /**
  *
@@ -18,8 +24,13 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
     /**
      * Creates new form RetailerProfileLoginJPanel
      */
-    public RetailerProfileLoginJPanel() {
+    JPanel jpanel7;
+    EcoSystem ecosystem;
+    Client client;
+    public RetailerProfileLoginJPanel(JPanel RetailerProfileLogin) {
+        this.RetailerLoginMainJPanel = RetailerProfileLogin;
         initComponents();
+//        welcomeLabel.setText(this.client.getFullName());
     }
 
     /**
@@ -49,7 +60,7 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
         jLabel16 = new javax.swing.JLabel();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        welcomeLabel = new javax.swing.JLabel();
         RetailerDynamicJPanel = new javax.swing.JPanel();
         RetailerDynamicMainJPanel = new javax.swing.JPanel();
         kGradientPanel4 = new keeptoo.KGradientPanel();
@@ -266,9 +277,9 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
         jLabel13.setForeground(new java.awt.Color(51, 51, 51));
         jLabel13.setText("Welcome to ReQube,");
 
-        jLabel14.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel14.setText("Emp_MGMT_DIV");
+        welcomeLabel.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
+        welcomeLabel.setForeground(new java.awt.Color(51, 51, 51));
+        welcomeLabel.setText("Emp_MGMT_DIV");
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
@@ -278,7 +289,7 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
                 .addGap(258, 258, 258)
                 .addComponent(jLabel13)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(
@@ -287,7 +298,7 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
@@ -495,11 +506,11 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
 
     private void btnItemsForSaleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnItemsForSaleMouseClicked
 
-//        ManageRefurbishedItemsJPanel manageRefurbished = new ManageRefurbishedItemsJPanel(RetailerDynamicJPanel);
-//        CardLayout layout = (CardLayout) RetailerDynamicJPanel.getLayout();
-//        RetailerDynamicJPanel.add("refurbishedManage", manageRefurbished);
-//        //
-//        layout.next(RetailerDynamicJPanel);
+        RetailerProfileItemForSaleJPanel retailerItemForSale = new RetailerProfileItemForSaleJPanel(RetailerDynamicJPanel, ecosystem, client);
+        CardLayout layout = (CardLayout) RetailerDynamicJPanel.getLayout();
+        RetailerDynamicJPanel.add("retailForSale", retailerItemForSale);
+        //
+        layout.next(RetailerDynamicJPanel);
     }//GEN-LAST:event_btnItemsForSaleMouseClicked
 
     private void btnRetailerHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRetailerHomeMouseClicked
@@ -513,11 +524,11 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
 
     private void btnViewPastPurchaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewPastPurchaseMouseClicked
         // TODO add your handling code here:
-//        ManageRecycledItemsJPanel manageRecycle = new ManageRecycledItemsJPanel(RetailerDynamicJPanel);
-//        CardLayout layout = (CardLayout) RetailerDynamicJPanel.getLayout();
-//        RetailerDynamicJPanel.add("recycleManage", manageRecycle);
-//        //
-//        layout.next(RetailerDynamicJPanel);
+        RetailerProfilePastPurchaseJPanel retailPastPurchase = new RetailerProfilePastPurchaseJPanel(RetailerDynamicJPanel);
+        CardLayout layout = (CardLayout) RetailerDynamicJPanel.getLayout();
+        RetailerDynamicJPanel.add("retailerPast", retailPastPurchase);
+        //
+        layout.next(RetailerDynamicJPanel);
     }//GEN-LAST:event_btnViewPastPurchaseMouseClicked
 
     private void btnRetailerLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRetailerLogoutMouseClicked
@@ -543,7 +554,6 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -566,5 +576,6 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
     private keeptoo.KGradientPanel kGradientPanel4;
     private keeptoo.KGradientPanel kGradientPanel5;
     private keeptoo.KGradientPanel kGradientPanel6;
+    private javax.swing.JLabel welcomeLabel;
     // End of variables declaration//GEN-END:variables
 }
