@@ -25,7 +25,7 @@ public class Item {
     private LocalDateTime soldOn;
     private ItemStatus status;
     private ItemType type;
-    
+    private int price;
     
     private String make;
     private String model;
@@ -53,6 +53,7 @@ public class Item {
         IN_QC,
         IN_REPAIR,
         READY_FOR_SALE,
+        BLOCKED_FOR_ORDER,
         SOLD
     }
     
@@ -152,5 +153,14 @@ public class Item {
     public void setManufactureYear(int manufactureYear) {
         this.manufactureYear = manufactureYear;
     }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+    
     
 }

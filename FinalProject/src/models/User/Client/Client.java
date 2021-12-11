@@ -19,11 +19,13 @@ public class Client extends Person{
     private String id;
     private boolean verified;
     private UserAccount userAccount;
+    private paymentType paymenttype;
     
     public Client(String username, String password, boolean verified) {
         this.userAccount = new UserAccount(username, password, new ClientRole());
         this.id = UUID.randomUUID().toString().substring(0,5);
         this.verified = verified;
+        this.paymenttype = paymentType.BANK_TRANSFER;
     }
 
     public String getId() {
@@ -41,5 +43,20 @@ public class Client extends Person{
     public UserAccount getUserAccount() {
         return userAccount;
     }
+    
+    public enum paymentType {
+        CASH_ON_DELIVERY,
+        BANK_TRANSFER,
+        PAYPAL
+    }
+
+    public paymentType getPaymenttype() {
+        return paymenttype;
+    }
+
+    public void setPaymenttype(paymentType paymenttype) {
+        this.paymenttype = paymenttype;
+    }
+    
     
 }
