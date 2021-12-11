@@ -5,8 +5,10 @@
  */
 package UI.ManagementDivision;
 
+import UI.MainJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import models.DB4OUtil.DB4OUtil;
 import models.EcoSystem;
 import models.User.Employee.OperationsManager;
 
@@ -277,6 +279,11 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
 
         btnLogout.setBackground(new java.awt.Color(167, 190, 211));
         btnLogout.setForeground(new java.awt.Color(51, 51, 51));
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseClicked(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -342,7 +349,7 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
                 .addComponent(btnManageRewards, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(864, Short.MAX_VALUE))
+                .addContainerGap(810, Short.MAX_VALUE))
         );
 
         kGradientPanel2.setkEndColor(new java.awt.Color(198, 226, 233));
@@ -632,6 +639,17 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
                   layout.next(ManagmentDivDynamicJPanel);
         
     }//GEN-LAST:event_btnManageRewardsMouseClicked
+
+    private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
+        // TODO add your handling code here:
+        
+         MainJPanel main = new MainJPanel(ManagmentDivisionLoginMainJPanel);
+        CardLayout layout = (CardLayout) ManagmentDivisionLoginMainJPanel.getLayout();
+        ManagmentDivisionLoginMainJPanel.add("Home", main);
+
+        layout.next(ManagmentDivisionLoginMainJPanel);
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+    }//GEN-LAST:event_btnLogoutMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -5,6 +5,7 @@
  */
 package UI.SysAdmin;
 
+import UI.MainJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import models.DB4OUtil.DB4OUtil;
@@ -535,6 +536,12 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
 
     private void logoutSysadminPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutSysadminPanelMouseClicked
         // TODO add your handling code here:
+        
+        MainJPanel main = new MainJPanel(sysadminLoginJPanel);
+        CardLayout layout = (CardLayout) sysadminLoginJPanel.getLayout();
+        sysadminLoginJPanel.add("Home", main);
+
+        layout.next(sysadminLoginJPanel);
         DB4OUtil.getInstance().storeSystem(this.ecosystem);
     }//GEN-LAST:event_logoutSysadminPanelMouseClicked
 

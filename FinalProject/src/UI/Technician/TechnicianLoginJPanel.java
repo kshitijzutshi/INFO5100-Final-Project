@@ -6,8 +6,10 @@
 package UI.Technician;
 
 import UI.Logistics.LogisticsProfilePastOrdersJPanel;
+import UI.MainJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import models.DB4OUtil.DB4OUtil;
 
 /**
  *
@@ -178,6 +180,11 @@ public class TechnicianLoginJPanel extends javax.swing.JPanel {
         );
 
         btnLogisticsLogout.setBackground(new java.awt.Color(167, 190, 211));
+        btnLogisticsLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLogisticsLogoutMouseClicked(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -301,8 +308,27 @@ public class TechnicianLoginJPanel extends javax.swing.JPanel {
 
     private void btnViewScheduledPickupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewScheduledPickupMouseClicked
         // TODO add your handling code here:
+        
+        TechnicanReviewItemsJPanel technicianreview = new TechnicanReviewItemsJPanel(TechnicianChangeJPanel);
+        CardLayout layout = (CardLayout) TechnicianChangeJPanel.getLayout();
+        TechnicianChangeJPanel.add("logisticsPast", technicianreview);
+        
+        layout.next(TechnicianChangeJPanel);
 
     }//GEN-LAST:event_btnViewScheduledPickupMouseClicked
+
+    private void btnLogisticsLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogisticsLogoutMouseClicked
+        // TODO add your handling code here:
+        
+        
+ MainJPanel main = new MainJPanel(TechnicianLoginMain);
+        CardLayout layout = (CardLayout) TechnicianLoginMain.getLayout();
+        TechnicianLoginMain.add("Home", main);
+
+        layout.next(TechnicianLoginMain);
+      //  DB4OUtil.getInstance().storeSystem(this.ecosystem);
+
+    }//GEN-LAST:event_btnLogisticsLogoutMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

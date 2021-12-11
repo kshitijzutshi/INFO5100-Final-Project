@@ -117,7 +117,7 @@
                       <Component id="btnManageRewards" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="864" max="32767" attributes="0"/>
+                      <EmptySpace pref="810" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -445,6 +445,9 @@
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnLogoutMouseClicked"/>
+              </Events>
 
               <Layout>
                 <DimensionLayout dim="0">

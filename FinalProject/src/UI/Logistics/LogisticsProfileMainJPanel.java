@@ -5,8 +5,10 @@
  */
 package UI.Logistics;
 
+import UI.MainJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import models.DB4OUtil.DB4OUtil;
 import models.EcoSystem;
 import models.User.Employee.LogisticsMan;
 
@@ -200,6 +202,11 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
         );
 
         btnLogisticsLogout.setBackground(new java.awt.Color(167, 190, 211));
+        btnLogisticsLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLogisticsLogoutMouseClicked(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -322,7 +329,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
                             .addComponent(btnLogisticsDropoff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnLogisticsDropOffHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnLogisticsLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,7 +350,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
                 .addComponent(btnLogisticsDropOffHistory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
                 .addComponent(btnLogisticsLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(900, Short.MAX_VALUE))
+                .addContainerGap(844, Short.MAX_VALUE))
         );
 
         kGradientPanel2.setkEndColor(new java.awt.Color(198, 226, 233));
@@ -367,7 +374,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel13)
                 .addGap(18, 18, 18)
                 .addComponent(namePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addContainerGap(353, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -624,6 +631,18 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
         layout.next(LogisticsLoginDynamicJPanel);
         
     }//GEN-LAST:event_btnLogisticsDropOffHistoryMouseClicked
+
+    private void btnLogisticsLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogisticsLogoutMouseClicked
+        // TODO add your handling code here:
+        MainJPanel main = new MainJPanel(LogisticsLoginMainJPanel);
+        CardLayout layout = (CardLayout) LogisticsLoginMainJPanel.getLayout();
+        LogisticsLoginMainJPanel.add("Home", main);
+
+        layout.next(LogisticsLoginMainJPanel);
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+        
+        
+    }//GEN-LAST:event_btnLogisticsLogoutMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
