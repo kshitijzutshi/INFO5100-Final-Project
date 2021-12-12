@@ -103,9 +103,9 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
         btnManageQCInsLayout.setHorizontalGroup(
             btnManageQCInsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnManageQCInsLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(7, 7, 7)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -142,7 +142,7 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
             .addGroup(btnmanagetechnicianLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel18)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -178,7 +178,7 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
             .addGroup(btnLogisticsLogoutLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -213,9 +213,9 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
             .addGroup(btnLogisticsDivLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel9)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         btnLogisticsDivLayout.setVerticalGroup(
             btnLogisticsDivLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,7 +235,7 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
         });
 
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/management_24px.png"))); // NOI18N
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_24px.png"))); // NOI18N
 
         jLabel20.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(51, 51, 51));
@@ -246,17 +246,17 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
         btnManageIndiLayout.setHorizontalGroup(
             btnManageIndiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnManageIndiLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(7, 7, 7)
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         btnManageIndiLayout.setVerticalGroup(
             btnManageIndiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnManageIndiLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(btnManageIndiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(btnManageIndiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -280,9 +280,9 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
         btnmanagecommercialLayout.setHorizontalGroup(
             btnmanagecommercialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnmanagecommercialLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -314,11 +314,11 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
         btnmanagemanagementLayout.setHorizontalGroup(
             btnmanagemanagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnmanagemanagementLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         btnmanagemanagementLayout.setVerticalGroup(
             btnmanagemanagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -350,7 +350,7 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
             .addGroup(btnmanageretailersLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel21)
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
