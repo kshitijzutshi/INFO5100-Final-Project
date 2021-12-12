@@ -334,6 +334,11 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
 
     private void btnviewdashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewdashboardActionPerformed
         // TODO add your handling code here:
+        IndiProfileDashboard indidashboard = new IndiProfileDashboard(JPanelIndLogin,ecosystem, resident);
+        CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
+        JPanelIndLogin.add("individualDashboardPanel", indidashboard);
+
+        layout.next(JPanelIndLogin);
     }//GEN-LAST:event_btnviewdashboardActionPerformed
 
     private void btnviewbookingdetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewbookingdetailsActionPerformed

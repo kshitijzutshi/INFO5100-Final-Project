@@ -8,6 +8,7 @@ package UI.Technician;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import models.EcoSystem;
 
 /**
  *
@@ -20,10 +21,10 @@ public class TechnicanReviewItemsJPanel extends javax.swing.JPanel {
      */
     
     JPanel jpanel25;
-    
-    public TechnicanReviewItemsJPanel(JPanel TechReview) {
+    private EcoSystem ecosystem;
+    public TechnicanReviewItemsJPanel(JPanel TechReview, EcoSystem ecosystem) {
         initComponents();
-        
+        this.ecosystem = ecosystem;
         this.TechnicianReviewJPanel = TechReview;
     }
 
@@ -150,8 +151,8 @@ public class TechnicanReviewItemsJPanel extends javax.swing.JPanel {
                         .addGroup(TechnicianReviewJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(TechnicianReviewJPanelLayout.createSequentialGroup()
-                                .addGap(207, 207, 207)
-                                .addComponent(btnview, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(193, 193, 193)
+                                .addComponent(btnview, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(26, 26, 26)
                         .addGroup(TechnicianReviewJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TechnicianReviewJPanelLayout.createSequentialGroup()
@@ -180,7 +181,7 @@ public class TechnicanReviewItemsJPanel extends javax.swing.JPanel {
                                     .addComponent(txtitemid)
                                     .addComponent(txtappliancetype)
                                     .addComponent(txtweight))))))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         TechnicianReviewJPanelLayout.setVerticalGroup(
             TechnicianReviewJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

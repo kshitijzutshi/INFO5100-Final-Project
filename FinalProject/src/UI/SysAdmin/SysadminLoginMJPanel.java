@@ -8,6 +8,7 @@ package UI.SysAdmin;
 import UI.MainJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import models.DB4OUtil.DB4OUtil;
 import models.EcoSystem;
 
 /**
@@ -520,7 +521,7 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
     private void btnLogisticsLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogisticsLogoutMouseClicked
         // TODO add your handling code here:
 
-        //  DB4OUtil.getInstance().storeSystem(this.ecosystem);
+         DB4OUtil.getInstance().storeSystem(this.ecosystem);
         MainJPanel main = new MainJPanel(SysadminMainLoginJPanel);
         CardLayout layout = (CardLayout) SysadminMainLoginJPanel.getLayout();
         SysadminMainLoginJPanel.add("Home", main);

@@ -312,7 +312,7 @@ public class ManageIndividualSysAdminJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) residentsJTable.getModel();
         model.setRowCount(0);
         for (Resident resident: this.ecosystem.getCustomerDirectory().getResidents()) {
-            Object[] row = new Object[3];
+            Object[] row = new Object[4];
             row[0] = resident;
             row[1] = resident.getUserAccount().getUsername();
             row[2] = resident.getUserAccount().getPassword();
