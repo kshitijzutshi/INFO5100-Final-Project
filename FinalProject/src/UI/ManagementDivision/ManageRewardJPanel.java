@@ -68,7 +68,7 @@ public class ManageRewardJPanel extends javax.swing.JPanel {
         jLabel2.setText("Select Appliance Type:");
 
         dropDownCategory.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        dropDownCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "a", "b" }));
+        dropDownCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Home Appliances", "Communications & IT Devices", "Home Entertainment Devices", "Electronic Utilities", "Office and Medical Equipment", "Other" }));
         dropDownCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dropDownCategoryActionPerformed(evt);
@@ -208,12 +208,13 @@ public class ManageRewardJPanel extends javax.swing.JPanel {
         }
         int points = Integer.valueOf(txtrewardValue.getText());
         if (refurbRadio) {
-            RewardsUtil.updateRewardPoints(category, subCategory, Item.ItemType.REFURB.name(), points);
+            RewardsUtil.updateRewardPoints(category, subCategory, Item.ItemType.REFURB.name().toLowerCase(), points);
         }
         else {
-            RewardsUtil.updateRewardPoints(category, subCategory, Item.ItemType.RECYCLE.name(), points);
+            RewardsUtil.updateRewardPoints(category, subCategory, Item.ItemType.RECYCLE.name().toLowerCase(), points);
         }
         txtrewardValue.setText(String.valueOf(points));
+        RewardsUtil.refreshConfig();
         JOptionPane.showMessageDialog(this, "Reward value updated");
     }//GEN-LAST:event_updateRewardsBtnActionPerformed
 

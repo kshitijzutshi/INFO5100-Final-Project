@@ -38,4 +38,11 @@ public class BookingDirectory {
         }
         return residentBookings;
     }
+    
+    public InventoryBooking getNextPendingBooking() {
+        for (InventoryBooking booking: this.bookings) {
+            if (!booking.isAssigned()) return booking;
+        }
+        return null;
+    }
 }

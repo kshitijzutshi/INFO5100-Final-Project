@@ -9,6 +9,7 @@ import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import models.CustomerBooking.InventoryBooking;
 import models.EcoSystem;
 import models.Inventory.Item;
 import models.User.Employee.LogisticsMan;
@@ -215,12 +216,26 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
     private void markDeliveredJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markDeliveredJButtonActionPerformed
         this.activePickup.setStatus(WorkRequest.RequestStatus.COMPLETED);
         
+        // assign items to QC
         for (Item item: this.activePickup.getInventoryBooking().getItems()) {
             QCInspector qc = this.ecosystem.getWorkRequestDirectory().getQCtoAssign();
             QCInspection inpection = new QCInspection(item, qc);
             this.ecosystem.getWorkRequestDirectory().addQCInspection(inpection);
             item.setStatus(Item.ItemStatus.IN_QC);
+            this.ecosystem.getWorkRequestDirectory().increaseqcInspectionAssignmentCount(qc);
         }
+        
+        this.activePickup.getLogisticsMan().setAvailable(true);
+        InventoryBooking booking = this.ecosystem.getBookingDirectory().getNextPendingBooking();
+        if (booking != null) {
+            InventoryPickup pickup = new InventoryPickup(booking);
+            pickup.setLogisticsMan(this.logisticsMan);
+            this.logisticsMan.setAvailable(false);
+            booking.setAssigned(true);
+            this.ecosystem.getWorkRequestDirectory().addInventoryPickup(pickup);
+            JOptionPane.showMessageDialog(null, "Booking successfully delivered, new booking assigned");
+        }
+        
         
         JOptionPane.showMessageDialog(null, "Booking successfully delivered");
     }//GEN-LAST:event_markDeliveredJButtonActionPerformed

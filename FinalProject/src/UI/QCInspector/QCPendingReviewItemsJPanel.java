@@ -272,7 +272,7 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (!this.hasSelectedItem()) return;
         this.selectedInspection.setStatus(WorkRequest.RequestStatus.COMPLETED);
-        this.selectedInspection.getItem().setStatus(Item.ItemStatus.READY_FOR_PRICING);
+        this.selectedInspection.getItem().setStatus(Item.ItemStatus.IN_REPAIR);
         this.selectedInspection.getItem().setType(Item.ItemType.REFURB);
         
         //decrease assignment count

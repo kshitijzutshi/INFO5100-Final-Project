@@ -17,8 +17,11 @@ import org.json.simple.parser.JSONParser;
  */
 public class RewardsUtil {
     
-    final static JSONObject rewardsConfig = RewardsUtil.getConfig();
+    static JSONObject rewardsConfig = RewardsUtil.getConfig();
     
+    public static void refreshConfig() {
+        rewardsConfig = RewardsUtil.getConfig();
+    }
     
     private static JSONObject getConfig() {
         

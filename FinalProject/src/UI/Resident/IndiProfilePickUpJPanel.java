@@ -18,6 +18,8 @@ import models.DB4OUtil.DB4OUtil;
 import models.EcoSystem;
 import models.Inventory.Item;
 import models.User.Customer.Resident;
+import models.User.Employee.LogisticsMan;
+import models.Work.InventoryPickup;
 
 /**
  *
@@ -228,6 +230,11 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
 
         dropdownCondition.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "INTACT", "BROKEN" }));
         dropdownCondition.setToolTipText("");
+        dropdownCondition.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dropdownConditionActionPerformed(evt);
+            }
+        });
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
@@ -503,7 +510,7 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         InventoryBooking booking = new InventoryBooking(this.resident, InventoryBooking.BookingType.PICKUP);
         for (HashMap<String, String> entry: this.entries) {
             Item item = new Item(this.resident, entry.get("category"), entry.get("subCategory"));
-            item.setCondition(Item.ItemCondition.INTACT);
+            item.setCondition(Item.ItemCondition.valueOf((String) dropdownCondition.getSelectedItem()));
             item.setMake(entry.get("make"));
             item.setModel(entry.get("model"));
             item.setManufactureYear(Integer.valueOf(entry.get("year")));
@@ -513,7 +520,21 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         }
         this.ecosystem.getBookingDirectory().addBooking(booking);
         
-        JOptionPane.showMessageDialog(this, "Booking created");
+        LogisticsMan logMan = this.ecosystem.getEmployeeDirectory().getNextAvailableLogisticsMan();
+        
+        if (logMan==null) {
+            JOptionPane.showMessageDialog(this, "Booking created, awaiting to assign delivery person");
+            this.entries = new ArrayList<>();
+            return;
+        }
+        
+        InventoryPickup pickup = new InventoryPickup(booking);
+        pickup.setLogisticsMan(logMan);
+        logMan.setAvailable(false);
+        booking.setAssigned(true);
+        this.ecosystem.getWorkRequestDirectory().addInventoryPickup(pickup);
+        
+        JOptionPane.showMessageDialog(this, "Booking created, " + logMan.getFullName() + " assigned for pickup");
         this.entries = new ArrayList<>();
     }//GEN-LAST:event_btnCreateBookingPickUpActionPerformed
 
@@ -548,6 +569,10 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
             txtitemweight.setEditable(true);
         }   
     }//GEN-LAST:event_txtitemweightKeyPressed
+
+    private void dropdownConditionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropdownConditionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dropdownConditionActionPerformed
     
     
     private void populateTable() {
