@@ -6,6 +6,7 @@
 package models;
 
 
+import java.util.ArrayList;
 import models.Inventory.Item;
 import models.User.Client.Client;
 import models.Work.InventoryPickup;
@@ -16,6 +17,8 @@ import models.Work.InventoryPickup;
  */
 public class AnalyticsUtil {
     
+    private static ArrayList<Item.ItemType> readyForSale;
+    private static ArrayList<Item.ItemType> inInventory;
     
     // logistics dashboard
     public static int logisticsTripsMade(EcoSystem ecosystem) {
@@ -78,5 +81,7 @@ public class AnalyticsUtil {
     
     public static int retailerMyOrders(EcoSystem ecosystem, Client client) {
         return ecosystem.getClientOrderDirectory().getOrdersByClient(client).size();
-    } 
+    }
+    
+    
 }
