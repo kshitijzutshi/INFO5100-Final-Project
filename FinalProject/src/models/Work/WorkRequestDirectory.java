@@ -96,6 +96,32 @@ public class WorkRequestDirectory {
         return null;
     }
     
+    
+    public ClientDropoff getActiveDropOff(LogisticsMan logisticsMan) {
+        for (ClientDropoff dropoff: this.getDropoffByLogisticMan(logisticsMan)) {
+            if (dropoff.getStatus() == ClientDropoff.RequestStatus.ASSIGNED || dropoff.getStatus() == ClientDropoff.RequestStatus.ONGOING) return dropoff;
+            return dropoff;
+            }
+        return null;
+    }
+    
+    
+    public ArrayList<QCInspection> getInspectionsByInspector(QCInspector qcInspector) {
+        ArrayList<QCInspection> inspections = new ArrayList<>();
+        for (QCInspection qcInspection: this.qcInspections) {
+            if (qcInspection.getInspector() == qcInspector) inspections.add(qcInspection);
+        }
+        return inspections;
+    }
+    
+    public ArrayList<RefurbAssignment> getRefurbAssignmentsByTechnician(Technician technician) {
+        ArrayList<RefurbAssignment> assignments = new ArrayList<>();
+        for (RefurbAssignment assignment: this.refurbAssignments) {
+            if (assignment.getTechnician()== technician) assignments.add(assignment);
+        }
+        return assignments;
+    }
+    
     public void increaseqcInspectionAssignmentCount(QCInspector qcInspector) {
         Integer x = this.qcInspectionAssignmentMap.get(qcInspector);
         this.qcInspectionAssignmentMap.replace(qcInspector, ++x);
@@ -125,11 +151,5 @@ public class WorkRequestDirectory {
         // round robin to assign for Technician
         return Collections.min(this.refurbAssignmentMap.entrySet(), HashMap.Entry.comparingByValue()).getKey();
     }
-    public ClientDropoff getActiveDropOff(LogisticsMan logisticsMan) {
-        for (ClientDropoff dropoff: this.getDropoffByLogisticMan(logisticsMan)) {
-            if (dropoff.getStatus() == ClientDropoff.RequestStatus.ASSIGNED || dropoff.getStatus() == ClientDropoff.RequestStatus.ONGOING) return dropoff;
-            return dropoff;
-            }
-            return null;
-        }
+    
 }

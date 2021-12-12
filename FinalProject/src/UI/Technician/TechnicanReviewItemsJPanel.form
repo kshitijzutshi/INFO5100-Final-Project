@@ -46,11 +46,11 @@
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="markRefurbishedBtn" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtcondition" max="32767" attributes="0"/>
-                                      <Component id="jButton2" max="32767" attributes="0"/>
+                                      <Component id="txtmodel" max="32767" attributes="0"/>
+                                      <Component id="markForRecycleBtn" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
@@ -78,7 +78,7 @@
                                       <Component id="txtewastecat" pref="144" max="32767" attributes="0"/>
                                       <Component id="txtitemid" max="32767" attributes="0"/>
                                       <Component id="txtappliancetype" max="32767" attributes="0"/>
-                                      <Component id="txtweight" max="32767" attributes="0"/>
+                                      <Component id="txtmake" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -112,12 +112,12 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtweight" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="txtmake" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                               <Component id="jLabel5" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtcondition" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="txtmodel" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                               <Component id="jLabel6" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -129,8 +129,8 @@
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnview" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="jButton1" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="markRefurbishedBtn" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="markForRecycleBtn" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="219" max="32767" attributes="0"/>
               </Group>
@@ -157,16 +157,22 @@
             <Component class="javax.swing.JTable" name="tbltechreview">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="5" rowCount="4">
-                    <Column editable="false" title="Item ID" type="java.lang.Object"/>
-                    <Column editable="false" title="E-Waste Category" type="java.lang.Object"/>
-                    <Column editable="false" title="Appliance Type" type="java.lang.Object"/>
-                    <Column editable="true" title="Weight" type="java.lang.Object"/>
-                    <Column editable="false" title="Condition" type="java.lang.Object"/>
+                  <Table columnCount="6" rowCount="4">
+                    <Column editable="false" title="ID" type="java.lang.Object"/>
+                    <Column editable="true" title="Category" type="java.lang.Object"/>
+                    <Column editable="true" title="Sub Category" type="java.lang.Object"/>
+                    <Column editable="false" title="Make" type="java.lang.Object"/>
+                    <Column editable="false" title="Model" type="java.lang.Object"/>
+                    <Column editable="false" title="Assigned Time" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
@@ -214,6 +220,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtitemid">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                 <MatteColorBorder bottom="2" left="0" right="0" top="0">
@@ -278,10 +285,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Weight:"/>
+            <Property name="text" type="java.lang.String" value="Make:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtweight">
+        <Component class="javax.swing.JTextField" name="txtmake">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
@@ -300,10 +307,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Condition"/>
+            <Property name="text" type="java.lang.String" value="Model"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtcondition">
+        <Component class="javax.swing.JTextField" name="txtmodel">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
@@ -331,7 +338,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnviewActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="markRefurbishedBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f5" green="df" red="cd" type="rgb"/>
@@ -344,8 +351,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Mark as Refurbished"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markRefurbishedBtnActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="markForRecycleBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f5" green="df" red="cd" type="rgb"/>
@@ -355,6 +365,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Mark for Recycle"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markForRecycleBtnActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

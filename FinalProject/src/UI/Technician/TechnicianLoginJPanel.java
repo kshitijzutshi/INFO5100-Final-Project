@@ -10,6 +10,8 @@ import UI.MainJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import models.DB4OUtil.DB4OUtil;
+import models.EcoSystem;
+import models.User.Employee.Technician;
 
 /**
  *
@@ -22,11 +24,12 @@ public class TechnicianLoginJPanel extends javax.swing.JPanel {
      */
     
     JPanel jpanel20;
-    
-    
-    public TechnicianLoginJPanel(JPanel TechHome) {
+    EcoSystem ecosystem;
+    Technician technician;
+    public TechnicianLoginJPanel(JPanel TechHome, EcoSystem ecosystem, Technician technician) {
         initComponents();
-        
+        this.ecosystem = ecosystem;
+        this.technician = technician;
         this.TechnicianLoginMain = TechHome;
     }
 
@@ -309,7 +312,7 @@ public class TechnicianLoginJPanel extends javax.swing.JPanel {
     private void btnViewScheduledPickupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewScheduledPickupMouseClicked
         // TODO add your handling code here:
         
-        TechnicanReviewItemsJPanel technicianreview = new TechnicanReviewItemsJPanel(TechnicianChangeJPanel);
+        TechnicanReviewItemsJPanel technicianreview = new TechnicanReviewItemsJPanel(TechnicianChangeJPanel, this.ecosystem, this.technician);
         CardLayout layout = (CardLayout) TechnicianChangeJPanel.getLayout();
         TechnicianChangeJPanel.add("logisticsPast", technicianreview);
         

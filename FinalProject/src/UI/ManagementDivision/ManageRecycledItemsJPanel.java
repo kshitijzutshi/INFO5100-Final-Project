@@ -229,8 +229,13 @@ public class ManageRecycledItemsJPanel extends javax.swing.JPanel {
             batch.addItem(item);
             item.setStatus(Item.ItemStatus.READY_FOR_SALE);
         }
+        batch.setPrice(Integer.valueOf(txtprice.getText()));
         this.ecosystem.getRecycleBatchDirectory().addRecycleBatch(batch);
-        JOptionPane.showMessageDialog(null, "No active pickup at this point of time");
+        JOptionPane.showMessageDialog(null, "Price successfully set for batch");
+        this.items = new ArrayList<>();
+        txtweight.setText("");
+        txtprice.setText("");
+        populateTable();
     }//GEN-LAST:event_btnSetPriceActionPerformed
 
     public void populateTable() {

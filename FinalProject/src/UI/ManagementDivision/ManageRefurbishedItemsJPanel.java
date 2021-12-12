@@ -172,6 +172,9 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
         }
         this.selectedItem.setPrice(price);
         JOptionPane.showMessageDialog(this, "Price " + price + " set for item " + this.selectedItem.getId());
+        this.items.remove(this.selectedItem);
+        this.selectedItem = null;
+        populateTable();
         
     }//GEN-LAST:event_setPriceTextActionPerformed
     

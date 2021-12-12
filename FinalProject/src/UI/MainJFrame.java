@@ -482,11 +482,11 @@ public class MainJFrame extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
-        TechnicianLoginJPanel technicianhome = new TechnicianLoginJPanel(mainJpanel);
-        CardLayout layout = (CardLayout) mainJpanel.getLayout();
-        mainJpanel.add("LogisticsPanel", technicianhome);
-        layout.next(mainJpanel);
-        
+//        TechnicianLoginJPanel technicianhome = new TechnicianLoginJPanel(mainJpanel);
+//        CardLayout layout = (CardLayout) mainJpanel.getLayout();
+//        mainJpanel.add("LogisticsPanel", technicianhome);
+//        layout.next(mainJpanel);
+//        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnRetailerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetailerActionPerformed

@@ -15,8 +15,8 @@ import models.User.Employee.QCInspector;
  */
 public class QCInspection extends WorkRequest{
     
-    private QCInspector inspector;
-    private Item item;
+    private final QCInspector inspector;
+    private final Item item;
     
     public QCInspection(Item item, QCInspector inspector) {
         this.item = item;
@@ -29,6 +29,11 @@ public class QCInspection extends WorkRequest{
 
     public Item getItem() {
         return item;
+    }
+
+    @Override
+    public String toString() {
+        return this.getId();
     }
     
     
