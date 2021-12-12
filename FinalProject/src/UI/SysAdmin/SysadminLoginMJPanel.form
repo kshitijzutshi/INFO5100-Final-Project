@@ -460,7 +460,7 @@
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="32" max="32767" attributes="0"/>
+                          <EmptySpace pref="29" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -549,7 +549,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Manage Retailers"/>
+                    <Property name="text" type="java.lang.String" value="Manage Clients"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -578,7 +578,7 @@
                       <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel14" min="-2" pref="362" max="-2" attributes="0"/>
-                      <EmptySpace pref="353" max="32767" attributes="0"/>
+                      <EmptySpace pref="349" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

@@ -27,6 +27,7 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
         this.managetechnicianAdminPanel = ManageTechnicianSysAdmin;
         this.ecosystem = ecosystem;
         initComponents();
+        this.populateTable();
     }
 
     /**
@@ -232,7 +233,7 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
             }
         this.selectedTechnician.getUserAccount().setPassword(password);
         this.selectedTechnician.setFullName(name);
-        populateTable();
+        this.populateTable();
         nameTextField.setText("");
         usernameTextField.setText("");
         passwordTextField.setText("");

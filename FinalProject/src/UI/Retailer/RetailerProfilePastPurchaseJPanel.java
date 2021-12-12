@@ -5,6 +5,7 @@
  */
 package UI.Retailer;
 
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -47,13 +48,15 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
             }
             System.out.println(itemtoPopulate.getStatus());
             System.out.println(itemtoPopulate.getType());
-            Object[] data = new Object[6];
+            Object[] data = new Object[8];
             data[0] = itemtoPopulate;
             data[1] = itemtoPopulate.getCategory();
             data[2] = itemtoPopulate.getSubCategory();
             data[3] = itemtoPopulate.getMake();
             data[4] = itemtoPopulate.getModel();
             data[5] = itemtoPopulate.getPrice();
+            data[6] = clientorder.getOrderTime().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+            data[7] = itemtoPopulate.getStatus();
             model.addRow(data);
             }
             
@@ -93,6 +96,9 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/price_tag_18px.png"))); // NOI18N
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        jScrollPane1.setOpaque(false);
 
         PastOrderTable.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         PastOrderTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -100,11 +106,11 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Order ID", "Appliance Category", "Applicance Type", "Make", "Model", "Price", "Order Time"
+                "Order ID", "Appliance Category", "Applicance Type", "Make", "Model", "Price", "Order Time", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

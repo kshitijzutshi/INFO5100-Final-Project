@@ -270,7 +270,7 @@ public class SystemAdminLoginProfile extends javax.swing.JPanel {
 
         jLabel22.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("Manage Retailers");
+        jLabel22.setText("Manage Clients");
 
         javax.swing.GroupLayout btnManageRetailerLayout = new javax.swing.GroupLayout(btnManageRetailer);
         btnManageRetailer.setLayout(btnManageRetailerLayout);

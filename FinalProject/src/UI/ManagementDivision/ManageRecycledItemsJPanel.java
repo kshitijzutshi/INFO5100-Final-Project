@@ -226,11 +226,13 @@ public class ManageRecycledItemsJPanel extends javax.swing.JPanel {
     private void btnSetPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetPriceActionPerformed
         // TODO add your handling code here:
         RecycleBatch batch = new RecycleBatch();
+        String category = (String) categoryDropDown.getSelectedItem();
         for (Item item: this.items) {
             batch.addItem(item);
             item.setStatus(Item.ItemStatus.READY_FOR_SALE);
         }
         batch.setPrice(Integer.valueOf(txtprice.getText()));
+        batch.setBatchCategory(category);
         this.ecosystem.getRecycleBatchDirectory().addRecycleBatch(batch);
         JOptionPane.showMessageDialog(null, "Price successfully set for batch");
         this.items = new ArrayList<>();

@@ -282,7 +282,7 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         btnmanagemanagementLayout.setVerticalGroup(
             btnmanagemanagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,7 +305,7 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
 
         jLabel22.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel22.setText("Manage Retailers");
+        jLabel22.setText("Manage Clients");
 
         javax.swing.GroupLayout btnmanageretailersLayout = new javax.swing.GroupLayout(btnmanageretailers);
         btnmanageretailers.setLayout(btnmanageretailersLayout);
@@ -403,7 +403,7 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel13)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(353, Short.MAX_VALUE))
+                .addContainerGap(349, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

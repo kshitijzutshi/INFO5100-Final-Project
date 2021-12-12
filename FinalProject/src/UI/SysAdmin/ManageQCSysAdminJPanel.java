@@ -27,6 +27,7 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
         this.ManageQCSysAdminPanel = ManageQCSysAdminJPanel;
         initComponents();
         this.ecosystem = ecosystem;
+        this.populateTable();
     }
 
     /**

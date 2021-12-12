@@ -126,11 +126,11 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Username", "Password", "Verified"
+                "Name", "Username", "Password", "Client type", "Verified"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -371,11 +371,12 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) clientsJTable.getModel();
         model.setRowCount(0);
         for (Client client: this.ecosystem.getClientDirectory().getClients()) {
-            Object[] row = new Object[4];
+            Object[] row = new Object[5];
             row[0] = client;
             row[1] = client.getUserAccount().getUsername();
             row[2] = client.getUserAccount().getPassword();
             row[3] = client.getClienttype();
+            row[4] = client.isVerified() ? "Verified" : "Not Verified";
              model.addRow(row);
         }
     }
