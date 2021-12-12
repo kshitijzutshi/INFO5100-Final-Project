@@ -153,17 +153,17 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
         retailProfilePastPurchase.setLayout(retailProfilePastPurchaseLayout);
         retailProfilePastPurchaseLayout.setHorizontalGroup(
             retailProfilePastPurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, retailProfilePastPurchaseLayout.createSequentialGroup()
-                .addContainerGap(87, Short.MAX_VALUE)
+            .addGroup(retailProfilePastPurchaseLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         retailProfilePastPurchaseLayout.setVerticalGroup(
             retailProfilePastPurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(retailProfilePastPurchaseLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(23, 23, 23)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         add(retailProfilePastPurchase, "card2");
