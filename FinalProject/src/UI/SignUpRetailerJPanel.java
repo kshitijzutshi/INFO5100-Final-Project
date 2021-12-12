@@ -59,6 +59,7 @@ public class SignUpRetailerJPanel extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         rbrrecycler = new javax.swing.JRadioButton();
         rbretailer = new javax.swing.JRadioButton();
+        btnhome = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -110,7 +111,7 @@ public class SignUpRetailerJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnSubmitsignup.setBackground(new java.awt.Color(153, 255, 153));
+        btnSubmitsignup.setBackground(new java.awt.Color(205, 223, 245));
         btnSubmitsignup.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         btnSubmitsignup.setText("Submit");
         btnSubmitsignup.addActionListener(new java.awt.event.ActionListener() {
@@ -162,46 +163,62 @@ public class SignUpRetailerJPanel extends javax.swing.JPanel {
         rbretailer.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         rbretailer.setText("Retailer");
 
+        btnhome.setBackground(new java.awt.Color(205, 223, 245));
+        btnhome.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
+        btnhome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home_24px.png"))); // NOI18N
+        btnhome.setText("Home");
+        btnhome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnhomeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JPanelSignupLayout = new javax.swing.GroupLayout(JPanelSignup);
         JPanelSignup.setLayout(JPanelSignupLayout);
         JPanelSignupLayout.setHorizontalGroup(
             JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelSignupLayout.createSequentialGroup()
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
                 .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSignUpHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelSignupLayout.createSequentialGroup()
+                    .addGroup(JPanelSignupLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
                         .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblName)
-                            .addGroup(JPanelSignupLayout.createSequentialGroup()
+                            .addComponent(lblSignUpHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelSignupLayout.createSequentialGroup()
                                 .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtemailid, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblAddress)
-                                    .addComponent(txtaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(49, 49, 49)
-                                .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtmobnumber, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(JPanelSignupLayout.createSequentialGroup()
-                                .addGap(144, 144, 144)
-                                .addComponent(btnSubmitsignup, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(JPanelSignupLayout.createSequentialGroup()
-                                .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblUserName))
-                                .addGap(49, 49, 49)
-                                .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblPassword)
-                                    .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(JPanelSignupLayout.createSequentialGroup()
-                                .addComponent(rbrrecycler, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(54, 54, 54)
-                                .addComponent(rbretailer, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(43, 43, 43)))
-                .addGap(211, 211, 211))
+                                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblName)
+                                    .addGroup(JPanelSignupLayout.createSequentialGroup()
+                                        .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtemailid, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblAddress)
+                                            .addComponent(txtaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(49, 49, 49)
+                                        .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtmobnumber, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(JPanelSignupLayout.createSequentialGroup()
+                                        .addGap(144, 144, 144)
+                                        .addComponent(btnSubmitsignup, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(JPanelSignupLayout.createSequentialGroup()
+                                        .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblUserName))
+                                        .addGap(49, 49, 49)
+                                        .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblPassword)
+                                            .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(JPanelSignupLayout.createSequentialGroup()
+                                        .addComponent(rbrrecycler, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(54, 54, 54)
+                                        .addComponent(rbretailer, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(43, 43, 43)))
+                        .addGap(211, 211, 211))
+                    .addGroup(JPanelSignupLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnhome, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         JPanelSignupLayout.setVerticalGroup(
             JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,7 +226,9 @@ public class SignUpRetailerJPanel extends javax.swing.JPanel {
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(JPanelSignupLayout.createSequentialGroup()
-                .addGap(84, 84, 84)
+                .addGap(40, 40, 40)
+                .addComponent(btnhome)
+                .addGap(11, 11, 11)
                 .addComponent(lblSignUpHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
                 .addGroup(JPanelSignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -325,10 +344,22 @@ public class SignUpRetailerJPanel extends javax.swing.JPanel {
         DB4OUtil.getInstance().storeSystem(ecosystem);
     }//GEN-LAST:event_btnSubmitsignupActionPerformed
 
+    private void btnhomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhomeActionPerformed
+        // TODO add your handling code here:
+        
+         DB4OUtil.getInstance().storeSystem(this.ecosystem);
+         MainJPanel main = new MainJPanel(JPanelSignup);
+        CardLayout layout = (CardLayout) JPanelSignup.getLayout();
+        JPanelSignup.add("Home", main);
+
+        layout.next(JPanelSignup);
+    }//GEN-LAST:event_btnhomeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanelSignup;
     private javax.swing.JButton btnSubmitsignup;
+    private javax.swing.JButton btnhome;
     private javax.swing.JLabel jLabel7;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel lblAddress;
