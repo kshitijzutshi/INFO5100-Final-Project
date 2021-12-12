@@ -351,7 +351,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         getContentPane().add(mainJpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 1460, 850));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/theme2.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bluelight.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 1980, 1100));
 
         setSize(new java.awt.Dimension(1932, 1115));

@@ -9,6 +9,7 @@ import UI.MainJPanel;
 import UI.Technician.TechnicanReviewItemsJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import models.DB4OUtil.DB4OUtil;
 import models.EcoSystem;
 import models.User.Client.Client;
 import models.User.Customer.Resident;
@@ -30,7 +31,7 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
     public RetailerProfileLoginJPanel(JPanel RetailerProfileLogin) {
         this.RetailerLoginMainJPanel = RetailerProfileLogin;
         initComponents();
-//        welcomeLabel.setText(this.client.getFullName());
+        welcomeLabel.setText(client.getFullName());
     }
 
     /**
@@ -533,13 +534,13 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
 
     private void btnRetailerLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRetailerLogoutMouseClicked
         // TODO add your handling code here:
-        
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
          MainJPanel main = new MainJPanel(RetailerLoginMainJPanel);
         CardLayout layout = (CardLayout) RetailerLoginMainJPanel.getLayout();
         RetailerLoginMainJPanel.add("Home", main);
 
         layout.next(RetailerLoginMainJPanel);
-      //  DB4OUtil.getInstance().storeSystem(this.ecosystem);
+      //  
     }//GEN-LAST:event_btnRetailerLogoutMouseClicked
 
 

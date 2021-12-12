@@ -123,6 +123,9 @@ public class WorkRequestDirectory {
     }
     
     public void increaseqcInspectionAssignmentCount(QCInspector qcInspector) {
+        if(!this.qcInspectionAssignmentMap.containsKey(qcInspector)){
+            this.qcInspectionAssignmentMap.put(qcInspector, 0);
+        }
         Integer x = this.qcInspectionAssignmentMap.get(qcInspector);
         this.qcInspectionAssignmentMap.replace(qcInspector, ++x);
     }
@@ -133,6 +136,9 @@ public class WorkRequestDirectory {
     }
     
     public void increaserefurbAssignmentMapCount(Technician technician) {
+        if(!this.refurbAssignmentMap.containsKey(technician)){
+            this.refurbAssignmentMap.put(technician, 0);
+        }
         Integer x = this.refurbAssignmentMap.get(technician);
         this.refurbAssignmentMap.replace(technician, ++x);
     }

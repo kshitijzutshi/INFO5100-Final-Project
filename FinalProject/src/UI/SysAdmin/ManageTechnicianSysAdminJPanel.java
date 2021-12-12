@@ -257,6 +257,7 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
         technician.setFullName(name);
         this.ecosystem.getUserAccountDirectory().addUserAccount(technician.getUserAccount());
         this.ecosystem.getEmployeeDirectory().addTechnician(technician);
+        this.ecosystem.getWorkRequestDirectory().increaserefurbAssignmentMapCount(technician);
         JOptionPane.showMessageDialog(null, "Technician employee added successfully");
         this.populateTable();
     }//GEN-LAST:event_btnCreateActionPerformed
