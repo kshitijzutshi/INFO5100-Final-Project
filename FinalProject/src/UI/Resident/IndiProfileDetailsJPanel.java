@@ -137,6 +137,11 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
         lblEmail.setText("Email ID");
 
         txtemailid.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        txtemailid.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtemailidKeyPressed(evt);
+            }
+        });
 
         lblAddress.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblAddress.setForeground(new java.awt.Color(51, 51, 51));
@@ -318,15 +323,42 @@ public class IndiProfileDetailsJPanel extends javax.swing.JPanel {
             return;
         }
         
+        
+        
         this.resident.setAddress(address);
         this.resident.setFullName(name);
-        this.resident.setPhone(mobile);
-        this.resident.setEmail(email);
+        
+        int length = txtmobnumber.getText().length();
+            
+            if(length==10 && mobile.matches("[1-9]\\d{2}\\d{3}\\d{4}")){
+                this.resident.setPhone(mobile);
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Invalid Mobile Number");
+                return; 
+            }
+        
+        
+        if(email.matches("^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$")){
+            this.resident.setEmail(email);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Invalid Email ID");
+            return;
+        }
+            
+        
         this.resident.getUserAccount().setPassword(password);
         JOptionPane.showMessageDialog(this, "Profile details updated");
         this.populateFields();
         
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void txtemailidKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtemailidKeyPressed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_txtemailidKeyPressed
     
     private void populateFields() {
         txtname.setText(this.resident.getFullName());

@@ -27,6 +27,7 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
         this.manageRetailerSysadminPanel = ManageRetailerSysAdminPanelArea;
         this.ecosystem = ecosystem;
         initComponents();
+        this.populateTable();
     }
 
     /**
@@ -289,6 +290,11 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "All fields are required");
             return;
         }
+        
+        if(username.length()<3 || password.length()<5){
+            JOptionPane.showMessageDialog(this, "Username minimum lenght should be 3 and Password minimum lenght should be 5!!");
+            return;
+        }
         if (this.ecosystem.getUserAccountDirectory().userNameExists(username)) {
             JOptionPane.showMessageDialog(this, "Username already taken!");
             return;
@@ -321,6 +327,9 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
         nameTextField.setText("");
         usernameTextFied.setText("");
         passwordTextField.setText("");
+        checkboxVerified.setSelected(false);
+        btnRecyclerRadio.setSelected(false);
+        btnRetailerRadio.setSelected(false);
         
         
     }//GEN-LAST:event_btnCreateActionPerformed
@@ -362,11 +371,12 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) clientsJTable.getModel();
         model.setRowCount(0);
         for (Client client: this.ecosystem.getClientDirectory().getClients()) {
-            Object[] row = new Object[3];
+            Object[] row = new Object[4];
             row[0] = client;
             row[1] = client.getUserAccount().getUsername();
             row[2] = client.getUserAccount().getPassword();
-            model.addRow(row);
+            row[3] = client.getClienttype();
+             model.addRow(row);
         }
     }
 
