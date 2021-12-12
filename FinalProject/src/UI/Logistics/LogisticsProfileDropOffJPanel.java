@@ -44,7 +44,7 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
     public void populateTable(){
         DefaultTableModel model = (DefaultTableModel) tblscheddropoffs.getModel();
         model.setRowCount(0);
-        for(Item itemDropOffPopulateTable : this.activeCLienDropOff.getClient().getOrderedItems()){
+        for(Item itemDropOffPopulateTable : this.activeCLienDropOff.getClientOrder().getOrderedItems()){
             Object[] data = new Object[9];
             data[0] = itemDropOffPopulateTable;
             data[1] = itemDropOffPopulateTable.getCategory();
@@ -58,9 +58,9 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
             
         }
        
-        dropOffUsername.setText(String.valueOf(activeCLienDropOff.getClient().getClient().getFullName()));
-        dropOffUsername.setText(String.valueOf(activeCLienDropOff.getClient().getClient().getAddress()));
-        dropOffUsername.setText(String.valueOf(activeCLienDropOff.getClient().getClient().getPhone()));
+        dropOffUsername.setText(String.valueOf(activeCLienDropOff.getClientOrder().getClient().getFullName()));
+        dropOffUsername.setText(String.valueOf(activeCLienDropOff.getClientOrder().getClient().getAddress()));
+        dropOffUsername.setText(String.valueOf(activeCLienDropOff.getClientOrder().getClient().getPhone()));
        
     }
     
@@ -252,7 +252,7 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
 
     private void btnMarkedDeliveredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarkedDeliveredActionPerformed
         // TODO add your handling code here:
-        for(Item itemsStatusChange : this.activeCLienDropOff.getClient().getOrderedItems()){
+        for(Item itemsStatusChange : this.activeCLienDropOff.getClientOrder().getOrderedItems()){
             itemsStatusChange.setStatus(Item.ItemStatus.SOLD);
         }
         

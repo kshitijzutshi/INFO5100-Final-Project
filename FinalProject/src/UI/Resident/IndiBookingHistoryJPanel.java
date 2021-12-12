@@ -247,12 +247,12 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
         MainJPanel main = new MainJPanel(JPanelIndBookingDetailsMain);
         CardLayout layout = (CardLayout) JPanelIndBookingDetailsMain.getLayout();
         JPanelIndBookingDetailsMain.add("Home", main);
 
         layout.next(JPanelIndBookingDetailsMain);
-        DB4OUtil.getInstance().storeSystem(this.ecosystem);
         
         
     }//GEN-LAST:event_jButton7ActionPerformed
