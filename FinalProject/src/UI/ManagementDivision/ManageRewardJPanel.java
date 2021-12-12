@@ -214,7 +214,6 @@ public class ManageRewardJPanel extends javax.swing.JPanel {
             RewardsUtil.updateRewardPoints(category, subCategory, Item.ItemType.RECYCLE.name().toLowerCase(), points);
         }
         txtrewardValue.setText(String.valueOf(points));
-        RewardsUtil.refreshConfig();
         JOptionPane.showMessageDialog(this, "Reward value updated");
     }//GEN-LAST:event_updateRewardsBtnActionPerformed
 

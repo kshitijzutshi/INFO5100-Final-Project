@@ -23,7 +23,7 @@ public class LogisticsMan extends Person{
     public LogisticsMan(String username, String password) {
         this.userAccount = new UserAccount(username, password, new LogisticsManRole());
         this.eid = UUID.randomUUID().toString().substring(0,5);
-        this.available = false;
+        this.available = true;
     }
 
     public String getEid() {

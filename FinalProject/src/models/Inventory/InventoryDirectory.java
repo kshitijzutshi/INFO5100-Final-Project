@@ -54,11 +54,5 @@ public class InventoryDirectory {
         }
         return items;
     }
-    
-    public Item getNextPendingPickupItem() {
-        for (Item item: this.inventory) {
-            if (item.getStatus()==Item.ItemStatus.AWAITING) return item;
-        }
-        return null;
-    }
+
 }

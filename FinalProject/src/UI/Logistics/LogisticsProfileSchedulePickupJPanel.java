@@ -234,6 +234,7 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
             booking.setAssigned(true);
             this.ecosystem.getWorkRequestDirectory().addInventoryPickup(pickup);
             JOptionPane.showMessageDialog(null, "Booking successfully delivered, new booking assigned");
+            return;
         }
         
         
