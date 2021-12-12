@@ -28,6 +28,7 @@ import models.User.Customer.Resident;
 import models.User.Employee.LogisticsMan;
 import models.User.Employee.OperationsManager;
 import models.User.UserAccount;
+import UI.SysAdmin.SysadminLoginMJPanel;
 
 
 /**
@@ -155,7 +156,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Are you a Retailer?");
+        jLabel8.setText("Are you a Client?");
 
         btnSignUpRetailer.setBackground(new java.awt.Color(255, 255, 255));
         btnSignUpRetailer.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(255, 255, 255)));
@@ -325,11 +326,10 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnRetailer, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(mgmtDivBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSystemAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(mgmtDivBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSystemAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(103, 103, 103)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -410,7 +410,7 @@ public class MainJFrame extends javax.swing.JFrame {
             mainJpanel.add("profileIndividual", indivProfileLoginJpanel);
             layout.next(mainJpanel);
         } else if (role instanceof SystemAdminRole) {
-            SystemAdminLoginProfile systemAdminLogin = new SystemAdminLoginProfile(mainJpanel, this.ecosystem);
+            SysadminLoginMJPanel systemAdminLogin = new SysadminLoginMJPanel(mainJpanel, this.ecosystem);
             CardLayout layout = (CardLayout) mainJpanel.getLayout();
             mainJpanel.add("Sysadmin", systemAdminLogin);
             layout.next(mainJpanel);
@@ -463,15 +463,19 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemAdminActionPerformed
         // TODO add your handling code here:
-        SystemAdminLoginProfile systemAdminLogin = new SystemAdminLoginProfile(mainJpanel, ecosystem);
-        CardLayout layout = (CardLayout) mainJpanel.getLayout();
-        mainJpanel.add("LogisticsPanel", systemAdminLogin);
-        layout.next(mainJpanel);
+       // SysadminLoginMJPanel systemAdminLogin = new SysadminLoginMJPanel(mainJpanel,ecosystem);
+       // CardLayout layout = (CardLayout) mainJpanel.getLayout();
+       // mainJpanel.add("LogisticsPanel", systemAdminLogin);
+       // layout.next(mainJpanel);
         
     }//GEN-LAST:event_btnSystemAdminActionPerformed
 
     private void btnSignUpRetailerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignUpRetailerMouseClicked
         // TODO add your handling code here:
+         SignUpRetailerJPanel clientSignUp = new SignUpRetailerJPanel(mainJpanel, ecosystem);
+         CardLayout layout = (CardLayout) mainJpanel.getLayout();
+         mainJpanel.add("ClientSignUp", clientSignUp);
+         layout.next(mainJpanel);
         
     }//GEN-LAST:event_btnSignUpRetailerMouseClicked
 

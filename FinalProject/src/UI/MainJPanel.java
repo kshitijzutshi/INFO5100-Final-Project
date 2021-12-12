@@ -9,16 +9,24 @@ import UI.ManagementDivision.ManagementDivisionProfileMainJPanel;
 import UI.SysAdmin.SystemAdminLoginProfile;
 import UI.Logistics.LogisticsProfileMainJPanel;
 import UI.Resident.IndiProfileLoginJPanel;
+import UI.SysAdmin.SysadminLoginMJPanel;
 import UI.Technician.TechnicianLoginJPanel;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import models.DB4OUtil.DB4OUtil;
 import models.EcoSystem;
+import models.Role.ClientRole;
+import models.Role.InventoryManagerRole;
+import models.Role.LogisticsManRole;
+import models.Role.QCInspectorRole;
 import models.Role.ResidentRole;
 import models.Role.Role;
 import models.Role.SystemAdminRole;
+import models.Role.TechnicianRole;
 import models.User.Customer.Resident;
+import models.User.Employee.LogisticsMan;
+import models.User.Employee.OperationsManager;
 import models.User.UserAccount;
 
 
@@ -145,13 +153,16 @@ public class MainJPanel extends javax.swing.JPanel {
 
         jLabel8.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Are you a Retailer?");
+        jLabel8.setText("Are you a Client?");
 
         btnSignUpRetailer.setBackground(new java.awt.Color(255, 255, 255));
-        btnSignUpRetailer.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(255, 255, 255)));
+        btnSignUpRetailer.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         btnSignUpRetailer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSignUpRetailerMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSignUpRetailerMouseEntered(evt);
             }
         });
 
@@ -347,17 +358,43 @@ public class MainJPanel extends javax.swing.JPanel {
         Role role  = userAccount.getRole();
         if (role instanceof ResidentRole) {
             Resident resident = this.ecosystem.getCustomerDirectory().getResidentByUserAccount(userAccount);
-            IndiProfileLoginJPanel indivProfileLoginJpanel = new IndiProfileLoginJPanel(mainJpanel, ecosystem, resident);
+            IndiProfileLoginJPanel indivProfileLoginJpanel = new IndiProfileLoginJPanel(mainJpanel, this.ecosystem, resident);
             CardLayout layout = (CardLayout) mainJpanel.getLayout();
             mainJpanel.add("profileIndividual", indivProfileLoginJpanel);
             layout.next(mainJpanel);
         } else if (role instanceof SystemAdminRole) {
+            SysadminLoginMJPanel systemAdminLogin = new SysadminLoginMJPanel(mainJpanel, this.ecosystem);
+            CardLayout layout = (CardLayout) mainJpanel.getLayout();
+            mainJpanel.add("Sysadmin", systemAdminLogin);
+            layout.next(mainJpanel);
+        } else if (role instanceof LogisticsManRole) {
+            LogisticsMan logMan = this.ecosystem.getEmployeeDirectory().getLogisticsManByUserAccount(userAccount);
+            LogisticsProfileMainJPanel logisticsprofilemain = new LogisticsProfileMainJPanel(mainJpanel, this.ecosystem, logMan);
+            CardLayout layout = (CardLayout) mainJpanel.getLayout();
+            mainJpanel.add("LogisticsPanel", logisticsprofilemain);
+            layout.next(mainJpanel);
+            layout.next(mainJpanel);
+        } else if (role instanceof InventoryManagerRole) {
+            OperationsManager manager = this.ecosystem.getEmployeeDirectory().getManagerByUserAccount(userAccount);
+            ManagementDivisionProfileMainJPanel managementDivisionprofilemain = new ManagementDivisionProfileMainJPanel(mainJpanel, this.ecosystem, manager);
+            CardLayout layout = (CardLayout) mainJpanel.getLayout();
+            mainJpanel.add("OperationsManagerPanel", managementDivisionprofilemain);
+            layout.next(mainJpanel);
+        } else if (role instanceof QCInspectorRole) {
             SystemAdminLoginProfile systemAdminLogin = new SystemAdminLoginProfile(mainJpanel, ecosystem);
             CardLayout layout = (CardLayout) mainJpanel.getLayout();
             mainJpanel.add("Sysadmin", systemAdminLogin);
             layout.next(mainJpanel);
-        } else if (role instanceof SystemAdminRole) {
-
+        } else if (role instanceof TechnicianRole) {
+            SysadminLoginMJPanel systemAdminLogin = new SysadminLoginMJPanel(mainJpanel, this.ecosystem);
+            CardLayout layout = (CardLayout) mainJpanel.getLayout();
+            mainJpanel.add("Sysadmin", systemAdminLogin);
+            layout.next(mainJpanel);
+        } else if (role instanceof ClientRole) {
+            SysadminLoginMJPanel systemAdminLogin = new SysadminLoginMJPanel(mainJpanel, this.ecosystem);
+            CardLayout layout = (CardLayout) mainJpanel.getLayout();
+            mainJpanel.add("Sysadmin", systemAdminLogin);
+            layout.next(mainJpanel);
         }
     }//GEN-LAST:event_btn_loginMouseClicked
 
@@ -393,6 +430,10 @@ public class MainJPanel extends javax.swing.JPanel {
 
     private void btnSignUpRetailerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignUpRetailerMouseClicked
         // TODO add your handling code here:
+        SignUpRetailerJPanel clientSignUp = new SignUpRetailerJPanel(mainJpanel, ecosystem);
+        CardLayout layout = (CardLayout) mainJpanel.getLayout();
+        mainJpanel.add("ClientSignUp", clientSignUp);
+        layout.next(mainJpanel);
 
     }//GEN-LAST:event_btnSignUpRetailerMouseClicked
 
@@ -430,6 +471,11 @@ public class MainJPanel extends javax.swing.JPanel {
         layout.next(mainJpanel);
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnSignUpRetailerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignUpRetailerMouseEntered
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnSignUpRetailerMouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

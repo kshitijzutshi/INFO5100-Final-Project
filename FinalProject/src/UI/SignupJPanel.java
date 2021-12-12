@@ -77,7 +77,7 @@ public class SignupJPanel extends javax.swing.JPanel {
         lblTypeOfUser.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblTypeOfUser.setText("Type of User");
 
-        typeofuserdropdown.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        typeofuserdropdown.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         typeofuserdropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Individual", "Community", "Organization" }));
         typeofuserdropdown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,38 +88,38 @@ public class SignupJPanel extends javax.swing.JPanel {
         lblEmail.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblEmail.setText("Email ID");
 
-        txtemailid.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        txtemailid.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         txtemailid.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         lblMobile.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblMobile.setText("Mobile Number");
 
-        txtmobnumber.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
-        txtmobnumber.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(153, 255, 153)));
+        txtmobnumber.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        txtmobnumber.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         lblAddress.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblAddress.setText("Address");
 
-        txtaddress.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        txtaddress.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         txtaddress.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         lblName.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblName.setText("Name");
 
-        txtname.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        txtname.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         txtname.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         lblUserName.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblUserName.setText("Username");
 
-        txtusername.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        txtusername.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         txtusername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         lblPassword.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblPassword.setText("Password");
 
-        txtpassword.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
-        txtpassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(153, 255, 153)));
+        txtpassword.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        txtpassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
         txtpassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtpasswordActionPerformed(evt);
@@ -274,29 +274,21 @@ public class SignupJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Username already taken");
             return;
         }
-        if (userType.equals("Individual")) {
-            Resident resident = new Resident(username, password);
-            resident.setFullName(name);
-            resident.setPhone(mobile);
-            resident.setAddress(mobile);
-            resident.setEmail(email);
-            this.ecosystem.getUserAccountDirectory().addUserAccount(resident.getUserAccount());
-            this.ecosystem.getCustomerDirectory().addResidents(resident);
-        } else {
-//            Commercial resident = new Commercial(username, password);
-//            resident.setFullName(name);
-//            resident.setPhone(mobile);
-//            resident.setAddress(mobile);
-//            resident.setEmail(email);
-        }
+        Resident resident = new Resident(username, password);
+        resident.setFullName(name);
+        resident.setPhone(mobile);
+        resident.setAddress(mobile);
+        resident.setEmail(email);
+        this.ecosystem.getUserAccountDirectory().addUserAccount(resident.getUserAccount());
+        this.ecosystem.getCustomerDirectory().addResidents(resident);
         JOptionPane.showMessageDialog(this, "You are all set!");
+        txtname.setText("");
+        txtaddress.setText("");
+        txtemailid.setText("");
+        txtmobnumber.setText("");
+        txtusername.setText("");
+        txtpassword.setText("");
         DB4OUtil.getInstance().storeSystem(ecosystem);
-        
-//        IndiProfileLoginJPanel indiLogin = new IndiProfileLoginJPanel(IndiProfileLoginJPanel);
-//        CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
-//        JPanelIndLogin.add("individualBookingDetails", indibookingdetails);
-//
-//        layout.next(JPanelIndLogin);
     }//GEN-LAST:event_btnSubmitsignupActionPerformed
 
     private void typeofuserdropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeofuserdropdownActionPerformed

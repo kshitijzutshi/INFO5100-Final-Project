@@ -237,6 +237,7 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
         usernameTextField.setText("");
         passwordTextField.setText("");
         JOptionPane.showMessageDialog(null, "Updated details");
+        this.populateTable();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -257,6 +258,7 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
         this.ecosystem.getUserAccountDirectory().addUserAccount(technician.getUserAccount());
         this.ecosystem.getEmployeeDirectory().addTechnician(technician);
         JOptionPane.showMessageDialog(null, "Technician employee added successfully");
+        this.populateTable();
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

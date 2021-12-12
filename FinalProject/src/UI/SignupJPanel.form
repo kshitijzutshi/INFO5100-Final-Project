@@ -162,7 +162,7 @@
         <Component class="javax.swing.JComboBox" name="typeofuserdropdown">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Lucida Sans" size="11" style="0"/>
+              <Font name="Lucida Sans" size="12" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
@@ -190,7 +190,7 @@
         <Component class="javax.swing.JTextField" name="txtemailid">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Lucida Sans" size="11" style="0"/>
+              <Font name="Lucida Sans" size="12" style="0"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
@@ -212,12 +212,12 @@
         <Component class="javax.swing.JTextField" name="txtmobnumber">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Lucida Sans" size="11" style="0"/>
+              <Font name="Lucida Sans" size="12" style="0"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                 <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                  <Color PropertyName="color" blue="99" green="ff" red="99" type="rgb"/>
+                  <Color PropertyName="color" blue="f5" green="df" red="cd" type="rgb"/>
                 </MatteColorBorder>
               </Border>
             </Property>
@@ -234,7 +234,7 @@
         <Component class="javax.swing.JTextField" name="txtaddress">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Lucida Sans" size="11" style="0"/>
+              <Font name="Lucida Sans" size="12" style="0"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
@@ -256,7 +256,7 @@
         <Component class="javax.swing.JTextField" name="txtname">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Lucida Sans" size="11" style="0"/>
+              <Font name="Lucida Sans" size="12" style="0"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
@@ -278,7 +278,7 @@
         <Component class="javax.swing.JTextField" name="txtusername">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Lucida Sans" size="11" style="0"/>
+              <Font name="Lucida Sans" size="12" style="0"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
@@ -300,12 +300,12 @@
         <Component class="javax.swing.JTextField" name="txtpassword">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Lucida Sans" size="11" style="0"/>
+              <Font name="Lucida Sans" size="12" style="0"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                 <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                  <Color PropertyName="color" blue="99" green="ff" red="99" type="rgb"/>
+                  <Color PropertyName="color" blue="f5" green="df" red="cd" type="rgb"/>
                 </MatteColorBorder>
               </Border>
             </Property>
