@@ -254,8 +254,11 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
         this.ecosystem.getUserAccountDirectory().addUserAccount(qcInspector.getUserAccount());
         this.ecosystem.getEmployeeDirectory().addQCInspector(qcInspector);
         this.ecosystem.getWorkRequestDirectory().increaseqcInspectionAssignmentCount(qcInspector);
-        JOptionPane.showMessageDialog(null, "User added successfully");
+        JOptionPane.showMessageDialog(null, "QC Inspector added successfully");
         this.populateTable();
+        nameTextField.setText("");
+        usernameTextFied.setText("");
+        passwordTextField.setText("");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

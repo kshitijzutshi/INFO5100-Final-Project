@@ -280,9 +280,9 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
             .addGroup(btnmanagemanagementLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
         btnmanagemanagementLayout.setVerticalGroup(
             btnmanagemanagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
