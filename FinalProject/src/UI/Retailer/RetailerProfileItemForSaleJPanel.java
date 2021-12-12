@@ -431,7 +431,7 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
         ClientOrder newOrder = new ClientOrder(client);
         for(Item item : itemsAddedToCart){
             item.setStatus(Item.ItemStatus.BLOCKED_FOR_ORDER);
-            
+            System.out.println("Item Type"+item.getType());
             newOrder.addItem(item);
             if(radioBtnCash.isSelected()){
                 newOrder.getClient().setPaymenttype(Client.paymentType.CASH_ON_DELIVERY);
