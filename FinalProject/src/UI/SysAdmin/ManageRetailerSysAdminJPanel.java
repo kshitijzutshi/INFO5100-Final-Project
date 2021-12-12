@@ -53,8 +53,10 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
         clientsJTable = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
         btnModify = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        checkboxVerified = new javax.swing.JCheckBox();
         jLabel6 = new javax.swing.JLabel();
+        btnRecyclerRadio = new javax.swing.JRadioButton();
+        btnRetailerRadio = new javax.swing.JRadioButton();
 
         setLayout(new java.awt.CardLayout());
 
@@ -158,28 +160,42 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
             }
         });
 
-        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
+        checkboxVerified.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel6.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         jLabel6.setText("Verified:");
+
+        btnRecyclerRadio.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        btnRecyclerRadio.setText("Recycler");
+
+        btnRetailerRadio.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        btnRetailerRadio.setText("Retailer");
 
         javax.swing.GroupLayout manageRetailerSysadminPanelLayout = new javax.swing.GroupLayout(manageRetailerSysadminPanel);
         manageRetailerSysadminPanel.setLayout(manageRetailerSysadminPanelLayout);
         manageRetailerSysadminPanelLayout.setHorizontalGroup(
             manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageRetailerSysadminPanelLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageRetailerSysadminPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(manageRetailerSysadminPanelLayout.createSequentialGroup()
+                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(manageRetailerSysadminPanelLayout.createSequentialGroup()
-                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(72, 72, 72)
+                        .addGroup(manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(manageRetailerSysadminPanelLayout.createSequentialGroup()
+                                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
             .addGroup(manageRetailerSysadminPanelLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(manageRetailerSysadminPanelLayout.createSequentialGroup()
                         .addGroup(manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -187,18 +203,20 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel3)
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(checkboxVerified)
+                            .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(usernameTextFied, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 209, Short.MAX_VALUE))
+                    .addGroup(manageRetailerSysadminPanelLayout.createSequentialGroup()
+                        .addGroup(manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(manageRetailerSysadminPanelLayout.createSequentialGroup()
-                                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jCheckBox1)
-                                .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(usernameTextFied, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(btnRecyclerRadio, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(btnRetailerRadio, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         manageRetailerSysadminPanelLayout.setVerticalGroup(
             manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,18 +232,22 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel4)
                     .addComponent(usernameTextFied, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
                 .addGroup(manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox1))
-                .addGap(18, 18, 18)
+                    .addComponent(checkboxVerified))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRecyclerRadio)
+                    .addComponent(btnRetailerRadio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
                     .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -233,7 +255,7 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
                 .addGroup(manageRetailerSysadminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnModify)
                     .addComponent(btnDelete))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
 
         add(manageRetailerSysadminPanel, "card2");
@@ -250,6 +272,7 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
         if (!this.hasSelectedClient()) return;
         this.selectedClient.getUserAccount().setPassword(password);
         this.selectedClient.setFullName(name);
+        
         populateTable();
         nameTextField.setText("");
         usernameTextFied.setText("");
@@ -271,12 +294,32 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Username already taken!");
             return;
         }
-        Client client = new Client(username, password, true);
-        client.setFullName(name);
-        this.ecosystem.getUserAccountDirectory().addUserAccount(client.getUserAccount());
-        this.ecosystem.getClientDirectory().addClient(client);
-        JOptionPane.showMessageDialog(null, "Client added successfully");
-        this.populateTable();
+        if(btnRecyclerRadio.isSelected()){
+            Client client = new Client(username, password, true);
+            client.setFullName(name);
+            client.setClienttype(Client.clientType.RECYCLER);
+            if(checkboxVerified.isSelected()){
+                client.setVerified(true);
+            }
+            this.ecosystem.getUserAccountDirectory().addUserAccount(client.getUserAccount());
+            this.ecosystem.getClientDirectory().addClient(client);
+            JOptionPane.showMessageDialog(null, "Client added successfully");
+            this.populateTable();
+        }
+        else if(btnRetailerRadio.isSelected()){
+            Client client = new Client(username, password, true);
+            client.setFullName(name);
+            client.setClienttype(Client.clientType.RETAILER);
+            if(checkboxVerified.isSelected()){
+                client.setVerified(true);
+            }
+            this.ecosystem.getUserAccountDirectory().addUserAccount(client.getUserAccount());
+            this.ecosystem.getClientDirectory().addClient(client);
+            JOptionPane.showMessageDialog(null, "Client added successfully");
+            this.populateTable();
+        }
+        
+        
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -328,9 +371,11 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnModify;
+    private javax.swing.JRadioButton btnRecyclerRadio;
+    private javax.swing.JRadioButton btnRetailerRadio;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JCheckBox checkboxVerified;
     private javax.swing.JTable clientsJTable;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -5,6 +5,8 @@
  */
 package UI.ManagementDivision;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -48,7 +50,7 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         txtretailername = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtweight = new javax.swing.JTextField();
+        txtOrderTime = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtstatus = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -96,9 +98,9 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("Weight:");
+        jLabel3.setText("Order TIme:");
 
-        txtweight.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        txtOrderTime.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
@@ -156,7 +158,7 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtweight, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtOrderTime, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtretailername, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 47, Short.MAX_VALUE))
@@ -182,7 +184,7 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(44, 44, 44)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtweight, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtOrderTime, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(38, 38, 38)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -219,12 +221,12 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
         
         Integer orderid = (Integer) model.getValueAt(selectedRow, 0);
         String retailername =  (String) model.getValueAt(selectedRow,1);
-        Float weight = (Float) model.getValueAt(selectedRow, 2);
+        LocalDateTime orderTime = (LocalDateTime) model.getValueAt(selectedRow, 2);
         String orderstatus = (String) model.getValueAt(selectedRow,4);
         
         txtid.setText(String.valueOf(orderid));
         txtretailername.setText(retailername);
-        txtweight.setText(String.valueOf(weight));
+        txtOrderTime.setText(String.valueOf(orderTime));
         txtstatus.setText(orderstatus);
         
     }//GEN-LAST:event_btnviewActionPerformed
@@ -243,9 +245,9 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner spinner;
     private javax.swing.JTable tblorder;
+    private javax.swing.JTextField txtOrderTime;
     private javax.swing.JTextField txtid;
     private javax.swing.JTextField txtretailername;
     private javax.swing.JTextField txtstatus;
-    private javax.swing.JTextField txtweight;
     // End of variables declaration//GEN-END:variables
 }
