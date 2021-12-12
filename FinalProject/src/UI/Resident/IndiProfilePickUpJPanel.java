@@ -414,12 +414,13 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
         MainJPanel main = new MainJPanel(JPanelIndPickUpMain);
         CardLayout layout = (CardLayout) JPanelIndPickUpMain.getLayout();
         JPanelIndPickUpMain.add("Home", main);
 
         layout.next(JPanelIndPickUpMain);
-        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+        
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

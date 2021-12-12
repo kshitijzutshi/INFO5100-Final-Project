@@ -323,12 +323,13 @@ public class IndiProfileLoginJPanel extends javax.swing.JPanel {
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
+       DB4OUtil.getInstance().storeSystem(this.ecosystem);
         MainJPanel main = new MainJPanel(JPanelIndLogin);
         CardLayout layout = (CardLayout) JPanelIndLogin.getLayout();
         JPanelIndLogin.add("Home", main);
 
         layout.next(JPanelIndLogin);
-        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+        
         
     }//GEN-LAST:event_logoutButtonActionPerformed
 
