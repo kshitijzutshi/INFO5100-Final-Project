@@ -84,7 +84,7 @@ public class ManageRecycledItemsJPanel extends javax.swing.JPanel {
         });
         tblPickUpBooking.setGridColor(new java.awt.Color(255, 255, 255));
         tblPickUpBooking.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        tblPickUpBooking.setSelectionBackground(new java.awt.Color(204, 255, 204));
+        tblPickUpBooking.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tblPickUpBooking);
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N

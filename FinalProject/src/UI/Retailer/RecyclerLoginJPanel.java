@@ -122,6 +122,7 @@ public class RecyclerLoginJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tblrecycle.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setViewportView(tblrecycle);
 
         btnbuy.setBackground(new java.awt.Color(203, 247, 194));

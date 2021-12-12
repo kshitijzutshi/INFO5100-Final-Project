@@ -5,6 +5,7 @@
  */
 package UI.QCInspector;
 
+import java.time.format.DateTimeFormatter;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import models.EcoSystem;
@@ -80,6 +81,7 @@ public class QCPastItemsHistoryJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        itemsJTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(itemsJTable);
 
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
@@ -144,6 +146,7 @@ public class QCPastItemsHistoryJPanel extends javax.swing.JPanel {
     
     public void populateTable() {
         DefaultTableModel model = (DefaultTableModel) itemsJTable.getModel();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         model.setRowCount(0);
         int count = 0;
         for (QCInspection inspection: this.ecosystem.getWorkRequestDirectory().getInspectionsByInspector(this.qcInspector)) {
@@ -152,8 +155,8 @@ public class QCPastItemsHistoryJPanel extends javax.swing.JPanel {
                 row[0] = inspection.getItem().getId();
                 row[1] = inspection.getItem().getCategory();
                 row[2] = inspection.getItem().getSubCategory();
-                row[3] = inspection.getRequestDate();
-                row[4] = inspection.getResolveDate();
+                row[3] = inspection.getRequestDate().format(formatter);
+                row[4] = inspection.getResolveDate().format(formatter);
                 model.addRow(row);
                 count++;
             }

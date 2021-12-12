@@ -27,6 +27,7 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
         this.ManageQCSysAdminPanel = ManageQCSysAdminJPanel;
         initComponents();
         this.ecosystem = ecosystem;
+        this.populateTable();
     }
 
     /**
@@ -118,6 +119,7 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
                 "Name", "Username", "Password"
             }
         ));
+        qcInspectorsJTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(qcInspectorsJTable);
 
         btnDelete.setBackground(new java.awt.Color(205, 223, 245));

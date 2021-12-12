@@ -61,10 +61,10 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="txtcondition" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtappliance" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtewaste" max="32767" attributes="0"/>
-                              <Component id="txtweight" max="32767" attributes="0"/>
+                              <Component id="txtassignedtime" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtmake" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtitemid" max="32767" attributes="0"/>
+                              <Component id="txtstatus" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       </Group>
@@ -88,21 +88,21 @@
                           <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel2" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="txtewaste" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="txtitemid" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel3" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                              <Component id="txtappliance" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="txtmake" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel4" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="txtcondition" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="txtassignedtime" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtweight" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="txtstatus" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                               <Component id="jLabel5" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -175,6 +175,9 @@
                     </Column>
                   </TableColumnModel>
                 </Property>
+                <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
@@ -188,7 +191,7 @@
               <Font name="Lucida Sans" size="24" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Pending Inscpection Items"/>
+            <Property name="text" type="java.lang.String" value="Pending Inspection Items"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
@@ -199,7 +202,7 @@
             <Property name="text" type="java.lang.String" value="Item ID"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtewaste">
+        <Component class="javax.swing.JTextField" name="txtitemid">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
@@ -218,7 +221,7 @@
             <Property name="text" type="java.lang.String" value="Make"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtappliance">
+        <Component class="javax.swing.JTextField" name="txtmake">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
@@ -229,7 +232,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtapplianceActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtmakeActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
@@ -240,7 +243,7 @@
             <Property name="text" type="java.lang.String" value="Assigned Time"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtcondition">
+        <Component class="javax.swing.JTextField" name="txtassignedtime">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
@@ -251,7 +254,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtconditionActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtassignedtimeActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
@@ -262,7 +265,7 @@
             <Property name="text" type="java.lang.String" value="Status"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtweight">
+        <Component class="javax.swing.JTextField" name="txtstatus">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
@@ -273,7 +276,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtweightActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtstatusActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnassignrecycle">
