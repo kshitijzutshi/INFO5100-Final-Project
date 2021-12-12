@@ -7,8 +7,10 @@ package UI.Resident;
 
 import UI.CategoryDropDownUtil;
 import UI.MainJPanel;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.awt.CardLayout;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -308,6 +310,15 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         lblpickupDate.setForeground(java.awt.Color.darkGray);
         lblpickupDate.setText("Pick Up Date");
 
+        PickUpDateChooser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                PickUpDateChooserKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PickUpDateChooserKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout JPanelIndPickUpMainLayout = new javax.swing.GroupLayout(JPanelIndPickUpMain);
         JPanelIndPickUpMain.setLayout(JPanelIndPickUpMainLayout);
         JPanelIndPickUpMainLayout.setHorizontalGroup(
@@ -573,6 +584,19 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
     private void dropdownConditionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropdownConditionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dropdownConditionActionPerformed
+
+    private void PickUpDateChooserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PickUpDateChooserKeyPressed
+        // TODO add your handling code here:
+        
+        
+      
+    }//GEN-LAST:event_PickUpDateChooserKeyPressed
+
+    private void PickUpDateChooserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PickUpDateChooserKeyTyped
+        // TODO add your handling code here:
+        
+        PickUpDateChooser.getJCalendar().setMinSelectableDate(new Date());
+    }//GEN-LAST:event_PickUpDateChooserKeyTyped
     
     
     private void populateTable() {
