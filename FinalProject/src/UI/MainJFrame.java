@@ -12,6 +12,7 @@ import UI.QCInspector.QCMainLoginJPanel;
 import UI.Resident.IndiProfileLoginJPanel;
 import UI.Retailer.RecyclerLoginJPanel;
 import UI.Retailer.RetailerProfileLoginJPanel;
+import UI.Retailer.RetailerLoginMainJPanel;
 import UI.Technician.TechnicianLoginJPanel;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -388,7 +389,7 @@ public class MainJFrame extends javax.swing.JFrame {
             Client client = this.ecosystem.getClientDirectory().getClientByUserAccount(userAccount);
             
             if(client.getClienttype() == Client.clientType.RETAILER){
-                RetailerProfileLoginJPanel systemAdminRetailClient = new RetailerProfileLoginJPanel(mainJpanel, ecosystem, client);
+                RetailerLoginMainJPanel systemAdminRetailClient = new RetailerLoginMainJPanel(mainJpanel, ecosystem, client);
                 CardLayout layout = (CardLayout) mainJpanel.getLayout();
                 mainJpanel.add("SysadminRetailClient", systemAdminRetailClient);
                 layout.next(mainJpanel);
