@@ -260,6 +260,9 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
         this.ecosystem.getWorkRequestDirectory().increaserefurbAssignmentMapCount(technician);
         JOptionPane.showMessageDialog(null, "Technician employee added successfully");
         this.populateTable();
+        nameTextField.setText("");
+        usernameTextField.setText("");
+        passwordTextField.setText("");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

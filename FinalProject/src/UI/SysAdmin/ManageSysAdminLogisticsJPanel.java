@@ -260,6 +260,10 @@ public class ManageSysAdminLogisticsJPanel extends javax.swing.JPanel {
         this.ecosystem.getEmployeeDirectory().addLogisticsMen(logMan);
         JOptionPane.showMessageDialog(null, "Logistics employee added successfully");
         this.populateTable();
+        
+        nameTextField.setText("");
+        usernameTextField.setText("");
+        passwordTextField.setText("");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

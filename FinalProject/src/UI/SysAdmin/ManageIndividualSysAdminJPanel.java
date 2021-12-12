@@ -268,6 +268,10 @@ public class ManageIndividualSysAdminJPanel extends javax.swing.JPanel {
         this.ecosystem.getCustomerDirectory().addResidents(resident);
         JOptionPane.showMessageDialog(null, "User added successfully");
         this.populateTable();
+        
+        nameTextField.setText("");
+        usernameTextFied.setText("");
+        passwordTextField.setText("");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

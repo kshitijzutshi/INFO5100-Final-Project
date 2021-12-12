@@ -256,8 +256,12 @@ public class ManageMgmtDivSysAdminJPanel extends javax.swing.JPanel {
         operationsManager.setFullName(name);
         this.ecosystem.getUserAccountDirectory().addUserAccount(operationsManager.getUserAccount());
         this.ecosystem.getEmployeeDirectory().addInventoryManager(operationsManager);
-        JOptionPane.showMessageDialog(null, "User added successfully");
+        JOptionPane.showMessageDialog(null, "Manager added successfully");
         this.populateTable();
+        
+        nameTextField.setText("");
+        usernameTextFied.setText("");
+        passwordTextField.setText("");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
