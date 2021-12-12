@@ -5,6 +5,7 @@
  */
 package UI.Technician;
 
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -91,6 +92,7 @@ public class TechnicanReviewItemsJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tbltechreview.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tbltechreview);
 
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
@@ -200,7 +202,7 @@ public class TechnicanReviewItemsJPanel extends javax.swing.JPanel {
                                     .addComponent(txtitemid)
                                     .addComponent(txtappliancetype)
                                     .addComponent(txtmake))))))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         TechnicianReviewJPanelLayout.setVerticalGroup(
             TechnicianReviewJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,6 +270,12 @@ public class TechnicanReviewItemsJPanel extends javax.swing.JPanel {
         
         this.selectedAssignment = null;
         this.populateTable();
+        
+        txtitemid.setText("");
+        txtmake.setText("");
+        txtmodel.setText("");
+        txtappliancetype.setText("");
+        txtewastecat.setText("");
 
     }//GEN-LAST:event_markRefurbishedBtnActionPerformed
 
@@ -283,6 +291,13 @@ public class TechnicanReviewItemsJPanel extends javax.swing.JPanel {
         
         this.selectedAssignment = null;
         this.populateTable();
+        
+         txtitemid.setText("");
+        txtmake.setText("");
+        txtmodel.setText("");
+        txtappliancetype.setText("");
+        txtewastecat.setText("");
+
     }//GEN-LAST:event_markForRecycleBtnActionPerformed
     
     private boolean hasSelectedItem() {
@@ -298,6 +313,7 @@ public class TechnicanReviewItemsJPanel extends javax.swing.JPanel {
     
     public void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tbltechreview.getModel();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         model.setRowCount(0);
         for (RefurbAssignment assignment: this.ecosystem.getWorkRequestDirectory().getRefurbAssignmentsByTechnician(this.technician)) {
             if (assignment.getStatus() == WorkRequest.RequestStatus.ASSIGNED){
@@ -307,7 +323,7 @@ public class TechnicanReviewItemsJPanel extends javax.swing.JPanel {
                 row[2] = assignment.getItem().getSubCategory();
                 row[3] = assignment.getItem().getMake();
                 row[4] = assignment.getItem().getModel();
-                row[5] = assignment.getRequestDate();
+                row[5] = assignment.getRequestDate().format(formatter);
                 model.addRow(row);
             }
         }

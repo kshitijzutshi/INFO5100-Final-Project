@@ -17,22 +17,18 @@ public class ClientDropoff extends WorkRequest{
     
     private ClientOrder clientOrder;
     private LogisticsMan logisticsMan;
+    
+    public ClientDropoff(ClientOrder clientOrder, LogisticsMan logisticsMan) {
+        this.clientOrder = clientOrder;
+        this.logisticsMan = logisticsMan;
+    }
 
     public ClientOrder getClientOrder() {
         return clientOrder;
-    }
-
-    public void setClientOrder(ClientOrder client) {
-        this.clientOrder = client;
-    }    
+    } 
 
     public LogisticsMan getLogisticsMan() {
         return logisticsMan;
     }
-
-    public void setLogisticsMan(LogisticsMan assignedTo) {
-        this.logisticsMan = assignedTo;
-    }
-    
     
 }

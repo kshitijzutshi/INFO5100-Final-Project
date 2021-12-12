@@ -38,4 +38,14 @@ public class ClientOrderDirectory {
         }
         return orders;
     }
+    
+    public ArrayList<ClientOrder> getActiveOrders() {
+        ArrayList<ClientOrder> orders = new ArrayList<>();
+        for (ClientOrder clientOrder: this.clientOrders) {
+            if (!clientOrder.isAssigned()) {
+                orders.add(clientOrder);
+            }
+        }
+        return orders;
+    }
 }

@@ -113,5 +113,13 @@ public class EmployeeDirectory {
         return null;
     }
     
+    public ArrayList<LogisticsMan> getActiveLogisticsMen() {
+        ArrayList<LogisticsMan> logMen = new ArrayList<>();
+        for (LogisticsMan logMan: this.logisticsMen) {
+            if (logMan.isAvailable()) logMen.add(logMan);
+        }
+        return logMen;
+    }
+    
     
 }

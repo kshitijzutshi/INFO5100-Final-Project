@@ -125,7 +125,7 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
         });
         retailtableData.setGridColor(new java.awt.Color(255, 255, 255));
         retailtableData.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        retailtableData.setSelectionBackground(new java.awt.Color(167, 190, 211));
+        retailtableData.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(retailtableData);
 
         jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 0, new java.awt.Color(51, 51, 51)));

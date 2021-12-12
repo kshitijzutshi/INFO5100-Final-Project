@@ -5,6 +5,7 @@
  */
 package UI.Logistics;
 
+import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -101,7 +102,7 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
         jLabel1.setText("Scheduled Drop-off Orders");
 
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        jLabel2.setText("User Details");
+        jLabel2.setText("Client details");
 
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel3.setText("Name:");
@@ -132,7 +133,7 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
         jLabel7.setText("jLabel7");
 
         jLabel16.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        jLabel16.setText("Item Details");
+        jLabel16.setText("Order details");
 
         btnpickup.setBackground(new java.awt.Color(205, 223, 245));
         btnpickup.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
@@ -165,6 +166,7 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tblscheddropoffs.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tblscheddropoffs);
 
         javax.swing.GroupLayout LogisticsDropOffProfileJPanelLayout = new javax.swing.GroupLayout(LogisticsDropOffProfileJPanel);
@@ -255,6 +257,9 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
         for(Item itemsStatusChange : this.activeCLienDropOff.getClientOrder().getOrderedItems()){
             itemsStatusChange.setStatus(Item.ItemStatus.SOLD);
         }
+        activeCLienDropOff.setResolveDate(LocalDateTime.now());
+        activeCLienDropOff.getLogisticsMan().setAvailable(true);
+        JOptionPane.showConfirmDialog(null, "Drop Off Order delivered!");
         
     }//GEN-LAST:event_btnMarkedDeliveredActionPerformed
 

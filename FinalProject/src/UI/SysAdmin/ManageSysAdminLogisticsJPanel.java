@@ -77,6 +77,7 @@ public class ManageSysAdminLogisticsJPanel extends javax.swing.JPanel {
             }
         ));
         logisticsJTable.setGridColor(new java.awt.Color(255, 255, 255));
+        logisticsJTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(logisticsJTable);
 
         nameTextField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));

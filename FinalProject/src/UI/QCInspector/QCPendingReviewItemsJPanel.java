@@ -6,6 +6,7 @@
 package UI.QCInspector;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -36,6 +37,7 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
         this.PendingReviewItemsJPanel = pendingitems;
         this.ecosystem = ecosystem;
         this.qcInspector = qcInspector;
+       // this.selectedInspection = this.ecosystem.getWorkRequestDirectory().getQcInspections();
         this.populateTable();
     }
 
@@ -53,13 +55,13 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
         pendingitemsJTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtewaste = new javax.swing.JTextField();
+        txtitemid = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtappliance = new javax.swing.JTextField();
+        txtmake = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtcondition = new javax.swing.JTextField();
+        txtassignedtime = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtweight = new javax.swing.JTextField();
+        txtstatus = new javax.swing.JTextField();
         btnassignrecycle = new javax.swing.JButton();
         btnassignrefurbish = new javax.swing.JButton();
         btnview = new javax.swing.JButton();
@@ -88,44 +90,45 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        pendingitemsJTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(pendingitemsJTable);
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Pending Inscpection Items");
+        jLabel1.setText("Pending Inspection Items");
 
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel2.setText("Item ID");
 
-        txtewaste.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        txtitemid.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel3.setText("Make");
 
-        txtappliance.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
-        txtappliance.addActionListener(new java.awt.event.ActionListener() {
+        txtmake.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        txtmake.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtapplianceActionPerformed(evt);
+                txtmakeActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel4.setText("Assigned Time");
 
-        txtcondition.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
-        txtcondition.addActionListener(new java.awt.event.ActionListener() {
+        txtassignedtime.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        txtassignedtime.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtconditionActionPerformed(evt);
+                txtassignedtimeActionPerformed(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel5.setText("Status");
 
-        txtweight.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
-        txtweight.addActionListener(new java.awt.event.ActionListener() {
+        txtstatus.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        txtstatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtweightActionPerformed(evt);
+                txtstatusActionPerformed(evt);
             }
         });
 
@@ -189,10 +192,10 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PendingReviewItemsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtcondition, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtappliance, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtewaste)
-                            .addComponent(txtweight))
+                            .addComponent(txtassignedtime, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtmake, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtitemid)
+                            .addComponent(txtstatus))
                         .addGap(46, 46, 46))))
         );
         PendingReviewItemsJPanelLayout.setVerticalGroup(
@@ -210,18 +213,18 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
                         .addGap(82, 82, 82)
                         .addGroup(PendingReviewItemsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtewaste, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtitemid, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
                         .addGroup(PendingReviewItemsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtappliance, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtmake, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(31, 31, 31)
                         .addGroup(PendingReviewItemsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtcondition, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtassignedtime, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(32, 32, 32)
                         .addGroup(PendingReviewItemsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtweight, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(31, 31, 31)
                 .addGroup(PendingReviewItemsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -238,23 +241,23 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         if (!this.hasSelectedItem()) return;
-        txtewaste.setText(this.selectedInspection.getItem().getId());
-        txtappliance.setText(this.selectedInspection.getItem().getMake());
-        txtcondition.setText(this.selectedInspection.getRequestDate().toString());
-        txtweight.setText(String.valueOf(this.selectedInspection.getStatus().name()));
+        txtitemid.setText(this.selectedInspection.getItem().getId());
+        txtmake.setText(this.selectedInspection.getItem().getMake());
+        txtassignedtime.setText(this.selectedInspection.getRequestDate().toString());
+        txtstatus.setText(String.valueOf(this.selectedInspection.getStatus().name()));
     }//GEN-LAST:event_btnviewActionPerformed
 
-    private void txtconditionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtconditionActionPerformed
+    private void txtassignedtimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtassignedtimeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtconditionActionPerformed
+    }//GEN-LAST:event_txtassignedtimeActionPerformed
 
-    private void txtweightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtweightActionPerformed
+    private void txtstatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtstatusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtweightActionPerformed
+    }//GEN-LAST:event_txtstatusActionPerformed
 
-    private void txtapplianceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtapplianceActionPerformed
+    private void txtmakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmakeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtapplianceActionPerformed
+    }//GEN-LAST:event_txtmakeActionPerformed
 
     private void btnassignrecycleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnassignrecycleActionPerformed
         // TODO add your handling code here:
@@ -269,10 +272,17 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
         
         JOptionPane.showMessageDialog(this, "Inspection done successfully");
         this.populateTable();
+        
+        txtitemid.setText("");
+        txtmake.setText("");
+        txtassignedtime.setText("");
+        txtstatus.setText("");
     }//GEN-LAST:event_btnassignrecycleActionPerformed
 
     private void btnassignrefurbishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnassignrefurbishActionPerformed
         // TODO add your handling code here:
+        
+        
         if (!this.hasSelectedItem()) return;
         this.selectedInspection.setStatus(WorkRequest.RequestStatus.COMPLETED);
         this.selectedInspection.getItem().setStatus(Item.ItemStatus.IN_REPAIR);
@@ -289,6 +299,11 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
         
         JOptionPane.showMessageDialog(this, "Inspection done successfully");
         this.populateTable();
+        
+        txtitemid.setText("");
+        txtmake.setText("");
+        txtassignedtime.setText("");
+        txtstatus.setText("");
     }//GEN-LAST:event_btnassignrefurbishActionPerformed
     
     private boolean hasSelectedItem() {
@@ -305,6 +320,7 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
     public void populateTable() {
         DefaultTableModel model = (DefaultTableModel) pendingitemsJTable.getModel();
         model.setRowCount(0);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         for (QCInspection inspection: this.ecosystem.getWorkRequestDirectory().getInspectionsByInspector(this.qcInspector)) {
             if (inspection.getStatus() == WorkRequest.RequestStatus.ASSIGNED){
                 Object[] row = new Object[7];
@@ -313,7 +329,7 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
                 row[2] = inspection.getItem().getSubCategory();
                 row[3] = inspection.getItem().getMake();
                 row[4] = inspection.getItem().getModel();
-                row[5] = inspection.getRequestDate();
+                row[5] = inspection.getRequestDate().format(formatter);
                 row[6] = inspection.getStatus().name();
                 model.addRow(row);
             }
@@ -333,9 +349,9 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable pendingitemsJTable;
-    private javax.swing.JTextField txtappliance;
-    private javax.swing.JTextField txtcondition;
-    private javax.swing.JTextField txtewaste;
-    private javax.swing.JTextField txtweight;
+    private javax.swing.JTextField txtassignedtime;
+    private javax.swing.JTextField txtitemid;
+    private javax.swing.JTextField txtmake;
+    private javax.swing.JTextField txtstatus;
     // End of variables declaration//GEN-END:variables
 }
