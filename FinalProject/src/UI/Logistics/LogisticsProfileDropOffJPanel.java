@@ -166,6 +166,7 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tblscheddropoffs.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tblscheddropoffs);
 
         javax.swing.GroupLayout LogisticsDropOffProfileJPanelLayout = new javax.swing.GroupLayout(LogisticsDropOffProfileJPanel);
