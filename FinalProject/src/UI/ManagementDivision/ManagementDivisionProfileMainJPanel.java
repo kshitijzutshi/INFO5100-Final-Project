@@ -29,6 +29,7 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
         this.ManagmentDivisionLoginMainJPanel = ManagementDivisionJPanel;
         this.ecosystem = ecosystem;
         this.manager = manager;
+        managernameLabel.setText(manager.getFullName());
     }
 
     /**
@@ -64,7 +65,7 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
         jLabel16 = new javax.swing.JLabel();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        managernameLabel = new javax.swing.JLabel();
         ManagmentDivDynamicJPanel = new javax.swing.JPanel();
         ManagmentDivDynamicMainJPanel = new javax.swing.JPanel();
         kGradientPanel4 = new keeptoo.KGradientPanel();
@@ -349,7 +350,7 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
                 .addComponent(btnManageRewards, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(864, Short.MAX_VALUE))
+                .addContainerGap(810, Short.MAX_VALUE))
         );
 
         kGradientPanel2.setkEndColor(new java.awt.Color(198, 226, 233));
@@ -362,9 +363,8 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
         jLabel13.setForeground(new java.awt.Color(51, 51, 51));
         jLabel13.setText("Welcome to ReQube,");
 
-        jLabel14.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel14.setText("Emp_MGMT_DIV");
+        managernameLabel.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
+        managernameLabel.setForeground(new java.awt.Color(51, 51, 51));
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
@@ -374,7 +374,7 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
                 .addGap(258, 258, 258)
                 .addComponent(jLabel13)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(managernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(
@@ -383,7 +383,7 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(managernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
@@ -547,7 +547,7 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
                         .addComponent(kGradientPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(103, 103, 103)
                         .addComponent(kGradientPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(288, Short.MAX_VALUE))
+                .addContainerGap(289, Short.MAX_VALUE))
         );
         ManagmentDivDynamicMainJPanelLayout.setVerticalGroup(
             ManagmentDivDynamicMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -574,7 +574,7 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(ManagmentDivisionLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1111, Short.MAX_VALUE)
+                    .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1112, Short.MAX_VALUE)
                     .addComponent(ManagmentDivDynamicJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         ManagmentDivisionLoginMainJPanelLayout.setVerticalGroup(
@@ -643,12 +643,13 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
     private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
         // TODO add your handling code here:
         
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
          MainJPanel main = new MainJPanel(ManagmentDivisionLoginMainJPanel);
         CardLayout layout = (CardLayout) ManagmentDivisionLoginMainJPanel.getLayout();
         ManagmentDivisionLoginMainJPanel.add("Home", main);
 
         layout.next(ManagmentDivisionLoginMainJPanel);
-        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+        
     }//GEN-LAST:event_btnLogoutMouseClicked
 
 
@@ -667,7 +668,6 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -692,5 +692,6 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
     private keeptoo.KGradientPanel kGradientPanel4;
     private keeptoo.KGradientPanel kGradientPanel5;
     private keeptoo.KGradientPanel kGradientPanel6;
+    private javax.swing.JLabel managernameLabel;
     // End of variables declaration//GEN-END:variables
 }

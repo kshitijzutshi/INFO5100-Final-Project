@@ -504,27 +504,27 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
         kGradientPanel5Layout.setHorizontalGroup(
             kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel5Layout.createSequentialGroup()
-                .addGroup(kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(kGradientPanel5Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel23))
-                    .addGroup(kGradientPanel5Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(142, Short.MAX_VALUE)
+                .addComponent(jLabel23)
                 .addGap(19, 19, 19))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel5Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
         kGradientPanel5Layout.setVerticalGroup(
             kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel5Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
                 .addGroup(kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -534,27 +534,27 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
         LogisticsLoginDynamicMainJPanelLayout.setHorizontalGroup(
             LogisticsLoginDynamicMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogisticsLoginDynamicMainJPanelLayout.createSequentialGroup()
-                .addGap(192, 192, 192)
                 .addGroup(LogisticsLoginDynamicMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(LogisticsLoginDynamicMainJPanelLayout.createSequentialGroup()
+                        .addGap(96, 96, 96)
                         .addComponent(kGradientPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(135, 135, 135)
+                        .addGap(148, 148, 148)
                         .addComponent(kGradientPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(LogisticsLoginDynamicMainJPanelLayout.createSequentialGroup()
-                        .addGap(214, 214, 214)
+                        .addGap(330, 330, 330)
                         .addComponent(kGradientPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(416, Short.MAX_VALUE))
+                .addContainerGap(499, Short.MAX_VALUE))
         );
         LogisticsLoginDynamicMainJPanelLayout.setVerticalGroup(
             LogisticsLoginDynamicMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogisticsLoginDynamicMainJPanelLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
+                .addGap(60, 60, 60)
                 .addComponent(kGradientPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addGroup(LogisticsLoginDynamicMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(kGradientPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(74, 74, 74)
+                .addGroup(LogisticsLoginDynamicMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kGradientPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(kGradientPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(847, Short.MAX_VALUE))
+                .addContainerGap(838, Short.MAX_VALUE))
         );
 
         LogisticsLoginDynamicJPanel.add(LogisticsLoginDynamicMainJPanel, "card2");
@@ -634,12 +634,14 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
 
     private void btnLogisticsLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogisticsLogoutMouseClicked
         // TODO add your handling code here:
+        
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
         MainJPanel main = new MainJPanel(LogisticsLoginMainJPanel);
         CardLayout layout = (CardLayout) LogisticsLoginMainJPanel.getLayout();
         LogisticsLoginMainJPanel.add("Home", main);
 
         layout.next(LogisticsLoginMainJPanel);
-        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+        
         
         
     }//GEN-LAST:event_btnLogisticsLogoutMouseClicked

@@ -8,6 +8,7 @@ package UI.SysAdmin;
 import UI.MainJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import models.DB4OUtil.DB4OUtil;
 import models.EcoSystem;
 
 /**
@@ -56,9 +57,6 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
         btnManageIndi = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        btnmanagecommercial = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         btnmanagemanagement = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -262,40 +260,6 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        btnmanagecommercial.setBackground(new java.awt.Color(167, 190, 211));
-        btnmanagecommercial.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnmanagecommercialMouseClicked(evt);
-            }
-        });
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/building_24px.png"))); // NOI18N
-
-        jLabel3.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("Manage Commercial");
-
-        javax.swing.GroupLayout btnmanagecommercialLayout = new javax.swing.GroupLayout(btnmanagecommercial);
-        btnmanagecommercial.setLayout(btnmanagecommercialLayout);
-        btnmanagecommercialLayout.setHorizontalGroup(
-            btnmanagecommercialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnmanagecommercialLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        btnmanagecommercialLayout.setVerticalGroup(
-            btnmanagecommercialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnmanagecommercialLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(btnmanagecommercialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
         btnmanagemanagement.setBackground(new java.awt.Color(167, 190, 211));
         btnmanagemanagement.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -379,7 +343,6 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(btnManageQCIns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnManageIndi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnmanagecommercial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnmanagemanagement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnmanageretailers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnmanagetechnician, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -403,16 +366,14 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnManageIndi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnmanagecommercial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(btnmanagemanagement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnmanageretailers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnmanagetechnician, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnLogisticsLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(705, Short.MAX_VALUE))
+                .addContainerGap(766, Short.MAX_VALUE))
             .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(kGradientPanel1Layout.createSequentialGroup()
                     .addGap(264, 264, 264)
@@ -431,7 +392,7 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
 
         jLabel14.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel14.setText("Emp_Sysadmin_DIV");
+        jLabel14.setText("Sysadmin");
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
@@ -520,7 +481,7 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
     private void btnLogisticsLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogisticsLogoutMouseClicked
         // TODO add your handling code here:
 
-        //  DB4OUtil.getInstance().storeSystem(this.ecosystem);
+         DB4OUtil.getInstance().storeSystem(this.ecosystem);
         MainJPanel main = new MainJPanel(SysadminMainLoginJPanel);
         CardLayout layout = (CardLayout) SysadminMainLoginJPanel.getLayout();
         SysadminMainLoginJPanel.add("Home", main);
@@ -550,16 +511,6 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
          
     }//GEN-LAST:event_btnManageIndiMouseClicked
 
-    private void btnmanagecommercialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmanagecommercialMouseClicked
-        // TODO add your handling code here:
-        ManageCommercialSysAdminJPanel manageindi = new ManageCommercialSysAdminJPanel(sysadmindynamicjpanel, ecosystem);
-        CardLayout layout = (CardLayout) sysadmindynamicjpanel.getLayout();
-        sysadmindynamicjpanel.add("Logistics",manageindi);
-        
-        layout.next(sysadmindynamicjpanel);
-        
-    }//GEN-LAST:event_btnmanagecommercialMouseClicked
-
     private void btnmanagemanagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmanagemanagementMouseClicked
         // TODO add your handling code here:
         
@@ -586,7 +537,6 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel btnLogisticsLogout;
     private javax.swing.JPanel btnManageIndi;
     private javax.swing.JPanel btnManageQCIns;
-    private javax.swing.JPanel btnmanagecommercial;
     private javax.swing.JPanel btnmanagemanagement;
     private javax.swing.JPanel btnmanageretailers;
     private javax.swing.JPanel btnmanagetechnician;
@@ -600,11 +550,9 @@ public class SysadminLoginMJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
