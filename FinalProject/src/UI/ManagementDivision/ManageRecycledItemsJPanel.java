@@ -5,10 +5,13 @@
  */
 package UI.ManagementDivision;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import models.EcoSystem;
+import models.Inventory.Item;
+import models.Recycle.RecycleBatch;
 import models.User.Employee.OperationsManager;
 
 /**
@@ -23,6 +26,8 @@ public class ManageRecycledItemsJPanel extends javax.swing.JPanel {
     JPanel jpanel8;
     EcoSystem ecosystem;
     OperationsManager manager;
+    ArrayList<Item> items;
+    float totalWeight = 0;
     public ManageRecycledItemsJPanel(JPanel ManageRecyItemsJPanel, EcoSystem ecosystem, OperationsManager manager) {
         this.ManageRecycMainJPanel = ManageRecyItemsJPanel;
         initComponents();
@@ -44,18 +49,13 @@ public class ManageRecycledItemsJPanel extends javax.swing.JPanel {
         tblPickUpBooking = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        txtappliancetype = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         txtweight = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtewastecat = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtprice = new javax.swing.JTextField();
-        btnassign = new javax.swing.JButton();
+        btnSetPrice = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        btnviewdetails = new javax.swing.JButton();
+        categoryDropDown = new javax.swing.JComboBox<>();
 
         setLayout(new java.awt.CardLayout());
 
@@ -71,7 +71,7 @@ public class ManageRecycledItemsJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "E-Waste Cat.", "Appliance type", "Weight(lbs.)", "Item Status"
+                "ItemID", "Appliance type", "Weight(lbs.)", "Recieved on"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -94,19 +94,7 @@ public class ManageRecycledItemsJPanel extends javax.swing.JPanel {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/recycle_127px.png"))); // NOI18N
         jLabel2.setText("jLabel2");
 
-        jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel3.setText("E-waste Category:");
-
-        txtappliancetype.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
-        txtappliancetype.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtappliancetypeActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel4.setText("Appliance Type:");
-
+        txtweight.setEditable(false);
         txtweight.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
         txtweight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,8 +104,6 @@ public class ManageRecycledItemsJPanel extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel5.setText("Weight:");
-
-        txtewastecat.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel7.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel7.setText("Price:");
@@ -129,24 +115,22 @@ public class ManageRecycledItemsJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnassign.setBackground(new java.awt.Color(205, 223, 245));
-        btnassign.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        btnassign.setText("Set Price");
+        btnSetPrice.setBackground(new java.awt.Color(205, 223, 245));
+        btnSetPrice.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        btnSetPrice.setText("Set Price");
+        btnSetPrice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSetPriceActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel8.setText("Select Applicance Category:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Home Appliances", "Electronic Utilities", "Communication and IT Devices", "Office and Medical Equipment", "Home Entertainment Devices" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        categoryDropDown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Home Appliances", "Electronic Utilities", "Communication and IT Devices", "Office and Medical Equipment", "Home Entertainment Devices" }));
+        categoryDropDown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
-        btnviewdetails.setText("View Details");
-        btnviewdetails.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnviewdetailsActionPerformed(evt);
+                categoryDropDownActionPerformed(evt);
             }
         });
 
@@ -165,30 +149,23 @@ public class ManageRecycledItemsJPanel extends javax.swing.JPanel {
                     .addGroup(ManageRecycMainJPanelLayout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(52, 52, 52)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(categoryDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ManageRecycMainJPanelLayout.createSequentialGroup()
-                        .addGroup(ManageRecycMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnviewdetails, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(ManageRecycMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(ManageRecycMainJPanelLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
                                 .addGroup(ManageRecycMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(39, 39, 39)
                                 .addGroup(ManageRecycMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(ManageRecycMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtappliancetype)
-                                        .addComponent(txtweight, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-                                        .addComponent(txtewastecat, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE))
+                                    .addComponent(txtweight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtprice, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ManageRecycMainJPanelLayout.createSequentialGroup()
-                                .addComponent(btnassign, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(80, 80, 80)))))
-                .addContainerGap(64, Short.MAX_VALUE))
+                            .addGroup(ManageRecycMainJPanelLayout.createSequentialGroup()
+                                .addGap(144, 144, 144)
+                                .addComponent(btnSetPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         ManageRecycMainJPanelLayout.setVerticalGroup(
             ManageRecycMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,101 +175,89 @@ public class ManageRecycledItemsJPanel extends javax.swing.JPanel {
                 .addGroup(ManageRecycMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ManageRecycMainJPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ManageRecycMainJPanelLayout.createSequentialGroup()
                         .addGap(114, 114, 114)
                         .addGroup(ManageRecycMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
+                            .addComponent(categoryDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(43, 43, 43)
                         .addGroup(ManageRecycMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(ManageRecycMainJPanelLayout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnviewdetails, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(173, 173, 173))
-                            .addGroup(ManageRecycMainJPanelLayout.createSequentialGroup()
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ManageRecycMainJPanelLayout.createSequentialGroup()
+                                .addGap(56, 56, 56)
                                 .addGroup(ManageRecycMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtewastecat, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(ManageRecycMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtappliancetype, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(ManageRecycMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtweight, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(33, 33, 33)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtweight, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(34, 34, 34)
                                 .addGroup(ManageRecycMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtprice, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(83, 83, 83)
-                                .addComponent(btnassign, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(202, 202, 202))))))
+                                .addGap(48, 48, 48)
+                                .addComponent(btnSetPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(224, Short.MAX_VALUE))
         );
 
         add(ManageRecycMainJPanel, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void categoryDropDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryDropDownActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+        this.items = new ArrayList<>();
+        String category = (String) categoryDropDown.getSelectedItem();
+        for (Item item: this.ecosystem.getInventoryDirectory().getInventoryByType(Item.ItemType.RECYCLE)) {
+            if (item.getStatus() == Item.ItemStatus.READY_FOR_PRICING && item.getCategory().equals(category)) {
+                this.items.add(item);
+                this.totalWeight += item.getWeightApprox();
+            }
+        }
+        
+    }//GEN-LAST:event_categoryDropDownActionPerformed
 
     private void txtpriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpriceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtpriceActionPerformed
 
-    private void txtappliancetypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtappliancetypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtappliancetypeActionPerformed
-
     private void txtweightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtweightActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtweightActionPerformed
 
-    private void btnviewdetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewdetailsActionPerformed
+    private void btnSetPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetPriceActionPerformed
         // TODO add your handling code here:
-        
-              
-        int selectedRow = tblPickUpBooking.getSelectedRow();
-        
-        if(selectedRow < 0){
-            JOptionPane.showMessageDialog(this, "Please select a row");
-            return;
+        RecycleBatch batch = new RecycleBatch();
+        for (Item item: this.items) {
+            batch.addItem(item);
+            item.setStatus(Item.ItemStatus.READY_FOR_SALE);
         }
-        
+        this.ecosystem.getRecycleBatchDirectory().addRecycleBatch(batch);
+        JOptionPane.showMessageDialog(null, "No active pickup at this point of time");
+    }//GEN-LAST:event_btnSetPriceActionPerformed
+
+    public void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblPickUpBooking.getModel();
-        
-        String ewaste = (String) model.getValueAt(selectedRow, 0);
-        String appliancetype = (String) model.getValueAt(selectedRow, 1);
-        Float weight = (Float) model.getValueAt(selectedRow, 2);
-        
-        
-        txtewastecat.setText(ewaste);
-        txtappliancetype.setText(appliancetype);
-        txtweight.setText(String.valueOf(weight));
-       
-    }//GEN-LAST:event_btnviewdetailsActionPerformed
-
-
+        model.setRowCount(0);
+        for (Item item: this.items) {
+            Object[] row = new Object[4];
+            row[0] = item.getId();
+            row[1] = item.getSubCategory();
+            row[2] = item.getWeightApprox();
+            row[3] = item.getRecievedOn();
+            model.addRow(row);
+        }
+        txtweight.setText(String.valueOf(this.totalWeight));
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ManageRecycMainJPanel;
-    private javax.swing.JButton btnassign;
-    private javax.swing.JButton btnviewdetails;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btnSetPrice;
+    private javax.swing.JComboBox<String> categoryDropDown;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblPickUpBooking;
-    private javax.swing.JTextField txtappliancetype;
-    private javax.swing.JTextField txtewastecat;
     private javax.swing.JTextField txtprice;
     private javax.swing.JTextField txtweight;
     // End of variables declaration//GEN-END:variables

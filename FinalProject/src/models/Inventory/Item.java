@@ -52,6 +52,7 @@ public class Item {
         PROCURED,
         IN_QC,
         IN_REPAIR,
+        READY_FOR_PRICING,
         READY_FOR_SALE,
         BLOCKED_FOR_ORDER,
         SOLD
@@ -160,6 +161,11 @@ public class Item {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return this.id;
     }
     
     

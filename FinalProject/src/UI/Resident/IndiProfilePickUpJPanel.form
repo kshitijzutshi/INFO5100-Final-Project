@@ -315,6 +315,7 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtemakeActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtemakeKeyPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblmodel">
@@ -360,6 +361,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtyearManufKeyPressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblweight">
           <Properties>
@@ -382,6 +386,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtitemweightKeyPressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblcondition">
           <Properties>

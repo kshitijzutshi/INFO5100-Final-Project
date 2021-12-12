@@ -15,15 +15,15 @@ import models.User.Employee.LogisticsMan;
  */
 public class ClientDropoff extends WorkRequest{
     
-    private ClientOrder client;
+    private ClientOrder clientOrder;
     private LogisticsMan logisticsMan;
 
-    public ClientOrder getClient() {
-        return client;
+    public ClientOrder getClientOrder() {
+        return clientOrder;
     }
 
-    public void setClient(ClientOrder client) {
-        this.client = client;
+    public void setClientOrder(ClientOrder client) {
+        this.clientOrder = client;
     }    
 
     public LogisticsMan getLogisticsMan() {
