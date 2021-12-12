@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import models.EcoSystem;
 import models.Inventory.Item;
+import models.Rewards.RewardsUtil;
 import models.User.Employee.Technician;
 import models.Work.RefurbAssignment;
 import models.Work.WorkRequest;
@@ -266,6 +267,10 @@ public class TechnicanReviewItemsJPanel extends javax.swing.JPanel {
         this.selectedAssignment.setStatus(WorkRequest.RequestStatus.COMPLETED);
         
         this.ecosystem.getWorkRequestDirectory().decreaserefurbAssignmentMapCount(this.technician);
+        
+        int rewardPoints = RewardsUtil.getRewardPoints(this.selectedAssignment.getItem().getCategory(), this.selectedAssignment.getItem().getSubCategory(), this.selectedAssignment.getItem().getType().name());
+        this.selectedAssignment.getItem().getRecievedFrom().updateRewardPoints(rewardPoints);
+
         JOptionPane.showMessageDialog(this, "Item marked as refurbed");
         
         this.selectedAssignment = null;
@@ -287,6 +292,11 @@ public class TechnicanReviewItemsJPanel extends javax.swing.JPanel {
         this.selectedAssignment.setStatus(WorkRequest.RequestStatus.COMPLETED);
         
         this.ecosystem.getWorkRequestDirectory().decreaserefurbAssignmentMapCount(this.technician);
+        
+        int rewardPoints = RewardsUtil.getRewardPoints(this.selectedAssignment.getItem().getCategory(), this.selectedAssignment.getItem().getSubCategory(), this.selectedAssignment.getItem().getType().name());
+        this.selectedAssignment.getItem().getRecievedFrom().updateRewardPoints(rewardPoints);
+
+        
         JOptionPane.showMessageDialog(this, "Item sent for recycling");
         
         this.selectedAssignment = null;

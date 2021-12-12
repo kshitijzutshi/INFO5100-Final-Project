@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import models.EcoSystem;
 import models.Inventory.Item;
+import models.Rewards.RewardsUtil;
 import models.User.Employee.QCInspector;
 import models.User.Employee.Technician;
 import models.Work.QCInspection;
@@ -269,6 +270,9 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
         
         //decrease assignment count
         this.ecosystem.getWorkRequestDirectory().decreaseqcInspectionAssignmentCount(qcInspector);
+        
+        int rewardPoints = RewardsUtil.getRewardPoints(this.selectedInspection.getItem().getCategory(), this.selectedInspection.getItem().getSubCategory(), this.selectedInspection.getItem().getType().name());
+        this.selectedInspection.getItem().getRecievedFrom().updateRewardPoints(rewardPoints);
         
         JOptionPane.showMessageDialog(this, "Inspection done successfully");
         this.populateTable();
