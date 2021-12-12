@@ -655,6 +655,10 @@
           </Properties>
         </Component>
         <Component class="com.toedter.calendar.JDateChooser" name="PickUpDateChooser">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PickUpDateChooserKeyPressed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PickUpDateChooserKeyTyped"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

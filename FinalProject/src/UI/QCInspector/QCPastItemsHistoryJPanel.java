@@ -32,6 +32,7 @@ public class QCPastItemsHistoryJPanel extends javax.swing.JPanel {
         this.QCPastItemsHistory = qcpasthistory;
         this.ecosystem = ecosystem;
         this.qcInspector = qcInspector;
+        this.populateTable();
     }
 
     /**
@@ -147,7 +148,7 @@ public class QCPastItemsHistoryJPanel extends javax.swing.JPanel {
         int count = 0;
         for (QCInspection inspection: this.ecosystem.getWorkRequestDirectory().getInspectionsByInspector(this.qcInspector)) {
             if (inspection.getStatus() == WorkRequest.RequestStatus.COMPLETED){
-                Object[] row = new Object[4];
+                Object[] row = new Object[5];
                 row[0] = inspection.getItem().getId();
                 row[1] = inspection.getItem().getCategory();
                 row[2] = inspection.getItem().getSubCategory();

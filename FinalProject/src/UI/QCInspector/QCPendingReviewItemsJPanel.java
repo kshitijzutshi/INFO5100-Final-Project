@@ -5,6 +5,7 @@
  */
 package UI.QCInspector;
 
+import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -35,6 +36,7 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
         this.PendingReviewItemsJPanel = pendingitems;
         this.ecosystem = ecosystem;
         this.qcInspector = qcInspector;
+        this.populateTable();
     }
 
     /**
@@ -260,12 +262,13 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
         this.selectedInspection.setStatus(WorkRequest.RequestStatus.COMPLETED);
         this.selectedInspection.getItem().setStatus(Item.ItemStatus.READY_FOR_PRICING);
         this.selectedInspection.getItem().setType(Item.ItemType.RECYCLE);
+        this.selectedInspection.setResolveDate(LocalDateTime.now());
         
         //decrease assignment count
         this.ecosystem.getWorkRequestDirectory().decreaseqcInspectionAssignmentCount(qcInspector);
         
         JOptionPane.showMessageDialog(this, "Inspection done successfully");
-        populateTable();
+        this.populateTable();
     }//GEN-LAST:event_btnassignrecycleActionPerformed
 
     private void btnassignrefurbishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnassignrefurbishActionPerformed
@@ -274,7 +277,7 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
         this.selectedInspection.setStatus(WorkRequest.RequestStatus.COMPLETED);
         this.selectedInspection.getItem().setStatus(Item.ItemStatus.IN_REPAIR);
         this.selectedInspection.getItem().setType(Item.ItemType.REFURB);
-        
+        this.selectedInspection.setResolveDate(LocalDateTime.now());
         //decrease assignment count
         this.ecosystem.getWorkRequestDirectory().decreaseqcInspectionAssignmentCount(qcInspector);
         
@@ -285,7 +288,7 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
         this.ecosystem.getWorkRequestDirectory().increaserefurbAssignmentMapCount(technician);
         
         JOptionPane.showMessageDialog(this, "Inspection done successfully");
-        populateTable();
+        this.populateTable();
     }//GEN-LAST:event_btnassignrefurbishActionPerformed
     
     private boolean hasSelectedItem() {

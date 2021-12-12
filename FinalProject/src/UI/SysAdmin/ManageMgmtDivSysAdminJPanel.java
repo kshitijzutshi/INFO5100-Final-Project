@@ -252,6 +252,11 @@ public class ManageMgmtDivSysAdminJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Username already taken!");
             return;
         }
+        
+        if(username.length()<3 || password.length()<5){
+            JOptionPane.showMessageDialog(this, "Username minimum lenght should be 3 and Password minimum lenght should be 5!!");
+            return;
+        }
         OperationsManager operationsManager = new OperationsManager(username, password);
         operationsManager.setFullName(name);
         this.ecosystem.getUserAccountDirectory().addUserAccount(operationsManager.getUserAccount());

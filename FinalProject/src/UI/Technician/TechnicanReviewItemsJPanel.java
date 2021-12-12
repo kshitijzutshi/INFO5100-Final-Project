@@ -33,6 +33,7 @@ public class TechnicanReviewItemsJPanel extends javax.swing.JPanel {
         this.ecosystem = ecosystem;
         this.technician = technician;
         this.TechnicianReviewJPanel = TechReview;
+        this.populateTable();
     }
 
     /**

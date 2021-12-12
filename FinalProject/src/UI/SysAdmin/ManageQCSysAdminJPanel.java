@@ -249,6 +249,12 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Username already taken!");
             return;
         }
+        
+        if(username.length()<3 || password.length()<5){
+            JOptionPane.showMessageDialog(this, "Username minimum lenght should be 3 and Password minimum lenght should be 5!!");
+            return;
+        }
+        
         QCInspector qcInspector = new QCInspector(username, password);
         qcInspector.setFullName(name);
         this.ecosystem.getUserAccountDirectory().addUserAccount(qcInspector.getUserAccount());

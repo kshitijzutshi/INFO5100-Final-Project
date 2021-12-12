@@ -6,6 +6,8 @@
 package UI.Retailer;
 
 import javax.swing.JPanel;
+import models.EcoSystem;
+import models.User.Client.Client;
 
 /**
  *
@@ -18,10 +20,12 @@ public class RecyclerLoginJPanel extends javax.swing.JPanel {
      */
     
     JPanel jpanel15;
-    
-    public RecyclerLoginJPanel(JPanel RecyclerHome) {
+    EcoSystem ecosystem;
+    Client client;
+    public RecyclerLoginJPanel(JPanel RecyclerHome, EcoSystem ecosystem, Client client) {
         initComponents();
-        
+        this.ecosystem = ecosystem;
+        this.client = client;
         this.RecyclerLoginHomeJPanel = RecyclerHome;
     }
 

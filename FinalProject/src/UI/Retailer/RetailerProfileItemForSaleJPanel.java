@@ -6,6 +6,7 @@
 package UI.Retailer;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import models.ClientOrder.ClientOrder;
@@ -35,6 +36,7 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
         this.client = client;
 //        welcomeLabel.setText(this.resident.getFullName());
         this.RetailerItemsForSaleJPanel = RetailerProfileItemForSale;
+        this.itemsAddedToCart = new ArrayList<>();
         this.populateTable();
     }
     
@@ -48,7 +50,7 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
             if(itemsToPopulate.getType() != Item.ItemType.REFURB){
                 continue;
             }
-            Object[] data = new Object[5];
+            Object[] data = new Object[6];
             data[0] = itemsToPopulate;
             data[1] = itemsToPopulate.getCategory();
             data[2] = itemsToPopulate.getSubCategory();
@@ -406,16 +408,11 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
     private void btnAddToCartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToCartMouseClicked
         // TODO add your handling code here:
         Item itemSelected = (Item) retailtableData.getValueAt(retailtableData.getSelectedRow(), 0);
-        String category = (String) retailtableData.getValueAt(retailtableData.getSelectedRow(), 1);
-        String subCategory = (String) retailtableData.getValueAt(retailtableData.getSelectedRow(), 2);
-        String make = (String) retailtableData.getValueAt(retailtableData.getSelectedRow(), 3);
-        String model = (String) retailtableData.getValueAt(retailtableData.getSelectedRow(), 4);
-        Integer price = (Integer) retailtableData.getValueAt(retailtableData.getSelectedRow(), 5);
         DefaultTableModel table = (DefaultTableModel) OrderSummaryTable.getModel();
         table.setRowCount(0);
-        itemsAddedToCart.add(itemSelected);
+        this.itemsAddedToCart.add(itemSelected);
         int totalPriceInCart = 0;
-        for(Item item : itemsAddedToCart){
+        for(Item item : this.itemsAddedToCart){
                 Object[] data = new Object[2];
                 data[0] = item.getSubCategory();
                 data[1] = item.getPrice();
@@ -434,7 +431,7 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
         ClientOrder newOrder = new ClientOrder(client);
         for(Item item : itemsAddedToCart){
             item.setStatus(Item.ItemStatus.BLOCKED_FOR_ORDER);
-            
+            System.out.println("Item Type"+item.getType());
             newOrder.addItem(item);
             if(radioBtnCash.isSelected()){
                 newOrder.getClient().setPaymenttype(Client.paymentType.CASH_ON_DELIVERY);
@@ -449,6 +446,7 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
         }
         // Add ClientOrder to client order directory
         this.ecosystem.getClientOrderDirectory().addBooking(newOrder);
+        JOptionPane.showMessageDialog(null, "Order Placed Successfully!");
     }//GEN-LAST:event_btnPurchaseOrderMouseClicked
 
 

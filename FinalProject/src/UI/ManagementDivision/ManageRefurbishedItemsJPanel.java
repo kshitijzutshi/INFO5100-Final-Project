@@ -35,6 +35,7 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
         for (Item item: this.ecosystem.getInventoryDirectory().getInventoryByStatus(Item.ItemStatus.READY_FOR_PRICING)) {
             if (item.getType() == Item.ItemType.REFURB) this.items.add(item);
         }
+        this.populateTable();
     }
 
     /**
@@ -170,10 +171,11 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Enter a valid price");
         }
         this.selectedItem.setPrice(price);
+        this.selectedItem.setStatus(Item.ItemStatus.READY_FOR_SALE);
         JOptionPane.showMessageDialog(this, "Price " + price + " set for item " + this.selectedItem.getId());
         this.items.remove(this.selectedItem);
         this.selectedItem = null;
-        populateTable();
+        this.populateTable();
         
     }//GEN-LAST:event_setPriceTextActionPerformed
     
