@@ -308,11 +308,11 @@ public class TechnicianLoginJPanel extends javax.swing.JPanel {
     private void btnViewScheduledPickupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewScheduledPickupMouseClicked
         // TODO add your handling code here:
         
-        TechnicanReviewItemsJPanel technicianreview = new TechnicanReviewItemsJPanel(TechnicianChangeJPanel);
-        CardLayout layout = (CardLayout) TechnicianChangeJPanel.getLayout();
-        TechnicianChangeJPanel.add("logisticsPast", technicianreview);
-        
-        layout.next(TechnicianChangeJPanel);
+//        TechnicanReviewItemsJPanel technicianreview = new TechnicanReviewItemsJPanel(TechnicianChangeJPanel);
+//        CardLayout layout = (CardLayout) TechnicianChangeJPanel.getLayout();
+//        TechnicianChangeJPanel.add("logisticsPast", technicianreview);
+//        
+//        layout.next(TechnicianChangeJPanel);
 
     }//GEN-LAST:event_btnViewScheduledPickupMouseClicked
 
