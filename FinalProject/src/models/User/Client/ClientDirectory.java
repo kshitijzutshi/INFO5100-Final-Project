@@ -6,6 +6,7 @@
 package models.User.Client;
 
 import java.util.ArrayList;
+import models.User.UserAccount;
 
 /**
  *
@@ -32,5 +33,12 @@ public class ClientDirectory {
 
     public ArrayList<Client> getClients() {
         return clients;
+    }
+    
+    public Client getClientByUserAccount(UserAccount userAccount) {
+        for (Client client: this.clients) {
+            if (client.getUserAccount() == userAccount) return client;
+        }
+        return null;
     }
 }

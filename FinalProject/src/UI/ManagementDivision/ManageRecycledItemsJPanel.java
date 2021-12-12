@@ -211,6 +211,7 @@ public class ManageRecycledItemsJPanel extends javax.swing.JPanel {
                 this.totalWeight += item.getWeightApprox();
             }
         }
+         this.populateTable();
         
     }//GEN-LAST:event_categoryDropDownActionPerformed
 
@@ -235,7 +236,7 @@ public class ManageRecycledItemsJPanel extends javax.swing.JPanel {
         this.items = new ArrayList<>();
         txtweight.setText("");
         txtprice.setText("");
-        populateTable();
+        this.populateTable();
     }//GEN-LAST:event_btnSetPriceActionPerformed
 
     public void populateTable() {

@@ -91,7 +91,6 @@ public class WorkRequestDirectory {
     public InventoryPickup getActivePickup(LogisticsMan logisticsMan) {
         for (InventoryPickup pickup: this.getPickupsByLogisticMan(logisticsMan)) {
             if (pickup.getStatus() == InventoryPickup.RequestStatus.ASSIGNED || pickup.getStatus() == InventoryPickup.RequestStatus.ONGOING) return pickup;
-            return pickup;
         }
         return null;
     }

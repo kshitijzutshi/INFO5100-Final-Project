@@ -6,6 +6,10 @@
 package UI.Retailer;
 
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import models.EcoSystem;
+import models.Inventory.Item;
+import models.User.Client.Client;
 
 /**
  *
@@ -17,9 +21,33 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
      * Creates new form RetailerProfilePastPurchaseJPanel
      */
     JPanel jpanel9;
+    EcoSystem ecosystem;
+    private Client client;
+    
     public RetailerProfilePastPurchaseJPanel(JPanel RetailerProfilePastPurchase) {
         initComponents();
         this.retailProfilePastPurchase = RetailerProfilePastPurchase;
+        this.populateTable();
+    }
+    
+    
+    private void populateTable() {
+      
+        DefaultTableModel model = (DefaultTableModel) PastOrderTable.getModel();
+        model.setRowCount(0);
+        for (Item itemsToPopulate : ecosystem.getInventoryDirectory().getInventoryByStatus(Item.ItemStatus.READY_FOR_SALE)){
+            if(itemsToPopulate.getType() != Item.ItemType.REFURB){
+                continue;
+            }
+            Object[] data = new Object[6];
+            data[0] = itemsToPopulate;
+            data[1] = itemsToPopulate.getCategory();
+            data[2] = itemsToPopulate.getSubCategory();
+            data[3] = itemsToPopulate.getMake();
+            data[4] = itemsToPopulate.getModel();
+            data[5] = itemsToPopulate.getPrice();
+            model.addRow(data);
+        }
     }
 
     /**
@@ -37,7 +65,7 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        PastOrderTable = new javax.swing.JTable();
 
         setLayout(new java.awt.CardLayout());
 
@@ -56,8 +84,8 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        PastOrderTable.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        PastOrderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -73,10 +101,10 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
-        jTable1.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        jTable1.setSelectionBackground(new java.awt.Color(167, 190, 211));
-        jScrollPane1.setViewportView(jTable1);
+        PastOrderTable.setGridColor(new java.awt.Color(255, 255, 255));
+        PastOrderTable.setIntercellSpacing(new java.awt.Dimension(5, 5));
+        PastOrderTable.setSelectionBackground(new java.awt.Color(167, 190, 211));
+        jScrollPane1.setViewportView(PastOrderTable);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -120,7 +148,7 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
                 .addGroup(retailProfilePastPurchaseLayout.createSequentialGroup()
                     .addGap(42, 42, 42)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(58, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         retailProfilePastPurchaseLayout.setVerticalGroup(
             retailProfilePastPurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,7 +157,7 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
                 .addGroup(retailProfilePastPurchaseLayout.createSequentialGroup()
                     .addGap(32, 32, 32)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(52, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         add(retailProfilePastPurchase, "card2");
@@ -137,12 +165,12 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable PastOrderTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JPanel retailProfilePastPurchase;
     // End of variables declaration//GEN-END:variables
 }

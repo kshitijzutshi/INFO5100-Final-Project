@@ -8,7 +8,9 @@ package UI;
 import UI.ManagementDivision.ManagementDivisionProfileMainJPanel;
 import UI.SysAdmin.SystemAdminLoginProfile;
 import UI.Logistics.LogisticsProfileMainJPanel;
+import UI.QCInspector.QCMainLoginJPanel;
 import UI.Resident.IndiProfileLoginJPanel;
+import UI.Retailer.RecyclerLoginJPanel;
 import UI.Retailer.RetailerProfileLoginJPanel;
 import UI.Technician.TechnicianLoginJPanel;
 import java.awt.CardLayout;
@@ -29,6 +31,9 @@ import models.User.Employee.LogisticsMan;
 import models.User.Employee.OperationsManager;
 import models.User.UserAccount;
 import UI.SysAdmin.SysadminLoginMJPanel;
+import models.User.Client.Client;
+import models.User.Employee.QCInspector;
+import models.User.Employee.Technician;
 
 
 /**
@@ -368,20 +373,33 @@ public class MainJFrame extends javax.swing.JFrame {
             mainJpanel.add("OperationsManagerPanel", managementDivisionprofilemain);
             layout.next(mainJpanel);
         } else if (role instanceof QCInspectorRole) {
-            SystemAdminLoginProfile systemAdminLogin = new SystemAdminLoginProfile(mainJpanel, ecosystem);
+            QCInspector qcinspector = this.ecosystem.getEmployeeDirectory().getQCInspectorByUserAccount(userAccount);
+            QCMainLoginJPanel qcAdminMainPanel = new QCMainLoginJPanel(mainJpanel, ecosystem, qcinspector);
             CardLayout layout = (CardLayout) mainJpanel.getLayout();
-            mainJpanel.add("Sysadmin", systemAdminLogin);
+            mainJpanel.add("SysadminQCMain", qcAdminMainPanel);
             layout.next(mainJpanel);
         } else if (role instanceof TechnicianRole) {
-            SystemAdminLoginProfile systemAdminLogin = new SystemAdminLoginProfile(mainJpanel, ecosystem);
+            Technician technician = this.ecosystem.getEmployeeDirectory().getTechnicanByUserAccount(userAccount);
+            TechnicianLoginJPanel systemAdminLogin = new TechnicianLoginJPanel(mainJpanel, ecosystem, technician);
             CardLayout layout = (CardLayout) mainJpanel.getLayout();
-            mainJpanel.add("Sysadmin", systemAdminLogin);
+            mainJpanel.add("SysadminTechnician", systemAdminLogin);
             layout.next(mainJpanel);
         } else if (role instanceof ClientRole) {
-            SystemAdminLoginProfile systemAdminLogin = new SystemAdminLoginProfile(mainJpanel, ecosystem);
-            CardLayout layout = (CardLayout) mainJpanel.getLayout();
-            mainJpanel.add("Sysadmin", systemAdminLogin);
-            layout.next(mainJpanel);
+            Client client = this.ecosystem.getClientDirectory().getClientByUserAccount(userAccount);
+            
+            if(client.getClienttype() == Client.clientType.RETAILER){
+                RetailerProfileLoginJPanel systemAdminRetailClient = new RetailerProfileLoginJPanel(mainJpanel, ecosystem, client);
+                CardLayout layout = (CardLayout) mainJpanel.getLayout();
+                mainJpanel.add("SysadminRetailClient", systemAdminRetailClient);
+                layout.next(mainJpanel);
+            }
+            else if(client.getClienttype() == Client.clientType.RECYCLER){
+                RecyclerLoginJPanel systemAdminRecycler = new RecyclerLoginJPanel(mainJpanel, ecosystem, client);
+                CardLayout layout = (CardLayout) mainJpanel.getLayout();
+                mainJpanel.add("systemAdminRecycler", systemAdminRecycler);
+                layout.next(mainJpanel);
+            }
+            
         }
     }//GEN-LAST:event_btn_loginMouseClicked
 

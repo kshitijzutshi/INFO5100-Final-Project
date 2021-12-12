@@ -37,10 +37,11 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
         this.ecosystem = ecosystem;
         this.logisticsMan = logisticsMan;
         this.activePickup = this.ecosystem.getWorkRequestDirectory().getActivePickup(logisticsMan);
-        if (this.activePickup == null) {
+      
+        this.populateTable();
+         if (this.activePickup == null) {
             JOptionPane.showMessageDialog(null, "No active pickup at this point of time");
         }
-        this.populateTable();
     }
 
     /**
@@ -158,23 +159,24 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
                         .addGap(381, 381, 381)
                         .addComponent(jLabel6))
                     .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
-                        .addGap(363, 363, 363)
+                        .addGap(49, 49, 49)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
+                        .addGap(129, 129, 129)
                         .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(pickUpJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel11)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(30, 30, 30)
                         .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(residentContactInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(markDeliveredJButton)
                             .addComponent(residentAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(residentName, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
+                                .addComponent(residentName, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(104, 104, 104)
+                                .addComponent(pickUpJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(markDeliveredJButton)))))
                 .addContainerGap(98, Short.MAX_VALUE))
         );
         LogisticsSchedulePickUpMainLayout.setVerticalGroup(
@@ -185,24 +187,27 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
                 .addGap(48, 48, 48)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(residentName, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(residentAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(residentName, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(residentAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogisticsSchedulePickUpMainLayout.createSequentialGroup()
+                        .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pickUpJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(markDeliveredJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(55, 55, 55)))
                 .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(residentContactInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pickUpJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(markDeliveredJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         add(LogisticsSchedulePickUpMain, "card2");
@@ -210,7 +215,11 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
 
     private void pickUpJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pickUpJButtonActionPerformed
         this.activePickup.setStatus(WorkRequest.RequestStatus.ONGOING);
+        this.activePickup.getInventoryBooking().getItems().forEach(item -> {
+            item.setStatus(Item.ItemStatus.PROCURED);
+        });
         JOptionPane.showMessageDialog(null, "Booking marked as pickedup");
+        this.populateTable();
     }//GEN-LAST:event_pickUpJButtonActionPerformed
 
     private void markDeliveredJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markDeliveredJButtonActionPerformed
@@ -234,11 +243,13 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
             booking.setAssigned(true);
             this.ecosystem.getWorkRequestDirectory().addInventoryPickup(pickup);
             JOptionPane.showMessageDialog(null, "Booking successfully delivered, new booking assigned");
+            this.populateTable();
             return;
         }
         
         
         JOptionPane.showMessageDialog(null, "Booking successfully delivered");
+        this.populateTable();
     }//GEN-LAST:event_markDeliveredJButtonActionPerformed
 
     private void residentNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_residentNameActionPerformed

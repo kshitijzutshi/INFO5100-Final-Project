@@ -28,9 +28,11 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
     JPanel jpanel7;
     EcoSystem ecosystem;
     Client client;
-    public RetailerProfileLoginJPanel(JPanel RetailerProfileLogin) {
+    public RetailerProfileLoginJPanel(JPanel RetailerProfileLogin, EcoSystem ecosystem, Client client) {
         this.RetailerLoginMainJPanel = RetailerProfileLogin;
         initComponents();
+        this.ecosystem = ecosystem;
+        this.client = client;
         welcomeLabel.setText(client.getFullName());
     }
 

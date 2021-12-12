@@ -21,6 +21,7 @@ public class ClientOrder {
     
     public ClientOrder(Client client) {
         this.client = client;
+        this.orderedItems = new ArrayList<>();
     }
 
     public Client getClient() {

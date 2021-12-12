@@ -28,6 +28,7 @@ public class LogisticsProfilePastOrdersJPanel extends javax.swing.JPanel {
         initComponents();
         this.ecosystem = ecosystem;
         this.logisticsMan = logisticsMan;
+        this.populateTable();
     }
 
     /**
