@@ -5,6 +5,7 @@
  */
 package UI;
 
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import models.DB4OUtil.DB4OUtil;
@@ -286,6 +287,13 @@ public class SignUpRetailerJPanel extends javax.swing.JPanel {
             txtmobnumber.setText("");
             txtusername.setText("");
             txtpassword.setText("");
+            rbretailer.setSelected(false);
+            rbrrecycler.setSelected(false);
+            MainJPanel main = new MainJPanel(JPanelSignup);
+            CardLayout layout = (CardLayout) JPanelSignup.getLayout();
+            JPanelSignup.add("HomeMainPanel", main);
+
+            layout.next(JPanelSignup);
         }
         else if(rbretailer.isSelected()){
             // new client added and is unverified
@@ -305,6 +313,13 @@ public class SignUpRetailerJPanel extends javax.swing.JPanel {
             txtmobnumber.setText("");
             txtusername.setText("");
             txtpassword.setText("");
+            rbretailer.setSelected(false);
+            rbrrecycler.setSelected(false);
+            MainJPanel main = new MainJPanel(JPanelSignup);
+            CardLayout layout = (CardLayout) JPanelSignup.getLayout();
+            JPanelSignup.add("HomeMainPanel", main);
+
+            layout.next(JPanelSignup);
         }
         
         DB4OUtil.getInstance().storeSystem(ecosystem);
