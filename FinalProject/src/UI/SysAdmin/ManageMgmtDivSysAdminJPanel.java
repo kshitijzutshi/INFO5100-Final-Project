@@ -121,7 +121,7 @@ public class ManageMgmtDivSysAdminJPanel extends javax.swing.JPanel {
                 "Name", "Username", "Password"
             }
         ));
-        operationsManagerJTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        operationsManagerJTable.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane2.setViewportView(operationsManagerJTable);
 
         btnDelete.setBackground(new java.awt.Color(205, 223, 245));
