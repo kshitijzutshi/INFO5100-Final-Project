@@ -5,6 +5,7 @@
  */
 package UI.Logistics;
 
+import java.time.format.DateTimeFormatter;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import models.EcoSystem;
@@ -110,13 +111,14 @@ public class LogisticsProfileDropOffHistoryJPanel extends javax.swing.JPanel {
     
     public void populateTable(){
         DefaultTableModel model = (DefaultTableModel) tblscheddropoffs.getModel();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         model.setRowCount(0);
         for(ClientDropoff dropOff : this.ecosystem.getWorkRequestDirectory().getDropoffByLogisticMan(this.logisticsMan)){
             Object[] data = new Object[4];
             data[0] = dropOff.getId();
             data[1] = dropOff.getClientOrder().getClient().getFullName();
-            data[2] = dropOff.getRequestDate().toString();
-            data[3] = dropOff.getResolveDate().toString();
+            data[2] = dropOff.getRequestDate().format(formatter);
+            data[3] = dropOff.getResolveDate().format(formatter);
 
             
         }

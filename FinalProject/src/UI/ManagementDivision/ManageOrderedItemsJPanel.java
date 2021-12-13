@@ -5,6 +5,7 @@
  */
 package UI.ManagementDivision;
 
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -223,10 +224,11 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
 
     private void btnviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewActionPerformed
         // TODO add your handling code here:
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         if (!this.hasSelectedItem()) return;
         txtid.setText(this.selectedOrder.getId());
         txtretailername.setText(this.selectedOrder.getClient().getFullName());
-        txtOrderTime.setText(this.selectedOrder.getOrderTime().toString());
+        txtOrderTime.setText(this.selectedOrder.getOrderTime().format(formatter));
         txtOrderPrice.setText(String.valueOf(this.selectedOrder.orderPrice()));
     }//GEN-LAST:event_btnviewActionPerformed
 
@@ -256,6 +258,7 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
     
     public void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblorder.getModel();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         model.setRowCount(0);
         for (ClientOrder order: this.ecosystem.getClientOrderDirectory().getActiveOrders()) {
             Object[] row = new Object[4];
@@ -263,7 +266,7 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
             row[1] = order.getClient().getFullName();
             row[2] = order.orderPrice();
             row[3] = order.getOrderedItems().size();
-            row[4] = order.getOrderTime();
+            row[4] = order.getOrderTime().format(formatter);
             model.addRow(row);
         }
     }
