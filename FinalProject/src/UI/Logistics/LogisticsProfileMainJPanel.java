@@ -5,8 +5,12 @@
  */
 package UI.Logistics;
 
+import UI.MainJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import models.DB4OUtil.DB4OUtil;
+import models.EcoSystem;
+import models.User.Employee.LogisticsMan;
 
 /**
  *
@@ -18,9 +22,14 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
      * Creates new form LogisticsProfileMainJPanel
      */
     private JPanel jPanel9;
-    public LogisticsProfileMainJPanel(JPanel LogisticsProfJPanel) {
+    EcoSystem ecosystem;
+    LogisticsMan logisticsMan;
+    public LogisticsProfileMainJPanel(JPanel LogisticsProfJPanel, EcoSystem ecosystem, LogisticsMan logisticsMan) {
         initComponents();
        this.LogisticsLoginMainJPanel=LogisticsProfJPanel;
+       this.ecosystem = ecosystem;
+       this.logisticsMan = logisticsMan;
+       namePanel.setText(this.logisticsMan.getFullName());
     }
 
     /**
@@ -56,7 +65,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
         jLabel27 = new javax.swing.JLabel();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        namePanel = new javax.swing.JLabel();
         LogisticsLoginDynamicJPanel = new javax.swing.JPanel();
         LogisticsLoginDynamicMainJPanel = new javax.swing.JPanel();
         kGradientPanel3 = new keeptoo.KGradientPanel();
@@ -193,6 +202,11 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
         );
 
         btnLogisticsLogout.setBackground(new java.awt.Color(167, 190, 211));
+        btnLogisticsLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLogisticsLogoutMouseClicked(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -348,9 +362,8 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
         jLabel13.setForeground(new java.awt.Color(51, 51, 51));
         jLabel13.setText("Welcome to ReQube,");
 
-        jLabel14.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel14.setText("Emp_Logistics_DIV");
+        namePanel.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
+        namePanel.setForeground(new java.awt.Color(51, 51, 51));
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
@@ -360,7 +373,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
                 .addGap(258, 258, 258)
                 .addComponent(jLabel13)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(namePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(353, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(
@@ -369,7 +382,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(namePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
@@ -491,27 +504,27 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
         kGradientPanel5Layout.setHorizontalGroup(
             kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel5Layout.createSequentialGroup()
-                .addGroup(kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(kGradientPanel5Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel23))
-                    .addGroup(kGradientPanel5Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(142, Short.MAX_VALUE)
+                .addComponent(jLabel23)
                 .addGap(19, 19, 19))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel5Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
         kGradientPanel5Layout.setVerticalGroup(
             kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel5Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
                 .addGroup(kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -521,27 +534,27 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
         LogisticsLoginDynamicMainJPanelLayout.setHorizontalGroup(
             LogisticsLoginDynamicMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogisticsLoginDynamicMainJPanelLayout.createSequentialGroup()
-                .addGap(192, 192, 192)
                 .addGroup(LogisticsLoginDynamicMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(LogisticsLoginDynamicMainJPanelLayout.createSequentialGroup()
+                        .addGap(96, 96, 96)
                         .addComponent(kGradientPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(135, 135, 135)
+                        .addGap(148, 148, 148)
                         .addComponent(kGradientPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(LogisticsLoginDynamicMainJPanelLayout.createSequentialGroup()
-                        .addGap(214, 214, 214)
+                        .addGap(330, 330, 330)
                         .addComponent(kGradientPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(416, Short.MAX_VALUE))
+                .addContainerGap(499, Short.MAX_VALUE))
         );
         LogisticsLoginDynamicMainJPanelLayout.setVerticalGroup(
             LogisticsLoginDynamicMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogisticsLoginDynamicMainJPanelLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
+                .addGap(60, 60, 60)
                 .addComponent(kGradientPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addGroup(LogisticsLoginDynamicMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(kGradientPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(74, 74, 74)
+                .addGroup(LogisticsLoginDynamicMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kGradientPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(kGradientPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(847, Short.MAX_VALUE))
+                .addContainerGap(838, Short.MAX_VALUE))
         );
 
         LogisticsLoginDynamicJPanel.add(LogisticsLoginDynamicMainJPanel, "card2");
@@ -573,7 +586,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
 
     private void btnLogisticsHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogisticsHomeMouseClicked
         // TODO add your handling code here:
-        LogisticsHomeJPanel logisticsHome = new LogisticsHomeJPanel(LogisticsLoginDynamicJPanel);
+        LogisticsHomeJPanel logisticsHome = new LogisticsHomeJPanel(LogisticsLoginDynamicJPanel, this.ecosystem, this.logisticsMan);
         CardLayout layout = (CardLayout) LogisticsLoginDynamicJPanel.getLayout();
         LogisticsLoginDynamicJPanel.add("logisticsHome", logisticsHome);
         
@@ -582,7 +595,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
 
     private void btnViewScheduledPickupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewScheduledPickupMouseClicked
         // TODO add your handling code here:
-        LogisticsProfileSchedulePickupJPanel logisticsSchedulePickUp = new LogisticsProfileSchedulePickupJPanel(LogisticsLoginDynamicJPanel);
+        LogisticsProfileSchedulePickupJPanel logisticsSchedulePickUp = new LogisticsProfileSchedulePickupJPanel(LogisticsLoginDynamicJPanel, this.ecosystem, this.logisticsMan);
         CardLayout layout = (CardLayout) LogisticsLoginDynamicJPanel.getLayout();
         LogisticsLoginDynamicJPanel.add("logisticsHome", logisticsSchedulePickUp);
         
@@ -591,7 +604,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
 
     private void btnViewPickUpHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewPickUpHistoryMouseClicked
         // TODO add your handling code here:
-        LogisticsProfilePastOrdersJPanel logisticsPastOrders = new LogisticsProfilePastOrdersJPanel(LogisticsLoginDynamicJPanel);
+        LogisticsProfilePastOrdersJPanel logisticsPastOrders = new LogisticsProfilePastOrdersJPanel(LogisticsLoginDynamicJPanel, this.ecosystem, this.logisticsMan);
         CardLayout layout = (CardLayout) LogisticsLoginDynamicJPanel.getLayout();
         LogisticsLoginDynamicJPanel.add("logisticsPast", logisticsPastOrders);
         
@@ -601,7 +614,7 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
     private void btnLogisticsDropoffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogisticsDropoffMouseClicked
         // TODO add your handling code here:
         
-        LogisticsProfileDropOffJPanel scheduleddropoff = new LogisticsProfileDropOffJPanel(LogisticsLoginDynamicJPanel);
+        LogisticsProfileDropOffJPanel scheduleddropoff = new LogisticsProfileDropOffJPanel(LogisticsLoginDynamicJPanel, this.ecosystem, this.logisticsMan);
         CardLayout layout = (CardLayout) LogisticsLoginDynamicJPanel.getLayout();
         LogisticsLoginDynamicJPanel.add("logisticsPast", scheduleddropoff);
         
@@ -611,13 +624,27 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
     private void btnLogisticsDropOffHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogisticsDropOffHistoryMouseClicked
         // TODO add your handling code here:
         
-        LogisticsProfileDropOffHistoryJPanel historydropoff = new LogisticsProfileDropOffHistoryJPanel(LogisticsLoginDynamicJPanel);
+        LogisticsProfileDropOffHistoryJPanel historydropoff = new LogisticsProfileDropOffHistoryJPanel(LogisticsLoginDynamicJPanel, this.ecosystem, this.logisticsMan);
         CardLayout layout = (CardLayout) LogisticsLoginDynamicJPanel.getLayout();
         LogisticsLoginDynamicJPanel.add("logisticsPast", historydropoff);
         
         layout.next(LogisticsLoginDynamicJPanel);
         
     }//GEN-LAST:event_btnLogisticsDropOffHistoryMouseClicked
+
+    private void btnLogisticsLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogisticsLogoutMouseClicked
+        // TODO add your handling code here:
+        
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+        MainJPanel main = new MainJPanel(LogisticsLoginMainJPanel);
+        CardLayout layout = (CardLayout) LogisticsLoginMainJPanel.getLayout();
+        LogisticsLoginMainJPanel.add("Home", main);
+
+        layout.next(LogisticsLoginMainJPanel);
+        
+        
+        
+    }//GEN-LAST:event_btnLogisticsLogoutMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -635,7 +662,6 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -660,5 +686,6 @@ public class LogisticsProfileMainJPanel extends javax.swing.JPanel {
     private keeptoo.KGradientPanel kGradientPanel3;
     private keeptoo.KGradientPanel kGradientPanel4;
     private keeptoo.KGradientPanel kGradientPanel5;
+    private javax.swing.JLabel namePanel;
     // End of variables declaration//GEN-END:variables
 }

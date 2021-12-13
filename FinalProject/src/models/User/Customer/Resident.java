@@ -34,8 +34,8 @@ public class Resident extends Person{
         return rewardPoints;
     }
 
-    public void setRewardPoints(int rewardPoints) {
-        this.rewardPoints = rewardPoints;
+    public void updateRewardPoints(int rewardPoints) {
+        this.rewardPoints += rewardPoints;
     }
     
 }

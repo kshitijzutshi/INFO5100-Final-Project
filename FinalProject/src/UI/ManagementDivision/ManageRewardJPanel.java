@@ -5,7 +5,11 @@
  */
 package UI.ManagementDivision;
 
+import UI.CategoryDropDownUtil;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import models.Inventory.Item;
+import models.Rewards.RewardsUtil;
 
 /**
  *
@@ -38,14 +42,15 @@ public class ManageRewardJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtcategory = new javax.swing.JComboBox<>();
+        dropDownCategory = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        txtsubcategory = new javax.swing.JComboBox<>();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        dropdownSubCategory = new javax.swing.JComboBox<>();
+        recycleRadioBtn = new javax.swing.JRadioButton();
+        refurbRadioBtn = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
-        txtreward = new javax.swing.JTextField();
-        btnupdate = new javax.swing.JButton();
+        txtrewardValue = new javax.swing.JTextField();
+        updateRewardsBtn = new javax.swing.JButton();
+        viewRewardsBtn = new javax.swing.JButton();
 
         setLayout(new java.awt.CardLayout());
 
@@ -62,62 +67,86 @@ public class ManageRewardJPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel2.setText("Select Appliance Type:");
 
-        txtcategory.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        txtcategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Home Appliances", "Electronic Utilities", "Communication and IT Devices", "Office and Medical Equipment", "Home Entertainment Devices" }));
+        dropDownCategory.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        dropDownCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Home Appliances", "Communications & IT Devices", "Home Entertainment Devices", "Electronic Utilities", "Office and Medical Equipment", "Other" }));
+        dropDownCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dropDownCategoryActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel3.setText("Type of Appliance:");
 
-        txtsubcategory.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        txtsubcategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        dropdownSubCategory.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        dropdownSubCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jRadioButton1.setBackground(new java.awt.Color(205, 223, 245));
-        jRadioButton1.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jRadioButton1.setText("Recycled");
+        recycleRadioBtn.setBackground(new java.awt.Color(205, 223, 245));
+        recycleRadioBtn.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        recycleRadioBtn.setText("Recycled");
 
-        jRadioButton2.setBackground(new java.awt.Color(205, 223, 245));
-        jRadioButton2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jRadioButton2.setText("Refurbished");
+        refurbRadioBtn.setBackground(new java.awt.Color(205, 223, 245));
+        refurbRadioBtn.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        refurbRadioBtn.setText("Refurbished");
 
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel4.setText("Reward Value:");
 
-        btnupdate.setBackground(new java.awt.Color(205, 223, 245));
-        btnupdate.setText("Update Reward");
+        updateRewardsBtn.setBackground(new java.awt.Color(205, 223, 245));
+        updateRewardsBtn.setText("Update Reward");
+        updateRewardsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateRewardsBtnActionPerformed(evt);
+            }
+        });
+
+        viewRewardsBtn.setBackground(new java.awt.Color(205, 223, 245));
+        viewRewardsBtn.setText("Check Rewards Value");
+        viewRewardsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewRewardsBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(28, 28, 28)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(txtreward, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                .addComponent(jRadioButton1)
-                                .addGap(63, 63, 63)
-                                .addComponent(jRadioButton2))
-                            .addComponent(txtcategory, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtsubcategory, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48))))
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(351, 351, 351)
-                .addComponent(btnupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(dropDownCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(recycleRadioBtn)
+                                .addGap(26, 26, 26)))
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(dropdownSubCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(48, 48, 48))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                                .addComponent(refurbRadioBtn)
+                                .addGap(176, 176, 176))))
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(txtrewardValue, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72)
+                        .addComponent(updateRewardsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(viewRewardsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(220, 220, 220))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,20 +154,21 @@ public class ManageRewardJPanel extends javax.swing.JPanel {
                 .addGap(67, 67, 67)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtcategory, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dropDownCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtsubcategory, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dropdownSubCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(74, 74, 74)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
-                .addGap(60, 60, 60)
+                    .addComponent(recycleRadioBtn)
+                    .addComponent(refurbRadioBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(viewRewardsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtreward, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
-                .addComponent(btnupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(149, 149, 149))
+                    .addComponent(txtrewardValue, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateRewardsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(215, 215, 215))
         );
 
         javax.swing.GroupLayout ManageRewardsJJPanelLayout = new javax.swing.GroupLayout(ManageRewardsJJPanel);
@@ -166,19 +196,68 @@ public class ManageRewardJPanel extends javax.swing.JPanel {
         add(ManageRewardsJJPanel, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
+    private void updateRewardsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateRewardsBtnActionPerformed
+        // TODO add your handling code here:
+        String category = (String) dropDownCategory.getSelectedItem();
+        String subCategory = (String) dropdownSubCategory.getSelectedItem();
+        boolean refurbRadio = refurbRadioBtn.isSelected();
+        boolean recycleRadio = recycleRadioBtn.isSelected();
+        if ((refurbRadio && recycleRadio) || !(refurbRadio || recycleRadio)) {
+            JOptionPane.showMessageDialog(this, "Specify either recycle/refurb");
+            return;
+        }
+        int points = Integer.valueOf(txtrewardValue.getText());
+        if (refurbRadio) {
+            RewardsUtil.updateRewardPoints(category, subCategory, Item.ItemType.REFURB.name().toLowerCase(), points);
+        }
+        else {
+            RewardsUtil.updateRewardPoints(category, subCategory, Item.ItemType.RECYCLE.name().toLowerCase(), points);
+        }
+        txtrewardValue.setText(String.valueOf(points));
+        JOptionPane.showMessageDialog(this, "Reward value updated");
+    }//GEN-LAST:event_updateRewardsBtnActionPerformed
+
+    private void dropDownCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropDownCategoryActionPerformed
+        // TODO add your handling code here:
+        String selectedCat = (String) dropDownCategory.getSelectedItem();
+        dropdownSubCategory.removeAllItems();
+        for (String subCat: CategoryDropDownUtil.getList(selectedCat)) dropdownSubCategory.addItem(subCat);
+    }//GEN-LAST:event_dropDownCategoryActionPerformed
+
+    private void viewRewardsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRewardsBtnActionPerformed
+        // TODO add your handling code here:
+        String category = (String) dropDownCategory.getSelectedItem();
+        String subCategory = (String) dropdownSubCategory.getSelectedItem();
+        boolean refurbRadio = refurbRadioBtn.isSelected();
+        boolean recycleRadio = recycleRadioBtn.isSelected();
+        if ((refurbRadio && recycleRadio) || !(refurbRadio || recycleRadio)) {
+            JOptionPane.showMessageDialog(this, "Specify either recycle/refurb");
+            return;
+        }
+        int points = 0;
+        if (refurbRadio) {
+            points = RewardsUtil.getRewardPoints(category, subCategory, Item.ItemType.REFURB.name());
+        }
+        else {
+            points = RewardsUtil.getRewardPoints(category, subCategory, Item.ItemType.RECYCLE.name());
+        }
+        txtrewardValue.setText(String.valueOf(points));
+    }//GEN-LAST:event_viewRewardsBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ManageRewardsJJPanel;
-    private javax.swing.JButton btnupdate;
+    private javax.swing.JComboBox<String> dropDownCategory;
+    private javax.swing.JComboBox<String> dropdownSubCategory;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private keeptoo.KGradientPanel kGradientPanel1;
-    private javax.swing.JComboBox<String> txtcategory;
-    private javax.swing.JTextField txtreward;
-    private javax.swing.JComboBox<String> txtsubcategory;
+    private javax.swing.JRadioButton recycleRadioBtn;
+    private javax.swing.JRadioButton refurbRadioBtn;
+    private javax.swing.JTextField txtrewardValue;
+    private javax.swing.JButton updateRewardsBtn;
+    private javax.swing.JButton viewRewardsBtn;
     // End of variables declaration//GEN-END:variables
 }

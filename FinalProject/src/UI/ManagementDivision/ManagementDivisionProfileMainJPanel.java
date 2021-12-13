@@ -5,8 +5,12 @@
  */
 package UI.ManagementDivision;
 
+import UI.MainJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import models.DB4OUtil.DB4OUtil;
+import models.EcoSystem;
+import models.User.Employee.OperationsManager;
 
 /**
  *
@@ -18,9 +22,14 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
      * Creates new form ManagementDivisionProfileMainJPanel
      */
     JPanel jpanel72;
-    public ManagementDivisionProfileMainJPanel(JPanel ManagementDivisionJPanel) {
+    EcoSystem ecosystem;
+    OperationsManager manager;
+    public ManagementDivisionProfileMainJPanel(JPanel ManagementDivisionJPanel, EcoSystem ecosystem, OperationsManager manager) {
         initComponents();
         this.ManagmentDivisionLoginMainJPanel = ManagementDivisionJPanel;
+        this.ecosystem = ecosystem;
+        this.manager = manager;
+        managernameLabel.setText(manager.getFullName());
     }
 
     /**
@@ -41,22 +50,22 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
         btnMgmtHome = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        btnManageOrders = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
+        btnManageRewards = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         btnManageRecycled = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
+        btnLogout = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        managernameLabel = new javax.swing.JLabel();
         ManagmentDivDynamicJPanel = new javax.swing.JPanel();
         ManagmentDivDynamicMainJPanel = new javax.swing.JPanel();
         kGradientPanel4 = new keeptoo.KGradientPanel();
@@ -160,11 +169,11 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel4.setBackground(new java.awt.Color(167, 190, 211));
-        jPanel4.setForeground(new java.awt.Color(51, 51, 51));
-        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnManageOrders.setBackground(new java.awt.Color(167, 190, 211));
+        btnManageOrders.setForeground(new java.awt.Color(51, 51, 51));
+        btnManageOrders.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel4MouseClicked(evt);
+                btnManageOrdersMouseClicked(evt);
             }
         });
 
@@ -174,32 +183,32 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel9.setText("Manage Orders");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout btnManageOrdersLayout = new javax.swing.GroupLayout(btnManageOrders);
+        btnManageOrders.setLayout(btnManageOrdersLayout);
+        btnManageOrdersLayout.setHorizontalGroup(
+            btnManageOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnManageOrdersLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel9)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        btnManageOrdersLayout.setVerticalGroup(
+            btnManageOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnManageOrdersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(btnManageOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        jPanel5.setBackground(new java.awt.Color(167, 190, 211));
-        jPanel5.setForeground(new java.awt.Color(51, 51, 51));
-        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnManageRewards.setBackground(new java.awt.Color(167, 190, 211));
+        btnManageRewards.setForeground(new java.awt.Color(51, 51, 51));
+        btnManageRewards.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel5MouseClicked(evt);
+                btnManageRewardsMouseClicked(evt);
             }
         });
 
@@ -210,22 +219,22 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
         jLabel11.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel11.setText("Manage Rewards");
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        javax.swing.GroupLayout btnManageRewardsLayout = new javax.swing.GroupLayout(btnManageRewards);
+        btnManageRewards.setLayout(btnManageRewardsLayout);
+        btnManageRewardsLayout.setHorizontalGroup(
+            btnManageRewardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnManageRewardsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel11)
                 .addContainerGap(94, Short.MAX_VALUE))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        btnManageRewardsLayout.setVerticalGroup(
+            btnManageRewardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnManageRewardsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(btnManageRewardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -269,8 +278,13 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel7.setBackground(new java.awt.Color(167, 190, 211));
-        jPanel7.setForeground(new java.awt.Color(51, 51, 51));
+        btnLogout.setBackground(new java.awt.Color(167, 190, 211));
+        btnLogout.setForeground(new java.awt.Color(51, 51, 51));
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseClicked(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -279,22 +293,22 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
         jLabel16.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel16.setText("Logout");
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        javax.swing.GroupLayout btnLogoutLayout = new javax.swing.GroupLayout(btnLogout);
+        btnLogout.setLayout(btnLogoutLayout);
+        btnLogoutLayout.setHorizontalGroup(
+            btnLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnLogoutLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        btnLogoutLayout.setVerticalGroup(
+            btnLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnLogoutLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(btnLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -307,14 +321,14 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnManageRewards, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnMgmtHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnManageRefurbished, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnManageRecycled, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnManageOrders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         kGradientPanel1Layout.setVerticalGroup(
@@ -331,11 +345,11 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnManageRecycled, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnManageOrders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnManageRewards, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(810, Short.MAX_VALUE))
         );
 
@@ -349,9 +363,8 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
         jLabel13.setForeground(new java.awt.Color(51, 51, 51));
         jLabel13.setText("Welcome to ReQube,");
 
-        jLabel14.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel14.setText("Emp_MGMT_DIV");
+        managernameLabel.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
+        managernameLabel.setForeground(new java.awt.Color(51, 51, 51));
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
@@ -361,7 +374,7 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
                 .addGap(258, 258, 258)
                 .addComponent(jLabel13)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(managernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(
@@ -370,7 +383,7 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(managernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
@@ -392,7 +405,7 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
         jLabel20.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(51, 51, 51));
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel20.setText("Number of Refurbishable Items");
+        jLabel20.setText("Total inventory");
 
         jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/multiple_devices_96px.png"))); // NOI18N
@@ -534,7 +547,7 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
                         .addComponent(kGradientPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(103, 103, 103)
                         .addComponent(kGradientPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(288, Short.MAX_VALUE))
+                .addContainerGap(289, Short.MAX_VALUE))
         );
         ManagmentDivDynamicMainJPanelLayout.setVerticalGroup(
             ManagmentDivDynamicMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -561,7 +574,7 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(ManagmentDivisionLoginMainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1111, Short.MAX_VALUE)
+                    .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1112, Short.MAX_VALUE)
                     .addComponent(ManagmentDivDynamicJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         ManagmentDivisionLoginMainJPanelLayout.setVerticalGroup(
@@ -581,7 +594,7 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
 
     private void btnMgmtHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMgmtHomeMouseClicked
         // TODO add your handling code here:
-                  ManagementHome managementHomeJPanel = new ManagementHome(ManagmentDivDynamicJPanel);
+                  ManagementHome managementHomeJPanel = new ManagementHome(ManagmentDivDynamicJPanel, this.ecosystem, this.manager);
                   CardLayout layout = (CardLayout) ManagmentDivDynamicJPanel.getLayout();
                   ManagmentDivDynamicJPanel.add("homeManage", managementHomeJPanel);
 //        
@@ -590,7 +603,7 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
 
     private void btnManageRefurbishedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageRefurbishedMouseClicked
 
-                  ManageRefurbishedItemsJPanel manageRefurbished = new ManageRefurbishedItemsJPanel(ManagmentDivDynamicJPanel);
+                  ManageRefurbishedItemsJPanel manageRefurbished = new ManageRefurbishedItemsJPanel(ManagmentDivDynamicJPanel, this.ecosystem, this.manager);
                   CardLayout layout = (CardLayout) ManagmentDivDynamicJPanel.getLayout();
                   ManagmentDivDynamicJPanel.add("refurbishedManage", manageRefurbished);
 //        
@@ -599,24 +612,24 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
 
     private void btnManageRecycledMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageRecycledMouseClicked
         // TODO add your handling code here:
-                  ManageRecycledItemsJPanel manageRecycle = new ManageRecycledItemsJPanel(ManagmentDivDynamicJPanel);
+                  ManageRecycledItemsJPanel manageRecycle = new ManageRecycledItemsJPanel(ManagmentDivDynamicJPanel, this.ecosystem, this.manager);
                   CardLayout layout = (CardLayout) ManagmentDivDynamicJPanel.getLayout();
                   ManagmentDivDynamicJPanel.add("recycleManage", manageRecycle);
 //        
                   layout.next(ManagmentDivDynamicJPanel);
     }//GEN-LAST:event_btnManageRecycledMouseClicked
 
-    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+    private void btnManageOrdersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageOrdersMouseClicked
         // TODO add your handling code here:
         
-        ManageOrderedItemsJPanel manageorder = new ManageOrderedItemsJPanel(ManagmentDivDynamicJPanel);
+        ManageOrderedItemsJPanel manageorder = new ManageOrderedItemsJPanel(ManagmentDivDynamicJPanel, this.ecosystem, this.manager);
         CardLayout layout = (CardLayout) ManagmentDivDynamicJPanel.getLayout();
                   ManagmentDivDynamicJPanel.add("OrderManagement", manageorder);
 //        
                   layout.next(ManagmentDivDynamicJPanel);
-    }//GEN-LAST:event_jPanel4MouseClicked
+    }//GEN-LAST:event_btnManageOrdersMouseClicked
 
-    private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
+    private void btnManageRewardsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageRewardsMouseClicked
         // TODO add your handling code here:
         
         ManageRewardJPanel managerewards = new ManageRewardJPanel(ManagmentDivDynamicJPanel);
@@ -625,22 +638,36 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
 //        
                   layout.next(ManagmentDivDynamicJPanel);
         
-    }//GEN-LAST:event_jPanel5MouseClicked
+    }//GEN-LAST:event_btnManageRewardsMouseClicked
+
+    private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
+        // TODO add your handling code here:
+        
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+         MainJPanel main = new MainJPanel(ManagmentDivisionLoginMainJPanel);
+        CardLayout layout = (CardLayout) ManagmentDivisionLoginMainJPanel.getLayout();
+        ManagmentDivisionLoginMainJPanel.add("Home", main);
+
+        layout.next(ManagmentDivisionLoginMainJPanel);
+        
+    }//GEN-LAST:event_btnLogoutMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ManagmentDivDynamicJPanel;
     private javax.swing.JPanel ManagmentDivDynamicMainJPanel;
     private javax.swing.JPanel ManagmentDivisionLoginMainJPanel;
+    private javax.swing.JPanel btnLogout;
+    private javax.swing.JPanel btnManageOrders;
     private javax.swing.JPanel btnManageRecycled;
     private javax.swing.JPanel btnManageRefurbished;
+    private javax.swing.JPanel btnManageRewards;
     private javax.swing.JPanel btnMgmtHome;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -660,13 +687,11 @@ public class ManagementDivisionProfileMainJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel7;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;
     private keeptoo.KGradientPanel kGradientPanel4;
     private keeptoo.KGradientPanel kGradientPanel5;
     private keeptoo.KGradientPanel kGradientPanel6;
+    private javax.swing.JLabel managernameLabel;
     // End of variables declaration//GEN-END:variables
 }

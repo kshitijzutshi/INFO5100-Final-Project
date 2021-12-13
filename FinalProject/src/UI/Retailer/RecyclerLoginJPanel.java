@@ -5,7 +5,16 @@
  */
 package UI.Retailer;
 
+import UI.MainJPanel;
+import java.awt.CardLayout;
+import java.util.ArrayList;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import models.DB4OUtil.DB4OUtil;
+import models.EcoSystem;
+import models.Inventory.Item;
+import models.Recycle.RecycleBatch;
+import models.User.Client.Client;
 
 /**
  *
@@ -18,11 +27,16 @@ public class RecyclerLoginJPanel extends javax.swing.JPanel {
      */
     
     JPanel jpanel15;
-    
-    public RecyclerLoginJPanel(JPanel RecyclerHome) {
+    EcoSystem ecosystem;
+    Client client;
+    ArrayList<Item> batchItems;
+    int totalcountOfItems;
+    public RecyclerLoginJPanel(JPanel RecyclerHome, EcoSystem ecosystem, Client client) {
         initComponents();
-        
+        this.ecosystem = ecosystem;
+        this.client = client;
         this.RecyclerLoginHomeJPanel = RecyclerHome;
+        welcometext.setText(client.getFullName());
     }
 
     /**
@@ -37,11 +51,11 @@ public class RecyclerLoginJPanel extends javax.swing.JPanel {
         RecyclerLoginHomeJPanel = new javax.swing.JPanel();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        welcometext = new javax.swing.JLabel();
+        logoutButton = new javax.swing.JButton();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel2 = new javax.swing.JLabel();
         txtcategory = new javax.swing.JComboBox<>();
-        btnsearch = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblrecycle = new javax.swing.JTable();
         btnbuy = new javax.swing.JButton();
@@ -51,18 +65,29 @@ public class RecyclerLoginJPanel extends javax.swing.JPanel {
 
         RecyclerLoginHomeJPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        kGradientPanel2.setkEndColor(new java.awt.Color(128, 193, 115));
+        kGradientPanel2.setkEndColor(new java.awt.Color(198, 226, 233));
         kGradientPanel2.setkGradientFocus(800);
-        kGradientPanel2.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel2.setkStartColor(new java.awt.Color(167, 190, 211));
         kGradientPanel2.setPreferredSize(new java.awt.Dimension(300, 1460));
 
         jLabel13.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setForeground(new java.awt.Color(51, 51, 51));
         jLabel13.setText("Welcome to ReQube,");
 
-        jLabel14.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Recycler");
+        welcometext.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
+        welcometext.setForeground(new java.awt.Color(51, 51, 51));
+
+        logoutButton.setBackground(new java.awt.Color(205, 223, 245));
+        logoutButton.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
+        logoutButton.setForeground(new java.awt.Color(51, 51, 51));
+        logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout_rounded_left_50px.png"))); // NOI18N
+        logoutButton.setText("Logout");
+        logoutButton.setBorder(null);
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
@@ -71,59 +96,71 @@ public class RecyclerLoginJPanel extends javax.swing.JPanel {
             .addGroup(kGradientPanel2Layout.createSequentialGroup()
                 .addGap(119, 119, 119)
                 .addComponent(jLabel13)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(welcometext, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
         kGradientPanel2Layout.setVerticalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel2Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(47, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(welcometext, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(51, 51, 51))
         );
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(128, 193, 115));
-        kGradientPanel1.setkStartColor(new java.awt.Color(221, 228, 186));
+        kGradientPanel1.setkEndColor(new java.awt.Color(198, 226, 233));
+        kGradientPanel1.setkStartColor(new java.awt.Color(167, 190, 211));
 
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel2.setText("Select Appliance Type:");
 
         txtcategory.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         txtcategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Home Appliances", "Electronic Utilities", "Communication and IT Devices", "Office and Medical Equipments", "Home Entertainment Devices" }));
-
-        btnsearch.setBackground(new java.awt.Color(203, 247, 194));
-        btnsearch.setText("Search");
+        txtcategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcategoryActionPerformed(evt);
+            }
+        });
 
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
 
         tblrecycle.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Item ID", "E-Waste Category", "Appliance Type", "Price", "Purchase Category"
+                "Batch ID", "Price", "Item Count"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        tblrecycle.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setViewportView(tblrecycle);
 
         btnbuy.setBackground(new java.awt.Color(203, 247, 194));
-        btnbuy.setText("Buy Item");
+        btnbuy.setText("Accept Batch");
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Available Recyclable Items");
         jLabel1.setToolTipText("");
 
@@ -145,9 +182,7 @@ public class RecyclerLoginJPanel extends javax.swing.JPanel {
                         .addGap(458, 458, 458)
                         .addComponent(jLabel2)
                         .addGap(34, 34, 34)
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtcategory, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtcategory, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGap(55, 55, 55)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1119, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -162,9 +197,7 @@ public class RecyclerLoginJPanel extends javax.swing.JPanel {
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtcategory, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(btnsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(83, 83, 83)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnbuy, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -193,19 +226,54 @@ public class RecyclerLoginJPanel extends javax.swing.JPanel {
         add(RecyclerLoginHomeJPanel, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtcategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcategoryActionPerformed
+        // TODO add your handling code here:
+        this.batchItems = new ArrayList<>();
+        this.totalcountOfItems = 0;
+        String category = (String) txtcategory.getSelectedItem();
+        for(RecycleBatch batch: this.ecosystem.getRecycleBatchDirectory().getBatches()) {
+           if(batch.getBatchCategory().equals(category)){
+               DefaultTableModel model = (DefaultTableModel) tblrecycle.getModel();
+                model.setRowCount(0);
+                
+                Object[] row = new Object[3];
+                row[0] = batch.getId();
+                row[1] = batch.getPrice();
+                row[2] = batch.getItems().size();
+               
+                model.addRow(row);
+                
+           
+           }
+        }
+         
+    }//GEN-LAST:event_txtcategoryActionPerformed
+
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+        // TODO add your handling code here:
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+        MainJPanel main = new MainJPanel(RecyclerLoginHomeJPanel);
+        CardLayout layout = (CardLayout) RecyclerLoginHomeJPanel.getLayout();
+        RecyclerLoginHomeJPanel.add("Home", main);
+
+        layout.next(RecyclerLoginHomeJPanel);
+
+    }//GEN-LAST:event_logoutButtonActionPerformed
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel RecyclerLoginHomeJPanel;
     private javax.swing.JButton btnbuy;
-    private javax.swing.JButton btnsearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;
+    private javax.swing.JButton logoutButton;
     private javax.swing.JTable tblrecycle;
     private javax.swing.JComboBox<String> txtcategory;
+    private javax.swing.JLabel welcometext;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,8 +6,11 @@
 package UI.Resident;
 
 import UI.CategoryDropDownUtil;
+import UI.MainJPanel;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.awt.CardLayout;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -17,6 +20,8 @@ import models.DB4OUtil.DB4OUtil;
 import models.EcoSystem;
 import models.Inventory.Item;
 import models.User.Customer.Resident;
+import models.User.Employee.LogisticsMan;
+import models.Work.InventoryPickup;
 
 /**
  *
@@ -158,6 +163,11 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
                 txtemakeActionPerformed(evt);
             }
         });
+        txtemake.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtemakeKeyPressed(evt);
+            }
+        });
 
         lblmodel.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblmodel.setForeground(java.awt.Color.darkGray);
@@ -170,12 +180,22 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         lblYearManuf.setText("Year of manufacturing");
 
         txtyearManuf.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        txtyearManuf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtyearManufKeyPressed(evt);
+            }
+        });
 
         lblweight.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblweight.setForeground(java.awt.Color.darkGray);
         lblweight.setText("Weight Approx.(in lbs)");
 
         txtitemweight.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        txtitemweight.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtitemweightKeyPressed(evt);
+            }
+        });
 
         lblcondition.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblcondition.setForeground(java.awt.Color.darkGray);
@@ -212,6 +232,11 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
 
         dropdownCondition.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "INTACT", "BROKEN" }));
         dropdownCondition.setToolTipText("");
+        dropdownCondition.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dropdownConditionActionPerformed(evt);
+            }
+        });
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
@@ -236,7 +261,6 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         });
         tblPickUpBooking.setGridColor(new java.awt.Color(255, 255, 255));
         tblPickUpBooking.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        tblPickUpBooking.setSelectionBackground(new java.awt.Color(204, 255, 204));
         jScrollPane1.setViewportView(tblPickUpBooking);
         if (tblPickUpBooking.getColumnModel().getColumnCount() > 0) {
             tblPickUpBooking.getColumnModel().getColumn(0).setPreferredWidth(10);
@@ -284,6 +308,15 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         lblpickupDate.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
         lblpickupDate.setForeground(java.awt.Color.darkGray);
         lblpickupDate.setText("Pick Up Date");
+
+        PickUpDateChooser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                PickUpDateChooserKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PickUpDateChooserKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPanelIndPickUpMainLayout = new javax.swing.GroupLayout(JPanelIndPickUpMain);
         JPanelIndPickUpMain.setLayout(JPanelIndPickUpMainLayout);
@@ -399,6 +432,12 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
         DB4OUtil.getInstance().storeSystem(this.ecosystem);
+        MainJPanel main = new MainJPanel(JPanelIndPickUpMain);
+        CardLayout layout = (CardLayout) JPanelIndPickUpMain.getLayout();
+        JPanelIndPickUpMain.add("Home", main);
+
+        layout.next(JPanelIndPickUpMain);
+        
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -425,6 +464,27 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
 
     private void btnAddtoBookingTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddtoBookingTableActionPerformed
         // TODO add your handling code here:
+       
+        String make = txtemake.getText();
+        String model = txtmodel.getText();
+        Integer yearofmanu;
+        
+        String weight = txtitemweight.getText();
+        
+        
+        if(make.equals("") || model.equals("") || weight.equals("")){
+            JOptionPane.showMessageDialog(this, "All fields are required");
+            return;
+        }
+        
+        if(txtyearManuf.getText().length()<4){
+            JOptionPane.showMessageDialog(this, "Invalid Year");
+            return;           
+        }
+        
+        yearofmanu = Integer.parseInt(txtyearManuf.getText());
+    
+        
         HashMap<String, String> currentEntry = new HashMap<>();
         currentEntry.put("category", (String) dropdownCatEwaste.getSelectedItem());
         currentEntry.put("subCategory", (String) dropdownApplianceType.getSelectedItem());
@@ -452,6 +512,7 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         }
         DefaultTableModel model = (DefaultTableModel) tblPickUpBooking.getModel();
         model.removeRow(selectedRowIndex);
+        this.entries.remove(selectedRowIndex);
     }//GEN-LAST:event_btnDeleteItemActionPerformed
 
     private void btnCreateBookingPickUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateBookingPickUpActionPerformed
@@ -459,7 +520,7 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         InventoryBooking booking = new InventoryBooking(this.resident, InventoryBooking.BookingType.PICKUP);
         for (HashMap<String, String> entry: this.entries) {
             Item item = new Item(this.resident, entry.get("category"), entry.get("subCategory"));
-            item.setCondition(Item.ItemCondition.INTACT);
+            item.setCondition(Item.ItemCondition.valueOf((String) dropdownCondition.getSelectedItem()));
             item.setMake(entry.get("make"));
             item.setModel(entry.get("model"));
             item.setManufactureYear(Integer.valueOf(entry.get("year")));
@@ -469,9 +530,72 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         }
         this.ecosystem.getBookingDirectory().addBooking(booking);
         
-        JOptionPane.showMessageDialog(this, "Booking created");
+        LogisticsMan logMan = this.ecosystem.getEmployeeDirectory().getNextAvailableLogisticsMan();
+        
+        if (logMan==null) {
+            JOptionPane.showMessageDialog(this, "Booking created, awaiting to assign delivery person");
+            this.entries = new ArrayList<>();
+            return;
+        }
+        
+        InventoryPickup pickup = new InventoryPickup(booking);
+        pickup.setLogisticsMan(logMan);
+        logMan.setAvailable(false);
+        booking.setAssigned(true);
+        this.ecosystem.getWorkRequestDirectory().addInventoryPickup(pickup);
+        
+        JOptionPane.showMessageDialog(this, "Booking created, " + logMan.getFullName() + " assigned for pickup");
         this.entries = new ArrayList<>();
     }//GEN-LAST:event_btnCreateBookingPickUpActionPerformed
+
+    private void txtemakeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtemakeKeyPressed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_txtemakeKeyPressed
+
+    private void txtyearManufKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtyearManufKeyPressed
+        // TODO add your handling code here:
+                    
+        char c = evt.getKeyChar();
+        
+        if(Character.isLetter(c) || Character.isWhitespace(c)){
+           // txtyearManuf.setEditable(false);
+            JOptionPane.showMessageDialog(null, "Please enter number");
+            return;
+        }else{
+            txtyearManuf.setEditable(true);
+        }
+    }//GEN-LAST:event_txtyearManufKeyPressed
+
+    private void txtitemweightKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtitemweightKeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        
+        if(Character.isLetter(c) || Character.isWhitespace(c)){
+           // txtyearManuf.setEditable(false);
+            JOptionPane.showMessageDialog(null, "Please enter number");
+            return;
+        }else{
+            txtitemweight.setEditable(true);
+        }   
+    }//GEN-LAST:event_txtitemweightKeyPressed
+
+    private void dropdownConditionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropdownConditionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dropdownConditionActionPerformed
+
+    private void PickUpDateChooserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PickUpDateChooserKeyPressed
+        // TODO add your handling code here:
+        
+        
+      
+    }//GEN-LAST:event_PickUpDateChooserKeyPressed
+
+    private void PickUpDateChooserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PickUpDateChooserKeyTyped
+        // TODO add your handling code here:
+        
+        PickUpDateChooser.getJCalendar().setMinSelectableDate(new Date());
+    }//GEN-LAST:event_PickUpDateChooserKeyTyped
     
     
     private void populateTable() {

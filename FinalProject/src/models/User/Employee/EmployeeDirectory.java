@@ -6,6 +6,7 @@
 package models.User.Employee;
 
 import java.util.ArrayList;
+import models.User.UserAccount;
 
 /**
  *
@@ -82,6 +83,42 @@ public class EmployeeDirectory {
             if (logisticsMan.isAvailable()) return logisticsMan;
         }
         return null;
+    }
+    
+    public OperationsManager getManagerByUserAccount(UserAccount userAccount) {
+        for (OperationsManager manager: this.inventoryManagers) {
+            if (manager.getUserAccount() == userAccount) return manager;
+        }
+        return null;
+    }
+    
+    public LogisticsMan getLogisticsManByUserAccount(UserAccount userAccount) {
+        for (LogisticsMan lagMan: this.logisticsMen) {
+            if (lagMan.getUserAccount() == userAccount) return lagMan;
+        }
+        return null;
+    }
+    
+    public QCInspector getQCInspectorByUserAccount(UserAccount userAccount) {
+        for (QCInspector qc: this.qcInspectors) {
+            if (qc.getUserAccount() == userAccount) return qc;
+        }
+        return null;
+    }
+    
+    public Technician getTechnicanByUserAccount(UserAccount userAccount) {
+        for (Technician tech: this.technicians) {
+            if (tech.getUserAccount() == userAccount) return tech;
+        }
+        return null;
+    }
+    
+    public ArrayList<LogisticsMan> getActiveLogisticsMen() {
+        ArrayList<LogisticsMan> logMen = new ArrayList<>();
+        for (LogisticsMan logMan: this.logisticsMen) {
+            if (logMan.isAvailable()) logMen.add(logMan);
+        }
+        return logMen;
     }
     
     

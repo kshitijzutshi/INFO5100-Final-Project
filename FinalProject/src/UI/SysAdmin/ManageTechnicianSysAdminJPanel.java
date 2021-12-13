@@ -27,6 +27,7 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
         this.managetechnicianAdminPanel = ManageTechnicianSysAdmin;
         this.ecosystem = ecosystem;
         initComponents();
+        this.populateTable();
     }
 
     /**
@@ -110,7 +111,7 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("View Technician Users");
 
-        techniciansJTable.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        techniciansJTable.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         techniciansJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -232,11 +233,12 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
             }
         this.selectedTechnician.getUserAccount().setPassword(password);
         this.selectedTechnician.setFullName(name);
-        populateTable();
+        this.populateTable();
         nameTextField.setText("");
         usernameTextField.setText("");
         passwordTextField.setText("");
         JOptionPane.showMessageDialog(null, "Updated details");
+        this.populateTable();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -248,6 +250,11 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "All fields are required");
                 return;
             }
+        if(username.length()<3 || password.length()<5){
+            JOptionPane.showMessageDialog(this, "Username minimum lenght should be 3 and Password minimum lenght should be 5!!");
+            return;
+        }
+        
         if (this.ecosystem.getUserAccountDirectory().userNameExists(username)) {
                 JOptionPane.showMessageDialog(this, "Username already taken!");
                 return;
@@ -256,7 +263,12 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
         technician.setFullName(name);
         this.ecosystem.getUserAccountDirectory().addUserAccount(technician.getUserAccount());
         this.ecosystem.getEmployeeDirectory().addTechnician(technician);
+        this.ecosystem.getWorkRequestDirectory().increaserefurbAssignmentMapCount(technician);
         JOptionPane.showMessageDialog(null, "Technician employee added successfully");
+        this.populateTable();
+        nameTextField.setText("");
+        usernameTextField.setText("");
+        passwordTextField.setText("");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

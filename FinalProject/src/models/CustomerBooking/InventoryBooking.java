@@ -23,6 +23,7 @@ public class InventoryBooking {
     private final LocalDateTime bookedOn;
     private final BookingType bookingType;
     private LocalDateTime requestedDateTime;
+    private boolean assigned;
     
     public InventoryBooking(Resident resident, BookingType bookingType) {
         this.id = UUID.randomUUID().toString().substring(0,5);
@@ -30,6 +31,7 @@ public class InventoryBooking {
         this.resident = resident;
         this.bookedOn = LocalDateTime.now();
         this.items = new ArrayList<>();
+        this.assigned = false;
     }
     
     public enum BookingType {
@@ -68,6 +70,15 @@ public class InventoryBooking {
     public void addToItems(Item item) {
         this.items.add(item);
     }
-        
+
+    public boolean isAssigned() {
+        return assigned;
+    }
+
+    public void setAssigned(boolean assigned) {
+        this.assigned = assigned;
+    }
+
+    
     
 }

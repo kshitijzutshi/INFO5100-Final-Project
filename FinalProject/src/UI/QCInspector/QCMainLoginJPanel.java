@@ -5,8 +5,12 @@
  */
 package UI.QCInspector;
 
+import UI.MainJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import models.DB4OUtil.DB4OUtil;
+import models.EcoSystem;
+import models.User.Employee.QCInspector;
 
 /**
  *
@@ -19,11 +23,15 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
      */
     
     JPanel jpanel11;
-    
-    public QCMainLoginJPanel(JPanel qclogin) {
+    EcoSystem ecosystem;
+    QCInspector qcInspector;
+    public QCMainLoginJPanel(JPanel qclogin, EcoSystem ecosystem, QCInspector qcInspector) {
         initComponents();
         
         this.QcLoginJPanel = qclogin;
+        this.ecosystem = ecosystem;
+        this.qcInspector = qcInspector;
+        qcnamelabel.setText(qcInspector.getFullName());
     }
 
     /**
@@ -38,7 +46,7 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
         QcLoginJPanel = new javax.swing.JPanel();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        qcnamelabel = new javax.swing.JLabel();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel1 = new javax.swing.JLabel();
         btnpendinginspection = new javax.swing.JPanel();
@@ -83,9 +91,8 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
         jLabel13.setForeground(new java.awt.Color(51, 51, 51));
         jLabel13.setText("Welcome to ReQube,");
 
-        jLabel14.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel14.setText("Emp_MGMT_DIV");
+        qcnamelabel.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
+        qcnamelabel.setForeground(new java.awt.Color(51, 51, 51));
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
@@ -95,7 +102,7 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
                 .addGap(81, 81, 81)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(qcnamelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(
@@ -104,7 +111,7 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(qcnamelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
@@ -227,6 +234,11 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
         );
 
         jPanel7.setBackground(new java.awt.Color(167, 190, 211));
+        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel7MouseClicked(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -494,7 +506,7 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
     private void btnpendinginspectionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpendinginspectionMouseClicked
 
         
-        QCPendingReviewItemsJPanel qcpendingitems = new QCPendingReviewItemsJPanel(qcswitchingpanel);
+        QCPendingReviewItemsJPanel qcpendingitems = new QCPendingReviewItemsJPanel(qcswitchingpanel, this.ecosystem, this.qcInspector);
                   CardLayout layout = (CardLayout) qcswitchingpanel.getLayout();
                   qcswitchingpanel.add("QCPending", qcpendingitems);
 //        
@@ -503,7 +515,7 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
 
     private void btnQcHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQcHomeMouseClicked
         // TODO add your handling code here:
-        QCInspectorHomeJPanel qchome = new QCInspectorHomeJPanel(qcswitchingpanel);
+        QCInspectorHomeJPanel qchome = new QCInspectorHomeJPanel(qcswitchingpanel, this.ecosystem, this.qcInspector);
                   CardLayout layout = (CardLayout) qcswitchingpanel.getLayout();
                   qcswitchingpanel.add("QCPending", qchome);
 //        
@@ -515,13 +527,25 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
     private void btnManageRecycledMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageRecycledMouseClicked
 
         
-        QCPastItemsHistoryJPanel qcpast = new QCPastItemsHistoryJPanel(qcswitchingpanel);
+        QCPastItemsHistoryJPanel qcpast = new QCPastItemsHistoryJPanel(qcswitchingpanel, this.ecosystem, this.qcInspector);
         CardLayout layout = (CardLayout) qcswitchingpanel.getLayout();
                   qcswitchingpanel.add("QCPast", qcpast);
 //        
                   layout.next(qcswitchingpanel);
         
     }//GEN-LAST:event_btnManageRecycledMouseClicked
+
+    private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
+        // TODO add your handling code here:
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+        MainJPanel main = new MainJPanel(QcLoginJPanel);
+        CardLayout layout = (CardLayout) QcLoginJPanel.getLayout();
+        QcLoginJPanel.add("Home", main);
+
+        layout.next(QcLoginJPanel);
+        
+        
+    }//GEN-LAST:event_jPanel7MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -532,7 +556,6 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -556,6 +579,7 @@ public class QCMainLoginJPanel extends javax.swing.JPanel {
     private keeptoo.KGradientPanel kGradientPanel4;
     private keeptoo.KGradientPanel kGradientPanel5;
     private keeptoo.KGradientPanel kGradientPanel6;
+    private javax.swing.JLabel qcnamelabel;
     private javax.swing.JPanel qcpendingitems;
     private javax.swing.JPanel qcswitchingpanel;
     // End of variables declaration//GEN-END:variables

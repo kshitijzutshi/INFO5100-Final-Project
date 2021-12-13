@@ -6,7 +6,9 @@
 package UI.SysAdmin;
 
 import javax.swing.JPanel;
-
+import javax.swing.table.DefaultTableModel;
+import models.EcoSystem;
+import models.User.Client.Client;
 /**
  *
  * @author kshitij
@@ -17,9 +19,15 @@ public class ManageCommercialSysAdminJPanel extends javax.swing.JPanel {
      * Creates new form ManageCommercialSysAdminJPanel
      */
     JPanel jpanel8;
-    public ManageCommercialSysAdminJPanel(JPanel ManageCommercialSysAdmin) {
+     EcoSystem ecosystem;
+    Client selectedClient;
+    
+    
+    public ManageCommercialSysAdminJPanel(JPanel ManageCommercialSysAdmin, EcoSystem ecosystem) {
+         initComponents();
         this.manageCommercialSysAdmin = ManageCommercialSysAdmin;
-        initComponents();
+       
+        this.ecosystem = ecosystem;
     }
 
     /**
@@ -111,6 +119,7 @@ public class ManageCommercialSysAdminJPanel extends javax.swing.JPanel {
                 "Name", "Username", "Password"
             }
         ));
+        jTable1.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(jTable1);
 
         btnDelete.setBackground(new java.awt.Color(205, 223, 245));

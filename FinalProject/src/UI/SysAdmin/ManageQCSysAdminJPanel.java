@@ -27,6 +27,7 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
         this.ManageQCSysAdminPanel = ManageQCSysAdminJPanel;
         initComponents();
         this.ecosystem = ecosystem;
+        this.populateTable();
     }
 
     /**
@@ -110,6 +111,7 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("View QC Inspector Users");
 
+        qcInspectorsJTable.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         qcInspectorsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -233,6 +235,7 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
         passwordTextField.setText("");
         usernameTextFied.setText("");
         JOptionPane.showMessageDialog(null, "Updated details");
+        this.populateTable();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -248,11 +251,22 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Username already taken!");
             return;
         }
+        
+        if(username.length()<3 || password.length()<5){
+            JOptionPane.showMessageDialog(this, "Username minimum lenght should be 3 and Password minimum lenght should be 5!!");
+            return;
+        }
+        
         QCInspector qcInspector = new QCInspector(username, password);
         qcInspector.setFullName(name);
         this.ecosystem.getUserAccountDirectory().addUserAccount(qcInspector.getUserAccount());
         this.ecosystem.getEmployeeDirectory().addQCInspector(qcInspector);
-        JOptionPane.showMessageDialog(null, "User added successfully");
+        this.ecosystem.getWorkRequestDirectory().increaseqcInspectionAssignmentCount(qcInspector);
+        JOptionPane.showMessageDialog(null, "QC Inspector added successfully");
+        this.populateTable();
+        nameTextField.setText("");
+        usernameTextFied.setText("");
+        passwordTextField.setText("");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

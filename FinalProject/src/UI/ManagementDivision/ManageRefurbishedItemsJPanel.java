@@ -5,9 +5,13 @@
  */
 package UI.ManagementDivision;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import models.EcoSystem;
+import models.Inventory.Item;
+import models.User.Employee.OperationsManager;
 
 /**
  *
@@ -19,9 +23,19 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
      * Creates new form ManageRefurbishedItemsJPanel
      */
     JPanel jpanel8;
-    public ManageRefurbishedItemsJPanel(JPanel manageRefurb) {
+    EcoSystem ecosystem;
+    OperationsManager manager;
+    ArrayList<Item> items = new ArrayList<>();
+    Item selectedItem;
+    public ManageRefurbishedItemsJPanel(JPanel manageRefurb, EcoSystem ecosystem, OperationsManager manager) {
         this.ManageRefurbJPanel = manageRefurb;
         initComponents();
+        this.ecosystem = ecosystem;
+        this.manager = manager;
+        for (Item item: this.ecosystem.getInventoryDirectory().getInventoryByStatus(Item.ItemStatus.READY_FOR_PRICING)) {
+            if (item.getType() == Item.ItemType.REFURB) this.items.add(item);
+        }
+        this.populateTable();
     }
 
     /**
@@ -37,17 +51,10 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblrefurbished = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        txtappliancetype = new javax.swing.JTextField();
-        txtcategory = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        txtweight = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtprice = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        setPriceText = new javax.swing.JButton();
 
         setLayout(new java.awt.CardLayout());
 
@@ -56,16 +63,17 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setBorder(null);
 
+        tblrefurbished.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         tblrefurbished.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "E-Waste Category", "Item ID", "Appliance Type", "Weight(lb)", "Item Status"
+                "Item ID", "E-Waste Category", "Appliance Type", "Make", "Model", "Year"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -80,21 +88,6 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Refurbished Items");
 
-        jLabel2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel2.setText("E-Waste Category:");
-
-        jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel3.setText("Applicance Type:");
-
-        txtappliancetype.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
-
-        txtcategory.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
-
-        jLabel4.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel4.setText("Weight:");
-
-        txtweight.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
-
         jLabel5.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel5.setText("Refurbished Item Price:");
 
@@ -108,18 +101,14 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/repaire.png"))); // NOI18N
         jLabel6.setText("jLabel6");
 
-        jButton1.setBackground(new java.awt.Color(205, 223, 245));
-        jButton1.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jButton1.setText("View Details");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        setPriceText.setBackground(new java.awt.Color(205, 223, 245));
+        setPriceText.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        setPriceText.setText("Set Price");
+        setPriceText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                setPriceTextActionPerformed(evt);
             }
         });
-
-        jButton2.setBackground(new java.awt.Color(205, 223, 245));
-        jButton2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jButton2.setText("Set Price");
 
         javax.swing.GroupLayout ManageRefurbJPanelLayout = new javax.swing.GroupLayout(ManageRefurbJPanel);
         ManageRefurbJPanel.setLayout(ManageRefurbJPanelLayout);
@@ -129,30 +118,20 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1044, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(ManageRefurbJPanelLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(ManageRefurbJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(ManageRefurbJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ManageRefurbJPanelLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(ManageRefurbJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(ManageRefurbJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(ManageRefurbJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtappliancetype, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtcategory, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtweight, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtprice, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ManageRefurbJPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(setPriceText, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(95, 95, 95))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ManageRefurbJPanelLayout.createSequentialGroup()
+                        .addGroup(ManageRefurbJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(ManageRefurbJPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtprice, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(77, 77, 77))))
         );
         ManageRefurbJPanelLayout.setVerticalGroup(
@@ -160,34 +139,20 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
             .addGroup(ManageRefurbJPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(ManageRefurbJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ManageRefurbJPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(ManageRefurbJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtcategory, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(43, 43, 43)
-                        .addGroup(ManageRefurbJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtappliancetype, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(ManageRefurbJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtweight, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(74, 74, 74)
                         .addGroup(ManageRefurbJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtprice, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(46, 46, 46))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ManageRefurbJPanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addGroup(ManageRefurbJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(139, Short.MAX_VALUE))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtprice, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(setPriceText, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ManageRefurbJPanelLayout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
 
         add(ManageRefurbJPanel, "card2");
@@ -197,44 +162,60 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtpriceActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void setPriceTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setPriceTextActionPerformed
         // TODO add your handling code here:
-
-         int selectedRow = tblrefurbished.getSelectedRow();
-        
-        if(selectedRow < 0){
-            JOptionPane.showMessageDialog(this, "Please select a row");
-            return;
+        int price = 0;
+        if (!this.hasSelectedEntry()) return;
+        try {
+            price = Integer.valueOf(this.txtprice.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Enter a valid price");
         }
+        this.selectedItem.setPrice(price);
+        this.selectedItem.setStatus(Item.ItemStatus.READY_FOR_SALE);
+        JOptionPane.showMessageDialog(this, "Price " + price + " set for item " + this.selectedItem.getId());
+        this.items.remove(this.selectedItem);
+        this.selectedItem = null;
+        this.populateTable();
         
+        txtprice.setText("");
+        
+    }//GEN-LAST:event_setPriceTextActionPerformed
+    
+    public void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblrefurbished.getModel();
-        
-        String ewaste = (String) model.getValueAt(selectedRow, 0);
-        String appliancetype = (String) model.getValueAt(selectedRow, 2);
-        Float weight = (Float) model.getValueAt(selectedRow, 3);
-        
-        txtcategory.setText(ewaste);
-        txtappliancetype.setText(appliancetype);
-        txtweight.setText(String.valueOf(weight));
-         
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+        model.setRowCount(0);
+        for (Item item: this.items) {
+            Object[] row = new Object[6];
+            row[0] = item;
+            row[1] = item.getCategory();
+            row[2] = item.getSubCategory();
+            row[3] = item.getMake();
+            row[4] = item.getModel();
+            row[5] = item.getManufactureYear();
+            model.addRow(row);
+        }
+    }
+    
+    private boolean hasSelectedEntry() {
+        int selectedRowIndex = tblrefurbished.getSelectedRow();
+        if (selectedRowIndex<0) {
+            JOptionPane.showMessageDialog(this, "Please select an entry");
+            return false;
+        }
+        DefaultTableModel model = (DefaultTableModel) tblrefurbished.getModel();
+        this.selectedItem = (Item) model.getValueAt(selectedRowIndex, 0);
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ManageRefurbJPanel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton setPriceText;
     private javax.swing.JTable tblrefurbished;
-    private javax.swing.JTextField txtappliancetype;
-    private javax.swing.JTextField txtcategory;
     private javax.swing.JTextField txtprice;
-    private javax.swing.JTextField txtweight;
     // End of variables declaration//GEN-END:variables
 }

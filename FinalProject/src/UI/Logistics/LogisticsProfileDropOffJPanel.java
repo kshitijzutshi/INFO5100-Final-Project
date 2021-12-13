@@ -5,7 +5,15 @@
  */
 package UI.Logistics;
 
+import java.time.LocalDateTime;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import models.EcoSystem;
+import models.Inventory.Item;
+import models.User.Employee.LogisticsMan;
+import models.Work.ClientDropoff;
+import models.Work.WorkRequest;
 
 /**
  *
@@ -18,12 +26,53 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
      */
     
     JPanel jpanel17;
-    
-    public LogisticsProfileDropOffJPanel(JPanel ScheduleDropOff) {
+    EcoSystem ecosystem;
+    LogisticsMan logisticsMan;
+    ClientDropoff activeCLienDropOff;
+    public LogisticsProfileDropOffJPanel(JPanel ScheduleDropOff, EcoSystem ecosystem, LogisticsMan logisticsMan) {
         initComponents();
         
         this.LogisticsDropOffProfileJPanel = ScheduleDropOff;
+        this.ecosystem = ecosystem;
+        this.logisticsMan = logisticsMan;
+        this.activeCLienDropOff = ecosystem.getWorkRequestDirectory().getActiveDropOff(logisticsMan);
+        if(this.activeCLienDropOff == null){
+            JOptionPane.showMessageDialog(null, "No Acive Drop Off at present!");
+        }
+        else{
+            if (this.activeCLienDropOff.getStatus() == ClientDropoff.RequestStatus.ONGOING) btnpickup.setEnabled(false);
+            this.populateTable();
+        }
+        
+        
     }
+    
+    public void populateTable(){
+        System.out.println("HERE!!!!"+this.activeCLienDropOff.getClientOrder().getOrderedItems().size());
+        DefaultTableModel model = (DefaultTableModel) tblscheddropoffs.getModel();
+        model.setRowCount(0);
+        for(Item itemDropOffPopulateTable : this.activeCLienDropOff.getClientOrder().getOrderedItems()){
+           
+            Object[] data = new Object[9];
+            data[0] = itemDropOffPopulateTable;
+            data[1] = itemDropOffPopulateTable.getCategory();
+            data[2] = itemDropOffPopulateTable.getSubCategory();
+            data[3] = itemDropOffPopulateTable.getMake();
+            data[4] = itemDropOffPopulateTable.getModel();
+            data[5] = itemDropOffPopulateTable.getManufactureYear();
+            data[6] = itemDropOffPopulateTable.getWeightApprox();
+            data[7] = itemDropOffPopulateTable.getCondition();
+            data[8] = itemDropOffPopulateTable.getStatus();
+            model.addRow(data);
+        }
+       
+        dropOffUsername.setText(String.valueOf(activeCLienDropOff.getClientOrder().getClient().getFullName()));
+        dropOffUsername.setText(String.valueOf(activeCLienDropOff.getClientOrder().getClient().getAddress()));
+        dropOffUsername.setText(String.valueOf(activeCLienDropOff.getClientOrder().getClient().getPhone()));
+       
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,31 +87,17 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        dropOffUsername = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        dropOffUserAddress = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        btnstatus = new javax.swing.JButton();
+        dropOffUserMobile = new javax.swing.JTextField();
+        btnMarkedDelivered = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        txtstatus = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
         btnpickup = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblscheddropoffs = new javax.swing.JTable();
 
         setLayout(new java.awt.CardLayout());
 
@@ -74,225 +109,182 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
         jLabel1.setText("Scheduled Drop-off Orders");
 
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        jLabel2.setText("User Details");
+        jLabel2.setText("Client details");
 
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel3.setText("Name:");
 
-        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        dropOffUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel5.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel5.setText("Address:");
 
-        jTextField3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        dropOffUserAddress.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel6.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel6.setText("Mobile:");
 
-        jTextField4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        dropOffUserMobile.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
-        btnstatus.setBackground(new java.awt.Color(205, 223, 245));
-        btnstatus.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
-        btnstatus.setForeground(new java.awt.Color(51, 51, 51));
-        btnstatus.setText("Marked Delivered");
+        btnMarkedDelivered.setBackground(new java.awt.Color(205, 223, 245));
+        btnMarkedDelivered.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        btnMarkedDelivered.setForeground(new java.awt.Color(51, 51, 51));
+        btnMarkedDelivered.setText("Marked Delivered");
+        btnMarkedDelivered.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMarkedDeliveredActionPerformed(evt);
+            }
+        });
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/open_parcel_127px.png"))); // NOI18N
         jLabel7.setText("jLabel7");
 
-        jLabel8.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel8.setText("E-Waste Category:");
-
-        jLabel9.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel9.setText("Appliance Type:");
-
-        jLabel10.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel10.setText("Item Make:");
-
-        jLabel11.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel11.setText("Item Model:");
-
-        jLabel12.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel12.setText("Year of Manufacture:");
-
-        jLabel13.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel13.setText("Weight:");
-
-        jLabel14.setText("Condition:");
-
-        jLabel4.setText("Status:");
-
-        jLabel15.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel15.setText("Status:");
-
-        txtstatus.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
-
         jLabel16.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        jLabel16.setText("Item Details");
-
-        jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
-
-        jTextField5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
-
-        jTextField6.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
-
-        jTextField7.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
-
-        jTextField8.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
-
-        jTextField9.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        jLabel16.setText("Order details");
 
         btnpickup.setBackground(new java.awt.Color(205, 223, 245));
         btnpickup.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         btnpickup.setForeground(new java.awt.Color(51, 51, 51));
         btnpickup.setText("Pick-Up");
+        btnpickup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpickupActionPerformed(evt);
+            }
+        });
+
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+
+        tblscheddropoffs.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        tblscheddropoffs.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "E-Waste Category", "Appliance Type", "Item Make", "Item Model", "Year of Manufacture", "Weight", "Condition", "Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblscheddropoffs);
 
         javax.swing.GroupLayout LogisticsDropOffProfileJPanelLayout = new javax.swing.GroupLayout(LogisticsDropOffProfileJPanel);
         LogisticsDropOffProfileJPanel.setLayout(LogisticsDropOffProfileJPanelLayout);
         LogisticsDropOffProfileJPanelLayout.setHorizontalGroup(
             LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
-                .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
-                        .addGap(696, 696, 696)
                         .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel4)))
-                    .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
-                        .addGap(211, 211, 211)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(96, 96, 96)
+                            .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
+                                .addGap(219, 219, 219)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(88, 88, 88))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel16)
+                                .addGap(192, 192, 192)))
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(51, 51, 51)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(289, 289, 289)
-                                .addComponent(jLabel16))
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(dropOffUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2)
                             .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
-                                .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
-                                        .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
-                                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(36, 36, 36)
-                                        .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextField1)
-                                            .addComponent(jTextField3)
-                                            .addComponent(jTextField4)
-                                            .addComponent(txtstatus, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)))
-                                    .addComponent(btnpickup, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(71, 71, 71)
-                                .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
-                                        .addComponent(btnstatus)
-                                        .addGap(88, 88, 88)))))
-                        .addGap(43, 43, 43)
-                        .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
-                            .addComponent(jTextField5)
-                            .addComponent(jTextField6)
-                            .addComponent(jTextField7)
-                            .addComponent(jTextField8)
-                            .addComponent(jTextField9))))
-                .addContainerGap(72, Short.MAX_VALUE))
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(dropOffUserAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(168, 168, 168)
+                                .addComponent(btnpickup, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36)
+                                .addComponent(btnMarkedDelivered))
+                            .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(dropOffUserMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
         LogisticsDropOffProfileJPanelLayout.setVerticalGroup(
             LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel16))
-                .addGap(24, 24, 24)
-                .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dropOffUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(dropOffUserAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnpickup)
+                    .addComponent(btnMarkedDelivered))
+                .addGap(26, 26, 26)
                 .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57)
-                .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnstatus)
-                    .addComponent(btnpickup))
-                .addGap(204, 204, 204)
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addGap(41, 41, 41))
+                    .addComponent(dropOffUserMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(240, Short.MAX_VALUE))
         );
 
         add(LogisticsDropOffProfileJPanel, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnpickupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpickupActionPerformed
+        // TODO add your handling code here:
+        activeCLienDropOff.setStatus(WorkRequest.RequestStatus.ONGOING);
+        JOptionPane.showConfirmDialog(null, "Drop Off Order Picked-Up!");
+        
+    }//GEN-LAST:event_btnpickupActionPerformed
+
+    private void btnMarkedDeliveredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarkedDeliveredActionPerformed
+        // TODO add your handling code here:
+        for(Item itemsStatusChange : this.activeCLienDropOff.getClientOrder().getOrderedItems()){
+            itemsStatusChange.setStatus(Item.ItemStatus.SOLD);
+        }
+        activeCLienDropOff.setResolveDate(LocalDateTime.now());
+        activeCLienDropOff.getLogisticsMan().setAvailable(true);
+        JOptionPane.showConfirmDialog(null, "Drop Off Order delivered!");
+        
+    }//GEN-LAST:event_btnMarkedDeliveredActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel LogisticsDropOffProfileJPanel;
+    private javax.swing.JButton btnMarkedDelivered;
     private javax.swing.JButton btnpickup;
-    private javax.swing.JButton btnstatus;
+    private javax.swing.JTextField dropOffUserAddress;
+    private javax.swing.JTextField dropOffUserMobile;
+    private javax.swing.JTextField dropOffUsername;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
-    private javax.swing.JTextField txtstatus;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblscheddropoffs;
     // End of variables declaration//GEN-END:variables
 }

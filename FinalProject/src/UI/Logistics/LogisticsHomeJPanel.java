@@ -6,6 +6,9 @@
 package UI.Logistics;
 
 import javax.swing.JPanel;
+import models.AnalyticsUtil;
+import models.EcoSystem;
+import models.User.Employee.LogisticsMan;
 
 /**
  *
@@ -17,9 +20,15 @@ public class LogisticsHomeJPanel extends javax.swing.JPanel {
      * Creates new form NewJPanel1
      */
     JPanel jpanel6;
-    public LogisticsHomeJPanel(JPanel LogisticsHomeArea) {
-        
+    EcoSystem ecosystem;
+    LogisticsMan logisticsMan;
+    public LogisticsHomeJPanel(JPanel LogisticsHomeArea, EcoSystem ecosystem, LogisticsMan logisticsMan) {
         initComponents();
+        this.ecosystem = ecosystem;
+        this.logisticsMan = logisticsMan;
+        totalTripsLabel.setText(String.valueOf(AnalyticsUtil.logisticsTripsMade(ecosystem)));
+        totalPersonslLabel.setText(String.valueOf(AnalyticsUtil.logisticsPersonell(ecosystem)));
+        totalEWasteLabel.setText(String.valueOf(AnalyticsUtil.logisticsEwasteMoved(ecosystem)));
     }
 
     /**
@@ -34,15 +43,15 @@ public class LogisticsHomeJPanel extends javax.swing.JPanel {
         LogisticsHomeMain = new javax.swing.JPanel();
         kGradientPanel4 = new keeptoo.KGradientPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        totalPersonslLabel = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         kGradientPanel5 = new keeptoo.KGradientPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        totalEWasteLabel = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         kGradientPanel3 = new keeptoo.KGradientPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        totalTripsLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -56,12 +65,12 @@ public class LogisticsHomeJPanel extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Total Logistics Personnel Available");
+        jLabel4.setText("Total Logistics Personnel");
 
-        jLabel5.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("800");
+        totalPersonslLabel.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
+        totalPersonslLabel.setForeground(new java.awt.Color(255, 255, 255));
+        totalPersonslLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        totalPersonslLabel.setText("800");
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/police_officer_60px.png"))); // NOI18N
@@ -74,7 +83,7 @@ public class LogisticsHomeJPanel extends javax.swing.JPanel {
                 .addGap(28, 28, 28)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(totalPersonslLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -87,7 +96,7 @@ public class LogisticsHomeJPanel extends javax.swing.JPanel {
                 .addGroup(kGradientPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(kGradientPanel4Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(totalPersonslLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(kGradientPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -102,12 +111,12 @@ public class LogisticsHomeJPanel extends javax.swing.JPanel {
 
         jLabel7.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Number of Past Pick-Ups");
+        jLabel7.setText("Total E Waste moved");
 
-        jLabel8.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("800");
+        totalEWasteLabel.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
+        totalEWasteLabel.setForeground(new java.awt.Color(255, 255, 255));
+        totalEWasteLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        totalEWasteLabel.setText("800");
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/data_pending_52px.png"))); // NOI18N
@@ -125,7 +134,7 @@ public class LogisticsHomeJPanel extends javax.swing.JPanel {
                         .addGap(40, 40, 40)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(totalEWasteLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(19, 19, 19))
         );
         kGradientPanel5Layout.setVerticalGroup(
@@ -136,7 +145,7 @@ public class LogisticsHomeJPanel extends javax.swing.JPanel {
                     .addGroup(kGradientPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(totalEWasteLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -150,10 +159,10 @@ public class LogisticsHomeJPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Number of Trips made Till Date");
 
-        jLabel2.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("800");
+        totalTripsLabel.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
+        totalTripsLabel.setForeground(new java.awt.Color(255, 255, 255));
+        totalTripsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        totalTripsLabel.setText("800");
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pickup_100px.png"))); // NOI18N
@@ -168,7 +177,7 @@ public class LogisticsHomeJPanel extends javax.swing.JPanel {
                         .addGap(28, 28, 28)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(totalTripsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(kGradientPanel3Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)))
@@ -180,7 +189,7 @@ public class LogisticsHomeJPanel extends javax.swing.JPanel {
                 .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(kGradientPanel3Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                        .addComponent(totalTripsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
                     .addGroup(kGradientPanel3Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -224,16 +233,16 @@ public class LogisticsHomeJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel LogisticsHomeMain;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private keeptoo.KGradientPanel kGradientPanel3;
     private keeptoo.KGradientPanel kGradientPanel4;
     private keeptoo.KGradientPanel kGradientPanel5;
+    private javax.swing.JLabel totalEWasteLabel;
+    private javax.swing.JLabel totalPersonslLabel;
+    private javax.swing.JLabel totalTripsLabel;
     // End of variables declaration//GEN-END:variables
 }

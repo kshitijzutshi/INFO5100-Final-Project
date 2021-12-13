@@ -4,8 +4,10 @@
  */
 package models;
 
+import models.ClientOrder.ClientOrderDirectory;
 import models.CustomerBooking.BookingDirectory;
 import models.Inventory.InventoryDirectory;
+import models.Recycle.RecycleBatchDirectory;
 import models.User.Client.ClientDirectory;
 import models.User.Customer.CustomerDirectory;
 import models.User.Employee.EmployeeDirectory;
@@ -27,6 +29,8 @@ public abstract class Organization {
     private InventoryDirectory inventoryDirectory;
     private WorkRequestDirectory workRequestDirectory;
     private ClientDirectory clientDirectory;
+    private ClientOrderDirectory clientOrderDirectory;
+    private RecycleBatchDirectory recycleBatchDirectory;
 
     public Organization(String name) {
         this.name = name;
@@ -37,6 +41,8 @@ public abstract class Organization {
         this.inventoryDirectory = new InventoryDirectory();
         this.workRequestDirectory = new WorkRequestDirectory();
         this.clientDirectory = new ClientDirectory();
+        this.clientOrderDirectory = new ClientOrderDirectory();
+        this.recycleBatchDirectory = new RecycleBatchDirectory();
         
     }
     
@@ -66,6 +72,14 @@ public abstract class Organization {
 
     public ClientDirectory getClientDirectory() {
         return clientDirectory;
+    }
+
+    public ClientOrderDirectory getClientOrderDirectory() {
+        return clientOrderDirectory;
+    }
+
+    public RecycleBatchDirectory getRecycleBatchDirectory() {
+        return recycleBatchDirectory;
     }
     
     

@@ -5,11 +5,13 @@
  */
 package UI.Resident;
 
+import UI.MainJPanel;
 import java.awt.CardLayout;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import models.CustomerBooking.InventoryBooking;
+import models.DB4OUtil.DB4OUtil;
 import models.EcoSystem;
 import models.Inventory.Item;
 import models.User.Customer.Resident;
@@ -148,7 +150,6 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
         });
         tblPickUpBookingDetails.setGridColor(new java.awt.Color(255, 255, 255));
         tblPickUpBookingDetails.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        tblPickUpBookingDetails.setSelectionBackground(new java.awt.Color(204, 255, 204));
         jScrollPane1.setViewportView(tblPickUpBookingDetails);
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
@@ -245,6 +246,14 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+        MainJPanel main = new MainJPanel(JPanelIndBookingDetailsMain);
+        CardLayout layout = (CardLayout) JPanelIndBookingDetailsMain.getLayout();
+        JPanelIndBookingDetailsMain.add("Home", main);
+
+        layout.next(JPanelIndBookingDetailsMain);
+        
+        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed

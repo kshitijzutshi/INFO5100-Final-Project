@@ -6,12 +6,14 @@
 package UI.Resident;
 
 import UI.CategoryDropDownUtil;
+import UI.MainJPanel;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import models.DB4OUtil.DB4OUtil;
 import models.EcoSystem;
 import models.User.Customer.Resident;
 
@@ -217,7 +219,6 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
         });
         tblDropoffBooking.setGridColor(new java.awt.Color(255, 255, 255));
         tblDropoffBooking.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        tblDropoffBooking.setSelectionBackground(new java.awt.Color(204, 255, 204));
         jScrollPane1.setViewportView(tblDropoffBooking);
         if (tblDropoffBooking.getColumnModel().getColumnCount() > 0) {
             tblDropoffBooking.getColumnModel().getColumn(0).setPreferredWidth(10);
@@ -294,12 +295,12 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
                         .addGroup(JPanelIndDropoffMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(JPanelIndDropoffMainLayout.createSequentialGroup()
-                                .addComponent(btnDeleteItem, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnDeleteItem)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnCreateBookingDropoff, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(22, 22, 22))))
             .addGroup(JPanelIndDropoffMainLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(48, 48, 48)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -341,9 +342,9 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
                             .addComponent(dropdownCondition, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(47, 47, 47)
                         .addComponent(btnAddtoBookingTable, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
+                        .addGap(15, 15, 15)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55))
+                        .addGap(74, 74, 74))
                     .addGroup(JPanelIndDropoffMainLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -358,6 +359,12 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+        MainJPanel main = new MainJPanel(JPanelIndDropoffMain);
+        CardLayout layout = (CardLayout) JPanelIndDropoffMain.getLayout();
+        JPanelIndDropoffMain.add("Home", main);
+
+        layout.next(JPanelIndDropoffMain);        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

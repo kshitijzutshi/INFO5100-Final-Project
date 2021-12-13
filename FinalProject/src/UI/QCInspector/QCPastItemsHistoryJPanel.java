@@ -5,7 +5,14 @@
  */
 package UI.QCInspector;
 
+import java.time.format.DateTimeFormatter;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import models.EcoSystem;
+import models.Inventory.Item;
+import models.User.Employee.QCInspector;
+import models.Work.QCInspection;
+import models.Work.WorkRequest;
 
 /**
  *
@@ -18,11 +25,15 @@ public class QCPastItemsHistoryJPanel extends javax.swing.JPanel {
      */
     
     JPanel jpanel13;
-    
-    public QCPastItemsHistoryJPanel(JPanel qcpasthistory) {
+    EcoSystem ecosystem;
+    QCInspector qcInspector;
+    public QCPastItemsHistoryJPanel(JPanel qcpasthistory, EcoSystem ecosystem, QCInspector qcInspector) {
         initComponents();
     
         this.QCPastItemsHistory = qcpasthistory;
+        this.ecosystem = ecosystem;
+        this.qcInspector = qcInspector;
+        this.populateTable();
     }
 
     /**
@@ -37,7 +48,7 @@ public class QCPastItemsHistoryJPanel extends javax.swing.JPanel {
         QCPastItemsHistory = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        itemsJTable = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         txtitemcount = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -51,29 +62,26 @@ public class QCPastItemsHistoryJPanel extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Inspected Items");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        itemsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Item ID", "E-Waste Category", "Appliance", "Inspection Status"
+                "Item ID", "E-Waste Category", "Appliance", "Assigned Time", "Completed Time"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-        }
+        jScrollPane1.setViewportView(itemsJTable);
 
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
@@ -107,8 +115,8 @@ public class QCPastItemsHistoryJPanel extends javax.swing.JPanel {
                         .addComponent(txtitemcount, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(QCPastItemsHistoryLayout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 763, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 812, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         QCPastItemsHistoryLayout.setVerticalGroup(
             QCPastItemsHistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +125,7 @@ public class QCPastItemsHistoryJPanel extends javax.swing.JPanel {
                 .addGroup(QCPastItemsHistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(QCPastItemsHistoryLayout.createSequentialGroup()
-                        .addGap(0, 39, Short.MAX_VALUE)
+                        .addGap(0, 44, Short.MAX_VALUE)
                         .addComponent(jLabel3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -134,15 +142,34 @@ public class QCPastItemsHistoryJPanel extends javax.swing.JPanel {
     private void txtitemcountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtitemcountActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtitemcountActionPerformed
-
+    
+    public void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) itemsJTable.getModel();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        model.setRowCount(0);
+        int count = 0;
+        for (QCInspection inspection: this.ecosystem.getWorkRequestDirectory().getInspectionsByInspector(this.qcInspector)) {
+            if (inspection.getStatus() == WorkRequest.RequestStatus.COMPLETED){
+                Object[] row = new Object[5];
+                row[0] = inspection.getItem().getId();
+                row[1] = inspection.getItem().getCategory();
+                row[2] = inspection.getItem().getSubCategory();
+                row[3] = inspection.getRequestDate().format(formatter);
+                row[4] = inspection.getResolveDate().format(formatter);
+                model.addRow(row);
+                count++;
+            }
+        }
+        txtitemcount.setText(String.valueOf(count));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel QCPastItemsHistory;
+    private javax.swing.JTable itemsJTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtitemcount;
     // End of variables declaration//GEN-END:variables
 }

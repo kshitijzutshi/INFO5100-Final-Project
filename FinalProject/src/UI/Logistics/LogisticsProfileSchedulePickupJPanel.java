@@ -6,7 +6,17 @@
 package UI.Logistics;
 
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import models.CustomerBooking.InventoryBooking;
+import models.EcoSystem;
+import models.Inventory.Item;
+import models.User.Employee.LogisticsMan;
+import models.User.Employee.QCInspector;
+import models.Work.InventoryPickup;
+import models.Work.QCInspection;
+import models.Work.WorkRequest;
 
 /**
  *
@@ -18,9 +28,25 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
      * Creates new form LogisticsProfileSchedulePickupJPanel
      */
     JPanel jpanel77;
-    public LogisticsProfileSchedulePickupJPanel(JPanel LogisticsSchedulePickupJPanel) {
+    EcoSystem ecosystem;
+    LogisticsMan logisticsMan;
+    InventoryPickup activePickup;
+    public LogisticsProfileSchedulePickupJPanel(JPanel LogisticsSchedulePickupJPanel, EcoSystem ecosystem, LogisticsMan logisticsMan) {
         initComponents();
         this.LogisticsSchedulePickUpMain = LogisticsSchedulePickupJPanel;
+        this.ecosystem = ecosystem;
+        this.logisticsMan = logisticsMan;
+        this.activePickup = this.ecosystem.getWorkRequestDirectory().getActivePickup(logisticsMan);
+      
+        this.populateTable();
+         if (this.activePickup == null) {
+            JOptionPane.showMessageDialog(null, "No active pickup at this point of time");
+        }
+         else{
+             if (this.activePickup.getStatus() == InventoryPickup.RequestStatus.ONGOING) pickUpJButton.setEnabled(false);
+         }
+        
+        
     }
 
     /**
@@ -36,17 +62,15 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtsendername = new javax.swing.JTextField();
+        residentName = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        txtsenderaddress = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        txtreceivername = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        txtreceiveraddress = new javax.swing.JTextField();
+        residentAddress = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtupdatestatus = new javax.swing.JTextField();
-        assignJButton = new javax.swing.JButton();
-        processJButton = new javax.swing.JButton();
+        residentContactInfo = new javax.swing.JTextField();
+        pickUpJButton = new javax.swing.JButton();
+        markDeliveredJButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblscheddropoffs = new javax.swing.JTable();
 
         setLayout(new java.awt.CardLayout());
 
@@ -59,190 +83,225 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
         jLabel6.setText("Pending Order");
 
         jLabel7.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel7.setText("Sender");
+        jLabel7.setText("Resident");
 
-        txtsendername.setEditable(false);
-        txtsendername.setBackground(new java.awt.Color(255, 255, 255));
-        txtsendername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
-        txtsendername.addActionListener(new java.awt.event.ActionListener() {
+        residentName.setEditable(false);
+        residentName.setBackground(new java.awt.Color(255, 255, 255));
+        residentName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        residentName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtsendernameActionPerformed(evt);
+                residentNameActionPerformed(evt);
             }
         });
 
         jLabel11.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel11.setText("Sender Address");
+        jLabel11.setText("Resident Address");
 
-        txtsenderaddress.setEditable(false);
-        txtsenderaddress.setBackground(new java.awt.Color(255, 255, 255));
-        txtsenderaddress.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
-
-        jLabel8.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel8.setText("Receiver");
-
-        txtreceivername.setEditable(false);
-        txtreceivername.setBackground(new java.awt.Color(255, 255, 255));
-        txtreceivername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
-        txtreceivername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtreceivernameActionPerformed(evt);
-            }
-        });
-
-        jLabel10.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel10.setText("Reciever Address");
-
-        txtreceiveraddress.setEditable(false);
-        txtreceiveraddress.setBackground(new java.awt.Color(255, 255, 255));
-        txtreceiveraddress.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        residentAddress.setEditable(false);
+        residentAddress.setBackground(new java.awt.Color(255, 255, 255));
+        residentAddress.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel9.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel9.setText("Status");
+        jLabel9.setText("Contact Info");
 
-        txtupdatestatus.setEditable(false);
-        txtupdatestatus.setBackground(new java.awt.Color(255, 255, 255));
-        txtupdatestatus.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        residentContactInfo.setEditable(false);
+        residentContactInfo.setBackground(new java.awt.Color(255, 255, 255));
+        residentContactInfo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
-        assignJButton.setBackground(new java.awt.Color(205, 223, 245));
-        assignJButton.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
-        assignJButton.setText("Pick-Up");
-        assignJButton.setBorderPainted(false);
-        assignJButton.addActionListener(new java.awt.event.ActionListener() {
+        pickUpJButton.setBackground(new java.awt.Color(205, 223, 245));
+        pickUpJButton.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        pickUpJButton.setText("Pick-Up");
+        pickUpJButton.setBorderPainted(false);
+        pickUpJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                assignJButtonActionPerformed(evt);
+                pickUpJButtonActionPerformed(evt);
             }
         });
 
-        processJButton.setBackground(new java.awt.Color(205, 223, 245));
-        processJButton.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
-        processJButton.setText("Mark Delivered");
-        processJButton.setBorderPainted(false);
-        processJButton.addActionListener(new java.awt.event.ActionListener() {
+        markDeliveredJButton.setBackground(new java.awt.Color(205, 223, 245));
+        markDeliveredJButton.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        markDeliveredJButton.setText("Mark Delivered");
+        markDeliveredJButton.setBorderPainted(false);
+        markDeliveredJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                processJButtonActionPerformed(evt);
+                markDeliveredJButtonActionPerformed(evt);
             }
         });
+
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+
+        tblscheddropoffs.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        tblscheddropoffs.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "E-Waste Category", "Appliance Type", "Item Make", "Item Model", "Year of Manufacture", "Weight", "Condition", "Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblscheddropoffs);
 
         javax.swing.GroupLayout LogisticsSchedulePickUpMainLayout = new javax.swing.GroupLayout(LogisticsSchedulePickUpMain);
         LogisticsSchedulePickUpMain.setLayout(LogisticsSchedulePickUpMainLayout);
         LogisticsSchedulePickUpMainLayout.setHorizontalGroup(
             LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
-                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
                         .addGap(348, 348, 348)
                         .addComponent(jLabel4))
                     .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
-                        .addGap(381, 381, 381)
+                        .addGap(384, 384, 384)
                         .addComponent(jLabel6))
-                    .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
-                        .addGap(363, 363, 363)
-                        .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
-                                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtreceivername, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtsendername, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
+                    .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, LogisticsSchedulePickUpMainLayout.createSequentialGroup()
+                            .addGap(280, 280, 280)
+                            .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtsenderaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
-                                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
-                                        .addGap(17, 17, 17)
-                                        .addComponent(assignJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(30, 30, 30)
-                                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtreceiveraddress, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                                        .addComponent(txtupdatestatus))
-                                    .addComponent(processJButton))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap(285, Short.MAX_VALUE))
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
+                                    .addComponent(residentAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(pickUpJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(markDeliveredJButton))
+                                .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
+                                    .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(residentName, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(residentContactInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, LogisticsSchedulePickUpMainLayout.createSequentialGroup()
+                            .addGap(51, 51, 51)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         LogisticsSchedulePickUpMainLayout.setVerticalGroup(
             LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jLabel4)
-                .addGap(48, 48, 48)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel6)
-                .addGap(37, 37, 37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtsendername, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                    .addComponent(residentName, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(residentAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(markDeliveredJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pickUpJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtsenderaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtreceivername, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtreceiveraddress, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtupdatestatus, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(residentContactInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53)
-                .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(processJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(assignJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         add(LogisticsSchedulePickUpMain, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtsendernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsendernameActionPerformed
+    private void pickUpJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pickUpJButtonActionPerformed
+        this.activePickup.setStatus(WorkRequest.RequestStatus.ONGOING);
+        this.activePickup.getInventoryBooking().getItems().forEach(item -> {
+            item.setStatus(Item.ItemStatus.PROCURED);
+        });
+        JOptionPane.showMessageDialog(null, "Booking marked as pickedup");
+        this.populateTable();
+    }//GEN-LAST:event_pickUpJButtonActionPerformed
+
+    private void markDeliveredJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markDeliveredJButtonActionPerformed
+        this.activePickup.setStatus(WorkRequest.RequestStatus.COMPLETED);
+        
+        // assign items to QC
+        for (Item item: this.activePickup.getInventoryBooking().getItems()) {
+            QCInspector qc = this.ecosystem.getWorkRequestDirectory().getQCtoAssign();
+            QCInspection inpection = new QCInspection(item, qc);
+            this.ecosystem.getWorkRequestDirectory().addQCInspection(inpection);
+            item.setStatus(Item.ItemStatus.IN_QC);
+            this.ecosystem.getWorkRequestDirectory().increaseqcInspectionAssignmentCount(qc);
+        }
+        
+        this.activePickup.getLogisticsMan().setAvailable(true);
+        InventoryBooking booking = this.ecosystem.getBookingDirectory().getNextPendingBooking();
+        if (booking != null) {
+            InventoryPickup pickup = new InventoryPickup(booking);
+            pickup.setLogisticsMan(this.logisticsMan);
+            this.logisticsMan.setAvailable(false);
+            booking.setAssigned(true);
+            this.ecosystem.getWorkRequestDirectory().addInventoryPickup(pickup);
+            JOptionPane.showMessageDialog(null, "Booking successfully delivered, new booking assigned");
+            this.activePickup = pickup;
+            this.populateTable();
+            return;
+        }
+        
+        
+        JOptionPane.showMessageDialog(null, "Booking successfully delivered");
+        this.populateTable();
+    }//GEN-LAST:event_markDeliveredJButtonActionPerformed
+
+    private void residentNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_residentNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtsendernameActionPerformed
-
-    private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
-        //        DeliveryMan d = business.getDeliveryManDirectory().findDeliveryManByName(userAccount.getUsername());
-        //        Order o = d.getPendingOrders();
-        //        o.setOrderStatus("Confirmed");
-        //        assignJButton.setEnabled(false);
-        //        populatePendingOrder();
-    }//GEN-LAST:event_assignJButtonActionPerformed
-
-    private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
-        //        populatePendingOrder();
-        //        ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, userAccount, business);
-        //        userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);
-        //        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        //        layout.next(userProcessContainer);
-    }//GEN-LAST:event_processJButtonActionPerformed
-
-    private void txtreceivernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtreceivernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtreceivernameActionPerformed
-
+    }//GEN-LAST:event_residentNameActionPerformed
+    
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblscheddropoffs.getModel();
+        model.setRowCount(0);
+        if (this.activePickup == null) return;
+        
+        residentName.setText(this.activePickup.getInventoryBooking().getResident().getFullName());
+        residentAddress.setText(this.activePickup.getInventoryBooking().getResident().getAddress());
+        residentContactInfo.setText(this.activePickup.getInventoryBooking().getResident().getPhone());
+        
+        for (Item item: this.activePickup.getInventoryBooking().getItems()) {
+            Object[] row = new Object[8];
+            row[0] = item.getCategory();
+            row[1] = item.getSubCategory();
+            row[2] = item.getMake();
+            row[3] = item.getModel();
+            row[4] = item.getManufactureYear();
+            row[5] = item.getWeightApprox();
+            row[6] = item.getCondition();
+            row[7] = item.getStatus();
+            model.addRow(row);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel LogisticsSchedulePickUpMain;
-    private javax.swing.JButton assignJButton;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JButton processJButton;
-    private javax.swing.JTextField txtreceiveraddress;
-    private javax.swing.JTextField txtreceivername;
-    private javax.swing.JTextField txtsenderaddress;
-    private javax.swing.JTextField txtsendername;
-    private javax.swing.JTextField txtupdatestatus;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton markDeliveredJButton;
+    private javax.swing.JButton pickUpJButton;
+    private javax.swing.JTextField residentAddress;
+    private javax.swing.JTextField residentContactInfo;
+    private javax.swing.JTextField residentName;
+    private javax.swing.JTable tblscheddropoffs;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,9 +5,18 @@
  */
 package UI.ManagementDivision;
 
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.SpinnerListModel;
+import models.ClientOrder.ClientOrder;
+import models.EcoSystem;
+import models.Inventory.Item;
+import models.User.Employee.LogisticsMan;
+
+import models.User.Employee.OperationsManager;
+import models.Work.ClientDropoff;
 
 /**
  *
@@ -19,11 +28,18 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
      * Creates new form ManageOrderedItemsJPanel
      */
     JPanel jpanel9;
-    
-    public ManageOrderedItemsJPanel(JPanel manageorder) {
+    EcoSystem ecosystem;
+    OperationsManager manager;
+    ClientOrder selectedOrder;
+    public ManageOrderedItemsJPanel(JPanel manageorder, EcoSystem ecosystem, OperationsManager manager) {
         initComponents();
         
         this.jPanel1 =manageorder;
+        this.ecosystem = ecosystem;
+        this.manager = manager;
+        
+        this.populateTable();
+        this.populateDeliveryMan();
     }
 
     /**
@@ -43,12 +59,12 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         txtretailername = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtweight = new javax.swing.JTextField();
+        txtOrderTime = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtstatus = new javax.swing.JTextField();
+        txtOrderPrice = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         spinner = new javax.swing.JSpinner();
-        jButton1 = new javax.swing.JButton();
+        assignBtn = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         btnview = new javax.swing.JButton();
 
@@ -56,6 +72,7 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        tblorder.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         tblorder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -64,7 +81,7 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "Retailer Name", "Weight(lb)", "Ordered Items", "Order Status"
+                "Order ID", "Retailer Name", "Price", "Ordered Items", "Order Time"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -81,35 +98,45 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Order ID:");
 
+        txtid.setEditable(false);
         txtid.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Retailer Name:");
 
+        txtretailername.setEditable(false);
         txtretailername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("Weight:");
+        jLabel3.setText("Order TIme:");
 
-        txtweight.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        txtOrderTime.setEditable(false);
+        txtOrderTime.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("Order Status:");
+        jLabel4.setText("Order Price");
 
-        txtstatus.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
+        txtOrderPrice.setEditable(false);
+        txtOrderPrice.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel5.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Delivery Man Names:");
 
+        spinner.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         spinner.setModel(new javax.swing.SpinnerListModel(new String[] {""}));
 
-        jButton1.setBackground(new java.awt.Color(205, 223, 245));
-        jButton1.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jButton1.setText("Assign Task");
+        assignBtn.setBackground(new java.awt.Color(205, 223, 245));
+        assignBtn.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        assignBtn.setText("Assign Task");
+        assignBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assignBtnActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(51, 51, 51));
@@ -150,14 +177,14 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtweight, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtOrderPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtOrderTime, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtretailername, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 47, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(assignBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(127, 127, 127))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -177,11 +204,11 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(44, 44, 44)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtweight, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtOrderTime, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(38, 38, 38)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtOrderPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -192,7 +219,7 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(assignBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(85, Short.MAX_VALUE))
         );
 
@@ -201,33 +228,73 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
 
     private void btnviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewActionPerformed
         // TODO add your handling code here:
-        
-            
-        int selectedRow = tblorder.getSelectedRow();
-        
-        if(selectedRow < 0){
-            JOptionPane.showMessageDialog(this, "Please select a row");
-            return;
-        }
-        
-        DefaultTableModel model = (DefaultTableModel) tblorder.getModel();
-        
-        Integer orderid = (Integer) model.getValueAt(selectedRow, 0);
-        String retailername =  (String) model.getValueAt(selectedRow,1);
-        Float weight = (Float) model.getValueAt(selectedRow, 2);
-        String orderstatus = (String) model.getValueAt(selectedRow,4);
-        
-        txtid.setText(String.valueOf(orderid));
-        txtretailername.setText(retailername);
-        txtweight.setText(String.valueOf(weight));
-        txtstatus.setText(orderstatus);
-        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        if (!this.hasSelectedItem()) return;
+        txtid.setText(this.selectedOrder.getId());
+        txtretailername.setText(this.selectedOrder.getClient().getFullName());
+        txtOrderTime.setText(this.selectedOrder.getOrderTime().format(formatter));
+        txtOrderPrice.setText(String.valueOf(this.selectedOrder.orderPrice()));
     }//GEN-LAST:event_btnviewActionPerformed
 
+    private void assignBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignBtnActionPerformed
+        // TODO add your handling code here:
+        if (!this.hasSelectedItem()) return;
+        LogisticsMan logMan = (LogisticsMan) spinner.getValue();
+        
+        ClientDropoff dropOff = new ClientDropoff(this.selectedOrder, logMan);
+        logMan.setAvailable(false);
+        this.selectedOrder.setAssigned(true);
+        this.ecosystem.getWorkRequestDirectory().addClientDropoff(dropOff);
+        
+        JOptionPane.showMessageDialog(this, "Order assigned successfully");
+        
+        this.selectedOrder = null;
+        this.populateTable();
+        this.populateDeliveryMan();
+        
+        txtid.setText("");
+        txtretailername.setText("");
+        txtOrderTime.setText("");
+        txtOrderPrice.setText("");
+        
+    }//GEN-LAST:event_assignBtnActionPerformed
+    
+    
+    public void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblorder.getModel();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        model.setRowCount(0);
+        for (ClientOrder order: this.ecosystem.getClientOrderDirectory().getActiveOrders()) {
+            Object[] row = new Object[5];
+            row[0] = order;
+            row[1] = order.getClient().getFullName();
+            row[2] = order.orderPrice();
+            row[3] = order.getOrderedItems().size();
+            row[4] = order.getOrderTime().format(formatter);
+            model.addRow(row);
+        }
+    }
+    
+    public void populateDeliveryMan() {
+        SpinnerListModel spin = new SpinnerListModel(this.ecosystem.getEmployeeDirectory().getActiveLogisticsMen());
+        spinner.setModel(spin);
+        if (this.ecosystem.getEmployeeDirectory().getActiveLogisticsMen().isEmpty()) assignBtn.setEnabled(false);
+    }
+    
+    private boolean hasSelectedItem() {
+        int selectedRowIndex = tblorder.getSelectedRow();
+        if (selectedRowIndex<0) {
+            JOptionPane.showMessageDialog(this, "Please select an entry");
+            return false;
+        }
+        DefaultTableModel model = (DefaultTableModel) tblorder.getModel();
+        this.selectedOrder = (ClientOrder) model.getValueAt(selectedRowIndex, 0);
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton assignBtn;
     private javax.swing.JButton btnview;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -238,9 +305,9 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner spinner;
     private javax.swing.JTable tblorder;
+    private javax.swing.JTextField txtOrderPrice;
+    private javax.swing.JTextField txtOrderTime;
     private javax.swing.JTextField txtid;
     private javax.swing.JTextField txtretailername;
-    private javax.swing.JTextField txtstatus;
-    private javax.swing.JTextField txtweight;
     // End of variables declaration//GEN-END:variables
 }

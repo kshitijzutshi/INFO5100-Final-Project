@@ -6,8 +6,12 @@
 package UI.Technician;
 
 import UI.Logistics.LogisticsProfilePastOrdersJPanel;
+import UI.MainJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import models.DB4OUtil.DB4OUtil;
+import models.EcoSystem;
+import models.User.Employee.Technician;
 
 /**
  *
@@ -20,11 +24,12 @@ public class TechnicianLoginJPanel extends javax.swing.JPanel {
      */
     
     JPanel jpanel20;
-    
-    
-    public TechnicianLoginJPanel(JPanel TechHome) {
+    EcoSystem ecosystem;
+    Technician technician;
+    public TechnicianLoginJPanel(JPanel TechHome, EcoSystem ecosystem, Technician technician) {
         initComponents();
-        
+        this.ecosystem = ecosystem;
+        this.technician = technician;
         this.TechnicianLoginMain = TechHome;
     }
 
@@ -40,7 +45,7 @@ public class TechnicianLoginJPanel extends javax.swing.JPanel {
         TechnicianLoginMain = new javax.swing.JPanel();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        technamelabel = new javax.swing.JLabel();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel1 = new javax.swing.JLabel();
         btnLogisticsHome = new javax.swing.JPanel();
@@ -69,9 +74,8 @@ public class TechnicianLoginJPanel extends javax.swing.JPanel {
         jLabel13.setForeground(new java.awt.Color(51, 51, 51));
         jLabel13.setText("Welcome to ReQube,");
 
-        jLabel14.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel14.setText("Emp_Logistics_DIV");
+        technamelabel.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
+        technamelabel.setForeground(new java.awt.Color(51, 51, 51));
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
@@ -81,7 +85,7 @@ public class TechnicianLoginJPanel extends javax.swing.JPanel {
                 .addGap(258, 258, 258)
                 .addComponent(jLabel13)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(technamelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(353, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(
@@ -90,7 +94,7 @@ public class TechnicianLoginJPanel extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(technamelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
@@ -178,6 +182,11 @@ public class TechnicianLoginJPanel extends javax.swing.JPanel {
         );
 
         btnLogisticsLogout.setBackground(new java.awt.Color(167, 190, 211));
+        btnLogisticsLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLogisticsLogoutMouseClicked(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -268,9 +277,7 @@ public class TechnicianLoginJPanel extends javax.swing.JPanel {
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(TechnicianLoginMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(TechnicianLoginMainLayout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(TechnicianChangeJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(TechnicianChangeJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         TechnicianLoginMainLayout.setVerticalGroup(
@@ -303,8 +310,27 @@ public class TechnicianLoginJPanel extends javax.swing.JPanel {
 
     private void btnViewScheduledPickupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewScheduledPickupMouseClicked
         // TODO add your handling code here:
+        
+        TechnicanReviewItemsJPanel technicianreview = new TechnicanReviewItemsJPanel(TechnicianChangeJPanel, this.ecosystem, this.technician);
+        CardLayout layout = (CardLayout) TechnicianChangeJPanel.getLayout();
+        TechnicianChangeJPanel.add("logisticsPast", technicianreview);
+        
+        layout.next(TechnicianChangeJPanel);
 
     }//GEN-LAST:event_btnViewScheduledPickupMouseClicked
+
+    private void btnLogisticsLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogisticsLogoutMouseClicked
+        // TODO add your handling code here:
+        
+        DB4OUtil.getInstance().storeSystem(this.ecosystem);     
+        MainJPanel main = new MainJPanel(TechnicianLoginMain);
+        CardLayout layout = (CardLayout) TechnicianLoginMain.getLayout();
+        TechnicianLoginMain.add("Home", main);
+
+        layout.next(TechnicianLoginMain);
+     
+
+    }//GEN-LAST:event_btnLogisticsLogoutMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -317,7 +343,6 @@ public class TechnicianLoginJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -326,5 +351,6 @@ public class TechnicianLoginJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;
+    private javax.swing.JLabel technamelabel;
     // End of variables declaration//GEN-END:variables
 }

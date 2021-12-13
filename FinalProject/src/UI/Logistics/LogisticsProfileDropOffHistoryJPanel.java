@@ -5,7 +5,13 @@
  */
 package UI.Logistics;
 
+import java.time.format.DateTimeFormatter;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import models.EcoSystem;
+import models.Inventory.Item;
+import models.User.Employee.LogisticsMan;
+import models.Work.ClientDropoff;
 
 /**
  *
@@ -18,11 +24,15 @@ public class LogisticsProfileDropOffHistoryJPanel extends javax.swing.JPanel {
      */
     
     JPanel jpanel20;
-    
-    public LogisticsProfileDropOffHistoryJPanel(JPanel LogiHistDropOff) {
+    EcoSystem ecosystem;
+    LogisticsMan logisticsMan;
+    public LogisticsProfileDropOffHistoryJPanel(JPanel LogiHistDropOff, EcoSystem ecosystem, LogisticsMan logisticsMan) {
         initComponents();
         
         this.LogisticsDropOffJPanel = LogiHistDropOff;
+        this.ecosystem = ecosystem;
+        this.logisticsMan = logisticsMan;
+        this.populateTable();
     }
 
     /**
@@ -45,19 +55,20 @@ public class LogisticsProfileDropOffHistoryJPanel extends javax.swing.JPanel {
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
+        tblscheddropoffs.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         tblscheddropoffs.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "E-Waste Category", "Appliance Type", "Item Make", "Item Model", "Year of Manufacture", "Weight", "Condition", "Status"
+                "Order ID", "Retailer", "Request Time", "Resolve Time"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -96,7 +107,21 @@ public class LogisticsProfileDropOffHistoryJPanel extends javax.swing.JPanel {
 
         add(LogisticsDropOffJPanel, "card2");
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public void populateTable(){
+        DefaultTableModel model = (DefaultTableModel) tblscheddropoffs.getModel();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        model.setRowCount(0);
+        for(ClientDropoff dropOff : this.ecosystem.getWorkRequestDirectory().getDropoffByLogisticMan(this.logisticsMan)){
+            Object[] data = new Object[4];
+            data[0] = dropOff.getId();
+            data[1] = dropOff.getClientOrder().getClient().getFullName();
+            data[2] = dropOff.getRequestDate().format(formatter);
+            data[3] = dropOff.getResolveDate() == null ? "" : dropOff.getResolveDate().format(formatter);
+            model.addRow(data);
+        }
+       
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel LogisticsDropOffJPanel;

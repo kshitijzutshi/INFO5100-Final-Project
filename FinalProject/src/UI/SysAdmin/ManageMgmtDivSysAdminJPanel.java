@@ -27,6 +27,7 @@ public class ManageMgmtDivSysAdminJPanel extends javax.swing.JPanel {
         this.managmentDivSysadminPanel = ManageMgmtDivSysAdmin;
         initComponents();
         this.ecosystem = ecosystem;
+        this.populateTable();
     }
 
     /**
@@ -235,6 +236,7 @@ public class ManageMgmtDivSysAdminJPanel extends javax.swing.JPanel {
         passwordTextField.setText("");
         usernameTextFied.setText("");
         JOptionPane.showMessageDialog(null, "Updated details");
+        this.populateTable();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -250,11 +252,21 @@ public class ManageMgmtDivSysAdminJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Username already taken!");
             return;
         }
+        
+        if(username.length()<3 || password.length()<5){
+            JOptionPane.showMessageDialog(this, "Username minimum lenght should be 3 and Password minimum lenght should be 5!!");
+            return;
+        }
         OperationsManager operationsManager = new OperationsManager(username, password);
         operationsManager.setFullName(name);
         this.ecosystem.getUserAccountDirectory().addUserAccount(operationsManager.getUserAccount());
         this.ecosystem.getEmployeeDirectory().addInventoryManager(operationsManager);
-        JOptionPane.showMessageDialog(null, "User added successfully");
+        JOptionPane.showMessageDialog(null, "Manager added successfully");
+        this.populateTable();
+        
+        nameTextField.setText("");
+        usernameTextFied.setText("");
+        passwordTextField.setText("");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

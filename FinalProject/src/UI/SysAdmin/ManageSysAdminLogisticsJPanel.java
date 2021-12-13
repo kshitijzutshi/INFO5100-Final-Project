@@ -67,7 +67,7 @@ public class ManageSysAdminLogisticsJPanel extends javax.swing.JPanel {
         nameLbl.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         nameLbl.setText("Name");
 
-        logisticsJTable.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        logisticsJTable.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         logisticsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -238,6 +238,7 @@ public class ManageSysAdminLogisticsJPanel extends javax.swing.JPanel {
         usernameTextField.setText("");
         passwordTextField.setText("");
         JOptionPane.showMessageDialog(null, "Updated details");
+        this.populateTable();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -249,6 +250,11 @@ public class ManageSysAdminLogisticsJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "All fields are required");
                 return;
             }
+        
+        if(username.length()<3 || password.length()<5){
+            JOptionPane.showMessageDialog(this, "Username minimum lenght should be 3 and Password minimum lenght should be 5!!");
+            return;
+        }
         if (this.ecosystem.getUserAccountDirectory().userNameExists(username)) {
                 JOptionPane.showMessageDialog(this, "Username already taken!");
                 return;
@@ -258,6 +264,11 @@ public class ManageSysAdminLogisticsJPanel extends javax.swing.JPanel {
         this.ecosystem.getUserAccountDirectory().addUserAccount(logMan.getUserAccount());
         this.ecosystem.getEmployeeDirectory().addLogisticsMen(logMan);
         JOptionPane.showMessageDialog(null, "Logistics employee added successfully");
+        this.populateTable();
+        
+        nameTextField.setText("");
+        usernameTextField.setText("");
+        passwordTextField.setText("");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
