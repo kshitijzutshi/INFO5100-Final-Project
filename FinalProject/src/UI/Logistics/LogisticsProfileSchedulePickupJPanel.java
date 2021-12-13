@@ -127,6 +127,7 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
+        tblscheddropoffs.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         tblscheddropoffs.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -146,7 +147,7 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblscheddropoffs.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tblscheddropoffs.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(tblscheddropoffs);
 
         javax.swing.GroupLayout LogisticsSchedulePickUpMainLayout = new javax.swing.GroupLayout(LogisticsSchedulePickUpMain);
@@ -177,9 +178,10 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(markDeliveredJButton))
                                 .addGroup(LogisticsSchedulePickUpMainLayout.createSequentialGroup()
-                                    .addComponent(residentName, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, Short.MAX_VALUE))
-                                .addComponent(residentContactInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(LogisticsSchedulePickUpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(residentName, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(residentContactInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(0, 0, Short.MAX_VALUE))))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, LogisticsSchedulePickUpMainLayout.createSequentialGroup()
                             .addGap(51, 51, 51)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE))))

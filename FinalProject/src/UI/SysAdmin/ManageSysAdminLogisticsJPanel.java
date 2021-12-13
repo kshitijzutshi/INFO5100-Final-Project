@@ -67,7 +67,7 @@ public class ManageSysAdminLogisticsJPanel extends javax.swing.JPanel {
         nameLbl.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         nameLbl.setText("Name");
 
-        logisticsJTable.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        logisticsJTable.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         logisticsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -77,7 +77,7 @@ public class ManageSysAdminLogisticsJPanel extends javax.swing.JPanel {
             }
         ));
         logisticsJTable.setGridColor(new java.awt.Color(255, 255, 255));
-        logisticsJTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        logisticsJTable.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(logisticsJTable);
 
         nameTextField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));

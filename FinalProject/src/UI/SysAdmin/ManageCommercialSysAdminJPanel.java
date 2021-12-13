@@ -119,6 +119,7 @@ public class ManageCommercialSysAdminJPanel extends javax.swing.JPanel {
                 "Name", "Username", "Password"
             }
         ));
+        jTable1.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(jTable1);
 
         btnDelete.setBackground(new java.awt.Color(205, 223, 245));

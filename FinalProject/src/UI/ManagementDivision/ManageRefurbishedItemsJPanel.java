@@ -63,6 +63,7 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setBorder(null);
 
+        tblrefurbished.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         tblrefurbished.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -81,7 +82,7 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
         });
         tblrefurbished.setGridColor(new java.awt.Color(255, 255, 255));
         tblrefurbished.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        tblrefurbished.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tblrefurbished.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(tblrefurbished);
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N

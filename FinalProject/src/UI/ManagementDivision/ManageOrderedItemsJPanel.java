@@ -71,6 +71,7 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        tblorder.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         tblorder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -90,6 +91,7 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tblorder.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(tblorder);
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
@@ -243,6 +245,11 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
         this.selectedOrder = null;
         this.populateTable();
         this.populateDeliveryMan();
+        
+        txtid.setText("");
+        txtretailername.setText("");
+        txtOrderTime.setText("");
+        txtOrderPrice.setText("");
         
     }//GEN-LAST:event_assignBtnActionPerformed
     

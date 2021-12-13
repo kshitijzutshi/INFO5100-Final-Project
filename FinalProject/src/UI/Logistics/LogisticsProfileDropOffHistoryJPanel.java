@@ -54,6 +54,7 @@ public class LogisticsProfileDropOffHistoryJPanel extends javax.swing.JPanel {
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
+        tblscheddropoffs.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         tblscheddropoffs.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -73,7 +74,7 @@ public class LogisticsProfileDropOffHistoryJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblscheddropoffs.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tblscheddropoffs.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(tblscheddropoffs);
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N

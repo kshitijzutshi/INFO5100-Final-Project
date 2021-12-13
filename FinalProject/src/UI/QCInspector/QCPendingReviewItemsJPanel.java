@@ -240,11 +240,11 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
 
     private void btnviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewActionPerformed
         // TODO add your handling code here:
-        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         if (!this.hasSelectedItem()) return;
         txtitemid.setText(this.selectedInspection.getItem().getId());
         txtmake.setText(this.selectedInspection.getItem().getMake());
-        txtassignedtime.setText(this.selectedInspection.getRequestDate().toString());
+        txtassignedtime.setText(this.selectedInspection.getRequestDate().format(formatter));
         txtstatus.setText(String.valueOf(this.selectedInspection.getStatus().name()));
     }//GEN-LAST:event_btnviewActionPerformed
 
@@ -262,6 +262,7 @@ public class QCPendingReviewItemsJPanel extends javax.swing.JPanel {
 
     private void btnassignrecycleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnassignrecycleActionPerformed
         // TODO add your handling code here:
+        
         if (!this.hasSelectedItem()) return;
         this.selectedInspection.setStatus(WorkRequest.RequestStatus.COMPLETED);
         this.selectedInspection.getItem().setStatus(Item.ItemStatus.READY_FOR_PRICING);

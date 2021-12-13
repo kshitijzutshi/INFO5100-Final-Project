@@ -107,6 +107,7 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
         RetailerItemsForSaleJPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         retailtableData.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        retailtableData.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         retailtableData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -125,7 +126,7 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
         });
         retailtableData.setGridColor(new java.awt.Color(255, 255, 255));
         retailtableData.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        retailtableData.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        retailtableData.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(retailtableData);
 
         jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 0, new java.awt.Color(51, 51, 51)));
@@ -442,6 +443,11 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
         // Add ClientOrder to client order directory
         this.ecosystem.getClientOrderDirectory().addBooking(newOrder);
         JOptionPane.showMessageDialog(null, "Order Placed Successfully!");
+        
+        totalField.setText("");
+        radioBtnBankTransfer.setSelected(false);
+        radioBtnCash.setSelected(false);
+        radioBtnPayPal.setSelected(false);
     }//GEN-LAST:event_btnPurchaseOrderMouseClicked
 
     private void radioBtnCashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBtnCashActionPerformed
