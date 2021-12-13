@@ -5,6 +5,7 @@
  */
 package UI.ManagementDivision;
 
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -98,30 +99,35 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Order ID:");
 
+        txtid.setEditable(false);
         txtid.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Retailer Name:");
 
+        txtretailername.setEditable(false);
         txtretailername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Order TIme:");
 
+        txtOrderTime.setEditable(false);
         txtOrderTime.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Order Price");
 
+        txtOrderPrice.setEditable(false);
         txtOrderPrice.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(205, 223, 245)));
 
         jLabel5.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Delivery Man Names:");
 
+        spinner.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         spinner.setModel(new javax.swing.SpinnerListModel(new String[] {""}));
 
         assignBtn.setBackground(new java.awt.Color(205, 223, 245));
@@ -223,10 +229,11 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
 
     private void btnviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewActionPerformed
         // TODO add your handling code here:
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         if (!this.hasSelectedItem()) return;
         txtid.setText(this.selectedOrder.getId());
         txtretailername.setText(this.selectedOrder.getClient().getFullName());
-        txtOrderTime.setText(this.selectedOrder.getOrderTime().toString());
+        txtOrderTime.setText(this.selectedOrder.getOrderTime().format(formatter));
         txtOrderPrice.setText(String.valueOf(this.selectedOrder.orderPrice()));
     }//GEN-LAST:event_btnviewActionPerformed
 
@@ -256,14 +263,15 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
     
     public void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblorder.getModel();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         model.setRowCount(0);
         for (ClientOrder order: this.ecosystem.getClientOrderDirectory().getActiveOrders()) {
-            Object[] row = new Object[4];
+            Object[] row = new Object[5];
             row[0] = order;
             row[1] = order.getClient().getFullName();
             row[2] = order.orderPrice();
             row[3] = order.getOrderedItems().size();
-            row[4] = order.getOrderTime();
+            row[4] = order.getOrderTime().format(formatter);
             model.addRow(row);
         }
     }

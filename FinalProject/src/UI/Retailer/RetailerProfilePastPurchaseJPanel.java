@@ -39,6 +39,7 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
     private void populateTable() {
       
         DefaultTableModel model = (DefaultTableModel) PastOrderTable.getModel();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         model.setRowCount(0);
         for (ClientOrder clientorder : ecosystem.getClientOrderDirectory().getOrdersByClient(client)){
             for(Item itemtoPopulate : clientorder.getOrderedItems()){
@@ -55,7 +56,7 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
             data[3] = itemtoPopulate.getMake();
             data[4] = itemtoPopulate.getModel();
             data[5] = itemtoPopulate.getPrice();
-            data[6] = clientorder.getOrderTime().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+            data[6] = clientorder.getOrderTime().format(formatter);
             data[7] = itemtoPopulate.getStatus();
             model.addRow(data);
             }
@@ -119,7 +120,7 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
         });
         PastOrderTable.setGridColor(new java.awt.Color(255, 255, 255));
         PastOrderTable.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        PastOrderTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        PastOrderTable.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(PastOrderTable);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

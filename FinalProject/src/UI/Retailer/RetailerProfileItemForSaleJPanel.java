@@ -50,13 +50,13 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
             if(itemsToPopulate.getType() != Item.ItemType.REFURB){
                 continue;
             }
-            Object[] data = new Object[6];
-            data[0] = itemsToPopulate;
-            data[1] = itemsToPopulate.getCategory();
-            data[2] = itemsToPopulate.getSubCategory();
-            data[3] = itemsToPopulate.getMake();
-            data[4] = itemsToPopulate.getModel();
-            data[5] = itemsToPopulate.getPrice();
+            Object[] data = new Object[5];
+            
+            data[0] = itemsToPopulate.getCategory();
+            data[1] = itemsToPopulate.getSubCategory();
+            data[2] = itemsToPopulate.getMake();
+            data[3] = itemsToPopulate.getModel();
+            data[4] = itemsToPopulate.getPrice();
             model.addRow(data);
         }
 
@@ -424,7 +424,7 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
 
     private void btnPurchaseOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPurchaseOrderMouseClicked
         // TODO add your handling code here:
-        ClientOrder newOrder = new ClientOrder(client);
+        ClientOrder newOrder = new ClientOrder(this.client);
         for(Item item : itemsAddedToCart){
             item.setStatus(Item.ItemStatus.BLOCKED_FOR_ORDER);
             System.out.println("Item Type"+item.getType());
@@ -442,6 +442,10 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
         }
         // Add ClientOrder to client order directory
         this.ecosystem.getClientOrderDirectory().addBooking(newOrder);
+        totalField.setText("");
+        radioBtnCash.setSelected(false);
+        radioBtnBankTransfer.setSelected(false);
+        radioBtnPayPal.setSelected(false);
         JOptionPane.showMessageDialog(null, "Order Placed Successfully!");
         
         totalField.setText("");

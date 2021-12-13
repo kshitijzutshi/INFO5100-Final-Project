@@ -44,9 +44,11 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
     }
     
     public void populateTable(){
+        System.out.println("HERE!!!!"+this.activeCLienDropOff.getClientOrder().getOrderedItems().size());
         DefaultTableModel model = (DefaultTableModel) tblscheddropoffs.getModel();
         model.setRowCount(0);
         for(Item itemDropOffPopulateTable : this.activeCLienDropOff.getClientOrder().getOrderedItems()){
+           
             Object[] data = new Object[9];
             data[0] = itemDropOffPopulateTable;
             data[1] = itemDropOffPopulateTable.getCategory();
@@ -57,7 +59,7 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
             data[6] = itemDropOffPopulateTable.getWeightApprox();
             data[7] = itemDropOffPopulateTable.getCondition();
             data[8] = itemDropOffPopulateTable.getStatus();
-            
+            model.addRow(data);
         }
        
         dropOffUsername.setText(String.valueOf(activeCLienDropOff.getClientOrder().getClient().getFullName()));
@@ -176,7 +178,7 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
         LogisticsDropOffProfileJPanelLayout.setHorizontalGroup(
             LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
-                .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
                         .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()

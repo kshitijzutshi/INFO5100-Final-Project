@@ -314,12 +314,12 @@ public class IndiProfileDashboard extends javax.swing.JPanel {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         HashMap<String, Integer> contribMap = AnalyticsUtil.individualContributionByCategory(ecosystem, resident);
         // Set value takes 3 param -> (count, Y axis name, X axis name)
-        dataset.setValue(contribMap.get(""), "Total", "Home Appliances");
-        dataset.setValue(contribMap.get(""), "Total", "Communications & IT Devices");
-        dataset.setValue(contribMap.get(""), "Total", "Office and Medical Equipment");
-        dataset.setValue(contribMap.get(""), "Total", "Home Entertainment Devices");
-        dataset.setValue(contribMap.get(""), "Total", "Electronic Utilities");
-        dataset.setValue(contribMap.get(""), "Total", "Others");
+        dataset.setValue(contribMap.get("Home Appliances"), "Total", "Home Appliances");
+        dataset.setValue(contribMap.get("Communications & IT Devices"), "Total", "Communications & IT Devices");
+        dataset.setValue(contribMap.get("Office and Medical Equipment"), "Total", "Office and Medical Equipment");
+        dataset.setValue(contribMap.get("Home Entertainment Devices"), "Total", "Home Entertainment Devices");
+        dataset.setValue(contribMap.get("Electronic Utilities"), "Total", "Electronic Utilities");
+        dataset.setValue(contribMap.get("Others"), "Total", "Others");
         
         JFreeChart chart = ChartFactory.createBarChart("Last Contribution","E-waste Types","Total", 
                 dataset, PlotOrientation.VERTICAL, false,true,false);

@@ -30,6 +30,7 @@ public class RetailerLoginMainJPanel extends javax.swing.JPanel {
         initComponents();
         this.RetailerLoginChangeJPanel = RetailerLogin;
         this.ecosystem = ecosystem;
+        this.client = client;
         welcomeLabel.setText(client.getFullName());
         ordersPlacedLbl.setText(String.valueOf(AnalyticsUtil.retailerMyOrders(ecosystem, client)));
         itemsForSaleLbl.setText(String.valueOf(AnalyticsUtil.retailerTotalItemsForSale(ecosystem, Item.ItemType.REFURB)));
@@ -516,7 +517,7 @@ public class RetailerLoginMainJPanel extends javax.swing.JPanel {
 
     private void btnRetailerSaleItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRetailerSaleItemsMouseClicked
 
-        RetailerProfileItemForSaleJPanel retailerItemForSale = new RetailerProfileItemForSaleJPanel(RetailerDynamicMainJPanel, ecosystem, client);
+        RetailerProfileItemForSaleJPanel retailerItemForSale = new RetailerProfileItemForSaleJPanel(RetailerDynamicMainJPanel, this.ecosystem, this.client);
         CardLayout layout = (CardLayout) RetailerDynamicMainJPanel.getLayout();
         RetailerDynamicMainJPanel.add("retailForSale", retailerItemForSale);
         //

@@ -273,6 +273,15 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
         if (!this.hasSelectedClient()) return;
         this.selectedClient.getUserAccount().setPassword(password);
         this.selectedClient.setFullName(name);
+        this.selectedClient.setVerified(checkboxVerified.isSelected());
+        
+        if("RETAILER".equals(this.selectedClient.getClienttype().name())){
+        btnRetailerRadio.setSelected(true);
+        }
+        else{
+        btnRecyclerRadio.setSelected(true);
+                }
+    
         
         populateTable();
         nameTextField.setText("");
