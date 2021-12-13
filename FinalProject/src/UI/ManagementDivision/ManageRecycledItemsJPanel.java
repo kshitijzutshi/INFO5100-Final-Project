@@ -5,6 +5,7 @@
  */
 package UI.ManagementDivision;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -243,13 +244,14 @@ public class ManageRecycledItemsJPanel extends javax.swing.JPanel {
 
     public void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblPickUpBooking.getModel();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         model.setRowCount(0);
         for (Item item: this.items) {
             Object[] row = new Object[4];
             row[0] = item.getId();
             row[1] = item.getSubCategory();
             row[2] = item.getWeightApprox();
-            row[3] = item.getRecievedOn();
+            row[3] = item.getRecievedOn().format(formatter);
             model.addRow(row);
         }
         txtweight.setText(String.valueOf(this.totalWeight));

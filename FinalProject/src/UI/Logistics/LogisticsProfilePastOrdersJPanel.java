@@ -5,6 +5,7 @@
  */
 package UI.Logistics;
 
+import java.time.format.DateTimeFormatter;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import models.EcoSystem;
@@ -60,14 +61,14 @@ public class LogisticsProfilePastOrdersJPanel extends javax.swing.JPanel {
         tblDropoffBooking.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         tblDropoffBooking.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "Resident Name", "Delivery Address", "Assigned Time", "Weight(lbs.)", "Status"
+                "Order ID", "Resident Name", "Delivery Address", "Assigned Time", "Weight(lbs.)", "Status", "Completed Time"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -109,14 +110,16 @@ public class LogisticsProfilePastOrdersJPanel extends javax.swing.JPanel {
     private void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblDropoffBooking.getModel();
         model.setRowCount(0);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         for (InventoryPickup pickup: this.ecosystem.getWorkRequestDirectory().getPickupsByLogisticMan(this.logisticsMan)) {
-            Object[] row = new Object[6];
+            Object[] row = new Object[7];
             row[0] = pickup.getInventoryBooking().getId();
             row[1] = pickup.getInventoryBooking().getResident().getFullName();
             row[2] = pickup.getInventoryBooking().getResident().getAddress();
-            row[3] = pickup.getRequestDate();
+            row[3] = pickup.getRequestDate().format(formatter);
             row[4] = pickup.getInventoryBooking().getResident().getAddress();
             row[5] = pickup.getStatus().name();
+            row[5] = pickup.getResolveDate() == null ? "" : pickup.getResolveDate().format(formatter);
             model.addRow(row);
         }
     }

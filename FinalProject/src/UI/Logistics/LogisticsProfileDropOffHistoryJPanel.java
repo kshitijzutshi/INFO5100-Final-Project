@@ -118,9 +118,8 @@ public class LogisticsProfileDropOffHistoryJPanel extends javax.swing.JPanel {
             data[0] = dropOff.getId();
             data[1] = dropOff.getClientOrder().getClient().getFullName();
             data[2] = dropOff.getRequestDate().format(formatter);
-            data[3] = dropOff.getResolveDate().format(formatter);
-
-             model.addRow(data);
+            data[3] = dropOff.getResolveDate() == null ? "" : dropOff.getResolveDate().format(formatter);
+            model.addRow(data);
         }
        
     }
