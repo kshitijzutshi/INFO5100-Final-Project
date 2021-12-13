@@ -127,7 +127,7 @@ public class ManageRecycledItemsJPanel extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel8.setText("Select Applicance Category:");
 
-        categoryDropDown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Home Appliances", "Electronic Utilities", "Communication and IT Devices", "Office and Medical Equipment", "Home Entertainment Devices" }));
+        categoryDropDown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Home Appliances", "Electronic Utilities", "Communication & IT Devices", "Office and Medical Equipment", "Home Entertainment Devices", "Other" }));
         categoryDropDown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoryDropDownActionPerformed(evt);
