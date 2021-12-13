@@ -8,6 +8,7 @@ package UI.Retailer;
 import UI.MainJPanel;
 import java.awt.CardLayout;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import models.DB4OUtil.DB4OUtil;
@@ -125,7 +126,7 @@ public class RecyclerLoginJPanel extends javax.swing.JPanel {
         jLabel2.setText("Select Appliance Type:");
 
         txtcategory.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        txtcategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Home Appliances", "Electronic Utilities", "Communication and IT Devices", "Office and Medical Equipments", "Home Entertainment Devices" }));
+        txtcategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Home Appliances", "Electronic Utilities", "Communications & IT Devices", "Office and Medical Equipment", "Home Entertainment Devices", "Others" }));
         txtcategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcategoryActionPerformed(evt);
@@ -158,6 +159,11 @@ public class RecyclerLoginJPanel extends javax.swing.JPanel {
 
         btnbuy.setBackground(new java.awt.Color(203, 247, 194));
         btnbuy.setText("Accept Batch");
+        btnbuy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuyActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
@@ -231,13 +237,14 @@ public class RecyclerLoginJPanel extends javax.swing.JPanel {
         this.batchItems = new ArrayList<>();
         this.totalcountOfItems = 0;
         String category = (String) txtcategory.getSelectedItem();
+        DefaultTableModel model = (DefaultTableModel) tblrecycle.getModel();
+        model.setRowCount(0);
         for(RecycleBatch batch: this.ecosystem.getRecycleBatchDirectory().getBatches()) {
            if(batch.getBatchCategory().equals(category)){
-               DefaultTableModel model = (DefaultTableModel) tblrecycle.getModel();
-                model.setRowCount(0);
+               
                 
                 Object[] row = new Object[3];
-                row[0] = batch.getId();
+                row[0] = batch;
                 row[1] = batch.getPrice();
                 row[2] = batch.getItems().size();
                
@@ -259,6 +266,20 @@ public class RecyclerLoginJPanel extends javax.swing.JPanel {
         layout.next(RecyclerLoginHomeJPanel);
 
     }//GEN-LAST:event_logoutButtonActionPerformed
+
+    private void btnbuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuyActionPerformed
+        // TODO add your handling code here:
+        
+        DefaultTableModel model = (DefaultTableModel) tblrecycle.getModel();
+        int selectedRowIndex = tblrecycle.getSelectedRow();
+        RecycleBatch batch = (RecycleBatch) model.getValueAt(selectedRowIndex, 0);
+        batch.setSoldTo(this.client);
+        for(Item item : batch.getItems()){
+            item.setStatus(Item.ItemStatus.SOLD);
+        }
+        JOptionPane.showMessageDialog(null, "Batch Sold!");
+        
+    }//GEN-LAST:event_btnbuyActionPerformed
     
     
 

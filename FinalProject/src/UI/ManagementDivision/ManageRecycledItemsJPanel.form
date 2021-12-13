@@ -275,7 +275,7 @@
               <StringArray count="5">
                 <StringItem index="0" value="Home Appliances"/>
                 <StringItem index="1" value="Electronic Utilities"/>
-                <StringItem index="2" value="Communication and IT Devices"/>
+                <StringItem index="2" value="Communications &amp; IT Devices"/>
                 <StringItem index="3" value="Office and Medical Equipment"/>
                 <StringItem index="4" value="Home Entertainment Devices"/>
               </StringArray>
