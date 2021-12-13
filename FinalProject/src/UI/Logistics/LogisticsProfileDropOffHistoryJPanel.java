@@ -5,6 +5,7 @@
  */
 package UI.Logistics;
 
+import java.time.format.DateTimeFormatter;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import models.EcoSystem;
@@ -54,6 +55,7 @@ public class LogisticsProfileDropOffHistoryJPanel extends javax.swing.JPanel {
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
+        tblscheddropoffs.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         tblscheddropoffs.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -73,7 +75,7 @@ public class LogisticsProfileDropOffHistoryJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblscheddropoffs.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tblscheddropoffs.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(tblscheddropoffs);
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
@@ -109,13 +111,14 @@ public class LogisticsProfileDropOffHistoryJPanel extends javax.swing.JPanel {
     
     public void populateTable(){
         DefaultTableModel model = (DefaultTableModel) tblscheddropoffs.getModel();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         model.setRowCount(0);
         for(ClientDropoff dropOff : this.ecosystem.getWorkRequestDirectory().getDropoffByLogisticMan(this.logisticsMan)){
             Object[] data = new Object[4];
             data[0] = dropOff.getId();
             data[1] = dropOff.getClientOrder().getClient().getFullName();
-            data[2] = dropOff.getRequestDate().toString();
-            data[3] = dropOff.getResolveDate() == null ? "" : dropOff.getResolveDate().toString();
+            data[2] = dropOff.getRequestDate().format(formatter);
+            data[3] = dropOff.getResolveDate().format(formatter);
 
              model.addRow(data);
         }

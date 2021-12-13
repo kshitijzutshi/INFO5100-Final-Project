@@ -76,7 +76,7 @@ public class LogisticsProfilePastOrdersJPanel extends javax.swing.JPanel {
         });
         tblDropoffBooking.setGridColor(new java.awt.Color(255, 255, 255));
         tblDropoffBooking.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        tblDropoffBooking.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tblDropoffBooking.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(tblDropoffBooking);
 
         javax.swing.GroupLayout LogisticsPastOrdersMainLayout = new javax.swing.GroupLayout(LogisticsPastOrdersMain);

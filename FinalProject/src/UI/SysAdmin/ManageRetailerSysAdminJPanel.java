@@ -120,7 +120,7 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("View Retailer Users");
 
-        clientsJTable.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        clientsJTable.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         clientsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -137,7 +137,7 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        clientsJTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        clientsJTable.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane2.setViewportView(clientsJTable);
 
         btnDelete.setBackground(new java.awt.Color(205, 223, 245));
@@ -288,6 +288,9 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
         usernameTextFied.setText("");
         passwordTextField.setText("");
         usernameTextFied.setText("");
+        btnRecyclerRadio.setSelected(false);
+        btnRetailerRadio.setSelected(false);
+        checkboxVerified.setSelected(false);
         JOptionPane.showMessageDialog(null, "Updated details");
     }//GEN-LAST:event_btnUpdateActionPerformed
 

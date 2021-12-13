@@ -282,7 +282,15 @@ public class SignUpRetailerJPanel extends javax.swing.JPanel {
         if (username.equals("") || password.equals("") || email.equals("") || mobile.equals("") || name.equals("")) {
             JOptionPane.showMessageDialog(this, "All fields are required");
             return;
+        }else if (!mobile.matches("[1-9]\\d{2}\\d{3}\\d{4}")){
+            JOptionPane.showMessageDialog(this, "Invalid Mobile Number");
+            return;
+        }else if(!email.matches("^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$")){
+            JOptionPane.showMessageDialog(this, "Invalid Email ID");
+            return;
         }
+            
+        
         if (this.ecosystem.getUserAccountDirectory().userNameExists(username)) {
             JOptionPane.showMessageDialog(this, "Username already taken");
             return;

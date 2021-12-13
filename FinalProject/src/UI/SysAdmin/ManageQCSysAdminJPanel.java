@@ -111,6 +111,7 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("View QC Inspector Users");
 
+        qcInspectorsJTable.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         qcInspectorsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -119,7 +120,7 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
                 "Name", "Username", "Password"
             }
         ));
-        qcInspectorsJTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        qcInspectorsJTable.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(qcInspectorsJTable);
 
         btnDelete.setBackground(new java.awt.Color(205, 223, 245));

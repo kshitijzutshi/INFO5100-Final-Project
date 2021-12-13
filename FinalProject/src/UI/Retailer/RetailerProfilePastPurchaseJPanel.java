@@ -39,6 +39,7 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
     private void populateTable() {
       
         DefaultTableModel model = (DefaultTableModel) PastOrderTable.getModel();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         model.setRowCount(0);
         for (ClientOrder clientorder : ecosystem.getClientOrderDirectory().getOrdersByClient(client)){
             for(Item itemtoPopulate : clientorder.getOrderedItems()){
@@ -55,7 +56,7 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
             data[3] = itemtoPopulate.getMake();
             data[4] = itemtoPopulate.getModel();
             data[5] = itemtoPopulate.getPrice();
-            data[6] = clientorder.getOrderTime().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+            data[6] = clientorder.getOrderTime().format(formatter);
             data[7] = itemtoPopulate.getStatus();
             model.addRow(data);
             }
@@ -119,7 +120,7 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
         });
         PastOrderTable.setGridColor(new java.awt.Color(255, 255, 255));
         PastOrderTable.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        PastOrderTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        PastOrderTable.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(PastOrderTable);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -137,8 +138,8 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,8 +152,8 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout retailProfilePastPurchaseLayout = new javax.swing.GroupLayout(retailProfilePastPurchase);
@@ -162,14 +163,14 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
             .addGroup(retailProfilePastPurchaseLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         retailProfilePastPurchaseLayout.setVerticalGroup(
             retailProfilePastPurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(retailProfilePastPurchaseLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         add(retailProfilePastPurchase, "card2");

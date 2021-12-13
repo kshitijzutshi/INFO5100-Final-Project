@@ -111,7 +111,7 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("View Technician Users");
 
-        techniciansJTable.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
+        techniciansJTable.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         techniciansJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -120,7 +120,7 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
                 "Name", "Username", "Password"
             }
         ));
-        techniciansJTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        techniciansJTable.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane2.setViewportView(techniciansJTable);
 
         btnDelete.setBackground(new java.awt.Color(205, 223, 245));

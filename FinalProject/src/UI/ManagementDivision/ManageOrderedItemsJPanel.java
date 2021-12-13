@@ -5,6 +5,7 @@
  */
 package UI.ManagementDivision;
 
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -71,6 +72,7 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        tblorder.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         tblorder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -90,6 +92,7 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tblorder.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(tblorder);
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
@@ -226,10 +229,11 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
 
     private void btnviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewActionPerformed
         // TODO add your handling code here:
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         if (!this.hasSelectedItem()) return;
         txtid.setText(this.selectedOrder.getId());
         txtretailername.setText(this.selectedOrder.getClient().getFullName());
-        txtOrderTime.setText(this.selectedOrder.getOrderTime().toString());
+        txtOrderTime.setText(this.selectedOrder.getOrderTime().format(formatter));
         txtOrderPrice.setText(String.valueOf(this.selectedOrder.orderPrice()));
     }//GEN-LAST:event_btnviewActionPerformed
 
@@ -249,11 +253,17 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
         this.populateTable();
         this.populateDeliveryMan();
         
+        txtid.setText("");
+        txtretailername.setText("");
+        txtOrderTime.setText("");
+        txtOrderPrice.setText("");
+        
     }//GEN-LAST:event_assignBtnActionPerformed
     
     
     public void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblorder.getModel();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         model.setRowCount(0);
         for (ClientOrder order: this.ecosystem.getClientOrderDirectory().getActiveOrders()) {
             Object[] row = new Object[5];
@@ -261,7 +271,7 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
             row[1] = order.getClient().getFullName();
             row[2] = order.orderPrice();
             row[3] = order.getOrderedItems().size();
-            row[4] = order.getOrderTime();
+            row[4] = order.getOrderTime().format(formatter);
             model.addRow(row);
         }
     }
