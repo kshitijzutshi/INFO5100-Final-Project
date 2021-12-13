@@ -82,7 +82,6 @@ public class ManageRefurbishedItemsJPanel extends javax.swing.JPanel {
         });
         tblrefurbished.setGridColor(new java.awt.Color(255, 255, 255));
         tblrefurbished.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        tblrefurbished.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(tblrefurbished);
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N

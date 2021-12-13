@@ -120,7 +120,6 @@ public class RetailerProfilePastPurchaseJPanel extends javax.swing.JPanel {
         });
         PastOrderTable.setGridColor(new java.awt.Color(255, 255, 255));
         PastOrderTable.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        PastOrderTable.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(PastOrderTable);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

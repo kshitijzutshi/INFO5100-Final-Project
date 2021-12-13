@@ -137,7 +137,6 @@ public class ManageRetailerSysAdminJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        clientsJTable.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane2.setViewportView(clientsJTable);
 
         btnDelete.setBackground(new java.awt.Color(205, 223, 245));

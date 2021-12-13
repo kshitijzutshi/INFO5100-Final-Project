@@ -50,13 +50,13 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
             if(itemsToPopulate.getType() != Item.ItemType.REFURB){
                 continue;
             }
-            Object[] data = new Object[5];
-            
-            data[0] = itemsToPopulate.getCategory();
-            data[1] = itemsToPopulate.getSubCategory();
-            data[2] = itemsToPopulate.getMake();
-            data[3] = itemsToPopulate.getModel();
-            data[4] = itemsToPopulate.getPrice();
+            Object[] data = new Object[6];
+            data[0] = itemsToPopulate;
+            data[1] = itemsToPopulate.getCategory();
+            data[2] = itemsToPopulate.getSubCategory();
+            data[3] = itemsToPopulate.getMake();
+            data[4] = itemsToPopulate.getModel();
+            data[5] = itemsToPopulate.getPrice();
             model.addRow(data);
         }
 
@@ -113,11 +113,11 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Appliance Category", "Applicance Type", "Make", "Model", "Price"
+                "Item ID", "Appliance Category", "Applicance Type", "Make", "Model", "Price"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -126,7 +126,6 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
         });
         retailtableData.setGridColor(new java.awt.Color(255, 255, 255));
         retailtableData.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        retailtableData.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(retailtableData);
 
         jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 0, 0, 0, new java.awt.Color(51, 51, 51)));
@@ -419,13 +418,14 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
         }
         
         totalField.setText(String.valueOf(totalPriceInCart));
+        
        
     }//GEN-LAST:event_btnAddToCartMouseClicked
 
     private void btnPurchaseOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPurchaseOrderMouseClicked
         // TODO add your handling code here:
         ClientOrder newOrder = new ClientOrder(this.client);
-        for(Item item : itemsAddedToCart){
+        for(Item item : this.itemsAddedToCart){
             item.setStatus(Item.ItemStatus.BLOCKED_FOR_ORDER);
             System.out.println("Item Type"+item.getType());
             newOrder.addItem(item);
@@ -447,8 +447,11 @@ public class RetailerProfileItemForSaleJPanel extends javax.swing.JPanel {
         radioBtnBankTransfer.setSelected(false);
         radioBtnPayPal.setSelected(false);
         JOptionPane.showMessageDialog(null, "Order Placed Successfully!");
-        
+        this.itemsAddedToCart = new ArrayList<>();
+        this.populateTable();
         totalField.setText("");
+        DefaultTableModel table = (DefaultTableModel) OrderSummaryTable.getModel();
+        table.setRowCount(0);
         radioBtnBankTransfer.setSelected(false);
         radioBtnCash.setSelected(false);
         radioBtnPayPal.setSelected(false);

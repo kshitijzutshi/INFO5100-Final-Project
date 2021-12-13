@@ -288,6 +288,9 @@ public class SignUpRetailerJPanel extends javax.swing.JPanel {
         }else if(!email.matches("^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$")){
             JOptionPane.showMessageDialog(this, "Invalid Email ID");
             return;
+        }else if(username.length()<3 || password.length()<5){
+            JOptionPane.showMessageDialog(this, "Username should be of minimum lenght 3 and Password should by of minimum lenght 5");
+            return;
         }
             
         

@@ -269,6 +269,15 @@ public class SignupJPanel extends javax.swing.JPanel {
         if (username.equals("") || password.equals("") || email.equals("") || mobile.equals("") || name.equals("")) {
             JOptionPane.showMessageDialog(this, "All fields are required");
             return;
+        }else if (!mobile.matches("[1-9]\\d{2}\\d{3}\\d{4}")){
+            JOptionPane.showMessageDialog(this, "Invalid Mobile Number");
+            return;
+        }else if(!email.matches("^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$")){
+            JOptionPane.showMessageDialog(this, "Invalid Email ID");
+            return;
+        }else if(username.length()<3 || password.length()<5){
+            JOptionPane.showMessageDialog(this, "Username should be of minimum lenght 3 and Password should by of minimum lenght 5");
+            return;
         }
         if (this.ecosystem.getUserAccountDirectory().userNameExists(username)) {
             JOptionPane.showMessageDialog(this, "Username already taken");

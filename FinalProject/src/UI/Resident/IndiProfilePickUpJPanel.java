@@ -261,7 +261,6 @@ public class IndiProfilePickUpJPanel extends javax.swing.JPanel {
         });
         tblPickUpBooking.setGridColor(new java.awt.Color(255, 255, 255));
         tblPickUpBooking.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        tblPickUpBooking.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(tblPickUpBooking);
         if (tblPickUpBooking.getColumnModel().getColumnCount() > 0) {
             tblPickUpBooking.getColumnModel().getColumn(0).setPreferredWidth(10);

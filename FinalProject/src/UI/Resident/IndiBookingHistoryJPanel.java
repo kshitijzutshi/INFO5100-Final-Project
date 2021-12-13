@@ -150,7 +150,6 @@ public class IndiBookingHistoryJPanel extends javax.swing.JPanel {
         });
         tblPickUpBookingDetails.setGridColor(new java.awt.Color(255, 255, 255));
         tblPickUpBookingDetails.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        tblPickUpBookingDetails.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(tblPickUpBookingDetails);
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));

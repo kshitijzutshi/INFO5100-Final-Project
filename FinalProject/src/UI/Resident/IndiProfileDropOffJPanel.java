@@ -219,7 +219,6 @@ public class IndiProfileDropOffJPanel extends javax.swing.JPanel {
         });
         tblDropoffBooking.setGridColor(new java.awt.Color(255, 255, 255));
         tblDropoffBooking.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        tblDropoffBooking.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tblDropoffBooking);
         if (tblDropoffBooking.getColumnModel().getColumnCount() > 0) {
             tblDropoffBooking.getColumnModel().getColumn(0).setPreferredWidth(10);
