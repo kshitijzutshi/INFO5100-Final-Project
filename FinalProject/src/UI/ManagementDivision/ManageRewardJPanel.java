@@ -214,7 +214,7 @@ public class ManageRewardJPanel extends javax.swing.JPanel {
             RewardsUtil.updateRewardPoints(category, subCategory, Item.ItemType.RECYCLE.name().toLowerCase(), points);
         }
         txtrewardValue.setText(String.valueOf(points));
-        JOptionPane.showMessageDialog(this, "Reward value updated");
+        JOptionPane.showMessageDialog(this, "Reward value updated, check in next session!");
     }//GEN-LAST:event_updateRewardsBtnActionPerformed
 
     private void dropDownCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropDownCategoryActionPerformed

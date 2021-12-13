@@ -272,12 +272,13 @@
         <Component class="javax.swing.JComboBox" name="categoryDropDown">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
+              <StringArray count="6">
                 <StringItem index="0" value="Home Appliances"/>
                 <StringItem index="1" value="Electronic Utilities"/>
-                <StringItem index="2" value="Communication and IT Devices"/>
+                <StringItem index="2" value="Communications &amp; IT Devices"/>
                 <StringItem index="3" value="Office and Medical Equipment"/>
                 <StringItem index="4" value="Home Entertainment Devices"/>
+                <StringItem index="5" value="Other"/>
               </StringArray>
             </Property>
           </Properties>

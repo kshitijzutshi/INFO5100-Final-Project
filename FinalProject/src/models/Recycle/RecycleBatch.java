@@ -75,6 +75,11 @@ public class RecycleBatch {
     public void setSoldAt(LocalDateTime soldAt) {
         this.soldAt = soldAt;
     }
+
+    @Override
+    public String toString() {
+        return this.id; //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }
