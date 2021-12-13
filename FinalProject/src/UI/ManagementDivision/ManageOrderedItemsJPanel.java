@@ -92,7 +92,6 @@ public class ManageOrderedItemsJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblorder.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(tblorder);
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N

@@ -42,8 +42,11 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
          if (this.activePickup == null) {
             JOptionPane.showMessageDialog(null, "No active pickup at this point of time");
         }
+         else{
+             if (this.activePickup.getStatus() == InventoryPickup.RequestStatus.ONGOING) pickUpJButton.setEnabled(false);
+         }
         
-        if (this.activePickup.getStatus() == InventoryPickup.RequestStatus.ONGOING) pickUpJButton.setEnabled(false);
+        
     }
 
     /**
@@ -147,7 +150,6 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblscheddropoffs.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(tblscheddropoffs);
 
         javax.swing.GroupLayout LogisticsSchedulePickUpMainLayout = new javax.swing.GroupLayout(LogisticsSchedulePickUpMain);
@@ -250,6 +252,7 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
             booking.setAssigned(true);
             this.ecosystem.getWorkRequestDirectory().addInventoryPickup(pickup);
             JOptionPane.showMessageDialog(null, "Booking successfully delivered, new booking assigned");
+            this.activePickup = pickup;
             this.populateTable();
             return;
         }

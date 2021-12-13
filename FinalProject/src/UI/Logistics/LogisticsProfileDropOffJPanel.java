@@ -39,8 +39,12 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
         if(this.activeCLienDropOff == null){
             JOptionPane.showMessageDialog(null, "No Acive Drop Off at present!");
         }
-        if (this.activeCLienDropOff.getStatus() == ClientDropoff.RequestStatus.ONGOING) btnpickup.setEnabled(false);
-        this.populateTable();
+        else{
+            if (this.activeCLienDropOff.getStatus() == ClientDropoff.RequestStatus.ONGOING) btnpickup.setEnabled(false);
+            this.populateTable();
+        }
+        
+        
     }
     
     public void populateTable(){
@@ -170,7 +174,6 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblscheddropoffs.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(tblscheddropoffs);
 
         javax.swing.GroupLayout LogisticsDropOffProfileJPanelLayout = new javax.swing.GroupLayout(LogisticsDropOffProfileJPanel);

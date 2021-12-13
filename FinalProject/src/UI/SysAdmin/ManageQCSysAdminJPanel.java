@@ -120,7 +120,6 @@ public class ManageQCSysAdminJPanel extends javax.swing.JPanel {
                 "Name", "Username", "Password"
             }
         ));
-        qcInspectorsJTable.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(qcInspectorsJTable);
 
         btnDelete.setBackground(new java.awt.Color(205, 223, 245));

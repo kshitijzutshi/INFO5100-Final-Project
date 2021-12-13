@@ -152,7 +152,6 @@ public class ManageIndividualSysAdminJPanel extends javax.swing.JPanel {
                 "Name", "Username", "Password"
             }
         ));
-        residentsJTable.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane2.setViewportView(residentsJTable);
 
         javax.swing.GroupLayout manageIndiSysAdminLayout = new javax.swing.GroupLayout(manageIndiSysAdmin);

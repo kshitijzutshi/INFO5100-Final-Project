@@ -94,7 +94,6 @@ public class TechnicanReviewItemsJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tbltechreview.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(tbltechreview);
 
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N

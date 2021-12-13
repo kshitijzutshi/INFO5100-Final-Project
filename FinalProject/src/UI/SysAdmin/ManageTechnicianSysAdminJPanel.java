@@ -120,7 +120,6 @@ public class ManageTechnicianSysAdminJPanel extends javax.swing.JPanel {
                 "Name", "Username", "Password"
             }
         ));
-        techniciansJTable.setSelectionBackground(new java.awt.Color(240, 240, 240));
         jScrollPane2.setViewportView(techniciansJTable);
 
         btnDelete.setBackground(new java.awt.Color(205, 223, 245));

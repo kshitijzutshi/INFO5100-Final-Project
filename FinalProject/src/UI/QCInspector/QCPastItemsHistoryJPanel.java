@@ -81,7 +81,6 @@ public class QCPastItemsHistoryJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        itemsJTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(itemsJTable);
 
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
