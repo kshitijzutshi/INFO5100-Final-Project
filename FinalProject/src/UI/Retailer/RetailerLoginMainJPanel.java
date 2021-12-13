@@ -8,8 +8,10 @@ package UI.Retailer;
 import UI.MainJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import models.AnalyticsUtil;
 import models.DB4OUtil.DB4OUtil;
 import models.EcoSystem;
+import models.Inventory.Item;
 import models.User.Client.Client;
 
 /**
@@ -29,6 +31,8 @@ public class RetailerLoginMainJPanel extends javax.swing.JPanel {
         this.RetailerLoginChangeJPanel = RetailerLogin;
         this.ecosystem = ecosystem;
         welcomeLabel.setText(client.getFullName());
+        ordersPlacedLbl.setText(String.valueOf(AnalyticsUtil.retailerMyOrders(ecosystem, client)));
+        itemsForSaleLbl.setText(String.valueOf(AnalyticsUtil.retailerTotalItemsForSale(ecosystem, Item.ItemType.REFURB)));
     }
 
     /**
@@ -62,15 +66,15 @@ public class RetailerLoginMainJPanel extends javax.swing.JPanel {
         RetailerDynamicMainJPanel = new javax.swing.JPanel();
         RetailerDynamicJPanel = new javax.swing.JPanel();
         kGradientPanel4 = new keeptoo.KGradientPanel();
-        jLabel23 = new javax.swing.JLabel();
+        newlyAddedLbl = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         kGradientPanel6 = new keeptoo.KGradientPanel();
-        jLabel25 = new javax.swing.JLabel();
+        itemsForSaleLbl = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         kGradientPanel5 = new keeptoo.KGradientPanel();
-        jLabel29 = new javax.swing.JLabel();
+        ordersPlacedLbl = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
 
@@ -110,7 +114,7 @@ public class RetailerLoginMainJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         btnRetailerSaleItemsLayout.setVerticalGroup(
             btnRetailerSaleItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,7 +270,7 @@ public class RetailerLoginMainJPanel extends javax.swing.JPanel {
                 .addComponent(btnRetailerPastPurchase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRetailerLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(967, Short.MAX_VALUE))
+                .addContainerGap(994, Short.MAX_VALUE))
             .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(kGradientPanel1Layout.createSequentialGroup()
                     .addGap(264, 264, 264)
@@ -296,7 +300,7 @@ public class RetailerLoginMainJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel13)
                 .addGap(18, 18, 18)
                 .addComponent(welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(353, Short.MAX_VALUE))
+                .addContainerGap(349, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -316,10 +320,10 @@ public class RetailerLoginMainJPanel extends javax.swing.JPanel {
         kGradientPanel4.setkGradientFocus(0);
         kGradientPanel4.setkStartColor(new java.awt.Color(167, 190, 211));
 
-        jLabel23.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText("800");
+        newlyAddedLbl.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
+        newlyAddedLbl.setForeground(new java.awt.Color(255, 255, 255));
+        newlyAddedLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        newlyAddedLbl.setText("1");
 
         jLabel24.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
@@ -342,7 +346,7 @@ public class RetailerLoginMainJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(newlyAddedLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         kGradientPanel4Layout.setVerticalGroup(
@@ -351,7 +355,7 @@ public class RetailerLoginMainJPanel extends javax.swing.JPanel {
                 .addGroup(kGradientPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel4Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(newlyAddedLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(kGradientPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -364,10 +368,10 @@ public class RetailerLoginMainJPanel extends javax.swing.JPanel {
         kGradientPanel6.setkGradientFocus(0);
         kGradientPanel6.setkStartColor(new java.awt.Color(167, 190, 211));
 
-        jLabel25.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setText("3");
+        itemsForSaleLbl.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
+        itemsForSaleLbl.setForeground(new java.awt.Color(255, 255, 255));
+        itemsForSaleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        itemsForSaleLbl.setText("3");
 
         jLabel26.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
@@ -390,7 +394,7 @@ public class RetailerLoginMainJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel28)
                         .addGap(29, 29, 29)
-                        .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(itemsForSaleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         kGradientPanel6Layout.setVerticalGroup(
@@ -398,7 +402,7 @@ public class RetailerLoginMainJPanel extends javax.swing.JPanel {
             .addGroup(kGradientPanel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(itemsForSaleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -409,10 +413,10 @@ public class RetailerLoginMainJPanel extends javax.swing.JPanel {
         kGradientPanel5.setkGradientFocus(0);
         kGradientPanel5.setkStartColor(new java.awt.Color(167, 190, 211));
 
-        jLabel29.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel29.setText("40");
+        ordersPlacedLbl.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
+        ordersPlacedLbl.setForeground(new java.awt.Color(255, 255, 255));
+        ordersPlacedLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ordersPlacedLbl.setText("40");
 
         jLabel30.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
@@ -432,7 +436,7 @@ public class RetailerLoginMainJPanel extends javax.swing.JPanel {
                     .addGroup(kGradientPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel31)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ordersPlacedLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19))
                     .addGroup(kGradientPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -443,7 +447,7 @@ public class RetailerLoginMainJPanel extends javax.swing.JPanel {
             .addGroup(kGradientPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ordersPlacedLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(7, 7, 7)
                 .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -560,6 +564,7 @@ public class RetailerLoginMainJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel btnRetailerLogout;
     private javax.swing.JPanel btnRetailerPastPurchase;
     private javax.swing.JPanel btnRetailerSaleItems;
+    private javax.swing.JLabel itemsForSaleLbl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -567,13 +572,10 @@ public class RetailerLoginMainJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel6;
@@ -585,6 +587,8 @@ public class RetailerLoginMainJPanel extends javax.swing.JPanel {
     private keeptoo.KGradientPanel kGradientPanel4;
     private keeptoo.KGradientPanel kGradientPanel5;
     private keeptoo.KGradientPanel kGradientPanel6;
+    private javax.swing.JLabel newlyAddedLbl;
+    private javax.swing.JLabel ordersPlacedLbl;
     private javax.swing.JLabel welcomeLabel;
     // End of variables declaration//GEN-END:variables
 }

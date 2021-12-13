@@ -6,7 +6,9 @@
 package UI.ManagementDivision;
 
 import javax.swing.JPanel;
+import models.AnalyticsUtil;
 import models.EcoSystem;
+import models.Inventory.Item;
 import models.User.Employee.OperationsManager;
 
 /**
@@ -26,6 +28,9 @@ public class ManagementHome extends javax.swing.JPanel {
         initComponents();
         this.ecosystem = ecosystem;
         this.manager = manager;
+        ordersLabel.setText(String.valueOf(AnalyticsUtil.managementOrderCount(ecosystem)));
+        recycleItemsLabel.setText(String.valueOf(AnalyticsUtil.managementItemCount(ecosystem, Item.ItemType.RECYCLE)));
+        refurbItemsLbl.setText(String.valueOf(AnalyticsUtil.managementItemCount(ecosystem, Item.ItemType.REFURB)));
     }
 
     /**
@@ -39,7 +44,7 @@ public class ManagementHome extends javax.swing.JPanel {
 
         mgmtHomeCard = new javax.swing.JPanel();
         kGradientPanel4 = new keeptoo.KGradientPanel();
-        refurbItems = new javax.swing.JLabel();
+        refurbItemsLbl = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         kGradientPanel6 = new keeptoo.KGradientPanel();
@@ -59,10 +64,10 @@ public class ManagementHome extends javax.swing.JPanel {
         kGradientPanel4.setkGradientFocus(0);
         kGradientPanel4.setkStartColor(new java.awt.Color(167, 190, 211));
 
-        refurbItems.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
-        refurbItems.setForeground(new java.awt.Color(51, 51, 51));
-        refurbItems.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        refurbItems.setText("800");
+        refurbItemsLbl.setFont(new java.awt.Font("Lucida Sans", 1, 28)); // NOI18N
+        refurbItemsLbl.setForeground(new java.awt.Color(51, 51, 51));
+        refurbItemsLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        refurbItemsLbl.setText("800");
 
         jLabel20.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(51, 51, 51));
@@ -85,7 +90,7 @@ public class ManagementHome extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(refurbItems, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(refurbItemsLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         kGradientPanel4Layout.setVerticalGroup(
@@ -94,7 +99,7 @@ public class ManagementHome extends javax.swing.JPanel {
                 .addGroup(kGradientPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel4Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(refurbItems, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(refurbItemsLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(kGradientPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -241,6 +246,6 @@ public class ManagementHome extends javax.swing.JPanel {
     private javax.swing.JPanel mgmtHomeCard;
     private javax.swing.JLabel ordersLabel;
     private javax.swing.JLabel recycleItemsLabel;
-    private javax.swing.JLabel refurbItems;
+    private javax.swing.JLabel refurbItemsLbl;
     // End of variables declaration//GEN-END:variables
 }

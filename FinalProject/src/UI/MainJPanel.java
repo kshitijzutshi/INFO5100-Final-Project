@@ -11,7 +11,6 @@ import UI.Logistics.LogisticsProfileMainJPanel;
 import UI.QCInspector.QCMainLoginJPanel;
 import UI.Resident.IndiProfileLoginJPanel;
 import UI.Retailer.RecyclerLoginJPanel;
-import UI.Retailer.RetailerProfileLoginJPanel;
 import UI.Retailer.RetailerLoginMainJPanel;
 import UI.SysAdmin.SysadminLoginMJPanel;
 import UI.Technician.TechnicianLoginJPanel;

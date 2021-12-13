@@ -6,6 +6,7 @@
 package UI.Logistics;
 
 import javax.swing.JPanel;
+import models.AnalyticsUtil;
 import models.EcoSystem;
 import models.User.Employee.LogisticsMan;
 
@@ -25,6 +26,9 @@ public class LogisticsHomeJPanel extends javax.swing.JPanel {
         initComponents();
         this.ecosystem = ecosystem;
         this.logisticsMan = logisticsMan;
+        totalTripsLabel.setText(String.valueOf(AnalyticsUtil.logisticsTripsMade(ecosystem)));
+        totalPersonslLabel.setText(String.valueOf(AnalyticsUtil.logisticsPersonell(ecosystem)));
+        totalEWasteLabel.setText(String.valueOf(AnalyticsUtil.logisticsEwasteMoved(ecosystem)));
     }
 
     /**

@@ -9,8 +9,10 @@ import UI.MainJPanel;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import models.AnalyticsUtil;
 import models.DB4OUtil.DB4OUtil;
 import models.EcoSystem;
 import models.User.Customer.Resident;
@@ -47,6 +49,7 @@ public class IndiProfileDashboard extends javax.swing.JPanel {
         this.ecosystem = ecosystem;
         this.resident = resident;
         nameLabel.setText(resident.getFullName());
+        rewardsLbl.setText(String.valueOf(resident.getRewardPoints()));
         showBarChart();
 //        showHistogram();
         showPieChart();
@@ -76,7 +79,7 @@ public class IndiProfileDashboard extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        rewardsLbl = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         setLayout(new java.awt.CardLayout());
@@ -178,9 +181,9 @@ public class IndiProfileDashboard extends javax.swing.JPanel {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/prize_96px.png"))); // NOI18N
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
-        jLabel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(198, 226, 233), 3, true));
+        rewardsLbl.setBackground(new java.awt.Color(255, 255, 255));
+        rewardsLbl.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
+        rewardsLbl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(198, 226, 233), 3, true));
 
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 0, 28)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -210,7 +213,7 @@ public class IndiProfileDashboard extends javax.swing.JPanel {
                                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(indidashboardLayout.createSequentialGroup()
                                         .addGap(42, 42, 42)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(rewardsLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(indidashboardLayout.createSequentialGroup()
                         .addGroup(indidashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,7 +242,7 @@ public class IndiProfileDashboard extends javax.swing.JPanel {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
                             .addGroup(indidashboardLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(rewardsLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGroup(indidashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,8 +286,8 @@ public class IndiProfileDashboard extends javax.swing.JPanel {
         
         //create dataset
       DefaultPieDataset barDataset = new DefaultPieDataset( );
-      barDataset.setValue( "Refurbished" , new Double( 60 ) );  
-      barDataset.setValue( "Recycled" , new Double( 40 ) );   
+      barDataset.setValue( "Refurbished" , AnalyticsUtil.individualRefurbCount(ecosystem, resident) );  
+      barDataset.setValue( "Recycled" , AnalyticsUtil.individualRecycleCount(ecosystem, resident));   
  
       
       //create chart
@@ -309,14 +312,14 @@ public class IndiProfileDashboard extends javax.swing.JPanel {
     
     public void showBarChart(){
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        
+        HashMap<String, Integer> contribMap = AnalyticsUtil.individualContributionByCategory(ecosystem, resident);
         // Set value takes 3 param -> (count, Y axis name, X axis name)
-        dataset.setValue(200, "Total", "Home Appliance");
-        dataset.setValue(150, "Total", "Medical");
-        dataset.setValue(18, "Total", "Laptops");
-        dataset.setValue(100, "Total", "Phones");
-        dataset.setValue(80, "Total", "Tablets");
-        dataset.setValue(250, "Total", "Others");
+        dataset.setValue(contribMap.get(""), "Total", "Home Appliances");
+        dataset.setValue(contribMap.get(""), "Total", "Communications & IT Devices");
+        dataset.setValue(contribMap.get(""), "Total", "Office and Medical Equipment");
+        dataset.setValue(contribMap.get(""), "Total", "Home Entertainment Devices");
+        dataset.setValue(contribMap.get(""), "Total", "Electronic Utilities");
+        dataset.setValue(contribMap.get(""), "Total", "Others");
         
         JFreeChart chart = ChartFactory.createBarChart("Last Contribution","E-waste Types","Total", 
                 dataset, PlotOrientation.VERTICAL, false,true,false);
@@ -374,7 +377,6 @@ public class IndiProfileDashboard extends javax.swing.JPanel {
     private javax.swing.JPanel indidashboard;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
@@ -382,5 +384,6 @@ public class IndiProfileDashboard extends javax.swing.JPanel {
     private javax.swing.JButton logoutBtn;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JPanel piePlotPanel;
+    private javax.swing.JLabel rewardsLbl;
     // End of variables declaration//GEN-END:variables
 }
