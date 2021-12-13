@@ -7,8 +7,10 @@ package models;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import models.Inventory.Item;
 import models.User.Client.Client;
+import models.User.Customer.Resident;
 import models.Work.InventoryPickup;
 
 /**
@@ -83,5 +85,32 @@ public class AnalyticsUtil {
         return ecosystem.getClientOrderDirectory().getOrdersByClient(client).size();
     }
     
+    // individual dashboard
+    public static int individualRecycleCount(EcoSystem ecosystem, Resident resident) {
+        int count = 0;
+        count = ecosystem.getInventoryDirectory().getInventory().stream().filter(item -> (item.getRecievedFrom() == resident && item.getType() == Item.ItemType.RECYCLE)).map(_item -> 1).reduce(count, Integer::sum);
+        return count;
+    }
+    
+    public static int individualRefurbCount(EcoSystem ecosystem, Resident resident) {
+        int count = 0;
+        count = ecosystem.getInventoryDirectory().getInventory().stream().filter(item -> (item.getRecievedFrom() == resident && item.getType() == Item.ItemType.REFURB)).map(_item -> 1).reduce(count, Integer::sum);
+        return count;
+    }
+    
+    public static HashMap<String, Integer> individualContributionByCategory(EcoSystem ecosystem, Resident resident) {
+        HashMap<String, Integer> contibutionMap = new HashMap<>();
+        contibutionMap.put("Home Appliances", 0);
+        contibutionMap.put("Communications & IT Devices", 0);
+        contibutionMap.put("Office and Medical Equipment", 0);
+        contibutionMap.put("Home Entertainment Devices", 0);
+        contibutionMap.put("Electronic Utilities", 0);
+        contibutionMap.put("Other", 0);
+        for (Item item: ecosystem.getInventoryDirectory().getInventoryByResident(resident)) {
+            int count = contibutionMap.get(item.getCategory());
+            contibutionMap.put(item.getCategory(), count+1);
+        }
+        return contibutionMap;
+    }
     
 }
