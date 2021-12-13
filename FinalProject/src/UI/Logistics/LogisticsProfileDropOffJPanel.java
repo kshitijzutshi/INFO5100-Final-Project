@@ -39,6 +39,7 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
         if(this.activeCLienDropOff == null){
             JOptionPane.showMessageDialog(null, "No Acive Drop Off at present!");
         }
+        if (this.activeCLienDropOff.getStatus() == ClientDropoff.RequestStatus.ONGOING) btnpickup.setEnabled(false);
         this.populateTable();
     }
     
