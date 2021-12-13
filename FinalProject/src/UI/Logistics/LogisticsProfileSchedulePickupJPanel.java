@@ -42,6 +42,8 @@ public class LogisticsProfileSchedulePickupJPanel extends javax.swing.JPanel {
          if (this.activePickup == null) {
             JOptionPane.showMessageDialog(null, "No active pickup at this point of time");
         }
+        
+        if (this.activePickup.getStatus() == InventoryPickup.RequestStatus.ONGOING) pickUpJButton.setEnabled(false);
     }
 
     /**
