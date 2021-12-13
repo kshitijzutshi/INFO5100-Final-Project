@@ -298,7 +298,7 @@ public class SignUpRetailerJPanel extends javax.swing.JPanel {
             newclient.setClienttype(Client.clientType.RECYCLER);
             this.ecosystem.getUserAccountDirectory().addUserAccount(newclient.getUserAccount());
             this.ecosystem.getClientDirectory().addClient(newclient);
-            
+            DB4OUtil.getInstance().storeSystem(this.ecosystem);
             JOptionPane.showMessageDialog(this, "You are all set!");
             txtname.setText("");
             txtaddress.setText("");
@@ -325,6 +325,7 @@ public class SignUpRetailerJPanel extends javax.swing.JPanel {
             newclient.setClienttype(Client.clientType.RETAILER);
             this.ecosystem.getUserAccountDirectory().addUserAccount(newclient.getUserAccount());
             this.ecosystem.getClientDirectory().addClient(newclient);
+            DB4OUtil.getInstance().storeSystem(this.ecosystem);
             JOptionPane.showMessageDialog(this, "You are all set!");
             txtname.setText("");
             txtaddress.setText("");
@@ -341,7 +342,7 @@ public class SignUpRetailerJPanel extends javax.swing.JPanel {
             layout.next(JPanelSignup);
         }
         
-        DB4OUtil.getInstance().storeSystem(this.ecosystem);
+        
     }//GEN-LAST:event_btnSubmitsignupActionPerformed
 
     private void btnhomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhomeActionPerformed

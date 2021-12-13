@@ -39,13 +39,16 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
         if(this.activeCLienDropOff == null){
             JOptionPane.showMessageDialog(null, "No Acive Drop Off at present!");
         }
+        System.out.println("STATUS"+this.activeCLienDropOff.getClientOrder().getClient().getFullName());
         this.populateTable();
     }
     
     public void populateTable(){
+        System.out.println("HERE!!!!"+this.activeCLienDropOff.getClientOrder().getOrderedItems().size());
         DefaultTableModel model = (DefaultTableModel) tblscheddropoffs.getModel();
         model.setRowCount(0);
         for(Item itemDropOffPopulateTable : this.activeCLienDropOff.getClientOrder().getOrderedItems()){
+           
             Object[] data = new Object[9];
             data[0] = itemDropOffPopulateTable;
             data[1] = itemDropOffPopulateTable.getCategory();
@@ -56,7 +59,7 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
             data[6] = itemDropOffPopulateTable.getWeightApprox();
             data[7] = itemDropOffPopulateTable.getCondition();
             data[8] = itemDropOffPopulateTable.getStatus();
-            
+            model.addRow(data);
         }
        
         dropOffUsername.setText(String.valueOf(activeCLienDropOff.getClientOrder().getClient().getFullName()));
@@ -174,40 +177,41 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
         LogisticsDropOffProfileJPanelLayout.setHorizontalGroup(
             LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
-                .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
                         .addGap(211, 211, 211)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(96, 96, 96)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
-                        .addGap(325, 325, 325)
-                        .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
-                                .addComponent(btnpickup, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(34, 34, 34)
-                                .addComponent(btnMarkedDelivered))
-                            .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(dropOffUserMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
-                                .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(dropOffUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(82, 82, 82))
-                                    .addComponent(dropOffUserAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
                         .addGap(405, 405, 405)
                         .addComponent(jLabel16))
                     .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(dropOffUserMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
+                                    .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(dropOffUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(dropOffUserAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(LogisticsDropOffProfileJPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnpickup, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(34, 34, 34)
+                                .addComponent(btnMarkedDelivered)
+                                .addGap(100, 100, 100)))))
                 .addContainerGap(132, Short.MAX_VALUE))
         );
         LogisticsDropOffProfileJPanelLayout.setVerticalGroup(
@@ -221,9 +225,13 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel16)
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnpickup)
+                        .addComponent(btnMarkedDelivered)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dropOffUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -235,11 +243,7 @@ public class LogisticsProfileDropOffJPanel extends javax.swing.JPanel {
                 .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dropOffUserMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52)
-                .addGroup(LogisticsDropOffProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnpickup)
-                    .addComponent(btnMarkedDelivered))
-                .addGap(83, 83, 83))
+                .addGap(158, 158, 158))
         );
 
         add(LogisticsDropOffProfileJPanel, "card2");

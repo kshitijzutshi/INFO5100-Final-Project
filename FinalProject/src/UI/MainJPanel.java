@@ -354,16 +354,32 @@ public class MainJPanel extends javax.swing.JPanel {
             Client client = this.ecosystem.getClientDirectory().getClientByUserAccount(userAccount);
             
             if(client.getClienttype() == Client.clientType.RETAILER){
-                RetailerLoginMainJPanel systemAdminRetailClient = new RetailerLoginMainJPanel(mainJpanel, ecosystem, client);
+                if(client.isVerified()){
+                    RetailerLoginMainJPanel systemAdminRetailClient = new RetailerLoginMainJPanel(mainJpanel, this.ecosystem, client);
                 CardLayout layout = (CardLayout) mainJpanel.getLayout();
                 mainJpanel.add("SysadminRetailClient", systemAdminRetailClient);
                 layout.next(mainJpanel);
+                }
+                else{
+                    usernameTxtField.setText("");
+                    PasswordField.setText("");
+                    JOptionPane.showMessageDialog(this, "Client is not Verified!");
+                }
+                
             }
             else if(client.getClienttype() == Client.clientType.RECYCLER){
-                RecyclerLoginJPanel systemAdminRecycler = new RecyclerLoginJPanel(mainJpanel, ecosystem, client);
-                CardLayout layout = (CardLayout) mainJpanel.getLayout();
-                mainJpanel.add("systemAdminRecycler", systemAdminRecycler);
-                layout.next(mainJpanel);
+                if(client.isVerified()){
+                    RecyclerLoginJPanel systemAdminRecycler = new RecyclerLoginJPanel(mainJpanel, ecosystem, client);
+                    CardLayout layout = (CardLayout) mainJpanel.getLayout();
+                    mainJpanel.add("systemAdminRecycler", systemAdminRecycler);
+                    layout.next(mainJpanel);
+                }
+                else{
+                    usernameTxtField.setText("");
+                    PasswordField.setText("");
+                    JOptionPane.showMessageDialog(this, "Client is not Verified!");
+                }
+                
             }
         }
     }//GEN-LAST:event_btn_loginMouseClicked

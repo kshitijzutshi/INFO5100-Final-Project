@@ -32,7 +32,7 @@ public class ClientOrder {
     }
 
     public Client getClient() {
-        return client;
+        return this.client;
     }
 
     public String getId() {

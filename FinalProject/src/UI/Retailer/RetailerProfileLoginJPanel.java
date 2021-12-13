@@ -509,7 +509,8 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
 
     private void btnItemsForSaleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnItemsForSaleMouseClicked
 
-        RetailerProfileItemForSaleJPanel retailerItemForSale = new RetailerProfileItemForSaleJPanel(RetailerDynamicJPanel, ecosystem, client);
+        System.out.println("CLIENT"+this.client);
+        RetailerProfileItemForSaleJPanel retailerItemForSale = new RetailerProfileItemForSaleJPanel(RetailerDynamicJPanel, this.ecosystem, this.client);
         CardLayout layout = (CardLayout) RetailerDynamicJPanel.getLayout();
         RetailerDynamicJPanel.add("retailForSale", retailerItemForSale);
         //
@@ -527,7 +528,7 @@ public class RetailerProfileLoginJPanel extends javax.swing.JPanel {
 
     private void btnViewPastPurchaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewPastPurchaseMouseClicked
         // TODO add your handling code here:
-        RetailerProfilePastPurchaseJPanel retailPastPurchase = new RetailerProfilePastPurchaseJPanel(RetailerDynamicJPanel, ecosystem, client);
+        RetailerProfilePastPurchaseJPanel retailPastPurchase = new RetailerProfilePastPurchaseJPanel(RetailerDynamicJPanel, this.ecosystem, this.client);
         CardLayout layout = (CardLayout) RetailerDynamicJPanel.getLayout();
         RetailerDynamicJPanel.add("retailerPast", retailPastPurchase);
         //

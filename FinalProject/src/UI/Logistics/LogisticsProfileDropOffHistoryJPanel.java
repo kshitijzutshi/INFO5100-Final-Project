@@ -115,10 +115,11 @@ public class LogisticsProfileDropOffHistoryJPanel extends javax.swing.JPanel {
             data[0] = dropOff.getId();
             data[1] = dropOff.getClientOrder().getClient().getFullName();
             data[2] = dropOff.getRequestDate().toString();
-            data[3] = dropOff.getResolveDate().toString();
+            data[3] = dropOff.getResolveDate() == null ? "" : dropOff.getResolveDate().toString();
 
-            
+             model.addRow(data);
         }
+       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
